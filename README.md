@@ -28,35 +28,35 @@
 <td style="text-align:left">Ekko</td>
 <td style="text-align:left">jeongjaeyn@gmail.com</td>
 <td style="text-align:left"><a href="https://github.com/imparang">
-<img src="http://img.shields.io/badge/goban-655ced?style=social&logo=github" style="height : auto; margin-left : 10px; margin-right : 10px;"/>
+<img src="http://img.shields.io/badge/ekko-655ced?style=social&logo=github" style="height : auto; margin-left : 10px; margin-right : 10px;"/>
 </a></td> 
 </tr>
 <tr>
 <td style="text-align:left"></td>
 <td style="text-align:left"></td>
 <td style="text-align:left"><a href="https://github.com/">
-<img src="http://img.shields.io/badge/aesop-655ced?style=social&logo=github&color=informational" style="height : auto; margin-left : 10px; margin-right : 10px;"/>
+<img src="http://img.shields.io/badge/-655ced?style=social&logo=github&color=informational" style="height : auto; margin-left : 10px; margin-right : 10px;"/>
 </a></td>
 </tr>
     <tr>
 <td style="text-align:left"></td>
 <td style="text-align:left"></td>
 <td style="text-align:left"><a href="https://github.com/">
-<img src="http://img.shields.io/badge/mary-655ced?style=social&logo=github&color=informational" style="height : auto; margin-left : 10px; margin-right : 10px;"/>
+<img src="http://img.shields.io/badge/-655ced?style=social&logo=github&color=informational" style="height : auto; margin-left : 10px; margin-right : 10px;"/>
 </a></td>
 </tr>
  <tr>
 <td style="text-align:left"></td>
 <td style="text-align:left"></td>
 <td style="text-align:left"><a href="https://github.com/">
-<img src="http://img.shields.io/badge/ekko-655ced?style=social&logo=github&color=informational" style="height : auto; margin-left : 10px; margin-right : 10px;"/>
+<img src="http://img.shields.io/badge/-655ced?style=social&logo=github&color=informational" style="height : auto; margin-left : 10px; margin-right : 10px;"/>
 </a></td>
 </tr>
   <tr>
 <td style="text-align:left"></td>
 <td style="text-align:left"></td>
 <td style="text-align:left"><a href="https://github.com/">
-<img src="http://img.shields.io/badge/river-655ced?style=social&logo=github&color=informational" style="height : auto; margin-left : 10px; margin-right : 10px;"/>
+<img src="http://img.shields.io/badge/-655ced?style=social&logo=github&color=informational" style="height : auto; margin-left : 10px; margin-right : 10px;"/>
 </a></td>
 </tr>
 </tbody>
