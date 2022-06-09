@@ -35,7 +35,7 @@
 <td style="text-align:left">Keily</td>
 <td style="text-align:left">yeekim182@gmail.com</td>
 <td style="text-align:left"><a href="https://github.com/YeeunKim-Archive">
-<img src="http://img.shields.io/badge/-655ced?style=social&logo=github&color=informational" style="height : auto; margin-left : 10px; margin-right : 10px;"/>
+<img src="http://img.shields.io/badge/Keily-655ced?style=social&logo=github&color=informational" style="height : auto; margin-left : 10px; margin-right : 10px;"/>
 </a></td>
 </tr>
     <tr>
