@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F26D69992851ED4000FA7199 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F26D69982851ED4000FA7199 /* Info.plist */; };
 		F2D707B82849BA6C00DA86FD /* TeamOXYApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2D707B72849BA6C00DA86FD /* TeamOXYApp.swift */; };
 		F2D707BA2849BA6C00DA86FD /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2D707B92849BA6C00DA86FD /* ContentView.swift */; };
 		F2D707BC2849BA6D00DA86FD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F2D707BB2849BA6D00DA86FD /* Assets.xcassets */; };
@@ -14,6 +15,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		F26D69982851ED4000FA7199 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F2D707B42849BA6C00DA86FD /* TeamOXY.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TeamOXY.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F2D707B72849BA6C00DA86FD /* TeamOXYApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamOXYApp.swift; sourceTree = "<group>"; };
 		F2D707B92849BA6C00DA86FD /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -55,6 +57,7 @@
 				F2D707B92849BA6C00DA86FD /* ContentView.swift */,
 				F2D707BB2849BA6D00DA86FD /* Assets.xcassets */,
 				F2D707BD2849BA6D00DA86FD /* Preview Content */,
+				F26D69982851ED4000FA7199 /* Info.plist */,
 			);
 			path = TeamOXY;
 			sourceTree = "<group>";
@@ -127,6 +130,7 @@
 			files = (
 				F2D707BF2849BA6D00DA86FD /* Preview Assets.xcassets in Resources */,
 				F2D707BC2849BA6D00DA86FD /* Assets.xcassets in Resources */,
+				F26D69992851ED4000FA7199 /* Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
