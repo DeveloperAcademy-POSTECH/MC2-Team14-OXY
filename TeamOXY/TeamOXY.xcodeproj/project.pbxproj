@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7BC5EFAE2851DD74004A27B5 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BC5EFAD2851DD74004A27B5 /* HomeView.swift */; };
+		7BC5EFB02851E5C0004A27B5 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7BC5EFAF2851E5C0004A27B5 /* Colors.xcassets */; };
+		7BC5EFB22851ECC5004A27B5 /* ColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BC5EFB12851ECC5004A27B5 /* ColorExtension.swift */; };
 		F2D707B82849BA6C00DA86FD /* TeamOXYApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2D707B72849BA6C00DA86FD /* TeamOXYApp.swift */; };
 		F2D707BA2849BA6C00DA86FD /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2D707B92849BA6C00DA86FD /* ContentView.swift */; };
 		F2D707BC2849BA6D00DA86FD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F2D707BB2849BA6D00DA86FD /* Assets.xcassets */; };
@@ -14,6 +17,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		7BC5EFAD2851DD74004A27B5 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = SOURCE_ROOT; };
+		7BC5EFAF2851E5C0004A27B5 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
+		7BC5EFB12851ECC5004A27B5 /* ColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ColorExtension.swift; path = TeamOXY/ColorExtension.swift; sourceTree = SOURCE_ROOT; };
 		F2D707B42849BA6C00DA86FD /* TeamOXY.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TeamOXY.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F2D707B72849BA6C00DA86FD /* TeamOXYApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamOXYApp.swift; sourceTree = "<group>"; };
 		F2D707B92849BA6C00DA86FD /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -35,6 +41,7 @@
 		F26D698F2851904300FA7199 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				7BC5EFAD2851DD74004A27B5 /* HomeView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -56,6 +63,7 @@
 		F26D69922851905000FA7199 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				7BC5EFB12851ECC5004A27B5 /* ColorExtension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -94,6 +102,7 @@
 				F2D707B72849BA6C00DA86FD /* TeamOXYApp.swift */,
 				F2D707B92849BA6C00DA86FD /* ContentView.swift */,
 				F2D707BB2849BA6D00DA86FD /* Assets.xcassets */,
+				7BC5EFAF2851E5C0004A27B5 /* Colors.xcassets */,
 				F2D707BD2849BA6D00DA86FD /* Preview Content */,
 			);
 			path = TeamOXY;
@@ -165,6 +174,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7BC5EFB02851E5C0004A27B5 /* Colors.xcassets in Resources */,
 				F2D707BF2849BA6D00DA86FD /* Preview Assets.xcassets in Resources */,
 				F2D707BC2849BA6D00DA86FD /* Assets.xcassets in Resources */,
 			);
@@ -177,8 +187,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7BC5EFAE2851DD74004A27B5 /* HomeView.swift in Sources */,
 				F2D707BA2849BA6C00DA86FD /* ContentView.swift in Sources */,
 				F2D707B82849BA6C00DA86FD /* TeamOXYApp.swift in Sources */,
+				7BC5EFB22851ECC5004A27B5 /* ColorExtension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
