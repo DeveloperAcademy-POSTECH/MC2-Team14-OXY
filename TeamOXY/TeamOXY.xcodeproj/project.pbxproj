@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		F26D69992851ED4000FA7199 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F26D69982851ED4000FA7199 /* Info.plist */; };
 		F2D707B82849BA6C00DA86FD /* TeamOXYApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2D707B72849BA6C00DA86FD /* TeamOXYApp.swift */; };
 		F2D707BA2849BA6C00DA86FD /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2D707B92849BA6C00DA86FD /* ContentView.swift */; };
 		F2D707BC2849BA6D00DA86FD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F2D707BB2849BA6D00DA86FD /* Assets.xcassets */; };
@@ -15,7 +14,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		F26D69982851ED4000FA7199 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F26D699B2851F09E00FA7199 /* Pretendard-SemiBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Pretendard-SemiBold.otf"; path = "../../../../../../../Library/Fonts/Pretendard-SemiBold.otf"; sourceTree = "<group>"; };
 		F26D699C2851F09E00FA7199 /* Pretendard-Thin.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Pretendard-Thin.otf"; path = "../../../../../../../Library/Fonts/Pretendard-Thin.otf"; sourceTree = "<group>"; };
 		F26D699D2851F09E00FA7199 /* Pretendard-Black.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Pretendard-Black.otf"; path = "../../../../../../../Library/Fonts/Pretendard-Black.otf"; sourceTree = "<group>"; };
@@ -114,7 +112,6 @@
 		F2D707B62849BA6C00DA86FD /* TeamOXY */ = {
 			isa = PBXGroup;
 			children = (
-				F26D69982851ED4000FA7199 /* Info.plist */,
 				F26D69932851906800FA7199 /* Constants */,
 				F26D69922851905000FA7199 /* Extensions */,
 				F26D69912851904B00FA7199 /* ViewModel */,
@@ -196,7 +193,6 @@
 			files = (
 				F2D707BF2849BA6D00DA86FD /* Preview Assets.xcassets in Resources */,
 				F2D707BC2849BA6D00DA86FD /* Assets.xcassets in Resources */,
-				F26D69992851ED4000FA7199 /* Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
