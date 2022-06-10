@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		151CCF782852357500A1E43C /* TimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 151CCF772852357500A1E43C /* TimerView.swift */; };
+		151CCF7A2852BDE100A1E43C /* ProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 151CCF792852BDE100A1E43C /* ProgressView.swift */; };
 		F29BECD82852154C005B4A1B /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F29BECD72852154C005B4A1B /* HomeView.swift */; };
 		F29BECE6285217A9005B4A1B /* Pretendard-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = F29BECDD285217A8005B4A1B /* Pretendard-Medium.otf */; };
 		F29BECE7285217A9005B4A1B /* Pretendard-Thin.otf in Resources */ = {isa = PBXBuildFile; fileRef = F29BECDE285217A8005B4A1B /* Pretendard-Thin.otf */; };
@@ -23,6 +25,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		151CCF772852357500A1E43C /* TimerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerView.swift; sourceTree = "<group>"; };
+		151CCF792852BDE100A1E43C /* ProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressView.swift; sourceTree = "<group>"; };
 		F29BECD72852154C005B4A1B /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		F29BECDD285217A8005B4A1B /* Pretendard-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Medium.otf"; sourceTree = "<group>"; };
 		F29BECDE285217A8005B4A1B /* Pretendard-Thin.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Thin.otf"; sourceTree = "<group>"; };
@@ -69,6 +73,8 @@
 			isa = PBXGroup;
 			children = (
 				F29BECD72852154C005B4A1B /* HomeView.swift */,
+				151CCF772852357500A1E43C /* TimerView.swift */,
+				151CCF792852BDE100A1E43C /* ProgressView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -223,6 +229,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				151CCF782852357500A1E43C /* TimerView.swift in Sources */,
+				151CCF7A2852BDE100A1E43C /* ProgressView.swift in Sources */,
 				F29BECD82852154C005B4A1B /* HomeView.swift in Sources */,
 				F2D707B82849BA6C00DA86FD /* TeamOXYApp.swift in Sources */,
 			);
@@ -353,7 +361,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"TeamOXY/Preview Content\"";
-				DEVELOPMENT_TEAM = G3PA8G576S;
+				DEVELOPMENT_TEAM = G4M4BVJF4D;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = TeamOXY/Info.plist;
@@ -362,6 +370,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -383,7 +392,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"TeamOXY/Preview Content\"";
-				DEVELOPMENT_TEAM = G3PA8G576S;
+				DEVELOPMENT_TEAM = G4M4BVJF4D;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = TeamOXY/Info.plist;
@@ -392,6 +401,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
