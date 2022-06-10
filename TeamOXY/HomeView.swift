@@ -27,12 +27,16 @@ struct HomeView: View {
                             print("Button pressed!")
 //                    print 대신에 NavigationLink 써서 방만들기에 연결하기
                         }){
-                            Text("🏠  방 만들기")
+                            HStack{
+                            Image("🏠")
+                            Text("방 만들기")
+                            }
                                 .font(.custom("Pretendard-Black", size: 16))
                                 .foregroundColor(.white)
                                 .frame(width: 350, height: 55)
                                         .background(Color.PrimaryBlue)
                                         .clipShape(Capsule())
+                            
                                 
                         }
                         .padding(.bottom)
@@ -42,7 +46,10 @@ struct HomeView: View {
                             print("Button pressed!")
 //                    print 대신에 NavigationLink 써서 입장하기QR에 연결하기
                         }){
-                            Text("🚪  입장하기")
+                            HStack{
+                            Image("🚪")
+                            Text("입장하기")
+                            }
                                 .font(.custom("Pretendard-Black", size: 16))
                                 .foregroundColor(.PrimaryBlue)
                                 .frame(width: 350, height: 55)
@@ -51,6 +58,7 @@ struct HomeView: View {
                                         .stroke(Color.PrimaryBlue, lineWidth: 1)
                                     
                                 )
+                            
                         }
             }
         }
