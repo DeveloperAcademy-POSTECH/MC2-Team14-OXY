@@ -31,6 +31,7 @@
 		F29BED1D28532DC3005B4A1B /* RoundButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F29BED1C28532DC3005B4A1B /* RoundButton.swift */; };
 		F29BED1F28533CBC005B4A1B /* String+ButtonImageName.swift in Sources */ = {isa = PBXBuildFile; fileRef = F29BED1E28533CBC005B4A1B /* String+ButtonImageName.swift */; };
 		F29BED21285397AF005B4A1B /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F29BED20285397AF005B4A1B /* HomeView.swift */; };
+		F29BED232853B24C005B4A1B /* CreateMeetingRoomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F29BED222853B24C005B4A1B /* CreateMeetingRoomView.swift */; };
 		F2D707B82849BA6C00DA86FD /* TeamOXYApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2D707B72849BA6C00DA86FD /* TeamOXYApp.swift */; };
 		F2D707BC2849BA6D00DA86FD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F2D707BB2849BA6D00DA86FD /* Assets.xcassets */; };
 		F2D707BF2849BA6D00DA86FD /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F2D707BE2849BA6D00DA86FD /* Preview Assets.xcassets */; };
@@ -61,6 +62,7 @@
 		F29BED1C28532DC3005B4A1B /* RoundButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundButton.swift; sourceTree = "<group>"; };
 		F29BED1E28533CBC005B4A1B /* String+ButtonImageName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+ButtonImageName.swift"; sourceTree = "<group>"; };
 		F29BED20285397AF005B4A1B /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		F29BED222853B24C005B4A1B /* CreateMeetingRoomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateMeetingRoomView.swift; sourceTree = "<group>"; };
 		F2D707B42849BA6C00DA86FD /* TeamOXY.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TeamOXY.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F2D707B72849BA6C00DA86FD /* TeamOXYApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamOXYApp.swift; sourceTree = "<group>"; };
 		F2D707BB2849BA6D00DA86FD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -108,6 +110,7 @@
 				212E5CDF2853193100E10FF4 /* TempCardView.swift */,
 				212E5CE12853280400E10FF4 /* MeetingRoomView.swift */,
 				F29BED20285397AF005B4A1B /* HomeView.swift */,
+				F29BED222853B24C005B4A1B /* CreateMeetingRoomView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -281,6 +284,7 @@
 			files = (
 				3F4E600B2853A30300BFAA65 /* TestView.swift in Sources */,
 				F29BED1D28532DC3005B4A1B /* RoundButton.swift in Sources */,
+				F29BED232853B24C005B4A1B /* CreateMeetingRoomView.swift in Sources */,
 				212E5CE02853193100E10FF4 /* TempCardView.swift in Sources */,
 				3F4E600A2853A30300BFAA65 /* FancyButtonViewModel.swift in Sources */,
 				3F4E60092853A30300BFAA65 /* EmojiReactionView.swift in Sources */,
