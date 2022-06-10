@@ -7,25 +7,6 @@
 
 import SwiftUI
 
-struct WhiteButton: ButtonStyle {
-    func makeBody(configuration: Configuration) -> some View {
-        configuration.label
-            .frame(width: 350, height: 55)
-            .foregroundColor(.PrimaryBlue)
-            .border(Color.PrimaryBlue, width: 1)
-            .clipShape(Capsule())
-        
-    }
-}
-struct BlueButton: ButtonStyle {
-    func makeBody(configuration: Configuration) -> some View {
-        configuration.label
-            .frame(width: 350, height: 55)
-            .background(Color.PrimaryBlue)
-            .foregroundColor(.white)
-            .clipShape(Capsule())
-    }
-}
 
 struct HomeView: View {
     var body: some View {
@@ -33,23 +14,44 @@ struct HomeView: View {
             VStack {
                 Spacer()
                 HStack {
-                    Text("누구나\n쉬는시간이\n필요하니까")
-                        .font(.system(size: 40, weight: .black))
+                    Text("누구나\n쉬는시간이\n필요하니까.")
+                        .font(.custom("Pretendard-Black", size: 40))
                     Spacer()
                 }
                 .padding(.horizontal, 96.0)
                 Image("Logo")
                 Spacer()
                 Text("팀원들을 초대할 방을 만들어 주세요.")
-                Button("방 만들기") {
+                    .font(.custom("Pretendard-SemiBold", size: 12))
+                Button(action: {
                             print("Button pressed!")
+//                    print 대신에 NavigationLink 써서 방만들기에 연결하기
+                        }){
+                            Text("🏠  방 만들기")
+                                .font(.custom("Pretendard-Black", size: 16))
+                                .foregroundColor(.white)
+                                .frame(width: 350, height: 55)
+                                        .background(Color.PrimaryBlue)
+                                        .clipShape(Capsule())
+                                
                         }
-                        .buttonStyle(BlueButton())
+                        .padding(.bottom)
                 Text("이미 방이 있다면 qr코드를 통해 입장해주세요.")
-                Button("입장하기") {
+                    .font(.custom("Pretendard-SemiBold", size: 12))
+                Button(action: {
                             print("Button pressed!")
+//                    print 대신에 NavigationLink 써서 입장하기QR에 연결하기
+                        }){
+                            Text("🚪  입장하기")
+                                .font(.custom("Pretendard-Black", size: 16))
+                                .foregroundColor(.PrimaryBlue)
+                                .frame(width: 350, height: 55)
+                                .overlay(
+                                    RoundedRectangle(cornerRadius: 28)
+                                        .stroke(Color.PrimaryBlue, lineWidth: 1)
+                                    
+                                )
                         }
-                        .buttonStyle(WhiteButton())
             }
         }
     }
