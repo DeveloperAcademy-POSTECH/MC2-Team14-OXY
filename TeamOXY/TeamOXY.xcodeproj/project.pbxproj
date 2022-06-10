@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		212E5CDA2853173700E10FF4 /* CardDeckView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 212E5CD92853173700E10FF4 /* CardDeckView.swift */; };
+		212E5CDC285317B200E10FF4 /* CardZoneView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 212E5CDB285317B200E10FF4 /* CardZoneView.swift */; };
+		212E5CDE2853181000E10FF4 /* TestGestureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 212E5CDD2853181000E10FF4 /* TestGestureView.swift */; };
+		212E5CE02853193100E10FF4 /* TempCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 212E5CDF2853193100E10FF4 /* TempCardView.swift */; };
+		212E5CE22853280400E10FF4 /* MeetingRoomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 212E5CE12853280400E10FF4 /* MeetingRoomView.swift */; };
+		21D2547B2852D21100E3EADC /* TestCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21D2547A2852D21100E3EADC /* TestCardView.swift */; };
 		F29BECD82852154C005B4A1B /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F29BECD72852154C005B4A1B /* HomeView.swift */; };
 		F29BECE6285217A9005B4A1B /* Pretendard-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = F29BECDD285217A8005B4A1B /* Pretendard-Medium.otf */; };
 		F29BECE7285217A9005B4A1B /* Pretendard-Thin.otf in Resources */ = {isa = PBXBuildFile; fileRef = F29BECDE285217A8005B4A1B /* Pretendard-Thin.otf */; };
@@ -23,6 +29,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		212E5CD92853173700E10FF4 /* CardDeckView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardDeckView.swift; sourceTree = "<group>"; };
+		212E5CDB285317B200E10FF4 /* CardZoneView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardZoneView.swift; sourceTree = "<group>"; };
+		212E5CDD2853181000E10FF4 /* TestGestureView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestGestureView.swift; sourceTree = "<group>"; };
+		212E5CDF2853193100E10FF4 /* TempCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TempCardView.swift; sourceTree = "<group>"; };
+		212E5CE12853280400E10FF4 /* MeetingRoomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeetingRoomView.swift; sourceTree = "<group>"; };
+		21D2547A2852D21100E3EADC /* TestCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestCardView.swift; sourceTree = "<group>"; };
 		F29BECD72852154C005B4A1B /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		F29BECDD285217A8005B4A1B /* Pretendard-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Medium.otf"; sourceTree = "<group>"; };
 		F29BECDE285217A8005B4A1B /* Pretendard-Thin.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Thin.otf"; sourceTree = "<group>"; };
@@ -69,6 +81,12 @@
 			isa = PBXGroup;
 			children = (
 				F29BECD72852154C005B4A1B /* HomeView.swift */,
+				21D2547A2852D21100E3EADC /* TestCardView.swift */,
+				212E5CD92853173700E10FF4 /* CardDeckView.swift */,
+				212E5CDB285317B200E10FF4 /* CardZoneView.swift */,
+				212E5CDD2853181000E10FF4 /* TestGestureView.swift */,
+				212E5CDF2853193100E10FF4 /* TempCardView.swift */,
+				212E5CE12853280400E10FF4 /* MeetingRoomView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -223,7 +241,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				212E5CE02853193100E10FF4 /* TempCardView.swift in Sources */,
+				212E5CE22853280400E10FF4 /* MeetingRoomView.swift in Sources */,
 				F29BECD82852154C005B4A1B /* HomeView.swift in Sources */,
+				212E5CDA2853173700E10FF4 /* CardDeckView.swift in Sources */,
+				212E5CDE2853181000E10FF4 /* TestGestureView.swift in Sources */,
+				212E5CDC285317B200E10FF4 /* CardZoneView.swift in Sources */,
+				21D2547B2852D21100E3EADC /* TestCardView.swift in Sources */,
 				F2D707B82849BA6C00DA86FD /* TeamOXYApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -281,7 +305,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.4;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -335,7 +359,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.4;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
