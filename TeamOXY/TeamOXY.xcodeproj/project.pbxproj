@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F29BED21285397AF005B4A1B /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F29BED20285397AF005B4A1B /* HomeView.swift */; };
 		3F4E5FDA285330C900BFAA65 /* EmojiReactionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F4E5FD9285330C900BFAA65 /* EmojiReactionView.swift */; };
 		3F4E5FDC2853310500BFAA65 /* EmojiViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F4E5FDB2853310500BFAA65 /* EmojiViewModel.swift */; };
 		3F4E5FE22853350F00BFAA65 /* FancyButtonViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F4E5FE12853350F00BFAA65 /* FancyButtonViewModel.swift */; };
@@ -28,6 +29,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		F29BED20285397AF005B4A1B /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		3F4E5FD9285330C900BFAA65 /* EmojiReactionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmojiReactionView.swift; sourceTree = "<group>"; };
 		3F4E5FDB2853310500BFAA65 /* EmojiViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmojiViewModel.swift; sourceTree = "<group>"; };
 		3F4E5FE12853350F00BFAA65 /* FancyButtonViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FancyButtonViewModel.swift; sourceTree = "<group>"; };
@@ -82,6 +84,7 @@
 				3F4E5FE12853350F00BFAA65 /* FancyButtonViewModel.swift */,
 				3F4E5FD9285330C900BFAA65 /* EmojiReactionView.swift */,
 				3F4E5FF0285373E400BFAA65 /* TestView.swift */,
+				F29BED20285397AF005B4A1B /* HomeView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -243,6 +246,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F29BED21285397AF005B4A1B /* HomeView.swift in Sources */,
 				3F4E5FF1285373E400BFAA65 /* TestView.swift in Sources */,
 				F2D707B82849BA6C00DA86FD /* TeamOXYApp.swift in Sources */,
 				3F4E5FE22853350F00BFAA65 /* FancyButtonViewModel.swift in Sources */,
