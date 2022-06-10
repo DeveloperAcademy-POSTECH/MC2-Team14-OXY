@@ -53,9 +53,9 @@
 </a></td>
 </tr>
   <tr>
-<td style="text-align:left"></td>
-<td style="text-align:left"></td>
-<td style="text-align:left"><a href="https://github.com/">
+<td style="text-align:left">Dani</td>
+<td style="text-align:left">wannapple@gmail.com</td>
+<td style="text-align:left"><a href="https://github.com/Minkyeong-Ko">
 <img src="http://img.shields.io/badge/-655ced?style=social&logo=github&color=informational" style="height : auto; margin-left : 10px; margin-right : 10px;"/>
 </a></td>
 </tr>
