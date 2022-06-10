@@ -14,6 +14,9 @@
 		212E5CE22853280400E10FF4 /* MeetingRoomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 212E5CE12853280400E10FF4 /* MeetingRoomView.swift */; };
 		21D2547B2852D21100E3EADC /* TestCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21D2547A2852D21100E3EADC /* TestCardView.swift */; };
 		F29BECD82852154C005B4A1B /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F29BECD72852154C005B4A1B /* HomeView.swift */; };
+		7BC5EFAE2851DD74004A27B5 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BC5EFAD2851DD74004A27B5 /* HomeView.swift */; };
+		7BC5EFB02851E5C0004A27B5 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7BC5EFAF2851E5C0004A27B5 /* Colors.xcassets */; };
+		7BC5EFB22851ECC5004A27B5 /* ColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BC5EFB12851ECC5004A27B5 /* ColorExtension.swift */; };
 		F29BECE6285217A9005B4A1B /* Pretendard-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = F29BECDD285217A8005B4A1B /* Pretendard-Medium.otf */; };
 		F29BECE7285217A9005B4A1B /* Pretendard-Thin.otf in Resources */ = {isa = PBXBuildFile; fileRef = F29BECDE285217A8005B4A1B /* Pretendard-Thin.otf */; };
 		F29BECE8285217A9005B4A1B /* Pretendard-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = F29BECDF285217A8005B4A1B /* Pretendard-Light.otf */; };
@@ -36,6 +39,9 @@
 		212E5CE12853280400E10FF4 /* MeetingRoomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeetingRoomView.swift; sourceTree = "<group>"; };
 		21D2547A2852D21100E3EADC /* TestCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestCardView.swift; sourceTree = "<group>"; };
 		F29BECD72852154C005B4A1B /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		7BC5EFAD2851DD74004A27B5 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = SOURCE_ROOT; };
+		7BC5EFAF2851E5C0004A27B5 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
+		7BC5EFB12851ECC5004A27B5 /* ColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ColorExtension.swift; path = TeamOXY/Extensions/ColorExtension.swift; sourceTree = SOURCE_ROOT; };
 		F29BECDD285217A8005B4A1B /* Pretendard-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Medium.otf"; sourceTree = "<group>"; };
 		F29BECDE285217A8005B4A1B /* Pretendard-Thin.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Thin.otf"; sourceTree = "<group>"; };
 		F29BECDF285217A8005B4A1B /* Pretendard-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Light.otf"; sourceTree = "<group>"; };
@@ -73,6 +79,7 @@
 		F29BECD528521538005B4A1B /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				7BC5EFB12851ECC5004A27B5 /* ColorExtension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -87,6 +94,7 @@
 				212E5CDD2853181000E10FF4 /* TestGestureView.swift */,
 				212E5CDF2853193100E10FF4 /* TempCardView.swift */,
 				212E5CE12853280400E10FF4 /* MeetingRoomView.swift */,
+				7BC5EFAD2851DD74004A27B5 /* HomeView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -149,6 +157,7 @@
 				F29BECD42852152F005B4A1B /* Constants */,
 				F2D707B72849BA6C00DA86FD /* TeamOXYApp.swift */,
 				F2D707BB2849BA6D00DA86FD /* Assets.xcassets */,
+				7BC5EFAF2851E5C0004A27B5 /* Colors.xcassets */,
 				F2D707BD2849BA6D00DA86FD /* Preview Content */,
 			);
 			path = TeamOXY;
@@ -220,6 +229,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7BC5EFB02851E5C0004A27B5 /* Colors.xcassets in Resources */,
 				F29BECEE285217A9005B4A1B /* Pretendard-Bold.otf in Resources */,
 				F2D707BF2849BA6D00DA86FD /* Preview Assets.xcassets in Resources */,
 				F2D707BC2849BA6D00DA86FD /* Assets.xcassets in Resources */,
@@ -248,7 +258,9 @@
 				212E5CDE2853181000E10FF4 /* TestGestureView.swift in Sources */,
 				212E5CDC285317B200E10FF4 /* CardZoneView.swift in Sources */,
 				21D2547B2852D21100E3EADC /* TestCardView.swift in Sources */,
+				7BC5EFAE2851DD74004A27B5 /* HomeView.swift in Sources */,
 				F2D707B82849BA6C00DA86FD /* TeamOXYApp.swift in Sources */,
+				7BC5EFB22851ECC5004A27B5 /* ColorExtension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
