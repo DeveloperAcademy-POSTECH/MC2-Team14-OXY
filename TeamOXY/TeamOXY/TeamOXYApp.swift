@@ -12,7 +12,6 @@ struct TeamOXYApp: App {
     var body: some Scene {
         WindowGroup {
             HomeView()
-//            TestGestureView()
         }
     }
 }
