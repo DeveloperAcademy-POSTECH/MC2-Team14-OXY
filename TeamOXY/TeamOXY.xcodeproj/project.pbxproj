@@ -7,7 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		3F3D4A7E2852C8A90003E825 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F3D4A7D2852C8A90003E825 /* ContentView.swift */; };
+		3F4E5FDA285330C900BFAA65 /* EmojiReactionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F4E5FD9285330C900BFAA65 /* EmojiReactionView.swift */; };
+		3F4E5FDC2853310500BFAA65 /* EmojiViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F4E5FDB2853310500BFAA65 /* EmojiViewModel.swift */; };
+		3F4E5FE22853350F00BFAA65 /* FancyButtonViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F4E5FE12853350F00BFAA65 /* FancyButtonViewModel.swift */; };
+		3F4E5FE42853351A00BFAA65 /* MeetingRoomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F4E5FE32853351A00BFAA65 /* MeetingRoomView.swift */; };
 		F29BECD82852154C005B4A1B /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F29BECD72852154C005B4A1B /* HomeView.swift */; };
 		F29BECE6285217A9005B4A1B /* Pretendard-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = F29BECDD285217A8005B4A1B /* Pretendard-Medium.otf */; };
 		F29BECE7285217A9005B4A1B /* Pretendard-Thin.otf in Resources */ = {isa = PBXBuildFile; fileRef = F29BECDE285217A8005B4A1B /* Pretendard-Thin.otf */; };
@@ -24,7 +27,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		3F3D4A7D2852C8A90003E825 /* ContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		3F4E5FD9285330C900BFAA65 /* EmojiReactionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmojiReactionView.swift; sourceTree = "<group>"; };
+		3F4E5FDB2853310500BFAA65 /* EmojiViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmojiViewModel.swift; sourceTree = "<group>"; };
+		3F4E5FE12853350F00BFAA65 /* FancyButtonViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FancyButtonViewModel.swift; sourceTree = "<group>"; };
+		3F4E5FE32853351A00BFAA65 /* MeetingRoomView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MeetingRoomView.swift; sourceTree = "<group>"; };
 		F29BECD72852154C005B4A1B /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		F29BECDD285217A8005B4A1B /* Pretendard-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Medium.otf"; sourceTree = "<group>"; };
 		F29BECDE285217A8005B4A1B /* Pretendard-Thin.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Thin.otf"; sourceTree = "<group>"; };
@@ -70,7 +76,9 @@
 		F29BECD628521540005B4A1B /* View */ = {
 			isa = PBXGroup;
 			children = (
-				3F3D4A7D2852C8A90003E825 /* ContentView.swift */,
+				3F4E5FE32853351A00BFAA65 /* MeetingRoomView.swift */,
+				3F4E5FE12853350F00BFAA65 /* FancyButtonViewModel.swift */,
+				3F4E5FD9285330C900BFAA65 /* EmojiReactionView.swift */,
 				F29BECD72852154C005B4A1B /* HomeView.swift */,
 			);
 			path = View;
@@ -86,6 +94,7 @@
 		F29BECDA28521558005B4A1B /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				3F4E5FDB2853310500BFAA65 /* EmojiViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -228,7 +237,10 @@
 			files = (
 				F29BECD82852154C005B4A1B /* HomeView.swift in Sources */,
 				F2D707B82849BA6C00DA86FD /* TeamOXYApp.swift in Sources */,
-				3F3D4A7E2852C8A90003E825 /* ContentView.swift in Sources */,
+				3F4E5FE22853350F00BFAA65 /* FancyButtonViewModel.swift in Sources */,
+				3F4E5FDA285330C900BFAA65 /* EmojiReactionView.swift in Sources */,
+				3F4E5FE42853351A00BFAA65 /* MeetingRoomView.swift in Sources */,
+				3F4E5FDC2853310500BFAA65 /* EmojiViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
