@@ -6,13 +6,13 @@
 //
 
 import SwiftUI
-//import ConfettiSwiftUI
+import ConfettiSwiftUI
 
 struct EmojiReactionView: View {
     
     let emojis = ["🤔","👎","👍","🤩","🫠","🔥","❤️","😱","🤭","🥱","👀","✅","🙅","🎉","😂"]
     
-    @State private var counter = 0
+    @State private var counter = 1
     @State private var emojiString = ""
     
     var body: some View {
@@ -79,7 +79,7 @@ struct EmojiReactionView: View {
                 .toolbar(content: {
                     ToolbarItem(placement: .navigationBarLeading) {
                         Button(action: {
-    //                                                addTask()
+   
                         }) {
                             Image(systemName: "chevron.backward")
                                 .imageScale(.large)
@@ -88,7 +88,7 @@ struct EmojiReactionView: View {
                     }
                     ToolbarItem(placement: .navigationBarTrailing) {
                         Button(action: {
-    //                                                removeTask()
+
                         }) {
                             Image(systemName: "qrcode.viewfinder")
                                 .imageScale(.large)
@@ -96,32 +96,8 @@ struct EmojiReactionView: View {
                     }
                     
                 })
-                
-                
-                
-//                switch emojiString {
-//                case "🤔" : ConfettiCannon(counter: $counter, num: 5, confettis: [.text("\(emojiString)")], radius: 300.0) {
-//                case "👎" : ConfettiCannon(counter: $counter, num: 5, confettis: [.text("👎")], radius: 300.0)
-//                case "👍" : ConfettiCannon(counter: $counter, num: 5, confettis: [.text("👍")], radius: 300.0)
-//                case "🤩" : ConfettiCannon(counter: $counter, num: 5, confettis: [.text("🤩")], radius: 300.0)
-//                default :
-//                    ConfettiCannon(counter: $counter, num: 5, confettis: [.text("👀")], radius: 300.0)
-//                }
-//
-//                if counter > 2 {
-//                    ConfettiCannon(counter: $counter, num: 5, confettis: [.text("👀")], radius: 300.0)
-//                } else {
-//                    ConfettiCannon(counter: $counter, num: 5, confettis: [.text("🫠")], radius: 300.0)
-//                }
-                
-//                .confettiCannon(counter: $counter, num: 5, confettis: [.text("🫠")], radius: 300.0)
+                ConfettiCannon(counter: $counter, num: counter, confettis: counter > 3 ? [.text("🫠")] : [.text("👀")], radius: 300.0)
             }
-//            .confettiCannon(counter: $counter, num: 10, confettis: [ .text(emojiString)], radius: 300.0)
-            
-            
-//            .confettiCannon(counter: $counter, num: 5, confettis: counter > 3 ? [.text("🫠")] : [.text("👀")], radius: 300.0)
-            
-//            ConfettiCannon(counter: $counter, num: 5, confettis: [.text("🫠")], radius: 300.0)
         }
     }
 }

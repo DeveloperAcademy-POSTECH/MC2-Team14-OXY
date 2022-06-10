@@ -11,7 +11,8 @@
 		3F4E5FDC2853310500BFAA65 /* EmojiViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F4E5FDB2853310500BFAA65 /* EmojiViewModel.swift */; };
 		3F4E5FE22853350F00BFAA65 /* FancyButtonViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F4E5FE12853350F00BFAA65 /* FancyButtonViewModel.swift */; };
 		3F4E5FE42853351A00BFAA65 /* MeetingRoomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F4E5FE32853351A00BFAA65 /* MeetingRoomView.swift */; };
-		F29BECD82852154C005B4A1B /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F29BECD72852154C005B4A1B /* HomeView.swift */; };
+		3F4E5FE72853553700BFAA65 /* ConfettiSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = 3F4E5FE62853553700BFAA65 /* ConfettiSwiftUI */; };
+		3F4E5FF1285373E400BFAA65 /* TestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F4E5FF0285373E400BFAA65 /* TestView.swift */; };
 		F29BECE6285217A9005B4A1B /* Pretendard-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = F29BECDD285217A8005B4A1B /* Pretendard-Medium.otf */; };
 		F29BECE7285217A9005B4A1B /* Pretendard-Thin.otf in Resources */ = {isa = PBXBuildFile; fileRef = F29BECDE285217A8005B4A1B /* Pretendard-Thin.otf */; };
 		F29BECE8285217A9005B4A1B /* Pretendard-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = F29BECDF285217A8005B4A1B /* Pretendard-Light.otf */; };
@@ -31,7 +32,7 @@
 		3F4E5FDB2853310500BFAA65 /* EmojiViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmojiViewModel.swift; sourceTree = "<group>"; };
 		3F4E5FE12853350F00BFAA65 /* FancyButtonViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FancyButtonViewModel.swift; sourceTree = "<group>"; };
 		3F4E5FE32853351A00BFAA65 /* MeetingRoomView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MeetingRoomView.swift; sourceTree = "<group>"; };
-		F29BECD72852154C005B4A1B /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		3F4E5FF0285373E400BFAA65 /* TestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestView.swift; sourceTree = "<group>"; };
 		F29BECDD285217A8005B4A1B /* Pretendard-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Medium.otf"; sourceTree = "<group>"; };
 		F29BECDE285217A8005B4A1B /* Pretendard-Thin.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Thin.otf"; sourceTree = "<group>"; };
 		F29BECDF285217A8005B4A1B /* Pretendard-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Light.otf"; sourceTree = "<group>"; };
@@ -53,6 +54,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3F4E5FE72853553700BFAA65 /* ConfettiSwiftUI in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -79,7 +81,7 @@
 				3F4E5FE32853351A00BFAA65 /* MeetingRoomView.swift */,
 				3F4E5FE12853350F00BFAA65 /* FancyButtonViewModel.swift */,
 				3F4E5FD9285330C900BFAA65 /* EmojiReactionView.swift */,
-				F29BECD72852154C005B4A1B /* HomeView.swift */,
+				3F4E5FF0285373E400BFAA65 /* TestView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -172,6 +174,9 @@
 			dependencies = (
 			);
 			name = TeamOXY;
+			packageProductDependencies = (
+				3F4E5FE62853553700BFAA65 /* ConfettiSwiftUI */,
+			);
 			productName = TeamOXY;
 			productReference = F2D707B42849BA6C00DA86FD /* TeamOXY.app */;
 			productType = "com.apple.product-type.application";
@@ -200,6 +205,9 @@
 				Base,
 			);
 			mainGroup = F2D707AB2849BA6C00DA86FD;
+			packageReferences = (
+				3F4E5FE52853553700BFAA65 /* XCRemoteSwiftPackageReference "ConfettiSwiftUI" */,
+			);
 			productRefGroup = F2D707B52849BA6C00DA86FD /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -235,7 +243,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F29BECD82852154C005B4A1B /* HomeView.swift in Sources */,
+				3F4E5FF1285373E400BFAA65 /* TestView.swift in Sources */,
 				F2D707B82849BA6C00DA86FD /* TeamOXYApp.swift in Sources */,
 				3F4E5FE22853350F00BFAA65 /* FancyButtonViewModel.swift in Sources */,
 				3F4E5FDA285330C900BFAA65 /* EmojiReactionView.swift in Sources */,
@@ -443,6 +451,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		3F4E5FE52853553700BFAA65 /* XCRemoteSwiftPackageReference "ConfettiSwiftUI" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/simibac/ConfettiSwiftUI.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		3F4E5FE62853553700BFAA65 /* ConfettiSwiftUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3F4E5FE52853553700BFAA65 /* XCRemoteSwiftPackageReference "ConfettiSwiftUI" */;
+			productName = ConfettiSwiftUI;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = F2D707AC2849BA6C00DA86FD /* Project object */;
 }
