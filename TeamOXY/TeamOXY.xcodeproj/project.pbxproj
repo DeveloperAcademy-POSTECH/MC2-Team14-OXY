@@ -13,7 +13,6 @@
 		212E5CE02853193100E10FF4 /* TempCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 212E5CDF2853193100E10FF4 /* TempCardView.swift */; };
 		212E5CE22853280400E10FF4 /* MeetingRoomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 212E5CE12853280400E10FF4 /* MeetingRoomView.swift */; };
 		21D2547B2852D21100E3EADC /* TestCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21D2547A2852D21100E3EADC /* TestCardView.swift */; };
-		7BC5EFAE2851DD74004A27B5 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BC5EFAD2851DD74004A27B5 /* HomeView.swift */; };
 		7BC5EFB02851E5C0004A27B5 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7BC5EFAF2851E5C0004A27B5 /* Colors.xcassets */; };
 		7BC5EFB22851ECC5004A27B5 /* ColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BC5EFB12851ECC5004A27B5 /* ColorExtension.swift */; };
 		F29BECE6285217A9005B4A1B /* Pretendard-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = F29BECDD285217A8005B4A1B /* Pretendard-Medium.otf */; };
@@ -27,6 +26,7 @@
 		F29BECEE285217A9005B4A1B /* Pretendard-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = F29BECE5285217A9005B4A1B /* Pretendard-Bold.otf */; };
 		F29BED1D28532DC3005B4A1B /* RoundButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F29BED1C28532DC3005B4A1B /* RoundButton.swift */; };
 		F29BED1F28533CBC005B4A1B /* String+ButtonImageName.swift in Sources */ = {isa = PBXBuildFile; fileRef = F29BED1E28533CBC005B4A1B /* String+ButtonImageName.swift */; };
+		F29BED21285397AF005B4A1B /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F29BED20285397AF005B4A1B /* HomeView.swift */; };
 		F2D707B82849BA6C00DA86FD /* TeamOXYApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2D707B72849BA6C00DA86FD /* TeamOXYApp.swift */; };
 		F2D707BC2849BA6D00DA86FD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F2D707BB2849BA6D00DA86FD /* Assets.xcassets */; };
 		F2D707BF2849BA6D00DA86FD /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F2D707BE2849BA6D00DA86FD /* Preview Assets.xcassets */; };
@@ -39,7 +39,6 @@
 		212E5CDF2853193100E10FF4 /* TempCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TempCardView.swift; sourceTree = "<group>"; };
 		212E5CE12853280400E10FF4 /* MeetingRoomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeetingRoomView.swift; sourceTree = "<group>"; };
 		21D2547A2852D21100E3EADC /* TestCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestCardView.swift; sourceTree = "<group>"; };
-		7BC5EFAD2851DD74004A27B5 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = SOURCE_ROOT; };
 		7BC5EFAF2851E5C0004A27B5 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		7BC5EFB12851ECC5004A27B5 /* ColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ColorExtension.swift; path = TeamOXY/Extensions/ColorExtension.swift; sourceTree = SOURCE_ROOT; };
 		F29BECDD285217A8005B4A1B /* Pretendard-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Medium.otf"; sourceTree = "<group>"; };
@@ -54,6 +53,7 @@
 		F29BECF12852181A005B4A1B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		F29BED1C28532DC3005B4A1B /* RoundButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundButton.swift; sourceTree = "<group>"; };
 		F29BED1E28533CBC005B4A1B /* String+ButtonImageName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+ButtonImageName.swift"; sourceTree = "<group>"; };
+		F29BED20285397AF005B4A1B /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		F2D707B42849BA6C00DA86FD /* TeamOXY.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TeamOXY.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F2D707B72849BA6C00DA86FD /* TeamOXYApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamOXYApp.swift; sourceTree = "<group>"; };
 		F2D707BB2849BA6D00DA86FD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -96,7 +96,7 @@
 				212E5CDD2853181000E10FF4 /* TestGestureView.swift */,
 				212E5CDF2853193100E10FF4 /* TempCardView.swift */,
 				212E5CE12853280400E10FF4 /* MeetingRoomView.swift */,
-				7BC5EFAD2851DD74004A27B5 /* HomeView.swift */,
+				F29BED20285397AF005B4A1B /* HomeView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -262,17 +262,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-
 				F29BED1D28532DC3005B4A1B /* RoundButton.swift in Sources */,
-
 				212E5CE02853193100E10FF4 /* TempCardView.swift in Sources */,
 				212E5CE22853280400E10FF4 /* MeetingRoomView.swift in Sources */,
 				212E5CDA2853173700E10FF4 /* CardDeckView.swift in Sources */,
 				212E5CDE2853181000E10FF4 /* TestGestureView.swift in Sources */,
+				F29BED21285397AF005B4A1B /* HomeView.swift in Sources */,
 				212E5CDC285317B200E10FF4 /* CardZoneView.swift in Sources */,
 				21D2547B2852D21100E3EADC /* TestCardView.swift in Sources */,
-
-				7BC5EFAE2851DD74004A27B5 /* HomeView.swift in Sources */,
 				F2D707B82849BA6C00DA86FD /* TeamOXYApp.swift in Sources */,
 				F29BED1F28533CBC005B4A1B /* String+ButtonImageName.swift in Sources */,
 				7BC5EFB22851ECC5004A27B5 /* ColorExtension.swift in Sources */,
