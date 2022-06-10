@@ -7,11 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-
 		7BC5EFAE2851DD74004A27B5 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BC5EFAD2851DD74004A27B5 /* HomeView.swift */; };
 		7BC5EFB02851E5C0004A27B5 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7BC5EFAF2851E5C0004A27B5 /* Colors.xcassets */; };
 		7BC5EFB22851ECC5004A27B5 /* ColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BC5EFB12851ECC5004A27B5 /* ColorExtension.swift */; };
-
 		F29BECE6285217A9005B4A1B /* Pretendard-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = F29BECDD285217A8005B4A1B /* Pretendard-Medium.otf */; };
 		F29BECE7285217A9005B4A1B /* Pretendard-Thin.otf in Resources */ = {isa = PBXBuildFile; fileRef = F29BECDE285217A8005B4A1B /* Pretendard-Thin.otf */; };
 		F29BECE8285217A9005B4A1B /* Pretendard-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = F29BECDF285217A8005B4A1B /* Pretendard-Light.otf */; };
@@ -27,11 +25,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-
 		7BC5EFAD2851DD74004A27B5 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = SOURCE_ROOT; };
 		7BC5EFAF2851E5C0004A27B5 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
-		7BC5EFB12851ECC5004A27B5 /* ColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ColorExtension.swift; path = TeamOXY/ColorExtension.swift; sourceTree = SOURCE_ROOT; };
-
+		7BC5EFB12851ECC5004A27B5 /* ColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ColorExtension.swift; path = TeamOXY/Extensions/ColorExtension.swift; sourceTree = SOURCE_ROOT; };
 		F29BECDD285217A8005B4A1B /* Pretendard-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Medium.otf"; sourceTree = "<group>"; };
 		F29BECDE285217A8005B4A1B /* Pretendard-Thin.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Thin.otf"; sourceTree = "<group>"; };
 		F29BECDF285217A8005B4A1B /* Pretendard-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Light.otf"; sourceTree = "<group>"; };
@@ -42,7 +38,6 @@
 		F29BECE4285217A9005B4A1B /* Pretendard-ExtraLight.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-ExtraLight.otf"; sourceTree = "<group>"; };
 		F29BECE5285217A9005B4A1B /* Pretendard-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Bold.otf"; sourceTree = "<group>"; };
 		F29BECF12852181A005B4A1B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
-
 		F2D707B42849BA6C00DA86FD /* TeamOXY.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TeamOXY.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F2D707B72849BA6C00DA86FD /* TeamOXYApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamOXYApp.swift; sourceTree = "<group>"; };
 		F2D707BB2849BA6D00DA86FD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -63,7 +58,6 @@
 		F29BECD42852152F005B4A1B /* Constants */ = {
 			isa = PBXGroup;
 			children = (
-				7BC5EFAD2851DD74004A27B5 /* HomeView.swift */,
 			);
 			path = Constants;
 			sourceTree = "<group>";
@@ -71,6 +65,7 @@
 		F29BECD528521538005B4A1B /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				7BC5EFB12851ECC5004A27B5 /* ColorExtension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -78,7 +73,7 @@
 		F29BECD628521540005B4A1B /* View */ = {
 			isa = PBXGroup;
 			children = (
-				F29BECD72852154C005B4A1B /* HomeView.swift */,
+				7BC5EFAD2851DD74004A27B5 /* HomeView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -86,7 +81,6 @@
 		F29BECD928521550005B4A1B /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				7BC5EFB12851ECC5004A27B5 /* ColorExtension.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -214,11 +208,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-
 				7BC5EFB02851E5C0004A27B5 /* Colors.xcassets in Resources */,
-
 				F29BECEE285217A9005B4A1B /* Pretendard-Bold.otf in Resources */,
-
 				F2D707BF2849BA6D00DA86FD /* Preview Assets.xcassets in Resources */,
 				F2D707BC2849BA6D00DA86FD /* Assets.xcassets in Resources */,
 				F29BECED285217A9005B4A1B /* Pretendard-ExtraLight.otf in Resources */,
@@ -239,12 +230,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-
 				7BC5EFAE2851DD74004A27B5 /* HomeView.swift in Sources */,
-				F2D707BA2849BA6C00DA86FD /* ContentView.swift in Sources */,
-
-
-
 				F2D707B82849BA6C00DA86FD /* TeamOXYApp.swift in Sources */,
 				7BC5EFB22851ECC5004A27B5 /* ColorExtension.swift in Sources */,
 			);
