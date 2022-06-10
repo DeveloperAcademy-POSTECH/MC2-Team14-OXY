@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3F3D4A7E2852C8A90003E825 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F3D4A7D2852C8A90003E825 /* ContentView.swift */; };
 		F29BECD82852154C005B4A1B /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F29BECD72852154C005B4A1B /* HomeView.swift */; };
 		F29BECE6285217A9005B4A1B /* Pretendard-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = F29BECDD285217A8005B4A1B /* Pretendard-Medium.otf */; };
 		F29BECE7285217A9005B4A1B /* Pretendard-Thin.otf in Resources */ = {isa = PBXBuildFile; fileRef = F29BECDE285217A8005B4A1B /* Pretendard-Thin.otf */; };
@@ -23,6 +24,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3F3D4A7D2852C8A90003E825 /* ContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		F29BECD72852154C005B4A1B /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		F29BECDD285217A8005B4A1B /* Pretendard-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Medium.otf"; sourceTree = "<group>"; };
 		F29BECDE285217A8005B4A1B /* Pretendard-Thin.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Thin.otf"; sourceTree = "<group>"; };
@@ -68,6 +70,7 @@
 		F29BECD628521540005B4A1B /* View */ = {
 			isa = PBXGroup;
 			children = (
+				3F3D4A7D2852C8A90003E825 /* ContentView.swift */,
 				F29BECD72852154C005B4A1B /* HomeView.swift */,
 			);
 			path = View;
@@ -225,6 +228,7 @@
 			files = (
 				F29BECD82852154C005B4A1B /* HomeView.swift in Sources */,
 				F2D707B82849BA6C00DA86FD /* TeamOXYApp.swift in Sources */,
+				3F3D4A7E2852C8A90003E825 /* ContentView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
