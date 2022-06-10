@@ -22,7 +22,7 @@ struct RoundButton: View {
         } label: {
             if buttonType == ButtonType.primary {
                 HStack{
-                    Image(title)
+                    Image(title.buttonImageLabel())
                     Text(title)
                 }
                 .font(.custom("Pretendard-Black", size: 16))
@@ -32,7 +32,7 @@ struct RoundButton: View {
                 .clipShape(Capsule())
             } else {
                 HStack{
-                    Image(title)
+                    Image(title.buttonImageLabel())
                     Text(title)
                 }
                 .font(.custom("Pretendard-Black", size: 16))
