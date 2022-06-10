@@ -16,48 +16,32 @@ struct HomeView: View {
                 
                 HStack {
                     Text("누구나\n쉬는시간이\n필요하니까.")
-                        .font(.custom("Pretendard-Black", size: 40))
+                        .font(.custom("Pretendard-Light", size: 34))
                     Spacer()
                 }
-                .padding(.horizontal, 96.0)
+                .padding(.leading, 78)
+                .padding(.bottom)
                 
                 Image("Logo")
                 
                 Spacer()
                 
-                Text("팀원들을 초대할 방을 만들어 주세요.")
-                    .font(.custom("Pretendard-SemiBold", size: 12))
-                
-                Button {
+                VStack {
+                    Text("팀원들을 초대할 방을 만들어 주세요.")
+                        .font(.custom("Pretendard-SemiBold", size: 12))
                     
-                } label: {
-                    HStack{
-                        Image("CreateRoom")
-                        Text("방 만들기")
+                    RoundButton(buttonType: .primary, title: "방 만들기") {
+                        print("방만들기")
                     }
-                    .font(.custom("Pretendard-Black", size: 16))
-                    .foregroundColor(.white)
-                    .frame(width: 350, height: 55)
-                    .background(Color.PrimaryBlue)
-                    .clipShape(Capsule())
                 }
                 .padding(.bottom)
                 
-                Text("이미 방이 있다면 qr코드를 통해 입장해주세요.")
-                    .font(.custom("Pretendard-SemiBold", size: 12))
-                Button {
-                    
-                } label: {
-                    HStack{
-                        Image("JoinToRoom")
-                        Text("입장하기")
+                VStack {
+                    Text("이미 방이 있다면 qr코드를 통해 입장해주세요.")
+                        .font(.custom("Pretendard-SemiBold", size: 12))
+                    RoundButton(buttonType: .outline, title: "입장하기") {
+                        print("입장하기")
                     }
-                    .font(.custom("Pretendard-Black", size: 16))
-                    .foregroundColor(.PrimaryBlue)
-                    .frame(width: 350, height: 55)
-                    .overlay(
-                        RoundedRectangle(cornerRadius: 28)
-                            .stroke(Color.PrimaryBlue, lineWidth: 1))
                 }
             }
             .navigationBarHidden(true)
