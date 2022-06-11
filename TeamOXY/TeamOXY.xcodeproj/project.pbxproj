@@ -31,6 +31,8 @@
 		F29BED1D28532DC3005B4A1B /* RoundButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F29BED1C28532DC3005B4A1B /* RoundButton.swift */; };
 		F29BED1F28533CBC005B4A1B /* String+ButtonImageName.swift in Sources */ = {isa = PBXBuildFile; fileRef = F29BED1E28533CBC005B4A1B /* String+ButtonImageName.swift */; };
 		F29BED21285397AF005B4A1B /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F29BED20285397AF005B4A1B /* HomeView.swift */; };
+		F29BED28285436F2005B4A1B /* QRCodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F29BED27285436F2005B4A1B /* QRCodeView.swift */; };
+		F29BED2B28543717005B4A1B /* QRCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = F29BED2A28543717005B4A1B /* QRCode.swift */; };
 		F29BED232853B24C005B4A1B /* CreateMeetingRoomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F29BED222853B24C005B4A1B /* CreateMeetingRoomView.swift */; };
 		F29BED2528543123005B4A1B /* FieldType.swift in Sources */ = {isa = PBXBuildFile; fileRef = F29BED2428543123005B4A1B /* FieldType.swift */; };
 		F2D707B82849BA6C00DA86FD /* TeamOXYApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2D707B72849BA6C00DA86FD /* TeamOXYApp.swift */; };
@@ -63,6 +65,8 @@
 		F29BED1C28532DC3005B4A1B /* RoundButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundButton.swift; sourceTree = "<group>"; };
 		F29BED1E28533CBC005B4A1B /* String+ButtonImageName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+ButtonImageName.swift"; sourceTree = "<group>"; };
 		F29BED20285397AF005B4A1B /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		F29BED27285436F2005B4A1B /* QRCodeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRCodeView.swift; sourceTree = "<group>"; };
+		F29BED2A28543717005B4A1B /* QRCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRCode.swift; sourceTree = "<group>"; };
 		F29BED222853B24C005B4A1B /* CreateMeetingRoomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateMeetingRoomView.swift; sourceTree = "<group>"; };
 		F29BED2428543123005B4A1B /* FieldType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FieldType.swift; sourceTree = "<group>"; };
 		F2D707B42849BA6C00DA86FD /* TeamOXY.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TeamOXY.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -103,6 +107,7 @@
 		F29BECD628521540005B4A1B /* View */ = {
 			isa = PBXGroup;
 			children = (
+				F29BED2928543708005B4A1B /* QRCode */,
 				3F4E60062853A30200BFAA65 /* EmojiReactionView.swift */,
 				3F4E60072853A30300BFAA65 /* FancyButtonViewModel.swift */,
 				3F4E60082853A30300BFAA65 /* TestView.swift */,
@@ -154,6 +159,15 @@
 				F29BED1C28532DC3005B4A1B /* RoundButton.swift */,
 			);
 			path = Components;
+			sourceTree = "<group>";
+		};
+		F29BED2928543708005B4A1B /* QRCode */ = {
+			isa = PBXGroup;
+			children = (
+				F29BED27285436F2005B4A1B /* QRCodeView.swift */,
+				F29BED2A28543717005B4A1B /* QRCode.swift */,
+			);
+			path = QRCode;
 			sourceTree = "<group>";
 		};
 		F2D707AB2849BA6C00DA86FD = {
@@ -292,6 +306,7 @@
 				212E5CE02853193100E10FF4 /* TempCardView.swift in Sources */,
 				3F4E600A2853A30300BFAA65 /* FancyButtonViewModel.swift in Sources */,
 				3F4E60092853A30300BFAA65 /* EmojiReactionView.swift in Sources */,
+				F29BED2B28543717005B4A1B /* QRCode.swift in Sources */,
 				212E5CE22853280400E10FF4 /* MeetingRoomView.swift in Sources */,
 				212E5CDA2853173700E10FF4 /* CardDeckView.swift in Sources */,
 				212E5CDE2853181000E10FF4 /* TestGestureView.swift in Sources */,
@@ -299,6 +314,7 @@
 				212E5CDC285317B200E10FF4 /* CardZoneView.swift in Sources */,
 				21D2547B2852D21100E3EADC /* TestCardView.swift in Sources */,
 				F2D707B82849BA6C00DA86FD /* TeamOXYApp.swift in Sources */,
+				F29BED28285436F2005B4A1B /* QRCodeView.swift in Sources */,
 				F29BED1F28533CBC005B4A1B /* String+ButtonImageName.swift in Sources */,
 				7BC5EFB22851ECC5004A27B5 /* ColorExtension.swift in Sources */,
 			);
