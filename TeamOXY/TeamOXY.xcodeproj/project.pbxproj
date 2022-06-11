@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1595F54A28547D330055E5CF /* BreakTimeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1595F54728547D330055E5CF /* BreakTimeView.swift */; };
+		1595F54B28547D330055E5CF /* CircularTimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1595F54828547D330055E5CF /* CircularTimerView.swift */; };
+		1595F54C28547D330055E5CF /* TimeSetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1595F54928547D330055E5CF /* TimeSetView.swift */; };
 		212E5CDA2853173700E10FF4 /* CardDeckView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 212E5CD92853173700E10FF4 /* CardDeckView.swift */; };
 		212E5CDC285317B200E10FF4 /* CardZoneView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 212E5CDB285317B200E10FF4 /* CardZoneView.swift */; };
 		212E5CDE2853181000E10FF4 /* TestGestureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 212E5CDD2853181000E10FF4 /* TestGestureView.swift */; };
@@ -41,6 +44,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1595F54728547D330055E5CF /* BreakTimeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BreakTimeView.swift; path = "../../../../../../Desktop/백업_MC2/MC2-Team14-OXY/TeamOXY/TeamOXY/Constants/BreakTimeView.swift"; sourceTree = "<group>"; };
+		1595F54828547D330055E5CF /* CircularTimerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CircularTimerView.swift; path = "../../../../../../Desktop/백업_MC2/MC2-Team14-OXY/TeamOXY/TeamOXY/Constants/CircularTimerView.swift"; sourceTree = "<group>"; };
+		1595F54928547D330055E5CF /* TimeSetView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TimeSetView.swift; path = "../../../../../../Desktop/백업_MC2/MC2-Team14-OXY/TeamOXY/TeamOXY/Constants/TimeSetView.swift"; sourceTree = "<group>"; };
 		212E5CD92853173700E10FF4 /* CardDeckView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardDeckView.swift; sourceTree = "<group>"; };
 		212E5CDB285317B200E10FF4 /* CardZoneView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardZoneView.swift; sourceTree = "<group>"; };
 		212E5CDD2853181000E10FF4 /* TestGestureView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestGestureView.swift; sourceTree = "<group>"; };
@@ -107,7 +113,7 @@
 		F29BECD628521540005B4A1B /* View */ = {
 			isa = PBXGroup;
 			children = (
-				F29BED2928543708005B4A1B /* QRCode */,
+
 				3F4E60062853A30200BFAA65 /* EmojiReactionView.swift */,
 				3F4E60072853A30300BFAA65 /* FancyButtonViewModel.swift */,
 				3F4E60082853A30300BFAA65 /* TestView.swift */,
@@ -304,6 +310,7 @@
 				F29BED1D28532DC3005B4A1B /* RoundButton.swift in Sources */,
 				F29BED232853B24C005B4A1B /* CreateMeetingRoomView.swift in Sources */,
 				212E5CE02853193100E10FF4 /* TempCardView.swift in Sources */,
+				1595F54B28547D330055E5CF /* CircularTimerView.swift in Sources */,
 				3F4E600A2853A30300BFAA65 /* FancyButtonViewModel.swift in Sources */,
 				3F4E60092853A30300BFAA65 /* EmojiReactionView.swift in Sources */,
 				F29BED2B28543717005B4A1B /* QRCode.swift in Sources */,
@@ -311,12 +318,14 @@
 				212E5CDA2853173700E10FF4 /* CardDeckView.swift in Sources */,
 				212E5CDE2853181000E10FF4 /* TestGestureView.swift in Sources */,
 				F29BED21285397AF005B4A1B /* HomeView.swift in Sources */,
+				1595F54A28547D330055E5CF /* BreakTimeView.swift in Sources */,
 				212E5CDC285317B200E10FF4 /* CardZoneView.swift in Sources */,
 				21D2547B2852D21100E3EADC /* TestCardView.swift in Sources */,
 				F2D707B82849BA6C00DA86FD /* TeamOXYApp.swift in Sources */,
 				F29BED28285436F2005B4A1B /* QRCodeView.swift in Sources */,
 				F29BED1F28533CBC005B4A1B /* String+ButtonImageName.swift in Sources */,
 				7BC5EFB22851ECC5004A27B5 /* ColorExtension.swift in Sources */,
+				1595F54C28547D330055E5CF /* TimeSetView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
