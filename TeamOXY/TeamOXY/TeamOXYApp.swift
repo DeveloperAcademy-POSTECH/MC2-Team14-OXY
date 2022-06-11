@@ -11,8 +11,9 @@ import SwiftUI
 struct TeamOXYApp: App {
     var body: some Scene {
         WindowGroup {
-            HomeView()
-            //            TestGestureView()
+//            HomeView()
+//                        TestGestureView()
+             MeetingRoomView()
         }
     }
 }

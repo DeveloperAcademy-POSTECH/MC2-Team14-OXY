@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="26px" height="28px" viewBox="0 0 26 28" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>Button_LeaveRoom</title>
+    <g id="Hi-Fi-Prototype" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Button_LeaveRoom" transform="translate(1.000000, 1.000000)">
+            <path d="M23.89656,19.0438183 C23.4438503,19.8445207 22.9074946,20.5915875 22.2996249,21.2728869 C19.9607311,23.8920904 16.5580653,25.5407455 12.7703727,25.5407455 C5.71793439,25.5407455 0,19.8234496 0,12.7703727 C0,5.71793439 5.71793439,0 12.7703727,0 C17.6192833,0 21.8373374,2.70284939 24,6.68337457" id="Stroke-1" stroke="#000000" stroke-width="2" transform="translate(12.000000, 12.770373) rotate(180.000000) translate(-12.000000, -12.770373) "></path>
+            <g id="Group-6" transform="translate(4.485338, 13.131726) rotate(180.000000) translate(-4.485338, -13.131726) translate(1.931263, 8.023577)">
+                <polyline id="Fill-3" fill="#FFFFFF" points="0 0 5.10814909 5.10814909 0 10.2162982"></polyline>
+                <polyline id="Stroke-5" stroke="#000000" stroke-width="2" points="0 0 5.10814909 5.10814909 0 10.2162982"></polyline>
+            </g>
+            <g id="Group-10" transform="translate(8.994557, 12.950986) rotate(180.000000) translate(-8.994557, -12.950986) translate(1.931263, 12.450986)">
+                <line x1="0" y1="0.5" x2="14.1265863" y2="0.5" id="Fill-7" fill="#FFFFFF"></line>
+                <line x1="0" y1="0.5" x2="14.1265863" y2="0.5" id="Stroke-9" stroke="#000000" stroke-width="2"></line>
+            </g>
+        </g>
+    </g>
+</svg>
