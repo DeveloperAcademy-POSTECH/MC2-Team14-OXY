@@ -12,15 +12,21 @@ struct CreateMeetingRoomView: View {
     
     @State private var text = ""
     
+    @FocusState private var focusedField: FieldType?
+    
     var body: some View {
         VStack {
             Spacer()
             
             VStack {
                 Text("우리 그룹의 방 이름은 무엇인가요?")
-                
+                    .textInputAutocapitalization(.never)
+                    .disableAutocorrection(true)
+                    .focused($focusedField, equals: .roomTitle)
+                    
                 HStack {
                     TextField("익명의 원숭이 방", text: $text)
+                    
                     if text != "" {
                         Image(systemName: "xmark.circle.fill")
                             .imageScale(.medium)
@@ -52,11 +58,16 @@ struct CreateMeetingRoomView: View {
         }
         .navigationTitle(barTitle)
         .navigationBarTitleDisplayMode(.inline)
+        .onAppear {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                focusedField = .roomTitle
+            }
+        }
     }
 }
 
 struct CreateMeetingRoomView_Previews: PreviewProvider {
     static var previews: some View {
-        CreateMeetingRoomView()
+        CreateMeetingRoomView(barTitle: "방 만들기")
     }
 }

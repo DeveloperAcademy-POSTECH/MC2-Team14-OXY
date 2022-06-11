@@ -32,6 +32,7 @@
 		F29BED1F28533CBC005B4A1B /* String+ButtonImageName.swift in Sources */ = {isa = PBXBuildFile; fileRef = F29BED1E28533CBC005B4A1B /* String+ButtonImageName.swift */; };
 		F29BED21285397AF005B4A1B /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F29BED20285397AF005B4A1B /* HomeView.swift */; };
 		F29BED232853B24C005B4A1B /* CreateMeetingRoomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F29BED222853B24C005B4A1B /* CreateMeetingRoomView.swift */; };
+		F29BED2528543123005B4A1B /* FieldType.swift in Sources */ = {isa = PBXBuildFile; fileRef = F29BED2428543123005B4A1B /* FieldType.swift */; };
 		F2D707B82849BA6C00DA86FD /* TeamOXYApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2D707B72849BA6C00DA86FD /* TeamOXYApp.swift */; };
 		F2D707BC2849BA6D00DA86FD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F2D707BB2849BA6D00DA86FD /* Assets.xcassets */; };
 		F2D707BF2849BA6D00DA86FD /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F2D707BE2849BA6D00DA86FD /* Preview Assets.xcassets */; };
@@ -63,6 +64,7 @@
 		F29BED1E28533CBC005B4A1B /* String+ButtonImageName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+ButtonImageName.swift"; sourceTree = "<group>"; };
 		F29BED20285397AF005B4A1B /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		F29BED222853B24C005B4A1B /* CreateMeetingRoomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateMeetingRoomView.swift; sourceTree = "<group>"; };
+		F29BED2428543123005B4A1B /* FieldType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FieldType.swift; sourceTree = "<group>"; };
 		F2D707B42849BA6C00DA86FD /* TeamOXY.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TeamOXY.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F2D707B72849BA6C00DA86FD /* TeamOXYApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamOXYApp.swift; sourceTree = "<group>"; };
 		F2D707BB2849BA6D00DA86FD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -84,6 +86,7 @@
 		F29BECD42852152F005B4A1B /* Constants */ = {
 			isa = PBXGroup;
 			children = (
+				F29BED2428543123005B4A1B /* FieldType.swift */,
 			);
 			path = Constants;
 			sourceTree = "<group>";
@@ -282,6 +285,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F29BED2528543123005B4A1B /* FieldType.swift in Sources */,
 				3F4E600B2853A30300BFAA65 /* TestView.swift in Sources */,
 				F29BED1D28532DC3005B4A1B /* RoundButton.swift in Sources */,
 				F29BED232853B24C005B4A1B /* CreateMeetingRoomView.swift in Sources */,
