@@ -11,23 +11,23 @@ import SwiftUI
 // TODO: Drag Gesture 카드 이동 && 확대
 // TODO: Drag Gesture 카드 이동 && 축소
 
-// smallCard: 카드가 덱에 있을 때 크기
-let smallCardWidth: CGFloat = 100
-let smallCardHeight: CGFloat = 150
-// largeCard: 카드가 선택돼서 놓여졌을 때 크기
-let largeCardWidth: CGFloat = 250
-let largeCardHeight: CGFloat = 375
-// cardZone: 카드가 놓여지는 공간 가장 아래 ~ 화면 상단
-let cardZoneHeight: CGFloat = 500
-let cardZonePaddingTop: CGFloat = 125
-// cardDeck: 카드 덱 부분(하단)
-let cardDeckHeight: CGFloat = 200
-// cardZoneHeightOverMiddle: 카드 놓여지는 부분이 화면 중앙을 얼마나 넘어가는지
-let cardZoneHeightOverMiddle: CGFloat = cardZoneHeight - UIScreen.main.bounds.height/2
-// initial 위치는 카드가 덱에 있을 때
-let initialCardLocation: CGFloat = UIScreen.main.bounds.height/2 - 100
-// second 위치는 smallCard가 카드가 놓이는 Zone을 넘어갔을 때 (그래서 smallCardHeight 사용)
-let secondCardLocation: CGFloat = cardZoneHeightOverMiddle - smallCardHeight/2
+//// smallCard: 카드가 덱에 있을 때 크기
+//let smallCardWidth: CGFloat = 100
+//let smallCardHeight: CGFloat = 150
+//// largeCard: 카드가 선택돼서 놓여졌을 때 크기
+//let largeCardWidth: CGFloat = 250
+//let largeCardHeight: CGFloat = 375
+//// cardZone: 카드가 놓여지는 공간 가장 아래 ~ 화면 상단
+//let cardZoneHeight: CGFloat = 500
+//let cardZonePaddingTop: CGFloat = 125
+//// cardDeck: 카드 덱 부분(하단)
+//let cardDeckHeight: CGFloat = 200
+//// cardZoneHeightOverMiddle: 카드 놓여지는 부분이 화면 중앙을 얼마나 넘어가는지
+//let cardZoneHeightOverMiddle: CGFloat = cardZoneHeight - UIScreen.main.bounds.height/2
+//// initial 위치는 카드가 덱에 있을 때
+//let initialCardLocation: CGFloat = UIScreen.main.bounds.height/2 - 100
+//// second 위치는 smallCard가 카드가 놓이는 Zone을 넘어갔을 때 (그래서 smallCardHeight 사용)
+//let secondCardLocation: CGFloat = cardZoneHeightOverMiddle - smallCardHeight/2
 
 struct TestCardView: View {
     enum DragState {
