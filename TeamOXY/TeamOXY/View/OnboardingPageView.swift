@@ -10,19 +10,16 @@ import SwiftUI
 struct OnboardingPageView: View {
     let imageName: String
     let title: String
-    let subtitle: String
     
     var body: some View {
         VStack {
-                    Image(systemName: imageName)
-                        .font(.system(size: 100))
-                        .padding()
-                    Text(title)
-                        .font(.largeTitle)
-                        .fontWeight(.bold)
-                        .padding()
-                    Text(subtitle)
-                        .font(.title2)
+            Text(title)
+                .font(.custom("Pretendard-Thin", size: 24))
+                .multilineTextAlignment(.center)
+                .padding()
+            Image(imageName)
+                .padding()
+
                 }
     }
 }
@@ -30,9 +27,8 @@ struct OnboardingPageView: View {
 struct OnboardingPageView_Previews: PreviewProvider {
     static var previews: some View {
         OnboardingPageView(
-            imageName: "note.text.badge.plus",
-            title: "쓰기 탭",
-            subtitle: "이 앱은 개인 메모장으로 쓸 수 있어요"
+            imageName: "Onboarding1",
+            title: "쉼 카드를 올려서\n쉬는 시간을 제안해보세요."
         )
     }
 }

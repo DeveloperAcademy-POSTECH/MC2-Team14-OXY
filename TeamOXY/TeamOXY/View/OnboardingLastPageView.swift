@@ -10,21 +10,18 @@ import SwiftUI
 struct OnboardingLastPageView: View {
     let imageName: String
     let title: String
-    let subtitle: String
     
 //    @Binding var isFirstLaunching: Bool
     
     var body: some View {
         VStack {
-                    Image(systemName: imageName)
-                        .font(.system(size: 100))
-                        .padding()
-                    Text(title)
-                        .font(.largeTitle)
-                        .fontWeight(.bold)
-                        .padding()
-                    Text(subtitle)
-                        .font(.title2)
+            Text(title)
+        .font(.custom("Pretendard-Thin", size: 24))
+        .multilineTextAlignment(.center)
+        .padding()
+            Image(imageName)
+                .padding()
+
                     
                     // 온보딩 완료 버튼.
                     // AppStorage의 isFirstLaunching 값을 false로 바꾸기 때문에, 다음번에 앱을 실행할 때는 OnboardingTabView를 띄우지 않음.
