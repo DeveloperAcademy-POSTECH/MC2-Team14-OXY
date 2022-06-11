@@ -20,6 +20,7 @@
 		3F4E600A2853A30300BFAA65 /* FancyButtonViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F4E60072853A30300BFAA65 /* FancyButtonViewModel.swift */; };
 		3F4E600B2853A30300BFAA65 /* TestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F4E60082853A30300BFAA65 /* TestView.swift */; };
 		3F4E600E2853A37000BFAA65 /* ConfettiSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = 3F4E600D2853A37000BFAA65 /* ConfettiSwiftUI */; };
+		3F4E60102854549A00BFAA65 /* EmojiViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F4E600F2854549A00BFAA65 /* EmojiViewModel.swift */; };
 		7BC5EFB02851E5C0004A27B5 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7BC5EFAF2851E5C0004A27B5 /* Colors.xcassets */; };
 		7BC5EFB22851ECC5004A27B5 /* ColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BC5EFB12851ECC5004A27B5 /* ColorExtension.swift */; };
 		F29BECE6285217A9005B4A1B /* Pretendard-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = F29BECDD285217A8005B4A1B /* Pretendard-Medium.otf */; };
@@ -56,6 +57,7 @@
 		3F4E60062853A30200BFAA65 /* EmojiReactionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmojiReactionView.swift; sourceTree = "<group>"; };
 		3F4E60072853A30300BFAA65 /* FancyButtonViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FancyButtonViewModel.swift; sourceTree = "<group>"; };
 		3F4E60082853A30300BFAA65 /* TestView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestView.swift; sourceTree = "<group>"; };
+		3F4E600F2854549A00BFAA65 /* EmojiViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmojiViewModel.swift; sourceTree = "<group>"; };
 		7BC5EFAF2851E5C0004A27B5 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		7BC5EFB12851ECC5004A27B5 /* ColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ColorExtension.swift; path = TeamOXY/Extensions/ColorExtension.swift; sourceTree = SOURCE_ROOT; };
 		F29BECDD285217A8005B4A1B /* Pretendard-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Medium.otf"; sourceTree = "<group>"; };
@@ -139,6 +141,7 @@
 		F29BECDA28521558005B4A1B /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				3F4E600F2854549A00BFAA65 /* EmojiViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -310,7 +313,7 @@
 				F29BED1D28532DC3005B4A1B /* RoundButton.swift in Sources */,
 				F29BED232853B24C005B4A1B /* CreateMeetingRoomView.swift in Sources */,
 				212E5CE02853193100E10FF4 /* TempCardView.swift in Sources */,
-				1595F54B28547D330055E5CF /* CircularTimerView.swift in Sources */,
+
 				3F4E600A2853A30300BFAA65 /* FancyButtonViewModel.swift in Sources */,
 				3F4E60092853A30300BFAA65 /* EmojiReactionView.swift in Sources */,
 				F29BED2B28543717005B4A1B /* QRCode.swift in Sources */,
