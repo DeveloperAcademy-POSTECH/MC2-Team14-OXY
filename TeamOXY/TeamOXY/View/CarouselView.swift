@@ -46,7 +46,8 @@ struct CarouselView: View {
     var views: [Image]
     
     var spacerWidth: CGFloat = UIScreen.main.bounds.width / 4.1
-    private func onDragEnded(drag: DragGesture.Value) {
+    
+    private func onHorizontalDragEnded(drag: DragGesture.Value) {
         
         let dragThreshold:CGFloat = 100
         if drag.predictedEndTranslation.width > dragThreshold || drag.translation.width > dragThreshold{
@@ -60,6 +61,13 @@ struct CarouselView: View {
     var body: some View {
         
         let minimumLongPressDuration = 0.3
+        
+        let horizontalDrag = DragGesture()
+            .updating($dragState) { drag, state, transaction in
+                state = .dragging(translation: drag.translation)
+            }
+            .onEnded(onHorizontalDragEnded)
+        
         let longPressDrag = LongPressGesture(minimumDuration: minimumLongPressDuration)
             .sequenced(before: DragGesture())
             .updating($dragState2) { value, state, transaction in
@@ -94,17 +102,7 @@ struct CarouselView: View {
                 }
                 print("onEnded")
             }
-        
-        //        ZStack{
-        //                        VStack{
-        //                            Text("\(dragState.translation.width)")
-        //                            Text("Carousel Location = \(carouselLocation)")
-        //                            Text("Relative Location = \(relativeLoc())")
-        //                            Text("\(relativeLoc()) / \(views.count-1)")
-        //                            Spacer()
-        //                        }
-        //            VStack{
-        
+
         ZStack{
             // 각각의 요소에 그림자 넣는 법 말고 전체를 묶어서 그림자를 넣는 법 고민해보기
             ForEach(0..<views.count){ i in
@@ -133,12 +131,7 @@ struct CarouselView: View {
             // long 프레스와 좌우스크롤은 같은 위계 & 상하 드래그는 long프레스 보다 낮은 위계
             .simultaneousGesture(
                 // card가 cardzone에 있거나, drag애니메이션2에서 드래깅 중이면 좌우 스크롤 불가
-                isInCardZone() || dragState2.isDragging ? nil : DragGesture()
-                    .updating($dragState) { drag, state, transaction in
-                        state = .dragging(translation: drag.translation)
-                    }
-                    .onEnded(onDragEnded)
-                
+                isInCardZone() || dragState2.isDragging ? nil : horizontalDrag
             )
             .simultaneousGesture(longPressDrag)
         }
