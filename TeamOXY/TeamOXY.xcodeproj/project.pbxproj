@@ -7,12 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1595F54A28547D330055E5CF /* BreakTimeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1595F54728547D330055E5CF /* BreakTimeView.swift */; };
-		1595F54B28547D330055E5CF /* CircularTimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1595F54828547D330055E5CF /* CircularTimerView.swift */; };
-		1595F54C28547D330055E5CF /* TimeSetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1595F54928547D330055E5CF /* TimeSetView.swift */; };
-		1595F551285498920055E5CF /* TimeSetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1595F54E285498910055E5CF /* TimeSetView.swift */; };
-		1595F552285498920055E5CF /* BreakTimeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1595F54F285498910055E5CF /* BreakTimeView.swift */; };
-		1595F553285498920055E5CF /* CircularTimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1595F550285498910055E5CF /* CircularTimerView.swift */; };
 		212E5CDA2853173700E10FF4 /* CardDeckView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 212E5CD92853173700E10FF4 /* CardDeckView.swift */; };
 		212E5CDC285317B200E10FF4 /* CardZoneView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 212E5CDB285317B200E10FF4 /* CardZoneView.swift */; };
 		212E5CDE2853181000E10FF4 /* TestGestureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 212E5CDD2853181000E10FF4 /* TestGestureView.swift */; };
@@ -23,7 +17,6 @@
 		3F4E600A2853A30300BFAA65 /* FancyButtonViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F4E60072853A30300BFAA65 /* FancyButtonViewModel.swift */; };
 		3F4E600B2853A30300BFAA65 /* TestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F4E60082853A30300BFAA65 /* TestView.swift */; };
 		3F4E600E2853A37000BFAA65 /* ConfettiSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = 3F4E600D2853A37000BFAA65 /* ConfettiSwiftUI */; };
-		3F4E60102854549A00BFAA65 /* EmojiViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F4E600F2854549A00BFAA65 /* EmojiViewModel.swift */; };
 		7BC5EFB02851E5C0004A27B5 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7BC5EFAF2851E5C0004A27B5 /* Colors.xcassets */; };
 		7BC5EFB22851ECC5004A27B5 /* ColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BC5EFB12851ECC5004A27B5 /* ColorExtension.swift */; };
 		F29BECE6285217A9005B4A1B /* Pretendard-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = F29BECDD285217A8005B4A1B /* Pretendard-Medium.otf */; };
@@ -38,22 +31,12 @@
 		F29BED1D28532DC3005B4A1B /* RoundButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F29BED1C28532DC3005B4A1B /* RoundButton.swift */; };
 		F29BED1F28533CBC005B4A1B /* String+ButtonImageName.swift in Sources */ = {isa = PBXBuildFile; fileRef = F29BED1E28533CBC005B4A1B /* String+ButtonImageName.swift */; };
 		F29BED21285397AF005B4A1B /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F29BED20285397AF005B4A1B /* HomeView.swift */; };
-		F29BED232853B24C005B4A1B /* CreateMeetingRoomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F29BED222853B24C005B4A1B /* CreateMeetingRoomView.swift */; };
-		F29BED2528543123005B4A1B /* FieldType.swift in Sources */ = {isa = PBXBuildFile; fileRef = F29BED2428543123005B4A1B /* FieldType.swift */; };
-		F29BED28285436F2005B4A1B /* QRCodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F29BED27285436F2005B4A1B /* QRCodeView.swift */; };
-		F29BED2B28543717005B4A1B /* QRCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = F29BED2A28543717005B4A1B /* QRCode.swift */; };
 		F2D707B82849BA6C00DA86FD /* TeamOXYApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2D707B72849BA6C00DA86FD /* TeamOXYApp.swift */; };
 		F2D707BC2849BA6D00DA86FD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F2D707BB2849BA6D00DA86FD /* Assets.xcassets */; };
 		F2D707BF2849BA6D00DA86FD /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F2D707BE2849BA6D00DA86FD /* Preview Assets.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		1595F54728547D330055E5CF /* BreakTimeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BreakTimeView.swift; path = "/Desktop/백업_MC2/MC2-Team14-OXY/TeamOXY/TeamOXY/Constants/BreakTimeView.swift"; sourceTree = "<absolute>"; };
-		1595F54828547D330055E5CF /* CircularTimerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CircularTimerView.swift; path = "/Desktop/백업_MC2/MC2-Team14-OXY/TeamOXY/TeamOXY/Constants/CircularTimerView.swift"; sourceTree = "<absolute>"; };
-		1595F54928547D330055E5CF /* TimeSetView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TimeSetView.swift; path = "/Desktop/백업_MC2/MC2-Team14-OXY/TeamOXY/TeamOXY/Constants/TimeSetView.swift"; sourceTree = "<absolute>"; };
-		1595F54E285498910055E5CF /* TimeSetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeSetView.swift; sourceTree = "<group>"; };
-		1595F54F285498910055E5CF /* BreakTimeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreakTimeView.swift; sourceTree = "<group>"; };
-		1595F550285498910055E5CF /* CircularTimerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircularTimerView.swift; sourceTree = "<group>"; };
 		212E5CD92853173700E10FF4 /* CardDeckView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardDeckView.swift; sourceTree = "<group>"; };
 		212E5CDB285317B200E10FF4 /* CardZoneView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardZoneView.swift; sourceTree = "<group>"; };
 		212E5CDD2853181000E10FF4 /* TestGestureView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestGestureView.swift; sourceTree = "<group>"; };
@@ -63,7 +46,6 @@
 		3F4E60062853A30200BFAA65 /* EmojiReactionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmojiReactionView.swift; sourceTree = "<group>"; };
 		3F4E60072853A30300BFAA65 /* FancyButtonViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FancyButtonViewModel.swift; sourceTree = "<group>"; };
 		3F4E60082853A30300BFAA65 /* TestView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestView.swift; sourceTree = "<group>"; };
-		3F4E600F2854549A00BFAA65 /* EmojiViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmojiViewModel.swift; sourceTree = "<group>"; };
 		7BC5EFAF2851E5C0004A27B5 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		7BC5EFB12851ECC5004A27B5 /* ColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ColorExtension.swift; path = TeamOXY/Extensions/ColorExtension.swift; sourceTree = SOURCE_ROOT; };
 		F29BECDD285217A8005B4A1B /* Pretendard-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Medium.otf"; sourceTree = "<group>"; };
@@ -79,10 +61,6 @@
 		F29BED1C28532DC3005B4A1B /* RoundButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundButton.swift; sourceTree = "<group>"; };
 		F29BED1E28533CBC005B4A1B /* String+ButtonImageName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+ButtonImageName.swift"; sourceTree = "<group>"; };
 		F29BED20285397AF005B4A1B /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
-		F29BED222853B24C005B4A1B /* CreateMeetingRoomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateMeetingRoomView.swift; sourceTree = "<group>"; };
-		F29BED2428543123005B4A1B /* FieldType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FieldType.swift; sourceTree = "<group>"; };
-		F29BED27285436F2005B4A1B /* QRCodeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRCodeView.swift; sourceTree = "<group>"; };
-		F29BED2A28543717005B4A1B /* QRCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRCode.swift; sourceTree = "<group>"; };
 		F2D707B42849BA6C00DA86FD /* TeamOXY.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TeamOXY.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F2D707B72849BA6C00DA86FD /* TeamOXYApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamOXYApp.swift; sourceTree = "<group>"; };
 		F2D707BB2849BA6D00DA86FD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -101,22 +79,9 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		1595F54D285497A80055E5CF /* Recovered References */ = {
-			isa = PBXGroup;
-			children = (
-				1595F54828547D330055E5CF /* CircularTimerView.swift */,
-				F29BED2A28543717005B4A1B /* QRCode.swift */,
-				1595F54728547D330055E5CF /* BreakTimeView.swift */,
-				F29BED27285436F2005B4A1B /* QRCodeView.swift */,
-				1595F54928547D330055E5CF /* TimeSetView.swift */,
-			);
-			name = "Recovered References";
-			sourceTree = "<group>";
-		};
 		F29BECD42852152F005B4A1B /* Constants */ = {
 			isa = PBXGroup;
 			children = (
-				F29BED2428543123005B4A1B /* FieldType.swift */,
 			);
 			path = Constants;
 			sourceTree = "<group>";
@@ -133,9 +98,6 @@
 		F29BECD628521540005B4A1B /* View */ = {
 			isa = PBXGroup;
 			children = (
-				1595F54F285498910055E5CF /* BreakTimeView.swift */,
-				1595F550285498910055E5CF /* CircularTimerView.swift */,
-				1595F54E285498910055E5CF /* TimeSetView.swift */,
 				3F4E60062853A30200BFAA65 /* EmojiReactionView.swift */,
 				3F4E60072853A30300BFAA65 /* FancyButtonViewModel.swift */,
 				3F4E60082853A30300BFAA65 /* TestView.swift */,
@@ -146,7 +108,6 @@
 				212E5CDF2853193100E10FF4 /* TempCardView.swift */,
 				212E5CE12853280400E10FF4 /* MeetingRoomView.swift */,
 				F29BED20285397AF005B4A1B /* HomeView.swift */,
-				F29BED222853B24C005B4A1B /* CreateMeetingRoomView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -161,7 +122,6 @@
 		F29BECDA28521558005B4A1B /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				3F4E600F2854549A00BFAA65 /* EmojiViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -195,7 +155,6 @@
 			children = (
 				F2D707B62849BA6C00DA86FD /* TeamOXY */,
 				F2D707B52849BA6C00DA86FD /* Products */,
-				1595F54D285497A80055E5CF /* Recovered References */,
 			);
 			sourceTree = "<group>";
 		};
@@ -320,30 +279,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F29BED2528543123005B4A1B /* FieldType.swift in Sources */,
 				3F4E600B2853A30300BFAA65 /* TestView.swift in Sources */,
 				F29BED1D28532DC3005B4A1B /* RoundButton.swift in Sources */,
-				1595F553285498920055E5CF /* CircularTimerView.swift in Sources */,
-				F29BED232853B24C005B4A1B /* CreateMeetingRoomView.swift in Sources */,
 				212E5CE02853193100E10FF4 /* TempCardView.swift in Sources */,
-				1595F552285498920055E5CF /* BreakTimeView.swift in Sources */,
-				1595F54B28547D330055E5CF /* CircularTimerView.swift in Sources */,
-				1595F551285498920055E5CF /* TimeSetView.swift in Sources */,
 				3F4E600A2853A30300BFAA65 /* FancyButtonViewModel.swift in Sources */,
 				3F4E60092853A30300BFAA65 /* EmojiReactionView.swift in Sources */,
-				F29BED2B28543717005B4A1B /* QRCode.swift in Sources */,
 				212E5CE22853280400E10FF4 /* MeetingRoomView.swift in Sources */,
 				212E5CDA2853173700E10FF4 /* CardDeckView.swift in Sources */,
 				212E5CDE2853181000E10FF4 /* TestGestureView.swift in Sources */,
 				F29BED21285397AF005B4A1B /* HomeView.swift in Sources */,
-				1595F54A28547D330055E5CF /* BreakTimeView.swift in Sources */,
 				212E5CDC285317B200E10FF4 /* CardZoneView.swift in Sources */,
 				21D2547B2852D21100E3EADC /* TestCardView.swift in Sources */,
 				F2D707B82849BA6C00DA86FD /* TeamOXYApp.swift in Sources */,
-				F29BED28285436F2005B4A1B /* QRCodeView.swift in Sources */,
 				F29BED1F28533CBC005B4A1B /* String+ButtonImageName.swift in Sources */,
 				7BC5EFB22851ECC5004A27B5 /* ColorExtension.swift in Sources */,
-				1595F54C28547D330055E5CF /* TimeSetView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
