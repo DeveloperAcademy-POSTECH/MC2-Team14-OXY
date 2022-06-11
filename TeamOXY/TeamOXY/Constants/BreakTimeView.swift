@@ -43,7 +43,7 @@ struct BreakTimeView: View {
                     }
                 }
             }
-            //TODO: title 사이즈 고민
+            //TODO: title 사이즈 고민하기
             .navigationBarTitle("쉬는 시간", displayMode: .inline)
         }
     }
