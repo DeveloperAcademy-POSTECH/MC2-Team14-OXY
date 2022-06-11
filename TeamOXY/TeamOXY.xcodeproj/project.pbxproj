@@ -16,6 +16,9 @@
 		7BC5EFAE2851DD74004A27B5 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BC5EFAD2851DD74004A27B5 /* HomeView.swift */; };
 		7BC5EFB02851E5C0004A27B5 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7BC5EFAF2851E5C0004A27B5 /* Colors.xcassets */; };
 		7BC5EFB22851ECC5004A27B5 /* ColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BC5EFB12851ECC5004A27B5 /* ColorExtension.swift */; };
+		7BC5EFB42853703E004A27B5 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BC5EFB32853703E004A27B5 /* OnboardingView.swift */; };
+		7BC5EFB628538489004A27B5 /* OnboardingPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BC5EFB528538489004A27B5 /* OnboardingPageView.swift */; };
+		7BC5EFB82853899A004A27B5 /* OnboardingLastPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BC5EFB728538999004A27B5 /* OnboardingLastPageView.swift */; };
 		F29BECE6285217A9005B4A1B /* Pretendard-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = F29BECDD285217A8005B4A1B /* Pretendard-Medium.otf */; };
 		F29BECE7285217A9005B4A1B /* Pretendard-Thin.otf in Resources */ = {isa = PBXBuildFile; fileRef = F29BECDE285217A8005B4A1B /* Pretendard-Thin.otf */; };
 		F29BECE8285217A9005B4A1B /* Pretendard-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = F29BECDF285217A8005B4A1B /* Pretendard-Light.otf */; };
@@ -40,6 +43,9 @@
 		7BC5EFAD2851DD74004A27B5 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = SOURCE_ROOT; };
 		7BC5EFAF2851E5C0004A27B5 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		7BC5EFB12851ECC5004A27B5 /* ColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ColorExtension.swift; path = TeamOXY/Extensions/ColorExtension.swift; sourceTree = SOURCE_ROOT; };
+		7BC5EFB32853703E004A27B5 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
+		7BC5EFB528538489004A27B5 /* OnboardingPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingPageView.swift; sourceTree = "<group>"; };
+		7BC5EFB728538999004A27B5 /* OnboardingLastPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingLastPageView.swift; sourceTree = "<group>"; };
 		F29BECDD285217A8005B4A1B /* Pretendard-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Medium.otf"; sourceTree = "<group>"; };
 		F29BECDE285217A8005B4A1B /* Pretendard-Thin.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Thin.otf"; sourceTree = "<group>"; };
 		F29BECDF285217A8005B4A1B /* Pretendard-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Light.otf"; sourceTree = "<group>"; };
@@ -92,6 +98,9 @@
 				212E5CDF2853193100E10FF4 /* TempCardView.swift */,
 				212E5CE12853280400E10FF4 /* MeetingRoomView.swift */,
 				7BC5EFAD2851DD74004A27B5 /* HomeView.swift */,
+				7BC5EFB32853703E004A27B5 /* OnboardingView.swift */,
+				7BC5EFB528538489004A27B5 /* OnboardingPageView.swift */,
+				7BC5EFB728538999004A27B5 /* OnboardingLastPageView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -251,7 +260,10 @@
 				212E5CE02853193100E10FF4 /* TempCardView.swift in Sources */,
 				212E5CE22853280400E10FF4 /* MeetingRoomView.swift in Sources */,
 				212E5CDA2853173700E10FF4 /* CardDeckView.swift in Sources */,
+				7BC5EFB42853703E004A27B5 /* OnboardingView.swift in Sources */,
 				212E5CDE2853181000E10FF4 /* TestGestureView.swift in Sources */,
+				7BC5EFB628538489004A27B5 /* OnboardingPageView.swift in Sources */,
+				7BC5EFB82853899A004A27B5 /* OnboardingLastPageView.swift in Sources */,
 				212E5CDC285317B200E10FF4 /* CardZoneView.swift in Sources */,
 				21D2547B2852D21100E3EADC /* TestCardView.swift in Sources */,
 				7BC5EFAE2851DD74004A27B5 /* HomeView.swift in Sources */,
