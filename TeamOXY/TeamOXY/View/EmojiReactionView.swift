@@ -16,22 +16,13 @@ struct EmojiReactionView: View {
     @State private var emojiString = ""
     
     var body: some View {
-        NavigationView {
-            
-            
+
             ZStack(alignment: .center){
                 
                 VStack{
                     
-                    Rectangle()
-                        .padding()
-                        .frame(height: 400)
-                        .padding(.top, 15)
-                        .foregroundColor(.white)
-                        .shadow(color: .gray.opacity(0.5), radius: 15, x: 3, y: 3)
-                        .onTapGesture {
-                            counter += 1
-                        }
+                   Spacer()
+                        .frame(height:UIScreen.main.bounds.height / 1.8)
                     
                     Text("누군가 쉬는 시간을 제안했습니다.")
                         .fontWeight(.bold)
@@ -98,7 +89,6 @@ struct EmojiReactionView: View {
                 })
                 ConfettiCannon(counter: $counter, num: 5, confettis: counter > 3 ? [.text("🫠")] : [.text("🫠")], radius: 300.0)
             }
-        }
     }
 }
 
