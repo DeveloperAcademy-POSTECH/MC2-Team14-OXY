@@ -10,17 +10,14 @@ import ConfettiSwiftUI
 
 struct EmojiReactionView: View {
     
-    let emojis = ["🤔","👎","👍","🤩","🫠","🔥","❤️","😱","🤭","🥱","👀","✅","🙅","🎉","😂"]
+    let emojis = ["🤔","👎","👍","🤩","🫠", "🔥","❤️","😱","🤭","🥱","👀","✅","🙅","🎉","😂"]
+
     
-    @State private var counter = 1
-    @State private var emojiString = ""
+    @ObservedObject var viewModel = EmojieViewModel()
     
     var body: some View {
-
             ZStack(alignment: .center){
-                
-                VStack{
-                    
+                VStack{                   
                    Spacer()
                         .frame(height:UIScreen.main.bounds.height / 1.8)
                     
@@ -30,7 +27,17 @@ struct EmojiReactionView: View {
                     Text("아래 아이콘을 탭해서 반응해 보세요.")
                         .fontWeight(.bold)
                         .padding(.top, 4)
+
                     
+                    // 아래로 내리는 화살표
+                    Arrows()
+                        .rotationEffect(.degrees(90))
+                        .padding(.top, -20)
+                        
+                    // 화면 중간 텍스트
+                    middleTextView()
+                        .padding(.top, 10)
+                
                     ScrollView(.horizontal, showsIndicators: false){
                         HStack {
                             ForEach(emojis, id: \.self) { emoji in
@@ -42,16 +49,7 @@ struct EmojiReactionView: View {
                                     
                                     Button(action: {
                                         
-                                        counter += 1
-                                        emojiString = emoji
-                                        print(emojiString)
-                                        print(counter)
-                                        
-//                                        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-//                                            counter = 0
-//                                        }
-                                        
-//                                        counter = 0
+                                        viewModel.emojiCountPlus(emoji)
 
                                     }){
                                         Text(emoji)
@@ -85,9 +83,41 @@ struct EmojiReactionView: View {
                                 .imageScale(.large)
                         }
                     }
-                    
                 })
-                ConfettiCannon(counter: $counter, num: 5, confettis: counter > 3 ? [.text("🫠")] : [.text("🫠")], radius: 300.0)
+                
+                ZStack {
+                    ConfettiCannon(counter: $viewModel.emojiCount_1, num: 5, confettis: [.text("🤔")], confettiSize: 30, radius: 300.0)
+                    
+                    ConfettiCannon(counter: $viewModel.emojiCount_2, num: 5, confettis: [.text("👎")], confettiSize: 30, radius: 300.0)
+                    
+                    ConfettiCannon(counter: $viewModel.emojiCount_3, num: 5, confettis: [.text("👍")], confettiSize: 30, radius: 300.0)
+                    
+                    ConfettiCannon(counter: $viewModel.emojiCount_4, num: 5, confettis: [.text("🤩")], confettiSize: 30, radius: 300.0)
+                    
+                    ConfettiCannon(counter: $viewModel.emojiCount_5, num: 5, confettis: [.text("🫠")], confettiSize: 30, radius: 300.0)
+                    
+                    ConfettiCannon(counter: $viewModel.emojiCount_6, num: 5, confettis: [.text("🔥")], confettiSize: 30, radius: 300.0)
+                    
+                    ConfettiCannon(counter: $viewModel.emojiCount_7, num: 5, confettis: [.text("❤️")], confettiSize: 30, radius: 300.0)
+                    
+                    ConfettiCannon(counter: $viewModel.emojiCount_8, num: 5, confettis: [.text("😱")], confettiSize: 30, radius: 300.0)
+                    
+                    ConfettiCannon(counter: $viewModel.emojiCount_9, num: 5, confettis: [.text("🤭")], confettiSize: 30, radius: 300.0)
+                }
+                
+                
+                    ConfettiCannon(counter: $viewModel.emojiCount_10, num: 5, confettis: [.text("🥱")], confettiSize: 30, radius: 300.0)
+                
+                    ConfettiCannon(counter: $viewModel.emojiCount_11, num: 5, confettis: [.text("👀")], confettiSize: 30, radius: 300.0)
+                    
+                    ConfettiCannon(counter: $viewModel.emojiCount_12, num: 5, confettis: [.text("✅")], confettiSize: 30, radius: 300.0)
+                    
+                    ConfettiCannon(counter: $viewModel.emojiCount_13, num: 5, confettis: [.text("🙅")], confettiSize: 30, radius: 300.0)
+                    
+                    ConfettiCannon(counter: $viewModel.emojiCount_14, num: 5, confettis: [.text("🎉")], confettiSize: 30, radius: 300.0)
+                    
+                    ConfettiCannon(counter: $viewModel.emojiCount_15, num: 5, confettis: [.text("😂")], confettiSize: 30, radius: 300.0)
+
             }
     }
 }
@@ -97,3 +127,44 @@ struct EmojiReactionView_Previews: PreviewProvider {
         EmojiReactionView()
     }
 }
+
+
+struct middleTextView : View {
+    var body: some View {
+        VStack(spacing: 10) {
+            HStack {
+                Text("누군가")
+                    .bold()
+                
+                Text("쉬는 시간")
+                    .foregroundColor(.blue)
+                    .bold()
+                
+                Text("을 제안했습니다.")
+                    .bold()
+                    .padding(.leading, -7)
+            }
+            
+            Text("아래 아이콘을 탭해서 반응해 보세요.")
+                .bold()
+        }
+    }
+}
+
+struct CardDownImageView : View {
+    
+    var colorOpacities = [0.3, 0.6, 0.9]
+    
+    var body: some View {
+        VStack {
+            ForEach(colorOpacities, id: \.self) { colorOpacity in
+                Image(systemName: "chevron.compact.down")
+                    .resizable()
+                    .foregroundColor(Color.gray.opacity(colorOpacity))
+                    .frame(width: 40, height: 10)
+                    .padding(-3)
+            }
+        }
+    }
+}
+

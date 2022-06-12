@@ -6,9 +6,45 @@
 //
 
 import SwiftUI
+import CodeScanner
 
 
 struct HomeView: View {
+    @State var isPresentingScanner = false
+    @State var scannedCode: String = "Scan a QR code to get started"
+    
+    var scannerSheet: some View {
+        ZStack {
+            CodeScannerView(codeTypes: [.qr]) { result in
+                if case let .success(code) = result {
+                    self.scannedCode = code.string
+                    self.isPresentingScanner = false
+                    print(self.scannedCode)
+                }
+            }
+            
+            VStack {
+                HStack {
+                    Spacer()
+                    Button {
+                        isPresentingScanner = false
+                    } label: {
+                        Image(systemName: "xmark")                            
+                            .font(.title2)
+                    }
+                    .foregroundColor(.black)
+                }
+                .padding()
+                .background(.white)
+                
+                Spacer()
+                
+                HStack { Spacer() }
+                    .background(.white)
+            }
+        }
+    }
+    
     var body: some View {
         NavigationView{
             VStack {
@@ -41,7 +77,12 @@ struct HomeView: View {
                 VStack {
                     Text("이미 방이 있다면 qr코드를 통해 입장해주세요.")
                         .font(.custom("Pretendard-SemiBold", size: 12))
-                    RoundButton(buttonType: .outline, title: "입장하기", isButton: true) { }
+                    RoundButton(buttonType: .outline, title: "입장하기", isButton: true) {
+                        isPresentingScanner = true
+                    }
+                    .fullScreenCover(isPresented: $isPresentingScanner) {
+                        self.scannerSheet
+                    }
                 }
             }
             .navigationTitle("")

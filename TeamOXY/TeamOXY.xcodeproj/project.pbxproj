@@ -21,6 +21,8 @@
 		3F4E600A2853A30300BFAA65 /* FancyButtonViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F4E60072853A30300BFAA65 /* FancyButtonViewModel.swift */; };
 		3F4E600B2853A30300BFAA65 /* TestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F4E60082853A30300BFAA65 /* TestView.swift */; };
 		3F4E600E2853A37000BFAA65 /* ConfettiSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = 3F4E600D2853A37000BFAA65 /* ConfettiSwiftUI */; };
+		3F4E60122855BBBB00BFAA65 /* EmojiViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F4E60112855BBBB00BFAA65 /* EmojiViewModel.swift */; };
+		3F4E60142855BE7200BFAA65 /* Arrows.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F4E60132855BE7200BFAA65 /* Arrows.swift */; };
 		4AC8DEEB2854F20E00500E0A /* CarouselView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AC8DEEA2854F20E00500E0A /* CarouselView.swift */; };
 		7BC5EFB02851E5C0004A27B5 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7BC5EFAF2851E5C0004A27B5 /* Colors.xcassets */; };
 		7BC5EFB22851ECC5004A27B5 /* ColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BC5EFB12851ECC5004A27B5 /* ColorExtension.swift */; };
@@ -40,6 +42,7 @@
 		F29BED2528543123005B4A1B /* FieldType.swift in Sources */ = {isa = PBXBuildFile; fileRef = F29BED2428543123005B4A1B /* FieldType.swift */; };
 		F29BED28285436F2005B4A1B /* QRCodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F29BED27285436F2005B4A1B /* QRCodeView.swift */; };
 		F29BED2B28543717005B4A1B /* QRCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = F29BED2A28543717005B4A1B /* QRCode.swift */; };
+		F29BED2E28558F48005B4A1B /* CodeScanner in Frameworks */ = {isa = PBXBuildFile; productRef = F29BED2D28558F48005B4A1B /* CodeScanner */; };
 		F2D707B82849BA6C00DA86FD /* TeamOXYApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2D707B72849BA6C00DA86FD /* TeamOXYApp.swift */; };
 		F2D707BC2849BA6D00DA86FD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F2D707BB2849BA6D00DA86FD /* Assets.xcassets */; };
 		F2D707BF2849BA6D00DA86FD /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F2D707BE2849BA6D00DA86FD /* Preview Assets.xcassets */; };
@@ -59,6 +62,8 @@
 		3F4E60062853A30200BFAA65 /* EmojiReactionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmojiReactionView.swift; sourceTree = "<group>"; };
 		3F4E60072853A30300BFAA65 /* FancyButtonViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FancyButtonViewModel.swift; sourceTree = "<group>"; };
 		3F4E60082853A30300BFAA65 /* TestView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestView.swift; sourceTree = "<group>"; };
+		3F4E60112855BBBB00BFAA65 /* EmojiViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmojiViewModel.swift; sourceTree = "<group>"; };
+		3F4E60132855BE7200BFAA65 /* Arrows.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Arrows.swift; sourceTree = "<group>"; };
 		4AC8DEEA2854F20E00500E0A /* CarouselView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CarouselView.swift; sourceTree = "<group>"; };
 		7BC5EFAF2851E5C0004A27B5 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		7BC5EFB12851ECC5004A27B5 /* ColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ColorExtension.swift; path = TeamOXY/Extensions/ColorExtension.swift; sourceTree = SOURCE_ROOT; };
@@ -90,6 +95,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F29BED2E28558F48005B4A1B /* CodeScanner in Frameworks */,
 				3F4E600E2853A37000BFAA65 /* ConfettiSwiftUI in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -123,6 +129,7 @@
 				15634FA62854EB3F009264BF /* TimeSetView.swift */,
 				F29BED2928543708005B4A1B /* QRCode */,
 				3F4E60062853A30200BFAA65 /* EmojiReactionView.swift */,
+				3F4E60132855BE7200BFAA65 /* Arrows.swift */,
 				3F4E60072853A30300BFAA65 /* FancyButtonViewModel.swift */,
 				3F4E60082853A30300BFAA65 /* TestView.swift */,
 				21D2547A2852D21100E3EADC /* TestCardView.swift */,
@@ -148,6 +155,7 @@
 		F29BECDA28521558005B4A1B /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				3F4E60112855BBBB00BFAA65 /* EmojiViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -246,6 +254,7 @@
 			name = TeamOXY;
 			packageProductDependencies = (
 				3F4E600D2853A37000BFAA65 /* ConfettiSwiftUI */,
+				F29BED2D28558F48005B4A1B /* CodeScanner */,
 			);
 			productName = TeamOXY;
 			productReference = F2D707B42849BA6C00DA86FD /* TeamOXY.app */;
@@ -277,6 +286,7 @@
 			mainGroup = F2D707AB2849BA6C00DA86FD;
 			packageReferences = (
 				3F4E600C2853A37000BFAA65 /* XCRemoteSwiftPackageReference "ConfettiSwiftUI" */,
+				F29BED2C28558F47005B4A1B /* XCRemoteSwiftPackageReference "CodeScanner" */,
 			);
 			productRefGroup = F2D707B52849BA6C00DA86FD /* Products */;
 			projectDirPath = "";
@@ -325,10 +335,12 @@
 				3F4E60092853A30300BFAA65 /* EmojiReactionView.swift in Sources */,
 				F29BED2B28543717005B4A1B /* QRCode.swift in Sources */,
 				212E5CE22853280400E10FF4 /* MeetingRoomView.swift in Sources */,
+				3F4E60142855BE7200BFAA65 /* Arrows.swift in Sources */,
 				212E5CDA2853173700E10FF4 /* CardDeckView.swift in Sources */,
 				212E5CDE2853181000E10FF4 /* TestGestureView.swift in Sources */,
 				F29BED21285397AF005B4A1B /* HomeView.swift in Sources */,
 				15634FA72854EB3F009264BF /* BreakTimeView.swift in Sources */,
+				3F4E60122855BBBB00BFAA65 /* EmojiViewModel.swift in Sources */,
 				212E5CDC285317B200E10FF4 /* CardZoneView.swift in Sources */,
 				15634FA92854EB3F009264BF /* TimeSetView.swift in Sources */,
 				21D2547B2852D21100E3EADC /* TestCardView.swift in Sources */,
@@ -393,7 +405,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -447,7 +459,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -469,11 +481,13 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = TeamOXY/Info.plist;
+				INFOPLIST_KEY_NSCameraUsageDescription = "QR 코드를 스캔하기 위해서는 카메라 접근 권한이 필요합니다.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -499,11 +513,13 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = TeamOXY/Info.plist;
+				INFOPLIST_KEY_NSCameraUsageDescription = "QR 코드를 스캔하기 위해서는 카메라 접근 권한이 필요합니다.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -549,6 +565,14 @@
 				minimumVersion = 1.0.0;
 			};
 		};
+		F29BED2C28558F47005B4A1B /* XCRemoteSwiftPackageReference "CodeScanner" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/twostraws/CodeScanner.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -556,6 +580,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 3F4E600C2853A37000BFAA65 /* XCRemoteSwiftPackageReference "ConfettiSwiftUI" */;
 			productName = ConfettiSwiftUI;
+		};
+		F29BED2D28558F48005B4A1B /* CodeScanner */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F29BED2C28558F47005B4A1B /* XCRemoteSwiftPackageReference "CodeScanner" */;
+			productName = CodeScanner;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
