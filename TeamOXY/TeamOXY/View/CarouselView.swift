@@ -160,10 +160,7 @@ struct CarouselView: View {
                         Spacer()
                             .frame(height: UIScreen.main.bounds.height / 3)
                     }
-                    .transition(.asymmetric(insertion: AnyTransition.move(edge: .top),
-                                            removal: AnyTransition.opacity.animation(.easeIn))
-                    )
-                    .animation(.easeIn)
+                    .transition(AnyTransition.opacity.animation(.easeInOut))
                 }
                 
                 EmojiReactionView()
