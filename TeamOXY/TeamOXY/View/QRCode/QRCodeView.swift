@@ -10,7 +10,7 @@ import SwiftUI
 struct QRCodeView: View {
     var body: some View {
         VStack {
-            QRCode(url: "")
+            QRCode(url: "www.naver.com")
                 .padding(.bottom)
             
             HStack {

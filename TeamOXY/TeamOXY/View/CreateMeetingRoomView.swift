@@ -49,12 +49,17 @@ struct CreateMeetingRoomView: View {
             
             Spacer()
             
-            RoundButton(buttonType: .primary, title: "시작하기", isButton: false, didCompletion: nil)
-                .font(.custom("Pretendard-Black", size: 16))
-                .foregroundColor(.white)
-                .frame(width: UIScreen.main.bounds.width - 40, height: 55)
-                .background(Color.PrimaryBlue)
-                .clipShape(Capsule())
+            NavigationLink {
+                QRCodeView()
+            } label: {
+                RoundButton(buttonType: .primary, title: "시작하기", isButton: false, didCompletion: nil)
+                    .font(.custom("Pretendard-Black", size: 16))
+                    .foregroundColor(.white)
+                    .frame(width: UIScreen.main.bounds.width - 40, height: 55)
+                    .background(Color.PrimaryBlue)
+                    .clipShape(Capsule())
+            }
+
         }
         .navigationTitle(barTitle)
         .navigationBarTitleDisplayMode(.inline)
