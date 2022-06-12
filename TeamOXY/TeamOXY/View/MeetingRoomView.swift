@@ -12,18 +12,27 @@ struct MeetingRoomView: View {
     var body: some View {
         NavigationView {
             VStack {
-                Spacer()
-                CarouselView(views: [
-                Image("Card1"),
-                Image("Card2"),
-                Image("Card3"),
-                Image("Card4"),
-                Image("Card5"),
-                Image("Card6"),
-                Image("Card6")
-                ])
+                ZStack{
+                    Spacer()
+                    Rectangle()
+                        .strokeBorder(style: StrokeStyle(lineWidth: 4, dash: [10]))
+                        .frame(width: smallCardWidth * 2.4,height: smallCardHeight * 2.4)
+                        .foregroundColor(.gray.opacity(0.5))
+                        .shadow(color: .gray.opacity(0.5), radius: 15, x: 3, y: 3)
+                        .offset(y: -95)
+
+                    CarouselView(views: [
+                        Image("Card1"),
+                        Image("Card2"),
+                        Image("Card3"),
+                        Image("Card4"),
+                        Image("Card5"),
+                        Image("Card6"),
+                        Image("Card6")
+                    ])
             }
-            .confirmationDialog("방을 정말 떠나시겠습니까? \n 방에 다시 입장하려면 팀원들의 QR코드를 통해 입장해주세요",
+            }
+            .confirmationDialog("방을 정말 떠나시겠습니까?",
                                 isPresented: $showingLeaveRoomSheet,
                                 titleVisibility: .visible) {
                 Button("떠나기") {
@@ -31,6 +40,8 @@ struct MeetingRoomView: View {
                 }
                 Button("취소", role: .cancel) {
                 }
+            } message: {
+                Text("방에 다시 입장하려면 팀원들의 QR코드를 통해 입장해주세요")
             }
             .navigationTitle("익명의 원숭이 방 6")
             .navigationBarTitleDisplayMode(.inline)

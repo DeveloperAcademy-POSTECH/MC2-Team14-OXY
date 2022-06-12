@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct FinishTopicView: View {
+    
+    @Binding var FinishTopicViewCondition: [Bool]
+    
     var body: some View {
         VStack {
             Text("🕰⏰🕰⏰")
@@ -19,14 +22,18 @@ struct FinishTopicView: View {
                 .multilineTextAlignment(.center)
                 .padding(.bottom, 20)
             HStack {
-                Button(action: {}) {
+                Button(action: {
+                    FinishTopicViewCondition = []
+                }) {
                     Circle()
                         .stroke(Color("PrimaryBlue"))
                         .frame(width: 58, height: 58, alignment: .center)
                         .overlay(Text("아니요").font(.custom("Pretendard-Bold", size: 14)).foregroundColor(Color("PrimaryBlue")))
                 }
                 Spacer()
-                Button(action: {}) {
+                Button(action: {
+                    FinishTopicViewCondition = []
+                }) {
                     Circle()
                         .fill(Color("PrimaryBlue"))
                         .frame(width: 58, height: 58, alignment: .center)
@@ -38,9 +45,9 @@ struct FinishTopicView: View {
         .padding(.horizontal, 62)
     }
 }
-
-struct FinishTopicView_Previews: PreviewProvider {
-    static var previews: some View {
-        FinishTopicView()
-    }
-}
+//
+//struct FinishTopicView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        FinishTopicView()
+//    }
+//}
