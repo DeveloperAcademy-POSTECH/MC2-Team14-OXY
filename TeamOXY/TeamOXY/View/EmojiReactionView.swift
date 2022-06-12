@@ -16,18 +16,18 @@ struct EmojiReactionView: View {
     @ObservedObject var viewModel = EmojieViewModel()
     
     var body: some View {
-        NavigationView {
             ZStack(alignment: .center){
-                VStack{
-
-                    // 카드 더미
-                    Rectangle()
-                        .padding()
-                        .frame(height: 400)
-                        .padding(.top, 15)
-                        .foregroundColor(.white)
-                        .shadow(color: .gray.opacity(0.5), radius: 15, x: 3, y: 3)
+                VStack{                   
+                   Spacer()
+                        .frame(height:UIScreen.main.bounds.height / 1.8)
                     
+                    Text("누군가 쉬는 시간을 제안했습니다.")
+                        .fontWeight(.bold)
+                        .padding(.top, 50)
+                    Text("아래 아이콘을 탭해서 반응해 보세요.")
+                        .fontWeight(.bold)
+                        .padding(.top, 4)
+                  
                     // 아래로 내리는 화살표
                     Arrows()
                         .rotationEffect(.degrees(90))
@@ -118,7 +118,6 @@ struct EmojiReactionView: View {
                     ConfettiCannon(counter: $viewModel.emojiCount_15, num: 5, confettis: [.text("😂")], confettiSize: 30, radius: 300.0)
 
             }
-        }
     }
 }
 

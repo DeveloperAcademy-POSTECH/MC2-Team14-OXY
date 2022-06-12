@@ -8,8 +8,12 @@
 import SwiftUI
 
 /*
-  TODO: Bool값으로 카드가 cardZone에 있을 때 스크롤 작동 안되게 하기 -> clear
-  TODO: card존의 위치 조정 -> 일단clear 다니거에서 secondCardLocation 수정 & initialCardLocation 수정 & smallCardWidth, Heiht 수정 & 나머지는 그대로
+ TODO: Bool값으로 카드가 cardZone에 있을 때 스크롤 작동 안되게 하기 -> clear
+ TODO: card존의 위치 조정 -> 일단clear 다니거에서 secondCardLocation 수정 & initialCardLocation 수정 & smallCardWidth, Heiht 수정 & 나머지는 그대로
+ TODO: 올리는 동작의 end에는(inCardzone인 경우) -> 이모지뷰 띄우기, 내리는 동작중 드래깅
+ TODO: 카드가 올라가 있을 때 '누군가 쉬는시간을 제안했습니다' 보여주기
+ 
+ 
  */
 
 
@@ -42,7 +46,8 @@ struct CarouselView: View {
     @State var carouselLocation = 0
     @State var degree = 0.0
     
-//    var itemHeight: CGFloat
+    @State var FinishTopicViewCondition: [Bool] = [false, false]
+    //    var itemHeight: CGFloat
     var views: [Image]
     
     var spacerWidth: CGFloat = UIScreen.main.bounds.width / 4.1
@@ -91,19 +96,23 @@ struct CarouselView: View {
                 // 카드 놓는 공간 안에 있다면
                 if viewState.height < secondCardLocation {
                     print("inside zone")
+                    FinishTopicViewCondition.append(true)
                     // 카드 놓는 곳으로 위치시키기
-//                    self.viewState.height = -largeCardHeight/2 + cardZoneHeightOverMiddle
+                    //                    self.viewState.height = -largeCardHeight/2 + cardZoneHeightOverMiddle
+                    
                     viewState.height = -370
-
                 } else {
                     print("not inside zone")
+                    FinishTopicViewCondition.append(false)
+                    print(FinishTopicViewCondition)
                     // 다시 덱으로 위치시키기
                     self.viewState.height = initialCardLocation
                 }
                 print("onEnded")
             }
-
-        ZStack{
+        
+        ZStack(alignment: .bottom){
+            
             // 각각의 요소에 그림자 넣는 법 말고 전체를 묶어서 그림자를 넣는 법 고민해보기
             ForEach(0..<views.count){ i in
                 VStack{
@@ -111,22 +120,22 @@ struct CarouselView: View {
                         .resizable()
                         .frame(width: getWidth(i), height: getWidth(i) * 1.4)
                         .aspectRatio(contentMode: .fit)
-//                        .animation(.interpolatingSpring(stiffness: 300.0, damping: 30.0, initialVelocity: 10.0))
+                    //                        .animation(.interpolatingSpring(stiffness: 300.0, damping: 30.0, initialVelocity: 10.0))
                         .background(Color.white)
                         .cornerRadius(5)
                         .shadow(color: .gray.opacity(0.5), radius: shadowSetting(i)[0], x: shadowSetting(i)[1], y: shadowSetting(i)[2])
                         .opacity(self.getOpacity(i))
-//                        .animation(.interpolatingSpring(stiffness: 300.0, damping: 30.0, initialVelocity: 10.0))
+                    //                        .animation(.interpolatingSpring(stiffness: 300.0, damping: 30.0, initialVelocity: 10.0))
                     // offset y를 longpress가 눌리면, 다니 함수의 y값으로 return 하도록 삼항연산자(?)
                         .offset(x: self.getOffsetX(i),
                                 y: setOffsetY(i))
-//                        .animation(.interpolatingSpring(stiffness: 300.0, damping: 30.0, initialVelocity: 10.0))
+                    //                        .animation(.interpolatingSpring(stiffness: 300.0, damping: 30.0, initialVelocity: 10.0))
                     // animation은 그 바로 위에 있는 메소드에 적용하는 것, 즉 animation이 3번 반복되는이유는
                     // frame, shadow, offset변화에 애니메이션을 주기 위함 -> 각각에 적용되는 애니메이션이 똑같으면 굳이 그럴필요 있나(?)
                         .scaleEffect(setScale(i))
                         .animation(.interpolatingSpring(stiffness: 300.0, damping: 30.0, initialVelocity: 10.0))
                 }
-                .zIndex(zindex(i))
+                .zIndex(setZindex(i))
             }
             // long 프레스와 좌우스크롤은 같은 위계 & 상하 드래그는 long프레스 보다 낮은 위계
             .simultaneousGesture(
@@ -134,6 +143,24 @@ struct CarouselView: View {
                 isInCardZone() || dragState2.isDragging ? nil : horizontalDrag
             )
             .simultaneousGesture(longPressDrag)
+            
+            // incardzone이면 너무 먼저 떠버리게 됨.
+            if isFinishTopicView() {
+                VStack{
+                    FinishTopicView(FinishTopicViewCondition: $FinishTopicViewCondition )
+                        
+                    Spacer()
+                        .frame(height: UIScreen.main.bounds.height / 3)
+                }
+                .transition(.asymmetric(insertion: AnyTransition.move(edge: .top),
+                                               removal: AnyTransition.opacity.animation(.easeIn))
+                       )
+                .animation(.easeIn)
+            }
+            
+            EmojiReactionView()
+                .opacity(isInCardZone() && !dragState2.isDragging ? 1.0 : 0)
+                .zIndex(3)
         }
     }
     
@@ -170,7 +197,7 @@ struct CarouselView: View {
     }
     
     // 센터의 zindex 변경
-    func zindex(_ i: Int) -> Double {
+    func setZindex(_ i: Int) -> Double {
         if i == relativeLoc() {
             return 2
         } else if i + 1 == relativeLoc()
@@ -199,22 +226,66 @@ struct CarouselView: View {
     
     // 보여지지 않는 요소에 대한 투명도 설정
     func getOpacity(_ i:Int) -> Double{
+        // isinzone일 때 relativeLoc만 띄우기 그리고 isdragging일 때는 모든 카드 띄우기
         
-        if i == relativeLoc()
-            || i + 1 == relativeLoc()
-            || i - 1 == relativeLoc()
-            || i + 2 == relativeLoc()
-            || i - 2 == relativeLoc()
-            || (i + 1) - views.count == relativeLoc()
-            || (i - 1) + views.count == relativeLoc()
-            || (i + 2) - views.count == relativeLoc()
-            || (i - 2) + views.count == relativeLoc()
-        {
-            return 1
+        // isinzone이 아닐 때 : 모두 띄워주기
+        // isinzone && isdragging일 때는 모든 카드를 띄우고, isdragging이 아닐 때는 가운데만 띄우기
+        if isInCardZone() && dragState2.isDragging {
+            if i == relativeLoc()
+                || i + 1 == relativeLoc()
+                || i - 1 == relativeLoc()
+                || i + 2 == relativeLoc()
+                || i - 2 == relativeLoc()
+                || (i + 1) - views.count == relativeLoc()
+                || (i - 1) + views.count == relativeLoc()
+                || (i + 2) - views.count == relativeLoc()
+                || (i - 2) + views.count == relativeLoc()
+            {
+                return 1
+            } else {
+                return 0
+            }
+        } else if isInCardZone() && !dragState2.isDragging {
+            if i == relativeLoc() {
+                return 1
+            } else {
+                return 0
+            }
+        } else if !isInCardZone() {
+            if i == relativeLoc()
+                || i + 1 == relativeLoc()
+                || i - 1 == relativeLoc()
+                || i + 2 == relativeLoc()
+                || i - 2 == relativeLoc()
+                || (i + 1) - views.count == relativeLoc()
+                || (i - 1) + views.count == relativeLoc()
+                || (i + 2) - views.count == relativeLoc()
+                || (i - 2) + views.count == relativeLoc()
+            {
+                return 1
+            } else {
+                return 0
+            }
         } else {
             return 0
         }
+        //
+        //                        if i == relativeLoc()
+        //                    || i + 1 == relativeLoc()
+        //                    || i - 1 == relativeLoc()
+        //                    || i + 2 == relativeLoc()
+        //                    || i - 2 == relativeLoc()
+        //                    || (i + 1) - views.count == relativeLoc()
+        //                    || (i - 1) + views.count == relativeLoc()
+        //                    || (i + 2) - views.count == relativeLoc()
+        //                    || (i - 2) + views.count == relativeLoc()
+        //                {
+        //                    return 1
+        //                } else {
+        //                    return 0
+        //                }
     }
+    
     
     func getOffsetY(_ i: Int) -> CGFloat {
         if i == relativeLoc() {
@@ -305,6 +376,18 @@ struct CarouselView: View {
         let curHeight = viewState.height + dragState2.translation.height
         return curHeight < secondCardLocation
     }
+    
+    // FinishTopicView 띄워줄 조건
+    func isFinishTopicView() -> Bool {
+        guard let index = FinishTopicViewCondition.lastIndex(of: false) else { return false }
+        if FinishTopicViewCondition[index - 1] == true {
+            print(true)
+            return true
+        } else {
+            return false
+        }
+    }
+    
 }
 
 // 횡스크롤 drag gesture
@@ -375,9 +458,9 @@ enum LongPressAndDragState {
 }
 
 
-//
-//struct CarouselView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        CarouselView()
-//    }
-//}
+
+struct CarouselView_Previews: PreviewProvider {
+    static var previews: some View {
+        CarouselView(views: [Image("Card1"),Image("Card1")])
+    }
+}
