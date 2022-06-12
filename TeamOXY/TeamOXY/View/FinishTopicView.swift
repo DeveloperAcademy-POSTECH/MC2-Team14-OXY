@@ -22,8 +22,7 @@ struct FinishTopicView: View {
                     .font(.system(size: 58))
                     .padding(.bottom, 20)
                 Text("쉬는 시간을\n 설정하시겠습니까?")
-                    .font(.custom("Pretendard-Light", size: 24))
-                    .fontWeight(.bold)
+                    .font(.custom("Pretendard-Bold", size: 24))
                     .multilineTextAlignment(.center)
                     .padding(.bottom, 20)
                 HStack {
