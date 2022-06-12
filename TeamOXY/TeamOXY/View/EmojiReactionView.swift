@@ -129,7 +129,7 @@ struct middleTextView : View {
                     .font(.custom("Pretendard-Bold", size: 12))
                 
                 Text("쉬는 시간")
-                    .foregroundColor(.blue)
+                    .foregroundColor(Color.PrimaryBlue)
                     .font(.custom("Pretendard-Bold", size: 12))
                 
                 Text("을 제안했습니다.")
