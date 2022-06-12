@@ -27,8 +27,7 @@ struct EmojiReactionView: View {
                     Text("아래 아이콘을 탭해서 반응해 보세요.")
                         .fontWeight(.bold)
                         .padding(.top, 4)
-
-                    
+                  
                     // 아래로 내리는 화살표
                     Arrows()
                         .rotationEffect(.degrees(90))
