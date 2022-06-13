@@ -12,6 +12,7 @@ import CodeScanner
 struct HomeView: View {
     @State var isPresentingScanner = false
     @State var scannedCode: String = "Scan a QR code to get started"
+    @AppStorage("_isFirstLaunching") var isFirstLaunching: Bool = true
     
     var scannerSheet: some View {
         ZStack {
@@ -87,6 +88,9 @@ struct HomeView: View {
             }
             .navigationTitle("")
             .navigationBarHidden(true)
+        }.fullScreenCover(isPresented: $isFirstLaunching) {
+            OnboardingView(isFirstLaunching: $isFirstLaunching)
+            
         }
     }
 }

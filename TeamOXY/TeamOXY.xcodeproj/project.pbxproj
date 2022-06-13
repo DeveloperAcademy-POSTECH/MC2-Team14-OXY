@@ -32,6 +32,9 @@
 		4AC8DEEB2854F20E00500E0A /* CarouselView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AC8DEEA2854F20E00500E0A /* CarouselView.swift */; };
 		7BC5EFB02851E5C0004A27B5 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7BC5EFAF2851E5C0004A27B5 /* Colors.xcassets */; };
 		7BC5EFB22851ECC5004A27B5 /* ColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BC5EFB12851ECC5004A27B5 /* ColorExtension.swift */; };
+		7BFBD2E22856C33B00E5D98C /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BFBD2DF2856C33B00E5D98C /* OnboardingView.swift */; };
+		7BFBD2E32856C33B00E5D98C /* OnboardingLastPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BFBD2E02856C33B00E5D98C /* OnboardingLastPageView.swift */; };
+		7BFBD2E42856C33B00E5D98C /* OnboardingPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BFBD2E12856C33B00E5D98C /* OnboardingPageView.swift */; };
 		F29BECE6285217A9005B4A1B /* Pretendard-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = F29BECDD285217A8005B4A1B /* Pretendard-Medium.otf */; };
 		F29BECE7285217A9005B4A1B /* Pretendard-Thin.otf in Resources */ = {isa = PBXBuildFile; fileRef = F29BECDE285217A8005B4A1B /* Pretendard-Thin.otf */; };
 		F29BECE8285217A9005B4A1B /* Pretendard-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = F29BECDF285217A8005B4A1B /* Pretendard-Light.otf */; };
@@ -78,6 +81,9 @@
 		4AC8DEEA2854F20E00500E0A /* CarouselView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CarouselView.swift; sourceTree = "<group>"; };
 		7BC5EFAF2851E5C0004A27B5 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		7BC5EFB12851ECC5004A27B5 /* ColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ColorExtension.swift; path = TeamOXY/Extensions/ColorExtension.swift; sourceTree = SOURCE_ROOT; };
+		7BFBD2DF2856C33B00E5D98C /* OnboardingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
+		7BFBD2E02856C33B00E5D98C /* OnboardingLastPageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardingLastPageView.swift; sourceTree = "<group>"; };
+		7BFBD2E12856C33B00E5D98C /* OnboardingPageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardingPageView.swift; sourceTree = "<group>"; };
 		F29BECDD285217A8005B4A1B /* Pretendard-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Medium.otf"; sourceTree = "<group>"; };
 		F29BECDE285217A8005B4A1B /* Pretendard-Thin.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Thin.otf"; sourceTree = "<group>"; };
 		F29BECDF285217A8005B4A1B /* Pretendard-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Light.otf"; sourceTree = "<group>"; };
@@ -115,6 +121,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7BFBD2DE2856C31400E5D98C /* Onboarding */ = {
+			isa = PBXGroup;
+			children = (
+				7BFBD2E02856C33B00E5D98C /* OnboardingLastPageView.swift */,
+				7BFBD2E12856C33B00E5D98C /* OnboardingPageView.swift */,
+				7BFBD2DF2856C33B00E5D98C /* OnboardingView.swift */,
+			);
+			path = Onboarding;
+			sourceTree = "<group>";
+		};
 		F29BECD42852152F005B4A1B /* Constants */ = {
 			isa = PBXGroup;
 			children = (
@@ -135,6 +151,7 @@
 		F29BECD628521540005B4A1B /* View */ = {
 			isa = PBXGroup;
 			children = (
+				7BFBD2DE2856C31400E5D98C /* Onboarding */,
 				4AC8DEEA2854F20E00500E0A /* CarouselView.swift */,
 				15634FA42854EB3F009264BF /* BreakTimeView.swift */,
 				15634FA52854EB3F009264BF /* CircularTimerView.swift */,
@@ -347,6 +364,7 @@
 				F29BED2528543123005B4A1B /* FieldType.swift in Sources */,
 				3F4E600B2853A30300BFAA65 /* TestView.swift in Sources */,
 				4AC8DEEB2854F20E00500E0A /* CarouselView.swift in Sources */,
+				7BFBD2E22856C33B00E5D98C /* OnboardingView.swift in Sources */,
 				21812E8428557D380023463C /* FinishTopicView.swift in Sources */,
 				F29BED1D28532DC3005B4A1B /* RoundButton.swift in Sources */,
 				4A3B249B2855FFC000504486 /* CompletionViewModel.swift in Sources */,
@@ -357,6 +375,7 @@
 				F29BED2B28543717005B4A1B /* QRCode.swift in Sources */,
 				212E5CE22853280400E10FF4 /* MeetingRoomView.swift in Sources */,
 				3F4E60142855BE7200BFAA65 /* Arrows.swift in Sources */,
+				7BFBD2E42856C33B00E5D98C /* OnboardingPageView.swift in Sources */,
 				212E5CDA2853173700E10FF4 /* CardDeckView.swift in Sources */,
 				212E5CDE2853181000E10FF4 /* TestGestureView.swift in Sources */,
 				F29BED21285397AF005B4A1B /* HomeView.swift in Sources */,
@@ -371,6 +390,7 @@
 				F29BED28285436F2005B4A1B /* QRCodeView.swift in Sources */,
 				F29BED1F28533CBC005B4A1B /* String+ButtonImageName.swift in Sources */,
 				7BC5EFB22851ECC5004A27B5 /* ColorExtension.swift in Sources */,
+				7BFBD2E32856C33B00E5D98C /* OnboardingLastPageView.swift in Sources */,
 				15634FA82854EB3F009264BF /* CircularTimerView.swift in Sources */,
 				3F4E60192855DA0300BFAA65 /* LottieView.swift in Sources */,
 			);
