@@ -9,4 +9,6 @@ import Foundation
 
 class CompletionViewModel: ObservableObject {
     @Published var isCompletion: Bool = false
+    @Published var FinishTopicViewCondition: [Bool] = [false, true, false]
+    @Published var isCardBox: Bool = true
 }

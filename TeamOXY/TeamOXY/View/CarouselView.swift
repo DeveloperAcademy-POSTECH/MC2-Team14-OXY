@@ -7,37 +7,26 @@
 
 import SwiftUI
 
-/*
- TODO: Bool값으로 카드가 cardZone에 있을 때 스크롤 작동 안되게 하기 -> clear
- TODO: card존의 위치 조정 -> 일단clear 다니거에서 secondCardLocation 수정 & initialCardLocation 수정 & smallCardWidth, Heiht 수정 & 나머지는 그대로
- TODO: 올리는 동작의 end에는(inCardzone인 경우) -> 이모지뷰 띄우기, 내리는 동작중 드래깅 -> clear
- TODO: 카드가 올라가 있을 때 '누군가 쉬는시간을 제안했습니다' 보여주기 -> clear
- 
- 
- */
-
-
 // smallCard: 카드가 덱에 있을 때 크기
-let smallCardWidth: CGFloat = UIScreen.main.bounds.width / 3.5
+let smallCardWidth: CGFloat = UIScreen.screenWidth * 0.28
 let smallCardHeight: CGFloat =  smallCardWidth * 1.4
 // largeCard: 카드가 선택돼서 놓여졌을 때 크기
-let largeCardWidth: CGFloat = 250
-let largeCardHeight: CGFloat = 375
+let largeCardWidth: CGFloat = 250 // 안쓰임
+let largeCardHeight: CGFloat = 375 // 안쓰임
 // cardZone: 카드가 놓여지는 공간 가장 아래 ~ 화면 상단
-let cardZoneHeight: CGFloat = 500
-let cardZonePaddingTop: CGFloat = 125
+let cardZoneHeight: CGFloat =  UIScreen.screenHeight * 0.59 //500
+let cardZonePaddingTop: CGFloat = 125 // 안쓰임
 // cardZoneHeightOverMiddle: 카드 놓여지는 부분이 화면 중앙을 얼마나 넘어가는지
-let cardZoneHeightOverMiddle: CGFloat = cardZoneHeight - UIScreen.main.bounds.height/2
+let cardZoneHeightOverMiddle: CGFloat = cardZoneHeight - UIScreen.screenHeight/2
 // initial 위치는 카드가 덱에 있을 때
 let initialCardLocation: CGFloat = 0
 // second 위치는 smallCard가 카드가 놓이는 Zone을 넘어갔을 때 (그래서 smallCardHeight 사용)
 //let secondCardLocation: CGFloat = cardZoneHeightOverMiddle - smallCardHeight/2
-let secondCardLocation: CGFloat = -200
+let secondCardLocation: CGFloat = -UIScreen.screenHeight * 0.23 //-200
 
 struct CarouselView: View {
     
-    @ObservedObject var viewModel = CompletionViewModel()
-    @ObservedObject var viewModel2: FinishTopicViewModel
+    @ObservedObject var viewModel: CompletionViewModel
     
     // gesture 추적
     @GestureState private var dragState = HorizontalDragState.inactive
@@ -47,15 +36,15 @@ struct CarouselView: View {
     @State var carouselLocation = 0
     @State var degree = 0.0
     
-//    @State var FinishTopicViewCondition: [Bool] = [false, true, false]  // [카드존에 있냐, 카드덱에 있다, 논의중이다]
+    //    @State var FinishTopicViewCondition: [Bool] = [false, true, false]  // [카드존에 있냐, 카드덱에 있다, 논의중이다]
     //    var itemHeight: CGFloat
     var views: [Image]
     
-    var spacerWidth: CGFloat = UIScreen.main.bounds.width / 4.1
+    var spacerWidth: CGFloat = UIScreen.screenWidth * 0.243
     
     private func onHorizontalDragEnded(drag: DragGesture.Value) {
         
-        let dragThreshold:CGFloat = 100
+        let dragThreshold:CGFloat = 100 // 드래그 스레드홀드도 UIScreen으로 해야하나(?)
         if drag.predictedEndTranslation.width > dragThreshold || drag.translation.width > dragThreshold{
             carouselLocation =  carouselLocation - 1
         } else if (drag.predictedEndTranslation.width) < (-1 * dragThreshold) || (drag.translation.width) < (-1 * dragThreshold)
@@ -97,17 +86,18 @@ struct CarouselView: View {
                 // 카드 놓는 공간 안에 있다면
                 if viewState.height < secondCardLocation {
                     print("inside zone")
-                    viewModel2.FinishTopicViewCondition = [true, false, true]
-                    print("1\(viewModel2.FinishTopicViewCondition)")
+                    viewModel.FinishTopicViewCondition = [true, false, true]
+                    viewModel.isCardBox = false
+                    print("1\(viewModel.FinishTopicViewCondition)")
                     // 카드 놓는 곳으로 위치시키기
                     //                    self.viewState.height = -largeCardHeight/2 + cardZoneHeightOverMiddle
                     
-                    viewState.height = -370
+                    viewState.height = -UIScreen.screenHeight * 0.43//-370
                     // 논의중이고 카드존에 없다면
-                } else if viewModel2.FinishTopicViewCondition[2] == true {
+                } else if viewModel.FinishTopicViewCondition[2] == true {
                     print("not inside zone")
-                    viewModel2.FinishTopicViewCondition = [false, true, true]
-                    print("1\(viewModel2.FinishTopicViewCondition)")
+                    viewModel.FinishTopicViewCondition = [false, true, true]
+                    print("1\(viewModel.FinishTopicViewCondition)")
                     // 다시 덱으로 위치시키기
                     self.viewState.height = initialCardLocation
                 } else {
@@ -119,14 +109,14 @@ struct CarouselView: View {
         
         
         ZStack {
-            
             if viewModel.isCompletion {
                 TopicCompletionView()
-                    .padding(.bottom, 160)
+                    .padding(.bottom, UIScreen.screenHeight * 0.18)
             }
             
-            ZStack(alignment: .bottom){
             
+            ZStack(alignment: .bottom){
+                
                 // 각각의 요소에 그림자 넣는 법 말고 전체를 묶어서 그림자를 넣는 법 고민해보기
                 ForEach(0..<views.count){ i in
                     VStack{
@@ -158,15 +148,13 @@ struct CarouselView: View {
                 )
                 .simultaneousGesture(longPressDrag)
                 
-                // incardzone이면 너무 먼저 떠버리게 됨.
-                if viewModel2.FinishTopicViewCondition == [false, true, true] {
+                if viewModel.FinishTopicViewCondition == [false, true, true] {
                     VStack{
-                        FinishTopicView(viewModel: viewModel,viewModel2: viewModel2)
-                            .padding(.bottom, 50)
-                        Spacer()
-                            .frame(height: UIScreen.main.bounds.height / 3)
+                        FinishTopicView(viewModel: viewModel)
+                            .offset(y: -UIScreen.screenHeight * 0.38)
                     }
                     .transition(AnyTransition.opacity.animation(.easeInOut))
+                    
                 }
                 
                 EmojiReactionView()
@@ -191,7 +179,7 @@ struct CarouselView: View {
             if isInCardZone() {
                 return [24,3,17]
             } else {
-            return [36,3,27]
+                return [36,3,27]
             }
         } else {
             return [36,3,27]
@@ -204,7 +192,8 @@ struct CarouselView: View {
             // drag중이면 현재height + 드래그한 위치의height를 더해 터치에 따라 움직이도록
             // drag가 끝났을 때 cardzone에 있다면 -150을 그렇지 않으면 첫 위치로 돌아가도록
             return dragState2.isDragging ? viewState.height + dragState2.translation.height
-            : (isInCardZone() ? -150 : initialCardLocation)
+            : (isInCardZone() ? -UIScreen.screenHeight * 0.18 : initialCardLocation)
+            // uiscreen 자리 원래 -150
         }  else {
             return getOffsetY(i)
         }
@@ -242,9 +231,9 @@ struct CarouselView: View {
     // width 설정
     func getWidth(_ i: Int) -> CGFloat {
         if i == relativeLoc(){
-            return UIScreen.main.bounds.width / 3.5
+            return UIScreen.screenWidth * 0.285 //UIScreen.main.bounds.width / 3.5
         } else {
-            return UIScreen.main.bounds.width / 4.1
+            return UIScreen.screenWidth * 0.243  // UIScreen.main.bounds.width / 4.1
         }
     }
     
@@ -402,15 +391,15 @@ struct CarouselView: View {
     }
     
     // FinishTopicView 띄워줄 조건
-//    func isFinishTopicView() -> Bool {
-//        guard let index = FinishTopicViewCondition.lastIndex(of: false) else { return false }
-//        if FinishTopicViewCondition[index - 1] == true {
-//            print(true)
-//            return true
-//        } else {
-//            return false
-//        }
-//    }
+    //    func isFinishTopicView() -> Bool {
+    //        guard let index = FinishTopicViewCondition.lastIndex(of: false) else { return false }
+    //        if FinishTopicViewCondition[index - 1] == true {
+    //            print(true)
+    //            return true
+    //        } else {
+    //            return false
+    //        }
+    //    }
     
 }
 

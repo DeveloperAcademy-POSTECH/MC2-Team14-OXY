@@ -9,7 +9,7 @@ import SwiftUI
 
 struct MeetingRoomView: View {
     
-    @ObservedObject var viewModel2 = FinishTopicViewModel()
+    @ObservedObject var viewModel = CompletionViewModel()
     
     @State private var showingLeaveRoomSheet: Bool = false
     
@@ -17,9 +17,8 @@ struct MeetingRoomView: View {
         NavigationView {
             VStack {
                 ZStack{
-                    Spacer()
                     
-                    if viewModel2.FinishTopicViewCondition != [false, true, true] {
+                    if viewModel.FinishTopicViewCondition != [false, true, true] && viewModel.isCardBox {
                         RoundedRectangle(cornerRadius: 5)
                             .strokeBorder(style: StrokeStyle(lineWidth: 1))
                             .frame(width: smallCardWidth * 2.4,height: smallCardHeight * 2.4)
@@ -38,7 +37,7 @@ struct MeetingRoomView: View {
                             .offset(y: -UIScreen.screenHeight * 0.11)
                     }
                     
-                    CarouselView(viewModel2: viewModel2,views: [
+                    CarouselView(viewModel: viewModel,views: [
                         Image("Card1"),
                         Image("Card2"),
                         Image("Card3"),
