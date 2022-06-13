@@ -46,6 +46,7 @@
 		F2380A8B2856D500004754EE /* FirebaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2380A8A2856D500004754EE /* FirebaseManager.swift */; };
 		F2380A8D2856D567004754EE /* FirebaseConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2380A8C2856D567004754EE /* FirebaseConstants.swift */; };
 		F2380A8F2856D633004754EE /* generateRandomNickname.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2380A8E2856D633004754EE /* generateRandomNickname.swift */; };
+		F2380A912856E010004754EE /* TypographyExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2380A902856E010004754EE /* TypographyExtension.swift */; };
 		F29BECE6285217A9005B4A1B /* Pretendard-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = F29BECDD285217A8005B4A1B /* Pretendard-Medium.otf */; };
 		F29BECE7285217A9005B4A1B /* Pretendard-Thin.otf in Resources */ = {isa = PBXBuildFile; fileRef = F29BECDE285217A8005B4A1B /* Pretendard-Thin.otf */; };
 		F29BECE8285217A9005B4A1B /* Pretendard-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = F29BECDF285217A8005B4A1B /* Pretendard-Light.otf */; };
@@ -101,6 +102,7 @@
 		F2380A8A2856D500004754EE /* FirebaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseManager.swift; sourceTree = "<group>"; };
 		F2380A8C2856D567004754EE /* FirebaseConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseConstants.swift; sourceTree = "<group>"; };
 		F2380A8E2856D633004754EE /* generateRandomNickname.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = generateRandomNickname.swift; sourceTree = "<group>"; };
+		F2380A902856E010004754EE /* TypographyExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypographyExtension.swift; sourceTree = "<group>"; };
 		F29BECDD285217A8005B4A1B /* Pretendard-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Medium.otf"; sourceTree = "<group>"; };
 		F29BECDE285217A8005B4A1B /* Pretendard-Thin.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Thin.otf"; sourceTree = "<group>"; };
 		F29BECDF285217A8005B4A1B /* Pretendard-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Light.otf"; sourceTree = "<group>"; };
@@ -176,6 +178,7 @@
 			children = (
 				7BC5EFB12851ECC5004A27B5 /* ColorExtension.swift */,
 				F29BED1E28533CBC005B4A1B /* String+ButtonImageName.swift */,
+				F2380A902856E010004754EE /* TypographyExtension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -441,6 +444,7 @@
 				7BFBD2E32856C33B00E5D98C /* OnboardingLastPageView.swift in Sources */,
 				15634FA82854EB3F009264BF /* CircularTimerView.swift in Sources */,
 				3F4E60192855DA0300BFAA65 /* LottieView.swift in Sources */,
+				F2380A912856E010004754EE /* TypographyExtension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
