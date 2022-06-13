@@ -10,9 +10,7 @@ import SwiftUI
 struct FinishTopicView: View {
     
     @ObservedObject var viewModel: CompletionViewModel
-    
-    
-    @Binding var FinishTopicViewCondition: [Bool]
+    @ObservedObject var viewModel2: FinishTopicViewModel
     
     var body: some View {
         ZStack(alignment: .center) {
@@ -28,7 +26,8 @@ struct FinishTopicView: View {
                 HStack {
                     Button(action: {
                         // FinishTopicView뜨는 조건 초기화
-                        FinishTopicViewCondition = []
+//                        FinishTopicViewCondition = [false, true, false]
+                        viewModel2.FinishTopicViewCondition = [false, true, false]
                         // 로티 끄기
                         DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
                             viewModel.isCompletion = true
@@ -47,7 +46,8 @@ struct FinishTopicView: View {
                     Spacer()
                     Button(action: {
                         // FinishTopicView뜨는 조건 초기화
-                        FinishTopicViewCondition = []
+//                        FinishTopicViewCondition = [false, true, false]
+                        viewModel2.FinishTopicViewCondition = [false, true, false]
                     }) {
                         Circle()
                             .fill(Color("PrimaryBlue"))

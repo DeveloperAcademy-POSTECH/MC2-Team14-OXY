@@ -28,6 +28,8 @@
 		3F4E601B2855DA3B00BFAA65 /* TopicCompletionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F4E601A2855DA3B00BFAA65 /* TopicCompletionView.swift */; };
 		3F4E601D2855DB8C00BFAA65 /* Completion.json in Resources */ = {isa = PBXBuildFile; fileRef = 3F4E601C2855DB8C00BFAA65 /* Completion.json */; };
 		3F4E601F2855DF6600BFAA65 /* EmojiViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F4E601E2855DF6600BFAA65 /* EmojiViewModel.swift */; };
+		4A2A97AA2856C7A400EA21C6 /* UIScreenExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A2A97A92856C7A400EA21C6 /* UIScreenExtension.swift */; };
+		4A2A97AC2856D90B00EA21C6 /* FinishTopicViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A2A97AB2856D90B00EA21C6 /* FinishTopicViewModel.swift */; };
 		4A3B249B2855FFC000504486 /* CompletionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A3B249A2855FFC000504486 /* CompletionViewModel.swift */; };
 		4AC8DEEB2854F20E00500E0A /* CarouselView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AC8DEEA2854F20E00500E0A /* CarouselView.swift */; };
 		7BC5EFB02851E5C0004A27B5 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7BC5EFAF2851E5C0004A27B5 /* Colors.xcassets */; };
@@ -74,6 +76,8 @@
 		3F4E601A2855DA3B00BFAA65 /* TopicCompletionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopicCompletionView.swift; sourceTree = "<group>"; };
 		3F4E601C2855DB8C00BFAA65 /* Completion.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Completion.json; sourceTree = "<group>"; };
 		3F4E601E2855DF6600BFAA65 /* EmojiViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmojiViewModel.swift; sourceTree = "<group>"; };
+		4A2A97A92856C7A400EA21C6 /* UIScreenExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIScreenExtension.swift; sourceTree = "<group>"; };
+		4A2A97AB2856D90B00EA21C6 /* FinishTopicViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinishTopicViewModel.swift; sourceTree = "<group>"; };
 		4A3B249A2855FFC000504486 /* CompletionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompletionViewModel.swift; sourceTree = "<group>"; };
 		4AC8DEEA2854F20E00500E0A /* CarouselView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CarouselView.swift; sourceTree = "<group>"; };
 		7BC5EFAF2851E5C0004A27B5 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
@@ -128,6 +132,7 @@
 			children = (
 				7BC5EFB12851ECC5004A27B5 /* ColorExtension.swift */,
 				F29BED1E28533CBC005B4A1B /* String+ButtonImageName.swift */,
+				4A2A97A92856C7A400EA21C6 /* UIScreenExtension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -173,6 +178,7 @@
 				3F4E601E2855DF6600BFAA65 /* EmojiViewModel.swift */,
 				3F4E60112855BBBB00BFAA65 /* EmojiViewModel.swift */,
 				4A3B249A2855FFC000504486 /* CompletionViewModel.swift */,
+				4A2A97AB2856D90B00EA21C6 /* FinishTopicViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -353,6 +359,7 @@
 				F29BED232853B24C005B4A1B /* CreateMeetingRoomView.swift in Sources */,
 				212E5CE02853193100E10FF4 /* TempCardView.swift in Sources */,
 				3F4E600A2853A30300BFAA65 /* FancyButtonViewModel.swift in Sources */,
+				4A2A97AC2856D90B00EA21C6 /* FinishTopicViewModel.swift in Sources */,
 				3F4E60092853A30300BFAA65 /* EmojiReactionView.swift in Sources */,
 				F29BED2B28543717005B4A1B /* QRCode.swift in Sources */,
 				212E5CE22853280400E10FF4 /* MeetingRoomView.swift in Sources */,
@@ -369,6 +376,7 @@
 				3F4E601F2855DF6600BFAA65 /* EmojiViewModel.swift in Sources */,
 				F2D707B82849BA6C00DA86FD /* TeamOXYApp.swift in Sources */,
 				F29BED28285436F2005B4A1B /* QRCodeView.swift in Sources */,
+				4A2A97AA2856C7A400EA21C6 /* UIScreenExtension.swift in Sources */,
 				F29BED1F28533CBC005B4A1B /* String+ButtonImageName.swift in Sources */,
 				7BC5EFB22851ECC5004A27B5 /* ColorExtension.swift in Sources */,
 				15634FA82854EB3F009264BF /* CircularTimerView.swift in Sources */,
@@ -501,7 +509,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"TeamOXY/Preview Content\"";
-				DEVELOPMENT_TEAM = G3PA8G576S;
+				DEVELOPMENT_TEAM = JP5BCXZWJP;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = TeamOXY/Info.plist;
@@ -533,7 +541,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"TeamOXY/Preview Content\"";
-				DEVELOPMENT_TEAM = G3PA8G576S;
+				DEVELOPMENT_TEAM = JP5BCXZWJP;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = TeamOXY/Info.plist;

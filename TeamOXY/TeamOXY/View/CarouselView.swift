@@ -37,6 +37,7 @@ let secondCardLocation: CGFloat = -200
 struct CarouselView: View {
     
     @ObservedObject var viewModel = CompletionViewModel()
+    @ObservedObject var viewModel2: FinishTopicViewModel
     
     // gesture 추적
     @GestureState private var dragState = HorizontalDragState.inactive
@@ -46,7 +47,7 @@ struct CarouselView: View {
     @State var carouselLocation = 0
     @State var degree = 0.0
     
-    @State var FinishTopicViewCondition: [Bool] = [false, false]
+//    @State var FinishTopicViewCondition: [Bool] = [false, true, false]  // [카드존에 있냐, 카드덱에 있다, 논의중이다]
     //    var itemHeight: CGFloat
     var views: [Image]
     
@@ -96,16 +97,21 @@ struct CarouselView: View {
                 // 카드 놓는 공간 안에 있다면
                 if viewState.height < secondCardLocation {
                     print("inside zone")
-                    FinishTopicViewCondition.append(true)
+                    viewModel2.FinishTopicViewCondition = [true, false, true]
+                    print("1\(viewModel2.FinishTopicViewCondition)")
                     // 카드 놓는 곳으로 위치시키기
                     //                    self.viewState.height = -largeCardHeight/2 + cardZoneHeightOverMiddle
                     
                     viewState.height = -370
+                    // 논의중이고 카드존에 없다면
+                } else if viewModel2.FinishTopicViewCondition[2] == true {
+                    print("not inside zone")
+                    viewModel2.FinishTopicViewCondition = [false, true, true]
+                    print("1\(viewModel2.FinishTopicViewCondition)")
+                    // 다시 덱으로 위치시키기
+                    self.viewState.height = initialCardLocation
                 } else {
                     print("not inside zone")
-                    FinishTopicViewCondition.append(false)
-                    print(FinishTopicViewCondition)
-                    // 다시 덱으로 위치시키기
                     self.viewState.height = initialCardLocation
                 }
                 print("onEnded")
@@ -131,7 +137,7 @@ struct CarouselView: View {
                         //                        .animation(.interpolatingSpring(stiffness: 300.0, damping: 30.0, initialVelocity: 10.0))
                             .background(Color.white)
                             .cornerRadius(5)
-                            .shadow(color: .gray.opacity(0.5), radius: shadowSetting(i)[0], x: shadowSetting(i)[1], y: shadowSetting(i)[2])
+                            .shadow(color: setShadowColor(i), radius: shadowSetting(i)[0], x: shadowSetting(i)[1], y: shadowSetting(i)[2])
                             .opacity(self.getOpacity(i))
                         //                        .animation(.interpolatingSpring(stiffness: 300.0, damping: 30.0, initialVelocity: 10.0))
                         // offset y를 longpress가 눌리면, 다니 함수의 y값으로 return 하도록 삼항연산자(?)
@@ -153,9 +159,9 @@ struct CarouselView: View {
                 .simultaneousGesture(longPressDrag)
                 
                 // incardzone이면 너무 먼저 떠버리게 됨.
-                if isFinishTopicView() {
+                if viewModel2.FinishTopicViewCondition == [false, true, true] {
                     VStack{
-                        FinishTopicView(viewModel: viewModel, FinishTopicViewCondition: $FinishTopicViewCondition )
+                        FinishTopicView(viewModel: viewModel,viewModel2: viewModel2)
                             .padding(.bottom, 50)
                         Spacer()
                             .frame(height: UIScreen.main.bounds.height / 3)
@@ -170,16 +176,28 @@ struct CarouselView: View {
         }
     }
     
-    // 그림자 세팅
-    func shadowSetting(_ i: Int) -> [CGFloat] {
+    // ShadowColor 세팅
+    func setShadowColor(_ i: Int) -> Color {
         if i == relativeLoc() {
-            return [40,3,24]
+            return Color.ShadowGray.opacity(0.5)
         } else {
-            return [20,3,24]
+            return Color.ShadowGray.opacity(0.8)
         }
     }
     
-    //
+    // 그림자 세팅
+    func shadowSetting(_ i: Int) -> [CGFloat] {
+        if i == relativeLoc() {
+            if isInCardZone() {
+                return [24,3,17]
+            } else {
+            return [36,3,27]
+            }
+        } else {
+            return [36,3,27]
+        }
+    }
+    
     func setOffsetY(_ i: Int) -> CGFloat {
         // 가운데 있고, long press가 실행되었을 때,
         if  i == relativeLoc() {
@@ -384,15 +402,15 @@ struct CarouselView: View {
     }
     
     // FinishTopicView 띄워줄 조건
-    func isFinishTopicView() -> Bool {
-        guard let index = FinishTopicViewCondition.lastIndex(of: false) else { return false }
-        if FinishTopicViewCondition[index - 1] == true {
-            print(true)
-            return true
-        } else {
-            return false
-        }
-    }
+//    func isFinishTopicView() -> Bool {
+//        guard let index = FinishTopicViewCondition.lastIndex(of: false) else { return false }
+//        if FinishTopicViewCondition[index - 1] == true {
+//            print(true)
+//            return true
+//        } else {
+//            return false
+//        }
+//    }
     
 }
 
@@ -464,9 +482,9 @@ enum LongPressAndDragState {
 }
 
 
-
-struct CarouselView_Previews: PreviewProvider {
-    static var previews: some View {
-        CarouselView(views: [Image("Card1"),Image("Card1")])
-    }
-}
+//
+//struct CarouselView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        CarouselView(views: [Image("Card1"),Image("Card1")])
+//    }
+//}
