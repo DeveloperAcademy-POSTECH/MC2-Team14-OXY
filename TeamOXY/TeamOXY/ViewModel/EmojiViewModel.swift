@@ -5,7 +5,7 @@
 //  Created by ParkJunHyuk on 2022/06/12.
 //
 
-import Foundation
+import SwiftUI
 
 class EmojieViewModel : ObservableObject{
     @Published var emojiCount_1 : Int

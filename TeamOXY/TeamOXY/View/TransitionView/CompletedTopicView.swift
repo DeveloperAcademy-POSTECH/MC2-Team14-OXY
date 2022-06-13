@@ -7,17 +7,17 @@
 
 import SwiftUI
 
-struct TopicCompletionView: View {
+struct CompletedTopicView: View {
     var body: some View {
         VStack {
-            LottieView(filename: "Completion")
+            LottieView(filename: "Utils/Lottie/Completion")
                 .frame(width: UIScreen.screenWidth * 0.769, height: UIScreen.screenWidth * 0.769)
         }
     }
 }
 
-struct TopicCompletionView_Previews: PreviewProvider {
+struct CompletedTopicView_Previews: PreviewProvider {
     static var previews: some View {
-        TopicCompletionView()
+        CompletedTopicView()
     }
 }

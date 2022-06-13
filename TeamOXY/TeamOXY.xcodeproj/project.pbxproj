@@ -10,22 +10,15 @@
 		15634FA72854EB3F009264BF /* BreakTimeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15634FA42854EB3F009264BF /* BreakTimeView.swift */; };
 		15634FA82854EB3F009264BF /* CircularTimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15634FA52854EB3F009264BF /* CircularTimerView.swift */; };
 		15634FA92854EB3F009264BF /* TimeSetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15634FA62854EB3F009264BF /* TimeSetView.swift */; };
-		212E5CDA2853173700E10FF4 /* CardDeckView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 212E5CD92853173700E10FF4 /* CardDeckView.swift */; };
-		212E5CDC285317B200E10FF4 /* CardZoneView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 212E5CDB285317B200E10FF4 /* CardZoneView.swift */; };
-		212E5CDE2853181000E10FF4 /* TestGestureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 212E5CDD2853181000E10FF4 /* TestGestureView.swift */; };
-		212E5CE02853193100E10FF4 /* TempCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 212E5CDF2853193100E10FF4 /* TempCardView.swift */; };
 		212E5CE22853280400E10FF4 /* MeetingRoomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 212E5CE12853280400E10FF4 /* MeetingRoomView.swift */; };
 		21812E8428557D380023463C /* FinishTopicView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21812E8328557D380023463C /* FinishTopicView.swift */; };
 		21D2547B2852D21100E3EADC /* TestCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21D2547A2852D21100E3EADC /* TestCardView.swift */; };
 		3F4E60092853A30300BFAA65 /* EmojiReactionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F4E60062853A30200BFAA65 /* EmojiReactionView.swift */; };
-		3F4E600A2853A30300BFAA65 /* FancyButtonViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F4E60072853A30300BFAA65 /* FancyButtonViewModel.swift */; };
-		3F4E600B2853A30300BFAA65 /* TestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F4E60082853A30300BFAA65 /* TestView.swift */; };
 		3F4E600E2853A37000BFAA65 /* ConfettiSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = 3F4E600D2853A37000BFAA65 /* ConfettiSwiftUI */; };
-		3F4E60122855BBBB00BFAA65 /* EmojiViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F4E60112855BBBB00BFAA65 /* EmojiViewModel.swift */; };
-		3F4E60142855BE7200BFAA65 /* Arrows.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F4E60132855BE7200BFAA65 /* Arrows.swift */; };
+		3F4E60142855BE7200BFAA65 /* ArrowAnimationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F4E60132855BE7200BFAA65 /* ArrowAnimationView.swift */; };
 		3F4E60172855D9DD00BFAA65 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 3F4E60162855D9DD00BFAA65 /* Lottie */; };
 		3F4E60192855DA0300BFAA65 /* LottieView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F4E60182855DA0300BFAA65 /* LottieView.swift */; };
-		3F4E601B2855DA3B00BFAA65 /* TopicCompletionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F4E601A2855DA3B00BFAA65 /* TopicCompletionView.swift */; };
+		3F4E601B2855DA3B00BFAA65 /* CompletedTopicView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F4E601A2855DA3B00BFAA65 /* CompletedTopicView.swift */; };
 		3F4E601D2855DB8C00BFAA65 /* Completion.json in Resources */ = {isa = PBXBuildFile; fileRef = 3F4E601C2855DB8C00BFAA65 /* Completion.json */; };
 		3F4E601F2855DF6600BFAA65 /* EmojiViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F4E601E2855DF6600BFAA65 /* EmojiViewModel.swift */; };
 		4A2A97AA2856C7A400EA21C6 /* UIScreenExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A2A97A92856C7A400EA21C6 /* UIScreenExtension.swift */; };
@@ -34,6 +27,22 @@
 		4AC8DEEB2854F20E00500E0A /* CarouselView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AC8DEEA2854F20E00500E0A /* CarouselView.swift */; };
 		7BC5EFB02851E5C0004A27B5 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7BC5EFAF2851E5C0004A27B5 /* Colors.xcassets */; };
 		7BC5EFB22851ECC5004A27B5 /* ColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BC5EFB12851ECC5004A27B5 /* ColorExtension.swift */; };
+		7BFBD2E22856C33B00E5D98C /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BFBD2DF2856C33B00E5D98C /* OnboardingView.swift */; };
+		7BFBD2E32856C33B00E5D98C /* OnboardingLastPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BFBD2E02856C33B00E5D98C /* OnboardingLastPageView.swift */; };
+		7BFBD2E42856C33B00E5D98C /* OnboardingPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BFBD2E12856C33B00E5D98C /* OnboardingPageView.swift */; };
+		F225A1DB2856BD1300166ECC /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = F225A1DA2856BD1300166ECC /* FirebaseAuth */; };
+		F225A1DD2856BD1300166ECC /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = F225A1DC2856BD1300166ECC /* FirebaseFirestore */; };
+		F225A1DF2856BD1300166ECC /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = F225A1DE2856BD1300166ECC /* FirebaseFirestoreSwift */; };
+		F225A1E12856BD1300166ECC /* FirebaseMessaging in Frameworks */ = {isa = PBXBuildFile; productRef = F225A1E02856BD1300166ECC /* FirebaseMessaging */; };
+		F225A1E32856BD1300166ECC /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = F225A1E22856BD1300166ECC /* FirebaseStorage */; };
+		F225A1E72856C89A00166ECC /* Reaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = F225A1E62856C89A00166ECC /* Reaction.swift */; };
+		F225A1E92856CB9800166ECC /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = F225A1E82856CB9800166ECC /* User.swift */; };
+		F225A1EB2856CEB200166ECC /* Topic.swift in Sources */ = {isa = PBXBuildFile; fileRef = F225A1EA2856CEB200166ECC /* Topic.swift */; };
+		F2380A8B2856D500004754EE /* FirebaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2380A8A2856D500004754EE /* FirebaseManager.swift */; };
+		F2380A8D2856D567004754EE /* FirebaseConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2380A8C2856D567004754EE /* FirebaseConstants.swift */; };
+		F2380A8F2856D633004754EE /* generateRandomNickname.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2380A8E2856D633004754EE /* generateRandomNickname.swift */; };
+		F2380A912856E010004754EE /* TypographyExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2380A902856E010004754EE /* TypographyExtension.swift */; };
+		F2380A932856EA65004754EE /* EmojiViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2380A922856EA65004754EE /* EmojiViewModel.swift */; };
 		F29BECE6285217A9005B4A1B /* Pretendard-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = F29BECDD285217A8005B4A1B /* Pretendard-Medium.otf */; };
 		F29BECE7285217A9005B4A1B /* Pretendard-Thin.otf in Resources */ = {isa = PBXBuildFile; fileRef = F29BECDE285217A8005B4A1B /* Pretendard-Thin.otf */; };
 		F29BECE8285217A9005B4A1B /* Pretendard-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = F29BECDF285217A8005B4A1B /* Pretendard-Light.otf */; };
@@ -51,6 +60,7 @@
 		F29BED28285436F2005B4A1B /* QRCodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F29BED27285436F2005B4A1B /* QRCodeView.swift */; };
 		F29BED2B28543717005B4A1B /* QRCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = F29BED2A28543717005B4A1B /* QRCode.swift */; };
 		F29BED2E28558F48005B4A1B /* CodeScanner in Frameworks */ = {isa = PBXBuildFile; productRef = F29BED2D28558F48005B4A1B /* CodeScanner */; };
+		F2CA7CE2285701A00094B126 /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2CA7CE1285701A00094B126 /* RootView.swift */; };
 		F2D707B82849BA6C00DA86FD /* TeamOXYApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2D707B72849BA6C00DA86FD /* TeamOXYApp.swift */; };
 		F2D707BC2849BA6D00DA86FD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F2D707BB2849BA6D00DA86FD /* Assets.xcassets */; };
 		F2D707BF2849BA6D00DA86FD /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F2D707BE2849BA6D00DA86FD /* Preview Assets.xcassets */; };
@@ -60,20 +70,13 @@
 		15634FA42854EB3F009264BF /* BreakTimeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BreakTimeView.swift; sourceTree = "<group>"; };
 		15634FA52854EB3F009264BF /* CircularTimerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircularTimerView.swift; sourceTree = "<group>"; };
 		15634FA62854EB3F009264BF /* TimeSetView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeSetView.swift; sourceTree = "<group>"; };
-		212E5CD92853173700E10FF4 /* CardDeckView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardDeckView.swift; sourceTree = "<group>"; };
-		212E5CDB285317B200E10FF4 /* CardZoneView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardZoneView.swift; sourceTree = "<group>"; };
-		212E5CDD2853181000E10FF4 /* TestGestureView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestGestureView.swift; sourceTree = "<group>"; };
-		212E5CDF2853193100E10FF4 /* TempCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TempCardView.swift; sourceTree = "<group>"; };
 		212E5CE12853280400E10FF4 /* MeetingRoomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeetingRoomView.swift; sourceTree = "<group>"; };
 		21812E8328557D380023463C /* FinishTopicView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinishTopicView.swift; sourceTree = "<group>"; };
 		21D2547A2852D21100E3EADC /* TestCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestCardView.swift; sourceTree = "<group>"; };
 		3F4E60062853A30200BFAA65 /* EmojiReactionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmojiReactionView.swift; sourceTree = "<group>"; };
-		3F4E60072853A30300BFAA65 /* FancyButtonViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FancyButtonViewModel.swift; sourceTree = "<group>"; };
-		3F4E60082853A30300BFAA65 /* TestView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestView.swift; sourceTree = "<group>"; };
-		3F4E60112855BBBB00BFAA65 /* EmojiViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmojiViewModel.swift; sourceTree = "<group>"; };
-		3F4E60132855BE7200BFAA65 /* Arrows.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Arrows.swift; sourceTree = "<group>"; };
+		3F4E60132855BE7200BFAA65 /* ArrowAnimationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrowAnimationView.swift; sourceTree = "<group>"; };
 		3F4E60182855DA0300BFAA65 /* LottieView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottieView.swift; sourceTree = "<group>"; };
-		3F4E601A2855DA3B00BFAA65 /* TopicCompletionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopicCompletionView.swift; sourceTree = "<group>"; };
+		3F4E601A2855DA3B00BFAA65 /* CompletedTopicView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompletedTopicView.swift; sourceTree = "<group>"; };
 		3F4E601C2855DB8C00BFAA65 /* Completion.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Completion.json; sourceTree = "<group>"; };
 		3F4E601E2855DF6600BFAA65 /* EmojiViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmojiViewModel.swift; sourceTree = "<group>"; };
 		4A2A97A92856C7A400EA21C6 /* UIScreenExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIScreenExtension.swift; sourceTree = "<group>"; };
@@ -82,6 +85,17 @@
 		4AC8DEEA2854F20E00500E0A /* CarouselView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CarouselView.swift; sourceTree = "<group>"; };
 		7BC5EFAF2851E5C0004A27B5 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		7BC5EFB12851ECC5004A27B5 /* ColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ColorExtension.swift; path = TeamOXY/Extensions/ColorExtension.swift; sourceTree = SOURCE_ROOT; };
+		7BFBD2DF2856C33B00E5D98C /* OnboardingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
+		7BFBD2E02856C33B00E5D98C /* OnboardingLastPageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardingLastPageView.swift; sourceTree = "<group>"; };
+		7BFBD2E12856C33B00E5D98C /* OnboardingPageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardingPageView.swift; sourceTree = "<group>"; };
+		F225A1E62856C89A00166ECC /* Reaction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reaction.swift; sourceTree = "<group>"; };
+		F225A1E82856CB9800166ECC /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		F225A1EA2856CEB200166ECC /* Topic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Topic.swift; sourceTree = "<group>"; };
+		F2380A8A2856D500004754EE /* FirebaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseManager.swift; sourceTree = "<group>"; };
+		F2380A8C2856D567004754EE /* FirebaseConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseConstants.swift; sourceTree = "<group>"; };
+		F2380A8E2856D633004754EE /* generateRandomNickname.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = generateRandomNickname.swift; sourceTree = "<group>"; };
+		F2380A902856E010004754EE /* TypographyExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypographyExtension.swift; sourceTree = "<group>"; };
+		F2380A922856EA65004754EE /* EmojiViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmojiViewModel.swift; sourceTree = "<group>"; };
 		F29BECDD285217A8005B4A1B /* Pretendard-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Medium.otf"; sourceTree = "<group>"; };
 		F29BECDE285217A8005B4A1B /* Pretendard-Thin.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Thin.otf"; sourceTree = "<group>"; };
 		F29BECDF285217A8005B4A1B /* Pretendard-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Light.otf"; sourceTree = "<group>"; };
@@ -99,6 +113,7 @@
 		F29BED2428543123005B4A1B /* FieldType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FieldType.swift; sourceTree = "<group>"; };
 		F29BED27285436F2005B4A1B /* QRCodeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRCodeView.swift; sourceTree = "<group>"; };
 		F29BED2A28543717005B4A1B /* QRCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRCode.swift; sourceTree = "<group>"; };
+		F2CA7CE1285701A00094B126 /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
 		F2D707B42849BA6C00DA86FD /* TeamOXY.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TeamOXY.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F2D707B72849BA6C00DA86FD /* TeamOXYApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamOXYApp.swift; sourceTree = "<group>"; };
 		F2D707BB2849BA6D00DA86FD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -112,17 +127,80 @@
 			files = (
 				F29BED2E28558F48005B4A1B /* CodeScanner in Frameworks */,
 				3F4E600E2853A37000BFAA65 /* ConfettiSwiftUI in Frameworks */,
+				F225A1E12856BD1300166ECC /* FirebaseMessaging in Frameworks */,
 				3F4E60172855D9DD00BFAA65 /* Lottie in Frameworks */,
+				F225A1DD2856BD1300166ECC /* FirebaseFirestore in Frameworks */,
+				F225A1E32856BD1300166ECC /* FirebaseStorage in Frameworks */,
+				F225A1DB2856BD1300166ECC /* FirebaseAuth in Frameworks */,
+				F225A1DF2856BD1300166ECC /* FirebaseFirestoreSwift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7BFBD2DE2856C31400E5D98C /* Onboarding */ = {
+			isa = PBXGroup;
+			children = (
+				7BFBD2E02856C33B00E5D98C /* OnboardingLastPageView.swift */,
+				7BFBD2E12856C33B00E5D98C /* OnboardingPageView.swift */,
+				7BFBD2DF2856C33B00E5D98C /* OnboardingView.swift */,
+			);
+			path = Onboarding;
+			sourceTree = "<group>";
+		};
+		F225A1ED2856D4BC00166ECC /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				F2380A942856FE64004754EE /* Lottie */,
+				F2380A8A2856D500004754EE /* FirebaseManager.swift */,
+				F2380A8E2856D633004754EE /* generateRandomNickname.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		F2380A942856FE64004754EE /* Lottie */ = {
+			isa = PBXGroup;
+			children = (
+				3F4E601C2855DB8C00BFAA65 /* Completion.json */,
+			);
+			path = Lottie;
+			sourceTree = "<group>";
+		};
+		F2380A952856FEF9004754EE /* TransitionView */ = {
+			isa = PBXGroup;
+			children = (
+				3F4E60182855DA0300BFAA65 /* LottieView.swift */,
+				3F4E601A2855DA3B00BFAA65 /* CompletedTopicView.swift */,
+			);
+			path = TransitionView;
+			sourceTree = "<group>";
+		};
+		F2380A962857008D004754EE /* MeetingRoom */ = {
+			isa = PBXGroup;
+			children = (
+				212E5CE12853280400E10FF4 /* MeetingRoomView.swift */,
+				21812E8328557D380023463C /* FinishTopicView.swift */,
+				3F4E60132855BE7200BFAA65 /* ArrowAnimationView.swift */,
+				3F4E60062853A30200BFAA65 /* EmojiReactionView.swift */,
+			);
+			path = MeetingRoom;
+			sourceTree = "<group>";
+		};
+		F2380A9728570153004754EE /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				F29BED2928543708005B4A1B /* QRCode */,
+				F29BED20285397AF005B4A1B /* HomeView.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
 		F29BECD42852152F005B4A1B /* Constants */ = {
 			isa = PBXGroup;
 			children = (
 				F29BED2428543123005B4A1B /* FieldType.swift */,
+				F2380A8C2856D567004754EE /* FirebaseConstants.swift */,
 			);
 			path = Constants;
 			sourceTree = "<group>";
@@ -133,6 +211,7 @@
 				7BC5EFB12851ECC5004A27B5 /* ColorExtension.swift */,
 				F29BED1E28533CBC005B4A1B /* String+ButtonImageName.swift */,
 				4A2A97A92856C7A400EA21C6 /* UIScreenExtension.swift */,
+				F2380A902856E010004754EE /* TypographyExtension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -140,27 +219,17 @@
 		F29BECD628521540005B4A1B /* View */ = {
 			isa = PBXGroup;
 			children = (
+				F2CA7CE1285701A00094B126 /* RootView.swift */,
+				7BFBD2DE2856C31400E5D98C /* Onboarding */,
+				F2380A9728570153004754EE /* Home */,
+				F29BED222853B24C005B4A1B /* CreateMeetingRoomView.swift */,
+				F2380A962857008D004754EE /* MeetingRoom */,
+				F2380A952856FEF9004754EE /* TransitionView */,
 				4AC8DEEA2854F20E00500E0A /* CarouselView.swift */,
+				21D2547A2852D21100E3EADC /* TestCardView.swift */,
 				15634FA42854EB3F009264BF /* BreakTimeView.swift */,
 				15634FA52854EB3F009264BF /* CircularTimerView.swift */,
 				15634FA62854EB3F009264BF /* TimeSetView.swift */,
-				F29BED2928543708005B4A1B /* QRCode */,
-				3F4E60062853A30200BFAA65 /* EmojiReactionView.swift */,
-				3F4E60132855BE7200BFAA65 /* Arrows.swift */,
-				3F4E60072853A30300BFAA65 /* FancyButtonViewModel.swift */,
-				3F4E60082853A30300BFAA65 /* TestView.swift */,
-				21D2547A2852D21100E3EADC /* TestCardView.swift */,
-				212E5CD92853173700E10FF4 /* CardDeckView.swift */,
-				212E5CDB285317B200E10FF4 /* CardZoneView.swift */,
-				212E5CDD2853181000E10FF4 /* TestGestureView.swift */,
-				212E5CDF2853193100E10FF4 /* TempCardView.swift */,
-				212E5CE12853280400E10FF4 /* MeetingRoomView.swift */,
-				F29BED20285397AF005B4A1B /* HomeView.swift */,
-				F29BED222853B24C005B4A1B /* CreateMeetingRoomView.swift */,
-				21812E8328557D380023463C /* FinishTopicView.swift */,
-				3F4E60182855DA0300BFAA65 /* LottieView.swift */,
-				3F4E601A2855DA3B00BFAA65 /* TopicCompletionView.swift */,
-				3F4E601C2855DB8C00BFAA65 /* Completion.json */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -168,6 +237,9 @@
 		F29BECD928521550005B4A1B /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				F225A1E62856C89A00166ECC /* Reaction.swift */,
+				F225A1E82856CB9800166ECC /* User.swift */,
+				F225A1EA2856CEB200166ECC /* Topic.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -175,10 +247,9 @@
 		F29BECDA28521558005B4A1B /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				3F4E601E2855DF6600BFAA65 /* EmojiViewModel.swift */,
-				3F4E60112855BBBB00BFAA65 /* EmojiViewModel.swift */,
 				4A3B249A2855FFC000504486 /* CompletionViewModel.swift */,
 				4A2A97AB2856D90B00EA21C6 /* FinishTopicViewModel.swift */,
+				F2380A922856EA65004754EE /* EmojiViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -235,6 +306,7 @@
 		F2D707B62849BA6C00DA86FD /* TeamOXY */ = {
 			isa = PBXGroup;
 			children = (
+				F225A1ED2856D4BC00166ECC /* Utils */,
 				F29BED1B28532DB8005B4A1B /* Components */,
 				F29BECF12852181A005B4A1B /* Info.plist */,
 				F29BECDB28521713005B4A1B /* Fonts */,
@@ -279,6 +351,11 @@
 				3F4E600D2853A37000BFAA65 /* ConfettiSwiftUI */,
 				F29BED2D28558F48005B4A1B /* CodeScanner */,
 				3F4E60162855D9DD00BFAA65 /* Lottie */,
+				F225A1DA2856BD1300166ECC /* FirebaseAuth */,
+				F225A1DC2856BD1300166ECC /* FirebaseFirestore */,
+				F225A1DE2856BD1300166ECC /* FirebaseFirestoreSwift */,
+				F225A1E02856BD1300166ECC /* FirebaseMessaging */,
+				F225A1E22856BD1300166ECC /* FirebaseStorage */,
 			);
 			productName = TeamOXY;
 			productReference = F2D707B42849BA6C00DA86FD /* TeamOXY.app */;
@@ -312,6 +389,7 @@
 				3F4E600C2853A37000BFAA65 /* XCRemoteSwiftPackageReference "ConfettiSwiftUI" */,
 				F29BED2C28558F47005B4A1B /* XCRemoteSwiftPackageReference "CodeScanner" */,
 				3F4E60152855D9DD00BFAA65 /* XCRemoteSwiftPackageReference "lottie-ios" */,
+				F225A1D92856BD1300166ECC /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 			);
 			productRefGroup = F2D707B52849BA6C00DA86FD /* Products */;
 			projectDirPath = "";
@@ -351,36 +429,42 @@
 			buildActionMask = 2147483647;
 			files = (
 				F29BED2528543123005B4A1B /* FieldType.swift in Sources */,
-				3F4E600B2853A30300BFAA65 /* TestView.swift in Sources */,
 				4AC8DEEB2854F20E00500E0A /* CarouselView.swift in Sources */,
+				7BFBD2E22856C33B00E5D98C /* OnboardingView.swift in Sources */,
 				21812E8428557D380023463C /* FinishTopicView.swift in Sources */,
+				F225A1E92856CB9800166ECC /* User.swift in Sources */,
+				F225A1EB2856CEB200166ECC /* Topic.swift in Sources */,
 				F29BED1D28532DC3005B4A1B /* RoundButton.swift in Sources */,
 				4A3B249B2855FFC000504486 /* CompletionViewModel.swift in Sources */,
 				F29BED232853B24C005B4A1B /* CreateMeetingRoomView.swift in Sources */,
 				212E5CE02853193100E10FF4 /* TempCardView.swift in Sources */,
 				3F4E600A2853A30300BFAA65 /* FancyButtonViewModel.swift in Sources */,
 				4A2A97AC2856D90B00EA21C6 /* FinishTopicViewModel.swift in Sources */,
+				F2380A8B2856D500004754EE /* FirebaseManager.swift in Sources */,
 				3F4E60092853A30300BFAA65 /* EmojiReactionView.swift in Sources */,
+				F2380A8F2856D633004754EE /* generateRandomNickname.swift in Sources */,
 				F29BED2B28543717005B4A1B /* QRCode.swift in Sources */,
 				212E5CE22853280400E10FF4 /* MeetingRoomView.swift in Sources */,
-				3F4E60142855BE7200BFAA65 /* Arrows.swift in Sources */,
-				212E5CDA2853173700E10FF4 /* CardDeckView.swift in Sources */,
-				212E5CDE2853181000E10FF4 /* TestGestureView.swift in Sources */,
+				3F4E60142855BE7200BFAA65 /* ArrowAnimationView.swift in Sources */,
+				7BFBD2E42856C33B00E5D98C /* OnboardingPageView.swift in Sources */,
 				F29BED21285397AF005B4A1B /* HomeView.swift in Sources */,
 				15634FA72854EB3F009264BF /* BreakTimeView.swift in Sources */,
-				3F4E60122855BBBB00BFAA65 /* EmojiViewModel.swift in Sources */,
-				212E5CDC285317B200E10FF4 /* CardZoneView.swift in Sources */,
 				15634FA92854EB3F009264BF /* TimeSetView.swift in Sources */,
-				3F4E601B2855DA3B00BFAA65 /* TopicCompletionView.swift in Sources */,
+				3F4E601B2855DA3B00BFAA65 /* CompletedTopicView.swift in Sources */,
 				21D2547B2852D21100E3EADC /* TestCardView.swift in Sources */,
-				3F4E601F2855DF6600BFAA65 /* EmojiViewModel.swift in Sources */,
+				F225A1E72856C89A00166ECC /* Reaction.swift in Sources */,
 				F2D707B82849BA6C00DA86FD /* TeamOXYApp.swift in Sources */,
+				F2380A932856EA65004754EE /* EmojiViewModel.swift in Sources */,
 				F29BED28285436F2005B4A1B /* QRCodeView.swift in Sources */,
 				4A2A97AA2856C7A400EA21C6 /* UIScreenExtension.swift in Sources */,
 				F29BED1F28533CBC005B4A1B /* String+ButtonImageName.swift in Sources */,
 				7BC5EFB22851ECC5004A27B5 /* ColorExtension.swift in Sources */,
+				F2380A8D2856D567004754EE /* FirebaseConstants.swift in Sources */,
+				7BFBD2E32856C33B00E5D98C /* OnboardingLastPageView.swift in Sources */,
 				15634FA82854EB3F009264BF /* CircularTimerView.swift in Sources */,
 				3F4E60192855DA0300BFAA65 /* LottieView.swift in Sources */,
+				F2380A912856E010004754EE /* TypographyExtension.swift in Sources */,
+				F2CA7CE2285701A00094B126 /* RootView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -605,6 +689,14 @@
 				minimumVersion = 3.0.0;
 			};
 		};
+		F225A1D92856BD1300166ECC /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 9.0.0;
+			};
+		};
 		F29BED2C28558F47005B4A1B /* XCRemoteSwiftPackageReference "CodeScanner" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/twostraws/CodeScanner.git";
@@ -625,6 +717,31 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 3F4E60152855D9DD00BFAA65 /* XCRemoteSwiftPackageReference "lottie-ios" */;
 			productName = Lottie;
+		};
+		F225A1DA2856BD1300166ECC /* FirebaseAuth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F225A1D92856BD1300166ECC /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAuth;
+		};
+		F225A1DC2856BD1300166ECC /* FirebaseFirestore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F225A1D92856BD1300166ECC /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestore;
+		};
+		F225A1DE2856BD1300166ECC /* FirebaseFirestoreSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F225A1D92856BD1300166ECC /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestoreSwift;
+		};
+		F225A1E02856BD1300166ECC /* FirebaseMessaging */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F225A1D92856BD1300166ECC /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseMessaging;
+		};
+		F225A1E22856BD1300166ECC /* FirebaseStorage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F225A1D92856BD1300166ECC /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseStorage;
 		};
 		F29BED2D28558F48005B4A1B /* CodeScanner */ = {
 			isa = XCSwiftPackageProductDependency;

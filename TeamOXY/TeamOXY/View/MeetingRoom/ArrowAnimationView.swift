@@ -22,7 +22,7 @@ struct ArrowShape : Shape {
     }
 }
 
-struct Arrows: View {
+struct ArrowAnimationView: View {
     private let arrowCount = 3
 
     let timer = Timer.publish(every: 2, on: .main, in: .common).autoconnect()
@@ -34,14 +34,13 @@ struct Arrows: View {
 
         ZStack {
             HStack{
-                ForEach(0..<self.arrowCount) { i in
+                ForEach(0 ..< arrowCount, id: \.self) { i in
                     ArrowShape()
                         .stroke(style: StrokeStyle(lineWidth: CGFloat(5),
                                                   lineCap: .round,
                                                   lineJoin: .round ))
                         .foregroundColor(Color.black.opacity(0.5))
                         .aspectRatio(CGSize(width: 20, height: 70), contentMode: .fit)
-//                        .frame(maxWidth: 20)
                         .frame(width: 10, height: 70)
                         .animation(nil)
                         .opacity(self.fade)
