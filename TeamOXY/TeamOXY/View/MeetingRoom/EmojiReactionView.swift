@@ -22,7 +22,7 @@ struct EmojiReactionView: View {
                         .frame(height:UIScreen.main.bounds.height / 1.8)
                     
                     // 아래로 내리는 화살표
-                    Arrows()
+                    ArrowAnimationView()
                         .rotationEffect(.degrees(90))
                         .padding(.top, -5)
                         

@@ -10,16 +10,12 @@
 		15634FA72854EB3F009264BF /* BreakTimeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15634FA42854EB3F009264BF /* BreakTimeView.swift */; };
 		15634FA82854EB3F009264BF /* CircularTimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15634FA52854EB3F009264BF /* CircularTimerView.swift */; };
 		15634FA92854EB3F009264BF /* TimeSetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15634FA62854EB3F009264BF /* TimeSetView.swift */; };
-		212E5CDA2853173700E10FF4 /* CardDeckView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 212E5CD92853173700E10FF4 /* CardDeckView.swift */; };
-		212E5CDC285317B200E10FF4 /* CardZoneView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 212E5CDB285317B200E10FF4 /* CardZoneView.swift */; };
-		212E5CDE2853181000E10FF4 /* TestGestureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 212E5CDD2853181000E10FF4 /* TestGestureView.swift */; };
 		212E5CE22853280400E10FF4 /* MeetingRoomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 212E5CE12853280400E10FF4 /* MeetingRoomView.swift */; };
 		21812E8428557D380023463C /* FinishTopicView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21812E8328557D380023463C /* FinishTopicView.swift */; };
 		21D2547B2852D21100E3EADC /* TestCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21D2547A2852D21100E3EADC /* TestCardView.swift */; };
 		3F4E60092853A30300BFAA65 /* EmojiReactionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F4E60062853A30200BFAA65 /* EmojiReactionView.swift */; };
-		3F4E600A2853A30300BFAA65 /* FancyButtonViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F4E60072853A30300BFAA65 /* FancyButtonViewModel.swift */; };
 		3F4E600E2853A37000BFAA65 /* ConfettiSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = 3F4E600D2853A37000BFAA65 /* ConfettiSwiftUI */; };
-		3F4E60142855BE7200BFAA65 /* Arrows.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F4E60132855BE7200BFAA65 /* Arrows.swift */; };
+		3F4E60142855BE7200BFAA65 /* ArrowAnimationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F4E60132855BE7200BFAA65 /* ArrowAnimationView.swift */; };
 		3F4E60172855D9DD00BFAA65 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 3F4E60162855D9DD00BFAA65 /* Lottie */; };
 		3F4E60192855DA0300BFAA65 /* LottieView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F4E60182855DA0300BFAA65 /* LottieView.swift */; };
 		3F4E601B2855DA3B00BFAA65 /* CompletedTopicView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F4E601A2855DA3B00BFAA65 /* CompletedTopicView.swift */; };
@@ -70,15 +66,11 @@
 		15634FA42854EB3F009264BF /* BreakTimeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BreakTimeView.swift; sourceTree = "<group>"; };
 		15634FA52854EB3F009264BF /* CircularTimerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircularTimerView.swift; sourceTree = "<group>"; };
 		15634FA62854EB3F009264BF /* TimeSetView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeSetView.swift; sourceTree = "<group>"; };
-		212E5CD92853173700E10FF4 /* CardDeckView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardDeckView.swift; sourceTree = "<group>"; };
-		212E5CDB285317B200E10FF4 /* CardZoneView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardZoneView.swift; sourceTree = "<group>"; };
-		212E5CDD2853181000E10FF4 /* TestGestureView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestGestureView.swift; sourceTree = "<group>"; };
 		212E5CE12853280400E10FF4 /* MeetingRoomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeetingRoomView.swift; sourceTree = "<group>"; };
 		21812E8328557D380023463C /* FinishTopicView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinishTopicView.swift; sourceTree = "<group>"; };
 		21D2547A2852D21100E3EADC /* TestCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestCardView.swift; sourceTree = "<group>"; };
 		3F4E60062853A30200BFAA65 /* EmojiReactionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmojiReactionView.swift; sourceTree = "<group>"; };
-		3F4E60072853A30300BFAA65 /* FancyButtonViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FancyButtonViewModel.swift; sourceTree = "<group>"; };
-		3F4E60132855BE7200BFAA65 /* Arrows.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Arrows.swift; sourceTree = "<group>"; };
+		3F4E60132855BE7200BFAA65 /* ArrowAnimationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrowAnimationView.swift; sourceTree = "<group>"; };
 		3F4E60182855DA0300BFAA65 /* LottieView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottieView.swift; sourceTree = "<group>"; };
 		3F4E601A2855DA3B00BFAA65 /* CompletedTopicView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompletedTopicView.swift; sourceTree = "<group>"; };
 		3F4E601C2855DB8C00BFAA65 /* Completion.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Completion.json; sourceTree = "<group>"; };
@@ -176,6 +168,26 @@
 			path = TransitionView;
 			sourceTree = "<group>";
 		};
+		F2380A962857008D004754EE /* MeetingRoom */ = {
+			isa = PBXGroup;
+			children = (
+				212E5CE12853280400E10FF4 /* MeetingRoomView.swift */,
+				21812E8328557D380023463C /* FinishTopicView.swift */,
+				3F4E60132855BE7200BFAA65 /* ArrowAnimationView.swift */,
+				3F4E60062853A30200BFAA65 /* EmojiReactionView.swift */,
+			);
+			path = MeetingRoom;
+			sourceTree = "<group>";
+		};
+		F2380A9728570153004754EE /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				F29BED2928543708005B4A1B /* QRCode */,
+				F29BED20285397AF005B4A1B /* HomeView.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
 		F29BECD42852152F005B4A1B /* Constants */ = {
 			isa = PBXGroup;
 			children = (
@@ -198,24 +210,16 @@
 		F29BECD628521540005B4A1B /* View */ = {
 			isa = PBXGroup;
 			children = (
+				F2380A9728570153004754EE /* Home */,
+				F2380A962857008D004754EE /* MeetingRoom */,
 				F2380A952856FEF9004754EE /* TransitionView */,
 				7BFBD2DE2856C31400E5D98C /* Onboarding */,
 				4AC8DEEA2854F20E00500E0A /* CarouselView.swift */,
 				15634FA42854EB3F009264BF /* BreakTimeView.swift */,
 				15634FA52854EB3F009264BF /* CircularTimerView.swift */,
 				15634FA62854EB3F009264BF /* TimeSetView.swift */,
-				F29BED2928543708005B4A1B /* QRCode */,
-				3F4E60062853A30200BFAA65 /* EmojiReactionView.swift */,
-				3F4E60132855BE7200BFAA65 /* Arrows.swift */,
-				3F4E60072853A30300BFAA65 /* FancyButtonViewModel.swift */,
 				21D2547A2852D21100E3EADC /* TestCardView.swift */,
-				212E5CD92853173700E10FF4 /* CardDeckView.swift */,
-				212E5CDB285317B200E10FF4 /* CardZoneView.swift */,
-				212E5CDD2853181000E10FF4 /* TestGestureView.swift */,
-				212E5CE12853280400E10FF4 /* MeetingRoomView.swift */,
-				F29BED20285397AF005B4A1B /* HomeView.swift */,
 				F29BED222853B24C005B4A1B /* CreateMeetingRoomView.swift */,
-				21812E8328557D380023463C /* FinishTopicView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -422,19 +426,15 @@
 				F29BED1D28532DC3005B4A1B /* RoundButton.swift in Sources */,
 				4A3B249B2855FFC000504486 /* CompletionViewModel.swift in Sources */,
 				F29BED232853B24C005B4A1B /* CreateMeetingRoomView.swift in Sources */,
-				3F4E600A2853A30300BFAA65 /* FancyButtonViewModel.swift in Sources */,
 				F2380A8B2856D500004754EE /* FirebaseManager.swift in Sources */,
 				3F4E60092853A30300BFAA65 /* EmojiReactionView.swift in Sources */,
 				F2380A8F2856D633004754EE /* generateRandomNickname.swift in Sources */,
 				F29BED2B28543717005B4A1B /* QRCode.swift in Sources */,
 				212E5CE22853280400E10FF4 /* MeetingRoomView.swift in Sources */,
-				3F4E60142855BE7200BFAA65 /* Arrows.swift in Sources */,
+				3F4E60142855BE7200BFAA65 /* ArrowAnimationView.swift in Sources */,
 				7BFBD2E42856C33B00E5D98C /* OnboardingPageView.swift in Sources */,
-				212E5CDA2853173700E10FF4 /* CardDeckView.swift in Sources */,
-				212E5CDE2853181000E10FF4 /* TestGestureView.swift in Sources */,
 				F29BED21285397AF005B4A1B /* HomeView.swift in Sources */,
 				15634FA72854EB3F009264BF /* BreakTimeView.swift in Sources */,
-				212E5CDC285317B200E10FF4 /* CardZoneView.swift in Sources */,
 				15634FA92854EB3F009264BF /* TimeSetView.swift in Sources */,
 				3F4E601B2855DA3B00BFAA65 /* CompletedTopicView.swift in Sources */,
 				21D2547B2852D21100E3EADC /* TestCardView.swift in Sources */,

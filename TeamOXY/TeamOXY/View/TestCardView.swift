@@ -100,7 +100,14 @@ struct TestCardView: View {
                 }
             }
         
-        return TempCardView()
+        return ZStack {
+            Color(.green)
+            VStack {
+                Text("Card").font(.system(size: 30))
+                    .bold()
+            }
+        }
+        .frame(width: 100, height: 150)
                 // 테두리
                 .overlay {
                     // 카드 놓는 곳으로 가면
