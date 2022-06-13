@@ -39,6 +39,7 @@
 		F225A1E32856BD1300166ECC /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = F225A1E22856BD1300166ECC /* FirebaseStorage */; };
 		F225A1E72856C89A00166ECC /* Reaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = F225A1E62856C89A00166ECC /* Reaction.swift */; };
 		F225A1E92856CB9800166ECC /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = F225A1E82856CB9800166ECC /* User.swift */; };
+		F225A1EB2856CEB200166ECC /* Topic.swift in Sources */ = {isa = PBXBuildFile; fileRef = F225A1EA2856CEB200166ECC /* Topic.swift */; };
 		F29BECE6285217A9005B4A1B /* Pretendard-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = F29BECDD285217A8005B4A1B /* Pretendard-Medium.otf */; };
 		F29BECE7285217A9005B4A1B /* Pretendard-Thin.otf in Resources */ = {isa = PBXBuildFile; fileRef = F29BECDE285217A8005B4A1B /* Pretendard-Thin.otf */; };
 		F29BECE8285217A9005B4A1B /* Pretendard-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = F29BECDF285217A8005B4A1B /* Pretendard-Light.otf */; };
@@ -87,6 +88,7 @@
 		7BC5EFB12851ECC5004A27B5 /* ColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ColorExtension.swift; path = TeamOXY/Extensions/ColorExtension.swift; sourceTree = SOURCE_ROOT; };
 		F225A1E62856C89A00166ECC /* Reaction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reaction.swift; sourceTree = "<group>"; };
 		F225A1E82856CB9800166ECC /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		F225A1EA2856CEB200166ECC /* Topic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Topic.swift; sourceTree = "<group>"; };
 		F29BECDD285217A8005B4A1B /* Pretendard-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Medium.otf"; sourceTree = "<group>"; };
 		F29BECDE285217A8005B4A1B /* Pretendard-Thin.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Thin.otf"; sourceTree = "<group>"; };
 		F29BECDF285217A8005B4A1B /* Pretendard-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Light.otf"; sourceTree = "<group>"; };
@@ -179,6 +181,7 @@
 			children = (
 				F225A1E62856C89A00166ECC /* Reaction.swift */,
 				F225A1E82856CB9800166ECC /* User.swift */,
+				F225A1EA2856CEB200166ECC /* Topic.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -371,6 +374,7 @@
 				4AC8DEEB2854F20E00500E0A /* CarouselView.swift in Sources */,
 				21812E8428557D380023463C /* FinishTopicView.swift in Sources */,
 				F225A1E92856CB9800166ECC /* User.swift in Sources */,
+				F225A1EB2856CEB200166ECC /* Topic.swift in Sources */,
 				F29BED1D28532DC3005B4A1B /* RoundButton.swift in Sources */,
 				4A3B249B2855FFC000504486 /* CompletionViewModel.swift in Sources */,
 				F29BED232853B24C005B4A1B /* CreateMeetingRoomView.swift in Sources */,
