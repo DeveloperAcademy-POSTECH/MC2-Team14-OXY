@@ -8,20 +8,36 @@
 import SwiftUI
 
 struct MeetingRoomView: View {
+    
+    @ObservedObject var viewModel = CompletionViewModel()
+    
     @State private var showingLeaveRoomSheet: Bool = false
+    
     var body: some View {
         NavigationView {
             VStack {
                 ZStack{
-                    Spacer()
-                    Rectangle()
-                        .strokeBorder(style: StrokeStyle(lineWidth: 4, dash: [10]))
-                        .frame(width: smallCardWidth * 2.4,height: smallCardHeight * 2.4)
-                        .foregroundColor(.gray.opacity(0.5))
-                        .shadow(color: .gray.opacity(0.5), radius: 15, x: 3, y: 3)
-                        .offset(y: -95)
-
-                    CarouselView(views: [
+                    
+                    if viewModel.FinishTopicViewCondition != [false, true, true] && viewModel.isCardBox {
+                        RoundedRectangle(cornerRadius: 5)
+                            .strokeBorder(style: StrokeStyle(lineWidth: 1))
+                            .frame(width: smallCardWidth * 2.4,height: smallCardHeight * 2.4)
+                            .foregroundColor(.gray.opacity(0.2))
+                            .overlay(content: {
+                                HStack(spacing:0) {
+                                    Text("카드를 올려")
+                                        .font(.custom("Pretendard-Light", size: 12))
+                                    Text(" 쉬는 시간")
+                                        .font(.custom("Pretendard-Light", size: 12))
+                                        .foregroundColor(Color.PrimaryBlue)
+                                    Text("을 제안해보세요")
+                                        .font(.custom("Pretendard-Light", size: 12))
+                                }
+                            })
+                            .offset(y: -UIScreen.screenHeight * 0.11)
+                    }
+                    
+                    CarouselView(viewModel: viewModel,views: [
                         Image("Card1"),
                         Image("Card2"),
                         Image("Card3"),
@@ -30,7 +46,7 @@ struct MeetingRoomView: View {
                         Image("Card6"),
                         Image("Card6")
                     ])
-            }
+                }
             }
             .confirmationDialog("방을 정말 떠나시겠습니까?",
                                 isPresented: $showingLeaveRoomSheet,
