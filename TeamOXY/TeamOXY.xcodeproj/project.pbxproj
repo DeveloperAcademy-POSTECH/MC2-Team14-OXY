@@ -37,6 +37,8 @@
 		F225A1DF2856BD1300166ECC /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = F225A1DE2856BD1300166ECC /* FirebaseFirestoreSwift */; };
 		F225A1E12856BD1300166ECC /* FirebaseMessaging in Frameworks */ = {isa = PBXBuildFile; productRef = F225A1E02856BD1300166ECC /* FirebaseMessaging */; };
 		F225A1E32856BD1300166ECC /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = F225A1E22856BD1300166ECC /* FirebaseStorage */; };
+		F225A1E52856C6D600166ECC /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = F225A1E42856C6D600166ECC /* User.swift */; };
+		F225A1E72856C89A00166ECC /* Reaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = F225A1E62856C89A00166ECC /* Reaction.swift */; };
 		F29BECE6285217A9005B4A1B /* Pretendard-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = F29BECDD285217A8005B4A1B /* Pretendard-Medium.otf */; };
 		F29BECE7285217A9005B4A1B /* Pretendard-Thin.otf in Resources */ = {isa = PBXBuildFile; fileRef = F29BECDE285217A8005B4A1B /* Pretendard-Thin.otf */; };
 		F29BECE8285217A9005B4A1B /* Pretendard-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = F29BECDF285217A8005B4A1B /* Pretendard-Light.otf */; };
@@ -83,6 +85,8 @@
 		4AC8DEEA2854F20E00500E0A /* CarouselView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CarouselView.swift; sourceTree = "<group>"; };
 		7BC5EFAF2851E5C0004A27B5 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		7BC5EFB12851ECC5004A27B5 /* ColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ColorExtension.swift; path = TeamOXY/Extensions/ColorExtension.swift; sourceTree = SOURCE_ROOT; };
+		F225A1E42856C6D600166ECC /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = User.swift; path = ../../../../../../Desktop/User.swift; sourceTree = "<group>"; };
+		F225A1E62856C89A00166ECC /* Reaction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reaction.swift; sourceTree = "<group>"; };
 		F29BECDD285217A8005B4A1B /* Pretendard-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Medium.otf"; sourceTree = "<group>"; };
 		F29BECDE285217A8005B4A1B /* Pretendard-Thin.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Thin.otf"; sourceTree = "<group>"; };
 		F29BECDF285217A8005B4A1B /* Pretendard-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Light.otf"; sourceTree = "<group>"; };
@@ -173,6 +177,8 @@
 		F29BECD928521550005B4A1B /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				F225A1E42856C6D600166ECC /* User.swift */,
+				F225A1E62856C89A00166ECC /* Reaction.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -368,6 +374,7 @@
 				4A3B249B2855FFC000504486 /* CompletionViewModel.swift in Sources */,
 				F29BED232853B24C005B4A1B /* CreateMeetingRoomView.swift in Sources */,
 				212E5CE02853193100E10FF4 /* TempCardView.swift in Sources */,
+				F225A1E52856C6D600166ECC /* User.swift in Sources */,
 				3F4E600A2853A30300BFAA65 /* FancyButtonViewModel.swift in Sources */,
 				3F4E60092853A30300BFAA65 /* EmojiReactionView.swift in Sources */,
 				F29BED2B28543717005B4A1B /* QRCode.swift in Sources */,
@@ -383,6 +390,7 @@
 				3F4E601B2855DA3B00BFAA65 /* TopicCompletionView.swift in Sources */,
 				21D2547B2852D21100E3EADC /* TestCardView.swift in Sources */,
 				3F4E601F2855DF6600BFAA65 /* EmojiViewModel.swift in Sources */,
+				F225A1E72856C89A00166ECC /* Reaction.swift in Sources */,
 				F2D707B82849BA6C00DA86FD /* TeamOXYApp.swift in Sources */,
 				F29BED28285436F2005B4A1B /* QRCodeView.swift in Sources */,
 				F29BED1F28533CBC005B4A1B /* String+ButtonImageName.swift in Sources */,
