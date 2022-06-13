@@ -115,14 +115,14 @@ struct CarouselView: View {
         ZStack {
             
             if viewModel.isCompletion {
-                TopicCompletionView()
+                CompletedTopicView()
                     .padding(.bottom, 160)
             }
             
             ZStack(alignment: .bottom){
             
                 // 각각의 요소에 그림자 넣는 법 말고 전체를 묶어서 그림자를 넣는 법 고민해보기
-                ForEach(0..<views.count){ i in
+                ForEach(0 ..< views.count, id: \.self){ i in
                     VStack{
                         self.views[i]
                             .resizable()

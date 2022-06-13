@@ -34,7 +34,7 @@ struct Arrows: View {
 
         ZStack {
             HStack{
-                ForEach(0..<self.arrowCount) { i in
+                ForEach(0 ..< arrowCount, id: \.self) { i in
                     ArrowShape()
                         .stroke(style: StrokeStyle(lineWidth: CGFloat(5),
                                                   lineCap: .round,
