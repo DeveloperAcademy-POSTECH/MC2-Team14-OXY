@@ -10,8 +10,8 @@ import SwiftUI
 /*
  TODO: Bool값으로 카드가 cardZone에 있을 때 스크롤 작동 안되게 하기 -> clear
  TODO: card존의 위치 조정 -> 일단clear 다니거에서 secondCardLocation 수정 & initialCardLocation 수정 & smallCardWidth, Heiht 수정 & 나머지는 그대로
- TODO: 올리는 동작의 end에는(inCardzone인 경우) -> 이모지뷰 띄우기, 내리는 동작중 드래깅
- TODO: 카드가 올라가 있을 때 '누군가 쉬는시간을 제안했습니다' 보여주기
+ TODO: 올리는 동작의 end에는(inCardzone인 경우) -> 이모지뷰 띄우기, 내리는 동작중 드래깅 -> clear
+ TODO: 카드가 올라가 있을 때 '누군가 쉬는시간을 제안했습니다' 보여주기 -> clear
  
  
  */
@@ -36,7 +36,7 @@ let secondCardLocation: CGFloat = -200
 
 struct CarouselView: View {
     
-    
+    @ObservedObject var viewModel = CompletionViewModel()
     
     // gesture 추적
     @GestureState private var dragState = HorizontalDragState.inactive
@@ -111,56 +111,62 @@ struct CarouselView: View {
                 print("onEnded")
             }
         
-        ZStack(alignment: .bottom){
+        
+        ZStack {
             
-            // 각각의 요소에 그림자 넣는 법 말고 전체를 묶어서 그림자를 넣는 법 고민해보기
-            ForEach(0..<views.count){ i in
-                VStack{
-                    self.views[i]
-                        .resizable()
-                        .frame(width: getWidth(i), height: getWidth(i) * 1.4)
-                        .aspectRatio(contentMode: .fit)
-                    //                        .animation(.interpolatingSpring(stiffness: 300.0, damping: 30.0, initialVelocity: 10.0))
-                        .background(Color.white)
-                        .cornerRadius(5)
-                        .shadow(color: .gray.opacity(0.5), radius: shadowSetting(i)[0], x: shadowSetting(i)[1], y: shadowSetting(i)[2])
-                        .opacity(self.getOpacity(i))
-                    //                        .animation(.interpolatingSpring(stiffness: 300.0, damping: 30.0, initialVelocity: 10.0))
-                    // offset y를 longpress가 눌리면, 다니 함수의 y값으로 return 하도록 삼항연산자(?)
-                        .offset(x: self.getOffsetX(i),
-                                y: setOffsetY(i))
-                    //                        .animation(.interpolatingSpring(stiffness: 300.0, damping: 30.0, initialVelocity: 10.0))
-                    // animation은 그 바로 위에 있는 메소드에 적용하는 것, 즉 animation이 3번 반복되는이유는
-                    // frame, shadow, offset변화에 애니메이션을 주기 위함 -> 각각에 적용되는 애니메이션이 똑같으면 굳이 그럴필요 있나(?)
-                        .scaleEffect(setScale(i))
-                        .animation(.interpolatingSpring(stiffness: 300.0, damping: 30.0, initialVelocity: 10.0))
-                }
-                .zIndex(setZindex(i))
-            }
-            // long 프레스와 좌우스크롤은 같은 위계 & 상하 드래그는 long프레스 보다 낮은 위계
-            .simultaneousGesture(
-                // card가 cardzone에 있거나, drag애니메이션2에서 드래깅 중이면 좌우 스크롤 불가
-                isInCardZone() || dragState2.isDragging ? nil : horizontalDrag
-            )
-            .simultaneousGesture(longPressDrag)
-            
-            // incardzone이면 너무 먼저 떠버리게 됨.
-            if isFinishTopicView() {
-                VStack{
-                    FinishTopicView(FinishTopicViewCondition: $FinishTopicViewCondition )
-                        
-                    Spacer()
-                        .frame(height: UIScreen.main.bounds.height / 3)
-                }
-                .transition(.asymmetric(insertion: AnyTransition.move(edge: .top),
-                                               removal: AnyTransition.opacity.animation(.easeIn))
-                       )
-                .animation(.easeIn)
+            if viewModel.isCompletion {
+                TopicCompletionView()
+                    .padding(.bottom, 160)
             }
             
-            EmojiReactionView()
-                .opacity(isInCardZone() && !dragState2.isDragging ? 1.0 : 0)
-                .zIndex(3)
+            ZStack(alignment: .bottom){
+            
+                // 각각의 요소에 그림자 넣는 법 말고 전체를 묶어서 그림자를 넣는 법 고민해보기
+                ForEach(0..<views.count){ i in
+                    VStack{
+                        self.views[i]
+                            .resizable()
+                            .frame(width: getWidth(i), height: getWidth(i) * 1.4)
+                            .aspectRatio(contentMode: .fit)
+                        //                        .animation(.interpolatingSpring(stiffness: 300.0, damping: 30.0, initialVelocity: 10.0))
+                            .background(Color.white)
+                            .cornerRadius(5)
+                            .shadow(color: .gray.opacity(0.5), radius: shadowSetting(i)[0], x: shadowSetting(i)[1], y: shadowSetting(i)[2])
+                            .opacity(self.getOpacity(i))
+                        //                        .animation(.interpolatingSpring(stiffness: 300.0, damping: 30.0, initialVelocity: 10.0))
+                        // offset y를 longpress가 눌리면, 다니 함수의 y값으로 return 하도록 삼항연산자(?)
+                            .offset(x: self.getOffsetX(i),
+                                    y: setOffsetY(i))
+                        //                        .animation(.interpolatingSpring(stiffness: 300.0, damping: 30.0, initialVelocity: 10.0))
+                        // animation은 그 바로 위에 있는 메소드에 적용하는 것, 즉 animation이 3번 반복되는이유는
+                        // frame, shadow, offset변화에 애니메이션을 주기 위함 -> 각각에 적용되는 애니메이션이 똑같으면 굳이 그럴필요 있나(?)
+                            .scaleEffect(setScale(i))
+                            .animation(.interpolatingSpring(stiffness: 300.0, damping: 30.0, initialVelocity: 10.0))
+                    }
+                    .zIndex(setZindex(i))
+                }
+                // long 프레스와 좌우스크롤은 같은 위계 & 상하 드래그는 long프레스 보다 낮은 위계
+                .simultaneousGesture(
+                    // card가 cardzone에 있거나, drag애니메이션2에서 드래깅 중이면 좌우 스크롤 불가
+                    isInCardZone() || dragState2.isDragging ? nil : horizontalDrag
+                )
+                .simultaneousGesture(longPressDrag)
+                
+                // incardzone이면 너무 먼저 떠버리게 됨.
+                if isFinishTopicView() {
+                    VStack{
+                        FinishTopicView(viewModel: viewModel, FinishTopicViewCondition: $FinishTopicViewCondition )
+                            .padding(.bottom, 50)
+                        Spacer()
+                            .frame(height: UIScreen.main.bounds.height / 3)
+                    }
+                    .transition(AnyTransition.opacity.animation(.easeInOut))
+                }
+                
+                EmojiReactionView()
+                    .opacity(isInCardZone() && !dragState2.isDragging ? 1.0 : 0)
+                    .zIndex(3)
+            }
         }
     }
     

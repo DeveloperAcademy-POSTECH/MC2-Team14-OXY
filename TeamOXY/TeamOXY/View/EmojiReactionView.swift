@@ -21,17 +21,10 @@ struct EmojiReactionView: View {
                    Spacer()
                         .frame(height:UIScreen.main.bounds.height / 1.8)
                     
-                    Text("누군가 쉬는 시간을 제안했습니다.")
-                        .fontWeight(.bold)
-                        .padding(.top, 50)
-                    Text("아래 아이콘을 탭해서 반응해 보세요.")
-                        .fontWeight(.bold)
-                        .padding(.top, 4)
-                  
                     // 아래로 내리는 화살표
                     Arrows()
                         .rotationEffect(.degrees(90))
-                        .padding(.top, -20)
+                        .padding(.top, -5)
                         
                     // 화면 중간 텍스트
                     middleTextView()
@@ -133,37 +126,19 @@ struct middleTextView : View {
         VStack(spacing: 10) {
             HStack {
                 Text("누군가")
-                    .bold()
+                    .font(.custom("Pretendard-Bold", size: 12))
                 
                 Text("쉬는 시간")
-                    .foregroundColor(.blue)
-                    .bold()
+                    .foregroundColor(Color.PrimaryBlue)
+                    .font(.custom("Pretendard-Bold", size: 12))
                 
                 Text("을 제안했습니다.")
-                    .bold()
+                    .font(.custom("Pretendard-Bold", size: 12))
                     .padding(.leading, -7)
             }
             
             Text("아래 아이콘을 탭해서 반응해 보세요.")
-                .bold()
+                .font(.custom("Pretendard-Bold", size: 12))
         }
     }
 }
-
-struct CardDownImageView : View {
-    
-    var colorOpacities = [0.3, 0.6, 0.9]
-    
-    var body: some View {
-        VStack {
-            ForEach(colorOpacities, id: \.self) { colorOpacity in
-                Image(systemName: "chevron.compact.down")
-                    .resizable()
-                    .foregroundColor(Color.gray.opacity(colorOpacity))
-                    .frame(width: 40, height: 10)
-                    .padding(-3)
-            }
-        }
-    }
-}
-

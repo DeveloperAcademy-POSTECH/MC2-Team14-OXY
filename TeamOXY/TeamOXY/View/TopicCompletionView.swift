@@ -11,7 +11,7 @@ struct TopicCompletionView: View {
     var body: some View {
         VStack {
             LottieView(filename: "Completion")
-                .frame(width: 400, height: 400)
+                .frame(width: 300, height: 300)
         }
     }
 }
