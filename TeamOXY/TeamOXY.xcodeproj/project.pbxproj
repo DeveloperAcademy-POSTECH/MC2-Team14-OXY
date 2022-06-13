@@ -45,7 +45,7 @@
 		F225A1EB2856CEB200166ECC /* Topic.swift in Sources */ = {isa = PBXBuildFile; fileRef = F225A1EA2856CEB200166ECC /* Topic.swift */; };
 		F2380A8B2856D500004754EE /* FirebaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2380A8A2856D500004754EE /* FirebaseManager.swift */; };
 		F2380A8D2856D567004754EE /* FirebaseConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2380A8C2856D567004754EE /* FirebaseConstants.swift */; };
-		F2380A8F2856D633004754EE /* RandomNicknameFunciton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2380A8E2856D633004754EE /* RandomNicknameFunciton.swift */; };
+		F2380A8F2856D633004754EE /* generateRandomNickname.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2380A8E2856D633004754EE /* generateRandomNickname.swift */; };
 		F29BECE6285217A9005B4A1B /* Pretendard-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = F29BECDD285217A8005B4A1B /* Pretendard-Medium.otf */; };
 		F29BECE7285217A9005B4A1B /* Pretendard-Thin.otf in Resources */ = {isa = PBXBuildFile; fileRef = F29BECDE285217A8005B4A1B /* Pretendard-Thin.otf */; };
 		F29BECE8285217A9005B4A1B /* Pretendard-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = F29BECDF285217A8005B4A1B /* Pretendard-Light.otf */; };
@@ -100,7 +100,7 @@
 		F225A1EA2856CEB200166ECC /* Topic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Topic.swift; sourceTree = "<group>"; };
 		F2380A8A2856D500004754EE /* FirebaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseManager.swift; sourceTree = "<group>"; };
 		F2380A8C2856D567004754EE /* FirebaseConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseConstants.swift; sourceTree = "<group>"; };
-		F2380A8E2856D633004754EE /* RandomNicknameFunciton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomNicknameFunciton.swift; sourceTree = "<group>"; };
+		F2380A8E2856D633004754EE /* generateRandomNickname.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = generateRandomNickname.swift; sourceTree = "<group>"; };
 		F29BECDD285217A8005B4A1B /* Pretendard-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Medium.otf"; sourceTree = "<group>"; };
 		F29BECDE285217A8005B4A1B /* Pretendard-Thin.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Thin.otf"; sourceTree = "<group>"; };
 		F29BECDF285217A8005B4A1B /* Pretendard-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Light.otf"; sourceTree = "<group>"; };
@@ -157,7 +157,7 @@
 			isa = PBXGroup;
 			children = (
 				F2380A8A2856D500004754EE /* FirebaseManager.swift */,
-				F2380A8E2856D633004754EE /* RandomNicknameFunciton.swift */,
+				F2380A8E2856D633004754EE /* generateRandomNickname.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -417,7 +417,7 @@
 				3F4E600A2853A30300BFAA65 /* FancyButtonViewModel.swift in Sources */,
 				F2380A8B2856D500004754EE /* FirebaseManager.swift in Sources */,
 				3F4E60092853A30300BFAA65 /* EmojiReactionView.swift in Sources */,
-				F2380A8F2856D633004754EE /* RandomNicknameFunciton.swift in Sources */,
+				F2380A8F2856D633004754EE /* generateRandomNickname.swift in Sources */,
 				F29BED2B28543717005B4A1B /* QRCode.swift in Sources */,
 				212E5CE22853280400E10FF4 /* MeetingRoomView.swift in Sources */,
 				3F4E60142855BE7200BFAA65 /* Arrows.swift in Sources */,
