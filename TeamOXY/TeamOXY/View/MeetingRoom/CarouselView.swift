@@ -7,32 +7,31 @@
 
 import SwiftUI
 
-/*
-  TODO: Bool값으로 카드가 cardZone에 있을 때 스크롤 작동 안되게 하기 -> clear
-  TODO: card존의 위치 조정 -> 일단clear 다니거에서 secondCardLocation 수정 & initialCardLocation 수정 & smallCardWidth, Heiht 수정 & 나머지는 그대로
- */
-
-
 // smallCard: 카드가 덱에 있을 때 크기
-let smallCardWidth: CGFloat = UIScreen.main.bounds.width / 3.5
+let smallCardWidth: CGFloat = UIScreen.screenWidth * 0.28
 let smallCardHeight: CGFloat =  smallCardWidth * 1.4
+
 // largeCard: 카드가 선택돼서 놓여졌을 때 크기
-let largeCardWidth: CGFloat = 250
-let largeCardHeight: CGFloat = 375
+let largeCardWidth: CGFloat = 250 // 안쓰임
+let largeCardHeight: CGFloat = 375 // 안쓰임
+
 // cardZone: 카드가 놓여지는 공간 가장 아래 ~ 화면 상단
-let cardZoneHeight: CGFloat = 500
-let cardZonePaddingTop: CGFloat = 125
+let cardZoneHeight: CGFloat =  UIScreen.screenHeight * 0.59 //500
+let cardZonePaddingTop: CGFloat = 125 // 안쓰임
+
 // cardZoneHeightOverMiddle: 카드 놓여지는 부분이 화면 중앙을 얼마나 넘어가는지
-let cardZoneHeightOverMiddle: CGFloat = cardZoneHeight - UIScreen.main.bounds.height/2
+let cardZoneHeightOverMiddle: CGFloat = cardZoneHeight - UIScreen.screenHeight/2
+
 // initial 위치는 카드가 덱에 있을 때
 let initialCardLocation: CGFloat = 0
+
 // second 위치는 smallCard가 카드가 놓이는 Zone을 넘어갔을 때 (그래서 smallCardHeight 사용)
 //let secondCardLocation: CGFloat = cardZoneHeightOverMiddle - smallCardHeight/2
-let secondCardLocation: CGFloat = -200
+let secondCardLocation: CGFloat = -UIScreen.screenHeight * 0.23 //-200
 
 struct CarouselView: View {
     
-    
+    @ObservedObject var viewModel: CompletionViewModel
     
     // gesture 추적
     @GestureState private var dragState = HorizontalDragState.inactive
@@ -42,14 +41,12 @@ struct CarouselView: View {
     @State var carouselLocation = 0
     @State var degree = 0.0
     
-//    var itemHeight: CGFloat
     var views: [Image]
     
-    var spacerWidth: CGFloat = UIScreen.main.bounds.width / 4.1
+    var spacerWidth: CGFloat = UIScreen.screenWidth * 0.243
     
     private func onHorizontalDragEnded(drag: DragGesture.Value) {
-        
-        let dragThreshold:CGFloat = 100
+        let dragThreshold:CGFloat = 100 // 드래그 스레드홀드도 UIScreen으로 해야하나(?)
         if drag.predictedEndTranslation.width > dragThreshold || drag.translation.width > dragThreshold{
             carouselLocation =  carouselLocation - 1
         } else if (drag.predictedEndTranslation.width) < (-1 * dragThreshold) || (drag.translation.width) < (-1 * dragThreshold)
@@ -59,7 +56,6 @@ struct CarouselView: View {
     }
     
     var body: some View {
-        
         let minimumLongPressDuration = 0.3
         
         let horizontalDrag = DragGesture()
@@ -91,69 +87,111 @@ struct CarouselView: View {
                 // 카드 놓는 공간 안에 있다면
                 if viewState.height < secondCardLocation {
                     print("inside zone")
+                    viewModel.FinishTopicViewCondition = [true, false, true]
+                    viewModel.isCardBox = false
+                    print("1\(viewModel.FinishTopicViewCondition)")
                     // 카드 놓는 곳으로 위치시키기
-//                    self.viewState.height = -largeCardHeight/2 + cardZoneHeightOverMiddle
-                    viewState.height = -370
-
+                    //                    self.viewState.height = -largeCardHeight/2 + cardZoneHeightOverMiddle
+                    
+                    viewState.height = -UIScreen.screenHeight * 0.43//-370
+                    // 논의중이고 카드존에 없다면
+                } else if viewModel.FinishTopicViewCondition[2] == true {
+                    print("not inside zone")
+                    viewModel.FinishTopicViewCondition = [false, true, true]
+                    print("1\(viewModel.FinishTopicViewCondition)")
+                    // 다시 덱으로 위치시키기
+                    self.viewState.height = initialCardLocation
                 } else {
                     print("not inside zone")
-                    // 다시 덱으로 위치시키기
                     self.viewState.height = initialCardLocation
                 }
                 print("onEnded")
             }
-
-        ZStack{
-            // 각각의 요소에 그림자 넣는 법 말고 전체를 묶어서 그림자를 넣는 법 고민해보기
-            ForEach(0..<views.count){ i in
-                VStack{
-                    self.views[i]
-                        .resizable()
-                        .frame(width: getWidth(i), height: getWidth(i) * 1.4)
-                        .aspectRatio(contentMode: .fit)
-//                        .animation(.interpolatingSpring(stiffness: 300.0, damping: 30.0, initialVelocity: 10.0))
-                        .background(Color.white)
-                        .cornerRadius(5)
-                        .shadow(color: .gray.opacity(0.5), radius: shadowSetting(i)[0], x: shadowSetting(i)[1], y: shadowSetting(i)[2])
-                        .opacity(self.getOpacity(i))
-//                        .animation(.interpolatingSpring(stiffness: 300.0, damping: 30.0, initialVelocity: 10.0))
-                    // offset y를 longpress가 눌리면, 다니 함수의 y값으로 return 하도록 삼항연산자(?)
-                        .offset(x: self.getOffsetX(i),
-                                y: setOffsetY(i))
-//                        .animation(.interpolatingSpring(stiffness: 300.0, damping: 30.0, initialVelocity: 10.0))
-                    // animation은 그 바로 위에 있는 메소드에 적용하는 것, 즉 animation이 3번 반복되는이유는
-                    // frame, shadow, offset변화에 애니메이션을 주기 위함 -> 각각에 적용되는 애니메이션이 똑같으면 굳이 그럴필요 있나(?)
-                        .scaleEffect(setScale(i))
-                        .animation(.interpolatingSpring(stiffness: 300.0, damping: 30.0, initialVelocity: 10.0))
-                }
-                .zIndex(zindex(i))
+        
+        ZStack {
+            if viewModel.isCompletion {
+                CompletedTopicView()
+                    .padding(.bottom, UIScreen.screenHeight * 0.18)
             }
-            // long 프레스와 좌우스크롤은 같은 위계 & 상하 드래그는 long프레스 보다 낮은 위계
-            .simultaneousGesture(
-                // card가 cardzone에 있거나, drag애니메이션2에서 드래깅 중이면 좌우 스크롤 불가
-                isInCardZone() || dragState2.isDragging ? nil : horizontalDrag
-            )
-            .simultaneousGesture(longPressDrag)
+            
+            ZStack(alignment: .bottom){
+                // 각각의 요소에 그림자 넣는 법 말고 전체를 묶어서 그림자를 넣는 법 고민해보기
+                ForEach(0 ..< views.count, id: \.self){ i in
+                    VStack{
+                        self.views[i]
+                            .resizable()
+                            .frame(width: getWidth(i), height: getWidth(i) * 1.4)
+                            .aspectRatio(contentMode: .fit)
+                        //                        .animation(.interpolatingSpring(stiffness: 300.0, damping: 30.0, initialVelocity: 10.0))
+                            .background(Color.white)
+                            .cornerRadius(5)
+                            .shadow(color: setShadowColor(i), radius: shadowSetting(i)[0], x: shadowSetting(i)[1], y: shadowSetting(i)[2])
+                            .opacity(self.getOpacity(i))
+                        //                        .animation(.interpolatingSpring(stiffness: 300.0, damping: 30.0, initialVelocity: 10.0))
+                        // offset y를 longpress가 눌리면, 다니 함수의 y값으로 return 하도록 삼항연산자(?)
+                            .offset(x: self.getOffsetX(i),
+                                    y: setOffsetY(i))
+                        //                        .animation(.interpolatingSpring(stiffness: 300.0, damping: 30.0, initialVelocity: 10.0))
+                        // animation은 그 바로 위에 있는 메소드에 적용하는 것, 즉 animation이 3번 반복되는이유는
+                        // frame, shadow, offset변화에 애니메이션을 주기 위함 -> 각각에 적용되는 애니메이션이 똑같으면 굳이 그럴필요 있나(?)
+                            .scaleEffect(setScale(i))
+                            .animation(.interpolatingSpring(stiffness: 300.0, damping: 30.0, initialVelocity: 10.0))
+                    }
+                    .zIndex(setZindex(i))
+                }
+                // long 프레스와 좌우스크롤은 같은 위계 & 상하 드래그는 long프레스 보다 낮은 위계
+                .simultaneousGesture(
+                    // card가 cardzone에 있거나, drag애니메이션2에서 드래깅 중이면 좌우 스크롤 불가
+                    isInCardZone() || dragState2.isDragging ? nil : horizontalDrag
+                )
+                .simultaneousGesture(longPressDrag)
+                
+                if viewModel.FinishTopicViewCondition == [false, true, true] {
+                    VStack{
+                        FinishTopicView(viewModel: viewModel)
+                            .offset(y: -UIScreen.screenHeight * 0.38)
+                    }
+                    .transition(AnyTransition.opacity.animation(.easeInOut))
+                    
+                }
+                
+                EmojiReactionView()
+                    .opacity(isInCardZone() && !dragState2.isDragging ? 1.0 : 0)
+                    .zIndex(3)
+            }
+        }
+    }
+    
+    // ShadowColor 세팅
+    func setShadowColor(_ i: Int) -> Color {
+        if i == relativeLoc() {
+            return Color.ShadowGray.opacity(0.5)
+        } else {
+            return Color.ShadowGray.opacity(0.8)
         }
     }
     
     // 그림자 세팅
     func shadowSetting(_ i: Int) -> [CGFloat] {
         if i == relativeLoc() {
-            return [40,3,24]
+            if isInCardZone() {
+                return [24,3,17]
+            } else {
+                return [36,3,27]
+            }
         } else {
-            return [20,3,24]
+            return [36,3,27]
         }
     }
     
-    //
     func setOffsetY(_ i: Int) -> CGFloat {
         // 가운데 있고, long press가 실행되었을 때,
         if  i == relativeLoc() {
             // drag중이면 현재height + 드래그한 위치의height를 더해 터치에 따라 움직이도록
             // drag가 끝났을 때 cardzone에 있다면 -150을 그렇지 않으면 첫 위치로 돌아가도록
             return dragState2.isDragging ? viewState.height + dragState2.translation.height
-            : (isInCardZone() ? -150 : initialCardLocation)
+            : (isInCardZone() ? -UIScreen.screenHeight * 0.18 : initialCardLocation)
+            // uiscreen 자리 원래 -150
         }  else {
             return getOffsetY(i)
         }
@@ -170,7 +208,7 @@ struct CarouselView: View {
     }
     
     // 센터의 zindex 변경
-    func zindex(_ i: Int) -> Double {
+    func setZindex(_ i: Int) -> Double {
         if i == relativeLoc() {
             return 2
         } else if i + 1 == relativeLoc()
@@ -191,26 +229,53 @@ struct CarouselView: View {
     // width 설정
     func getWidth(_ i: Int) -> CGFloat {
         if i == relativeLoc(){
-            return UIScreen.main.bounds.width / 3.5
+            return UIScreen.screenWidth * 0.285 //UIScreen.main.bounds.width / 3.5
         } else {
-            return UIScreen.main.bounds.width / 4.1
+            return UIScreen.screenWidth * 0.243  // UIScreen.main.bounds.width / 4.1
         }
     }
     
     // 보여지지 않는 요소에 대한 투명도 설정
     func getOpacity(_ i:Int) -> Double{
-        
-        if i == relativeLoc()
-            || i + 1 == relativeLoc()
-            || i - 1 == relativeLoc()
-            || i + 2 == relativeLoc()
-            || i - 2 == relativeLoc()
-            || (i + 1) - views.count == relativeLoc()
-            || (i - 1) + views.count == relativeLoc()
-            || (i + 2) - views.count == relativeLoc()
-            || (i - 2) + views.count == relativeLoc()
-        {
-            return 1
+        // isinzone일 때 relativeLoc만 띄우기 그리고 isdragging일 때는 모든 카드 띄우기
+        // isinzone이 아닐 때 : 모두 띄워주기
+        // isinzone && isdragging일 때는 모든 카드를 띄우고, isdragging이 아닐 때는 가운데만 띄우기
+        if isInCardZone() && dragState2.isDragging {
+            if i == relativeLoc()
+                || i + 1 == relativeLoc()
+                || i - 1 == relativeLoc()
+                || i + 2 == relativeLoc()
+                || i - 2 == relativeLoc()
+                || (i + 1) - views.count == relativeLoc()
+                || (i - 1) + views.count == relativeLoc()
+                || (i + 2) - views.count == relativeLoc()
+                || (i - 2) + views.count == relativeLoc()
+            {
+                return 1
+            } else {
+                return 0
+            }
+        } else if isInCardZone() && !dragState2.isDragging {
+            if i == relativeLoc() {
+                return 1
+            } else {
+                return 0
+            }
+        } else if !isInCardZone() {
+            if i == relativeLoc()
+                || i + 1 == relativeLoc()
+                || i - 1 == relativeLoc()
+                || i + 2 == relativeLoc()
+                || i - 2 == relativeLoc()
+                || (i + 1) - views.count == relativeLoc()
+                || (i - 1) + views.count == relativeLoc()
+                || (i + 2) - views.count == relativeLoc()
+                || (i - 2) + views.count == relativeLoc()
+            {
+                return 1
+            } else {
+                return 0
+            }
         } else {
             return 0
         }
@@ -225,7 +290,6 @@ struct CarouselView: View {
     }
     
     func getOffsetX(_ i:Int) -> CGFloat{
-        
         //This sets up the central offset
         if (i) == relativeLoc()
         {
@@ -373,11 +437,3 @@ enum LongPressAndDragState {
         }
     }
 }
-
-
-//
-//struct CarouselView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        CarouselView()
-//    }
-//}

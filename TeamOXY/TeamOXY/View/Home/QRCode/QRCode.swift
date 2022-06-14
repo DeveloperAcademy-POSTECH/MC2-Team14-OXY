@@ -23,9 +23,8 @@ struct QRCode: View {
     
     // qr code generate
     func generateQRCode(_ url: String) -> UIImage {
-        // url을 utf8로
         let data = Data(url.utf8)
-        filter.setValue(data, forKey: "meetingRoomId")
+        filter.setValue(data, forKey: "inputMessage")
         
         if let qrCodeImage = filter.outputImage {
             if let qrCodeCGImage = context.createCGImage(qrCodeImage, from: qrCodeImage.extent) {
