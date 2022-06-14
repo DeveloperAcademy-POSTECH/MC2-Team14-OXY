@@ -9,6 +9,8 @@ import SwiftUI
 
 struct MeetingRoomView: View {
     
+    var scannedCodeUrl: String?
+    
     @ObservedObject var viewModel = CompletionViewModel()
     @ObservedObject var vm = MeetingRoomViewModel()
     
@@ -16,6 +18,8 @@ struct MeetingRoomView: View {
     @State private var showQRCode = false
     @State private var loginStatusMessage = ""
     @State private var nickname = ""
+    
+    @Binding var backToHome: Bool
     
     var body: some View {
         NavigationView {
@@ -50,44 +54,46 @@ struct MeetingRoomView: View {
                         Image("Card6"),
                         Image("Card6")
                     ])
+
+            }
+        }
+        .navigationTitle("\(vm.currentUser?.nickname ?? "") 방 \(vm.users.count)")
+        .navigationBarTitleDisplayMode(.inline)
+        .navigationBarBackButtonHidden(true)
+        .toolbar {
+            ToolbarItem(placement: .navigationBarLeading) {
+                Button(action: {
+                    showingLeaveRoomSheet.toggle()
+                }) {
+                    Image("Button_LeaveRoom")
+                        .imageScale(.large)
+                        .foregroundColor(.black)
                 }
             }
-            .confirmationDialog("방을 정말 떠나시겠습니까?",
-                                isPresented: $showingLeaveRoomSheet,
-                                titleVisibility: .visible) {
-                Button("떠나기") {
-                    print("떠나기")
+            
+            ToolbarItem(placement: .navigationBarTrailing) {
+                Button(action: {
+                    showQRCode.toggle()
+                }) {
+                    Image(systemName: "qrcode.viewfinder")
+                        .imageScale(.large)
                 }
-                Button("취소", role: .cancel) {
-                }
-            } message: {
-                Text("방에 다시 입장하려면 팀원들의 QR코드를 통해 입장해주세요")
             }
-            .navigationTitle("익명의 원숭이 방 6")
-            .navigationBarTitleDisplayMode(.inline)
-            .toolbar(content: {
-                ToolbarItem(placement: .navigationBarLeading) {
-                    Button(action: {
-                        showingLeaveRoomSheet.toggle()
-                    }) {
-                        Image("Button_LeaveRoom")
-                            .imageScale(.large)
-                            .foregroundColor(.black)
-                    }
-                }
-                ToolbarItem(placement: .navigationBarTrailing) {
-                    Button(action: {
-                        showQRCode.toggle()
-                    }) {
-                        Image(systemName: "qrcode.viewfinder")
-                            .imageScale(.large)
-                    }
-                }
+        }
+        .confirmationDialog("방을 정말 떠나시겠습니까?",
+                            isPresented: $showingLeaveRoomSheet,
+                            titleVisibility: .visible) {
+            Button("떠나기") {
+                backToHome = false
+            }
+            Button("취소", role: .cancel) {
                 
-            })
+            }
+        } message: {
+            Text("방에 다시 입장하려면 팀원들의 QR코드를 통해 입장해주세요")
         }
         .fullScreenCover(isPresented: $showQRCode) {
-            QRCodeView()
+            QRCodeView(url: vm.roomId)
         }
         .onAppear {
             DispatchQueue.main.async {
@@ -116,31 +122,78 @@ struct MeetingRoomView: View {
     }
     
     private func storeUserInformation() {
+        if let scannedCodeUrl = scannedCodeUrl {
+            guard let uid = FirebaseManager.shared.auth.currentUser?.uid else { return }
+            
+            let userData = [
+                FirebaseConstants.uid: uid,
+                FirebaseConstants.nickname: nickname
+            ]
+            
+            FirebaseManager.shared.firestore
+                .collection(FirebaseConstants.rooms)
+                .document(scannedCodeUrl)
+                .collection(FirebaseConstants.users)
+                .document(uid)
+                .setData(userData) { error in
+                    if let error = error {
+                        print("Failed to store user information: \(error)")
+                        return
+                    }
+                    
+                    print("Succeessfully stored user information")
+                    
+                    self.vm.fetchCurrentUser(scannedCodeUrl)
+                }
+        } else {
+            guard let uid = FirebaseManager.shared.auth.currentUser?.uid else { return }
+            
+            let userData = [
+                FirebaseConstants.uid: uid,
+                FirebaseConstants.nickname: nickname
+            ]
+            
+            vm.roomId = "room \(uid)"
+            
+            FirebaseManager.shared.firestore
+                .collection(FirebaseConstants.rooms)
+                .document(vm.roomId)
+                .collection(FirebaseConstants.users)
+                .document(uid)
+                .setData(userData) { error in
+                    if let error = error {
+                        print("Failed to store user information: \(error)")
+                        return
+                    }
+                    
+                    print("Succeessfully stored user information")
+                    
+                    self.vm.fetchCurrentUser(vm.roomId)
+                }
+        }
+    }
+    
+    private func leaveMeetingRoom() {
         guard let uid = FirebaseManager.shared.auth.currentUser?.uid else { return }
         
-        let userData = [
-            FirebaseConstants.uid: uid,
-            FirebaseConstants.nickname: nickname
-        ]
-        
         FirebaseManager.shared.firestore
-            .collection("rooms")
-            .document("room \(uid)")
-            .collection("users")
+            .collection(FirebaseConstants.rooms)
+            .document(vm.roomId)
+            .collection(FirebaseConstants.users)
             .document(uid)
-            .setData(userData) { error in
+            .delete { error in
                 if let error = error {
-                    print("Failed to store user information: \(error)")
+                    print("Failed to delete user: \(error)")
                     return
                 }
                 
-                print("Succeessfully stored user information")
+                self.vm.fetchCurrentUser(vm.roomId)
             }
     }
 }
 
 struct MeetingRoomView_Previews: PreviewProvider {
     static var previews: some View {
-        MeetingRoomView()
+        MeetingRoomView(scannedCodeUrl: nil, backToHome: .constant(true))
     }
 }

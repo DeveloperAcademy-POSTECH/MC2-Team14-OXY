@@ -44,6 +44,12 @@ struct CarouselView: View {
         
         let longPressDrag = LongPressGesture(minimumDuration: minimumLongPressDuration)
             .sequenced(before: DragGesture())
+            // 햅틱 추가
+            .onChanged{ changeAmount in
+                if (dragState2.isActive && !dragState2.isDragging) {
+                    HapticManager.instance.impact(style: .medium)
+                }
+            }
             .updating($dragState2) { value, state, transaction in
                 switch value {
                     // Long press begins.

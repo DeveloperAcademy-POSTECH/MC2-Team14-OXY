@@ -13,7 +13,6 @@ struct FinishTopicView: View {
     
     var body: some View {
         ZStack(alignment: .center) {
-            
             VStack {
                 Text("🕰⏰🕰⏰")
                     .font(.system(size: 58))
@@ -46,10 +45,8 @@ struct FinishTopicView: View {
                             .overlay(Text("아니요").font(.custom("Pretendard-Bold", size: 14)).foregroundColor(Color("PrimaryBlue")))
                     }
                     Spacer()
-                    Button(action: {
-                        // FinishTopicView뜨는 조건 초기화
-                        viewModel.FinishTopicViewCondition = [false, true, false]
-                    }) {
+                    // TimeSetView 쉬는시간설정 뷰로 이동
+                    NavigationLink(destination: TimeSetView(viewModel: viewModel)) {
                         Circle()
                             .fill(Color("PrimaryBlue"))
                             .frame(width: UIScreen.screenWidth * 0.148, height: UIScreen.screenWidth * 0.148,  alignment: .center)
@@ -59,7 +56,6 @@ struct FinishTopicView: View {
                 .padding(.horizontal, UIScreen.screenWidth * 0.102)
             }
             .padding(.horizontal, UIScreen.screenWidth * 0.158)
-            
         }
     }
 }

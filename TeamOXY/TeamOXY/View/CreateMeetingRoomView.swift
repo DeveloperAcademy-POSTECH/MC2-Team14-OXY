@@ -15,7 +15,7 @@ struct CreateMeetingRoomView: View {
     @State private var text = ""
     @State private var isCreated = false
     
-    @FocusState private var focusedField: FieldType?
+    @Binding var backToHome: Bool
     
     var body: some View {
         VStack {
@@ -25,10 +25,9 @@ struct CreateMeetingRoomView: View {
                 Text("우리 그룹의 방 이름은 무엇인가요?")
                     .textInputAutocapitalization(.never)
                     .disableAutocorrection(true)
-                    .focused($focusedField, equals: .roomTitle)
                     
                 HStack {
-                    TextField("익명의 원숭이 방", text: $text)
+                    TextField("\(generateRandomNickname()) 방", text: $text)
                     
                     if text != "" {
                         Image(systemName: "xmark.circle.fill")
@@ -53,7 +52,7 @@ struct CreateMeetingRoomView: View {
             Spacer()
             
             NavigationLink(isActive: $isCreated) {
-                MeetingRoomView()
+                MeetingRoomView(scannedCodeUrl: nil, backToHome: $backToHome)
             } label: {
                 RoundButton(buttonType: .primary, title: "시작하기", isButton: true, didCompletion: {
                     if text.isEmpty {
@@ -75,16 +74,11 @@ struct CreateMeetingRoomView: View {
         }
         .navigationTitle(barTitle)
         .navigationBarTitleDisplayMode(.inline)
-        .onAppear {
-            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-                focusedField = .roomTitle
-            }
-        }
     }
 }
 
 struct CreateMeetingRoomView_Previews: PreviewProvider {
     static var previews: some View {
-        CreateMeetingRoomView(barTitle: "방 만들기")
+        CreateMeetingRoomView(barTitle: "방 만들기", backToHome: .constant(true))
     }
 }
