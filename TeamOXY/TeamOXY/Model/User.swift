@@ -10,14 +10,14 @@ import Firebase
 import FirebaseFirestore
 import FirebaseFirestoreSwift
 
-class User: Codable, Identifiable {
+struct User: Codable, Identifiable {
+    @DocumentID var id: String?
+    
     let uid: String
     let nickname: String?
-    let documentId: String
 
-    init(data: [String : Any]) {
-        self.uid = data["uid"] as? String ?? ""
-        self.documentId = data["documentId"] as? String ?? ""
-        self.nickname = data["nickname"] as? String ?? ""
-    }
+//    init(data: [String : Any]) {
+//        self.uid = data["uid"] as? String ?? ""
+//        self.nickname = data["nickname"] as? String ?? ""
+//    }
 }

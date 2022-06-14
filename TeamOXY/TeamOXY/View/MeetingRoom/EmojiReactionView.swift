@@ -55,27 +55,6 @@ struct EmojiReactionView: View {
                         .padding()
                     }
                 }
-                .navigationTitle("익명의 원숭이 방 6")
-                .navigationBarTitleDisplayMode(.inline)
-                .toolbar(content: {
-                    ToolbarItem(placement: .navigationBarLeading) {
-                        Button(action: {
-   
-                        }) {
-                            Image(systemName: "chevron.backward")
-                                .imageScale(.large)
-                                .foregroundColor(.black)
-                        }
-                    }
-                    ToolbarItem(placement: .navigationBarTrailing) {
-                        Button(action: {
-
-                        }) {
-                            Image(systemName: "qrcode.viewfinder")
-                                .imageScale(.large)
-                        }
-                    }
-                })
                 
                 ZStack {
                     ConfettiCannon(counter: $viewModel.emojiCount_1, num: 5, confettis: [.text("🤔")], confettiSize: 30, radius: 300.0)
