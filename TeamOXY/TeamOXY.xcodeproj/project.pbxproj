@@ -147,6 +147,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		15D6638428586FFF00F0683D /* BreakTime */ = {
+			isa = PBXGroup;
+			children = (
+				15634FA42854EB3F009264BF /* BreakTimeView.swift */,
+				15634FAA28556BE9009264BF /* TimerStatus.swift */,
+				15634FA52854EB3F009264BF /* CircularTimerView.swift */,
+				15634FA62854EB3F009264BF /* TimeSetView.swift */,
+			);
+			path = BreakTime;
+			sourceTree = "<group>";
+		};
 		7BFBD2DE2856C31400E5D98C /* Onboarding */ = {
 			isa = PBXGroup;
 			children = (
@@ -236,10 +247,7 @@
 				F29BED222853B24C005B4A1B /* CreateMeetingRoomView.swift */,
 				F2380A962857008D004754EE /* MeetingRoom */,
 				F2380A952856FEF9004754EE /* TransitionView */,
-				15634FA42854EB3F009264BF /* BreakTimeView.swift */,
-				15634FAA28556BE9009264BF /* TimerStatus.swift */,
-				15634FA52854EB3F009264BF /* CircularTimerView.swift */,
-				15634FA62854EB3F009264BF /* TimeSetView.swift */,
+				15D6638428586FFF00F0683D /* BreakTime */,
 			);
 			path = View;
 			sourceTree = "<group>";
