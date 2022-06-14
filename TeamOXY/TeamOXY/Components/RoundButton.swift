@@ -16,6 +16,7 @@ struct RoundButton: View {
     let buttonType: ButtonType
     let title: String
     let isButton: Bool
+    var color: Color = .PrimaryBlue
     let didCompletion: (() -> ())?
     
     var body: some View {
@@ -27,10 +28,10 @@ struct RoundButton: View {
                 
                 didCompletion()
             } label: {
-                RoundButtonDesign(buttonType: buttonType, title: title)
+                RoundButtonDesign(buttonType: buttonType, title: title, color: color)
             }
         } else {
-            RoundButtonDesign(buttonType: buttonType, title: title)
+            RoundButtonDesign(buttonType: buttonType, title: title, color: color)
         }
     }
 }
@@ -38,6 +39,7 @@ struct RoundButton: View {
 struct RoundButtonDesign: View {
     let buttonType: ButtonType
     let title: String
+    let color: Color
     
     var body: some View {
         if buttonType == ButtonType.primary {
@@ -48,7 +50,7 @@ struct RoundButtonDesign: View {
             .button1()
             .foregroundColor(.white)
             .frame(width: UIScreen.main.bounds.width - 40, height: 55)
-            .background(Color.PrimaryBlue)
+            .background(color)
             .clipShape(Capsule())
         } else {
             HStack{
@@ -56,11 +58,11 @@ struct RoundButtonDesign: View {
                 Text(title)
             }
             .button1()
-            .foregroundColor(.PrimaryBlue)
+            .foregroundColor(color)
             .frame(width: UIScreen.main.bounds.width - 40, height: 55)
             .overlay(
                 RoundedRectangle(cornerRadius: 28)
-                    .stroke(Color.PrimaryBlue, lineWidth: 1))
+                    .stroke(color, lineWidth: 1))
         }
     }
 }

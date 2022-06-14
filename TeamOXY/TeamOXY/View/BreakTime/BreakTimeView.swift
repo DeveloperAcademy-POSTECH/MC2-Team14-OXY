@@ -38,12 +38,11 @@ struct BreakTimeView: View {
                 
                 Spacer()
                 
-                RoundButton(buttonType: .primary, title: isNotification ? "알림 끄기" : "알림 켜기", isButton: true) {
+                RoundButton(buttonType: .primary, title: isNotification ? "알림 끄기" : "알림 켜기", isButton: true, color: isNotification ? .DarkGray1 : .PrimaryBlue) {
                     //TODO: notification setting
                     
                     isNotification.toggle()
                 }
-                .foregroundColor(isNotification ? .DarkGray1 : .PrimaryBlue)
             }
         }
         .navigationBarTitle("쉬는 시간", displayMode: .inline)
