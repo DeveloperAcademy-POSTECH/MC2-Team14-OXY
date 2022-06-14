@@ -12,12 +12,12 @@ struct MeetingRoomView: View {
     @ObservedObject var viewModel = CompletionViewModel()
     
     @State private var showingLeaveRoomSheet: Bool = false
+    @State private var showQRCode = false
     
     var body: some View {
         NavigationView {
             VStack {
                 ZStack{
-                    
                     if viewModel.FinishTopicViewCondition != [false, true, true] && viewModel.isCardBox {
                         RoundedRectangle(cornerRadius: 5)
                             .strokeBorder(style: StrokeStyle(lineWidth: 1))
@@ -73,7 +73,7 @@ struct MeetingRoomView: View {
                 }
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Button(action: {
-                        
+                        showQRCode.toggle()
                     }) {
                         Image(systemName: "qrcode.viewfinder")
                             .imageScale(.large)
@@ -81,6 +81,9 @@ struct MeetingRoomView: View {
                 }
                 
             })
+        }
+        .fullScreenCover(isPresented: $showQRCode) {
+            QRCodeView()
         }
     }
 }

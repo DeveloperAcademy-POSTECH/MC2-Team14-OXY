@@ -50,7 +50,7 @@ struct CreateMeetingRoomView: View {
             Spacer()
             
             NavigationLink {
-                QRCodeView()
+                MeetingRoomView()
             } label: {
                 RoundButton(buttonType: .primary, title: "시작하기", isButton: false, didCompletion: nil)
                     .font(.custom("Pretendard-Black", size: 16))

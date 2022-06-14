@@ -10,7 +10,7 @@ import SwiftUI
 struct CompletedTopicView: View {
     var body: some View {
         VStack {
-            LottieView(filename: "Utils/Lottie/Completion")
+            LottieView(filename: "Completion")
                 .frame(width: UIScreen.screenWidth * 0.769, height: UIScreen.screenWidth * 0.769)
         }
     }

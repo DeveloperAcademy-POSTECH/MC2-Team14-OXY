@@ -10,11 +10,9 @@ import SwiftUI
 import UIKit
  
 struct LottieView: UIViewRepresentable {
-    
     typealias UIViewType = UIView
     //5.
     var filename: String
-    
     
     //1. Context -> UIViewRepresentableContext<LottieView>로 수정
     func makeUIView(context: UIViewRepresentableContext<LottieView>) -> UIView {
@@ -41,12 +39,10 @@ struct LottieView: UIViewRepresentable {
             animationView.heightAnchor.constraint(equalTo: view.heightAnchor)
         ])
         
-        
         return view
     }
     //2. Context -> UIViewRepresentableContext<LottieView>로 수정
     func updateUIView(_ uiView: UIView, context: UIViewRepresentableContext<LottieView>) {
         // do nothing
     }
-    
 }

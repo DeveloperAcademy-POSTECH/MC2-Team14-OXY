@@ -10,16 +10,21 @@ import SwiftUI
 // smallCard: 카드가 덱에 있을 때 크기
 let smallCardWidth: CGFloat = UIScreen.screenWidth * 0.28
 let smallCardHeight: CGFloat =  smallCardWidth * 1.4
+
 // largeCard: 카드가 선택돼서 놓여졌을 때 크기
 let largeCardWidth: CGFloat = 250 // 안쓰임
 let largeCardHeight: CGFloat = 375 // 안쓰임
+
 // cardZone: 카드가 놓여지는 공간 가장 아래 ~ 화면 상단
 let cardZoneHeight: CGFloat =  UIScreen.screenHeight * 0.59 //500
 let cardZonePaddingTop: CGFloat = 125 // 안쓰임
+
 // cardZoneHeightOverMiddle: 카드 놓여지는 부분이 화면 중앙을 얼마나 넘어가는지
 let cardZoneHeightOverMiddle: CGFloat = cardZoneHeight - UIScreen.screenHeight/2
+
 // initial 위치는 카드가 덱에 있을 때
 let initialCardLocation: CGFloat = 0
+
 // second 위치는 smallCard가 카드가 놓이는 Zone을 넘어갔을 때 (그래서 smallCardHeight 사용)
 //let secondCardLocation: CGFloat = cardZoneHeightOverMiddle - smallCardHeight/2
 let secondCardLocation: CGFloat = -UIScreen.screenHeight * 0.23 //-200
@@ -36,14 +41,11 @@ struct CarouselView: View {
     @State var carouselLocation = 0
     @State var degree = 0.0
     
-    //    @State var FinishTopicViewCondition: [Bool] = [false, true, false]  // [카드존에 있냐, 카드덱에 있다, 논의중이다]
-    //    var itemHeight: CGFloat
     var views: [Image]
     
     var spacerWidth: CGFloat = UIScreen.screenWidth * 0.243
     
     private func onHorizontalDragEnded(drag: DragGesture.Value) {
-        
         let dragThreshold:CGFloat = 100 // 드래그 스레드홀드도 UIScreen으로 해야하나(?)
         if drag.predictedEndTranslation.width > dragThreshold || drag.translation.width > dragThreshold{
             carouselLocation =  carouselLocation - 1
@@ -54,7 +56,6 @@ struct CarouselView: View {
     }
     
     var body: some View {
-        
         let minimumLongPressDuration = 0.3
         
         let horizontalDrag = DragGesture()
@@ -107,16 +108,13 @@ struct CarouselView: View {
                 print("onEnded")
             }
         
-        
         ZStack {
             if viewModel.isCompletion {
                 CompletedTopicView()
                     .padding(.bottom, UIScreen.screenHeight * 0.18)
             }
             
-            
             ZStack(alignment: .bottom){
-                
                 // 각각의 요소에 그림자 넣는 법 말고 전체를 묶어서 그림자를 넣는 법 고민해보기
                 ForEach(0 ..< views.count, id: \.self){ i in
                     VStack{
@@ -240,7 +238,6 @@ struct CarouselView: View {
     // 보여지지 않는 요소에 대한 투명도 설정
     func getOpacity(_ i:Int) -> Double{
         // isinzone일 때 relativeLoc만 띄우기 그리고 isdragging일 때는 모든 카드 띄우기
-        
         // isinzone이 아닐 때 : 모두 띄워주기
         // isinzone && isdragging일 때는 모든 카드를 띄우고, isdragging이 아닐 때는 가운데만 띄우기
         if isInCardZone() && dragState2.isDragging {
@@ -284,7 +281,6 @@ struct CarouselView: View {
         }
     }
     
-    
     func getOffsetY(_ i: Int) -> CGFloat {
         if i == relativeLoc() {
             return -8
@@ -294,7 +290,6 @@ struct CarouselView: View {
     }
     
     func getOffsetX(_ i:Int) -> CGFloat{
-        
         //This sets up the central offset
         if (i) == relativeLoc()
         {
@@ -374,18 +369,6 @@ struct CarouselView: View {
         let curHeight = viewState.height + dragState2.translation.height
         return curHeight < secondCardLocation
     }
-    
-    // FinishTopicView 띄워줄 조건
-    //    func isFinishTopicView() -> Bool {
-    //        guard let index = FinishTopicViewCondition.lastIndex(of: false) else { return false }
-    //        if FinishTopicViewCondition[index - 1] == true {
-    //            print(true)
-    //            return true
-    //        } else {
-    //            return false
-    //        }
-    //    }
-    
 }
 
 // 횡스크롤 drag gesture

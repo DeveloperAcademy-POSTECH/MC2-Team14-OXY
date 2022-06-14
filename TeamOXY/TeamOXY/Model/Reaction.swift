@@ -12,6 +12,7 @@ import FirebaseFirestoreSwift
 struct Reaction: Codable, Identifiable {
     var id: String { documentId }
     let fromId, toId, reaction: String
+    let timestamp: Timestamp
     let documentId: String
     
     init(documentId: String, data: [String : Any]) {
@@ -19,5 +20,6 @@ struct Reaction: Codable, Identifiable {
         self.fromId = data["fromId"] as? String ?? ""
         self.toId = data["toId"] as? String ?? ""
         self.reaction = data["reaction"] as? String ?? ""
+        self.timestamp = data["timestamp"] as? Timestamp ?? Timestamp(date: Date())
     }
 }

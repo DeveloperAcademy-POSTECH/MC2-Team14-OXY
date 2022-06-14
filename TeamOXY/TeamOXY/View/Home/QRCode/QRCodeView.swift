@@ -8,8 +8,22 @@
 import SwiftUI
 
 struct QRCodeView: View {
+    @Environment(\.dismiss) var dismiss
+    
     var body: some View {
         VStack {
+            HStack {
+                Spacer()
+                
+                Button {
+                    dismiss()
+                } label: {
+                    Image(systemName: "xmark")
+                }
+                .foregroundColor(.black)
+            }
+            .padding()
+            
             QRCode(url: "www.naver.com")
                 .padding(.bottom)
             
@@ -24,18 +38,11 @@ struct QRCodeView: View {
              
             Spacer()
         }
-        .toolbar {
-            ToolbarItem(placement: .navigationBarTrailing) {
-                Image(systemName: "xmark")
-            }
-        }
     }
 }
 
 struct QRCodeView_Previews: PreviewProvider {
     static var previews: some View {
-        NavigationView {
-            QRCodeView()
-        }
+        QRCodeView()
     }
 }
