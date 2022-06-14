@@ -13,6 +13,7 @@
 		15634FAB28556BEA009264BF /* TimerStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15634FAA28556BE9009264BF /* TimerStatus.swift */; };
 		212E5CE22853280400E10FF4 /* MeetingRoomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 212E5CE12853280400E10FF4 /* MeetingRoomView.swift */; };
 		21812E8428557D380023463C /* FinishTopicView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21812E8328557D380023463C /* FinishTopicView.swift */; };
+		21830A0B2858642300B279B6 /* HapticManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21830A0A2858642300B279B6 /* HapticManager.swift */; };
 		21D2547B2852D21100E3EADC /* TestCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21D2547A2852D21100E3EADC /* TestCardView.swift */; };
 		3F4E60092853A30300BFAA65 /* EmojiReactionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F4E60062853A30200BFAA65 /* EmojiReactionView.swift */; };
 		3F4E600E2853A37000BFAA65 /* ConfettiSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = 3F4E600D2853A37000BFAA65 /* ConfettiSwiftUI */; };
@@ -76,6 +77,7 @@
 		15634FAA28556BE9009264BF /* TimerStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerStatus.swift; sourceTree = "<group>"; };
 		212E5CE12853280400E10FF4 /* MeetingRoomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeetingRoomView.swift; sourceTree = "<group>"; };
 		21812E8328557D380023463C /* FinishTopicView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinishTopicView.swift; sourceTree = "<group>"; };
+		21830A0A2858642300B279B6 /* HapticManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HapticManager.swift; sourceTree = "<group>"; };
 		21D2547A2852D21100E3EADC /* TestCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestCardView.swift; sourceTree = "<group>"; };
 		3F4E60062853A30200BFAA65 /* EmojiReactionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmojiReactionView.swift; sourceTree = "<group>"; };
 		3F4E60132855BE7200BFAA65 /* ArrowAnimationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrowAnimationView.swift; sourceTree = "<group>"; };
@@ -161,6 +163,7 @@
 				F2380A942856FE64004754EE /* Lottie */,
 				F2380A8A2856D500004754EE /* FirebaseManager.swift */,
 				F2380A8E2856D633004754EE /* generateRandomNickname.swift */,
+				21830A0A2858642300B279B6 /* HapticManager.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -452,6 +455,7 @@
 				15634FAB28556BEA009264BF /* TimerStatus.swift in Sources */,
 				4A2A97AC2856D90B00EA21C6 /* FinishTopicViewModel.swift in Sources */,
 				F2380A8B2856D500004754EE /* FirebaseManager.swift in Sources */,
+				21830A0B2858642300B279B6 /* HapticManager.swift in Sources */,
 				3F4E60092853A30300BFAA65 /* EmojiReactionView.swift in Sources */,
 				F2380A8F2856D633004754EE /* generateRandomNickname.swift in Sources */,
 				F29BED2B28543717005B4A1B /* QRCode.swift in Sources */,
@@ -605,7 +609,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"TeamOXY/Preview Content\"";
-				DEVELOPMENT_TEAM = G3PA8G576S;
+				DEVELOPMENT_TEAM = AJK25G55CT;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = TeamOXY/Info.plist;
@@ -637,7 +641,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"TeamOXY/Preview Content\"";
-				DEVELOPMENT_TEAM = G4M4BVJF4D;
+				DEVELOPMENT_TEAM = AJK25G55CT;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = TeamOXY/Info.plist;
