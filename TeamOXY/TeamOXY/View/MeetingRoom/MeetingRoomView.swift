@@ -10,9 +10,12 @@ import SwiftUI
 struct MeetingRoomView: View {
     
     @ObservedObject var viewModel = CompletionViewModel()
+    @ObservedObject var vm = MeetingRoomViewModel()
     
     @State private var showingLeaveRoomSheet: Bool = false
     @State private var showQRCode = false
+    @State private var loginStatusMessage = ""
+    @State private var nickname = ""
     
     var body: some View {
         NavigationView {
@@ -85,6 +88,47 @@ struct MeetingRoomView: View {
         .fullScreenCover(isPresented: $showQRCode) {
             QRCodeView()
         }
+        .onAppear {
+            DispatchQueue.main.async {
+                nickname = generateRandomNickname()
+                anonymousLogin()
+                guard let uid = FirebaseManager.shared.auth.currentUser?.uid else { return }
+                
+                print("Current User",uid)
+            }
+        }
+    }
+    
+    private func anonymousLogin() {
+        FirebaseManager.shared.auth.signInAnonymously { result, error in
+            if let error = error {
+                print("Failed to Anonymous login user: \(error)")
+                loginStatusMessage = "Failed to Anonymous login user: \(error)"
+                return
+            }
+            
+            print("Successfully logged in user: \(result?.user.uid ?? "")")
+            loginStatusMessage = "Successfully logged in user: \(result?.user.uid ?? "")"
+            
+            self.storeUserInformation()
+        }
+    }
+    
+    private func storeUserInformation() {
+        guard let uid = FirebaseManager.shared.auth.currentUser?.uid else { return }
+        
+        let userData = ["uid": uid, "nickname": nickname]
+        FirebaseManager.shared.firestore
+            .collection("users")
+            .document(uid)
+            .setData(userData) { error in
+                if let error = error {
+                    print("Failed to store user information: \(error)")
+                    return
+                }
+                
+                print("Succeessfully stored user information")
+            }
     }
 }
 
