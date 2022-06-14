@@ -62,6 +62,7 @@
 		F2CA7CE2285701A00094B126 /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2CA7CE1285701A00094B126 /* RootView.swift */; };
 		F2CA7CE42858092F0094B126 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F2CA7CE32858092F0094B126 /* GoogleService-Info.plist */; };
 		F2CA7CFB2858154A0094B126 /* MeetingRoomViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2CA7CFA2858154A0094B126 /* MeetingRoomViewModel.swift */; };
+		F2CA7CFD285825EE0094B126 /* MeetingRoom.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2CA7CFC285825EE0094B126 /* MeetingRoom.swift */; };
 		F2D707B82849BA6C00DA86FD /* TeamOXYApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2D707B72849BA6C00DA86FD /* TeamOXYApp.swift */; };
 		F2D707BC2849BA6D00DA86FD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F2D707BB2849BA6D00DA86FD /* Assets.xcassets */; };
 		F2D707BF2849BA6D00DA86FD /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F2D707BE2849BA6D00DA86FD /* Preview Assets.xcassets */; };
@@ -116,6 +117,7 @@
 		F2CA7CE1285701A00094B126 /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
 		F2CA7CE32858092F0094B126 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		F2CA7CFA2858154A0094B126 /* MeetingRoomViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeetingRoomViewModel.swift; sourceTree = "<group>"; };
+		F2CA7CFC285825EE0094B126 /* MeetingRoom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeetingRoom.swift; sourceTree = "<group>"; };
 		F2D707B42849BA6C00DA86FD /* TeamOXY.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TeamOXY.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F2D707B72849BA6C00DA86FD /* TeamOXYApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamOXYApp.swift; sourceTree = "<group>"; };
 		F2D707BB2849BA6D00DA86FD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -242,6 +244,7 @@
 				F225A1E62856C89A00166ECC /* Reaction.swift */,
 				F225A1E82856CB9800166ECC /* User.swift */,
 				F225A1EA2856CEB200166ECC /* Topic.swift */,
+				F2CA7CFC285825EE0094B126 /* MeetingRoom.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -456,6 +459,7 @@
 				15634FA92854EB3F009264BF /* TimeSetView.swift in Sources */,
 				3F4E601B2855DA3B00BFAA65 /* CompletedTopicView.swift in Sources */,
 				21D2547B2852D21100E3EADC /* TestCardView.swift in Sources */,
+				F2CA7CFD285825EE0094B126 /* MeetingRoom.swift in Sources */,
 				F225A1E72856C89A00166ECC /* Reaction.swift in Sources */,
 				F2D707B82849BA6C00DA86FD /* TeamOXYApp.swift in Sources */,
 				F2380A932856EA65004754EE /* EmojiViewModel.swift in Sources */,
