@@ -10,7 +10,10 @@ import SwiftUI
 struct CreateMeetingRoomView: View {
     let barTitle: String
     
+    @ObservedObject private var vm = MeetingRoomViewModel()
+    
     @State private var text = ""
+    @State private var isCreated = false
     
     @FocusState private var focusedField: FieldType?
     
@@ -49,17 +52,26 @@ struct CreateMeetingRoomView: View {
             
             Spacer()
             
-            NavigationLink {
+            NavigationLink(isActive: $isCreated) {
                 MeetingRoomView()
             } label: {
-                RoundButton(buttonType: .primary, title: "시작하기", isButton: false, didCompletion: nil)
+                RoundButton(buttonType: .primary, title: "시작하기", isButton: true, didCompletion: {
+                    if text.isEmpty {
+                        text = generateRandomNickname()
+                        vm.roomTitle = text + " 방"
+                    } else {
+                        vm.roomTitle = text
+                    }
+                    
+                    isCreated.toggle()
+                })
                     .font(.custom("Pretendard-Black", size: 16))
                     .foregroundColor(.white)
                     .frame(width: UIScreen.main.bounds.width - 40, height: 55)
                     .background(Color.PrimaryBlue)
                     .clipShape(Capsule())
             }
-
+            .padding(.bottom)
         }
         .navigationTitle(barTitle)
         .navigationBarTitleDisplayMode(.inline)
