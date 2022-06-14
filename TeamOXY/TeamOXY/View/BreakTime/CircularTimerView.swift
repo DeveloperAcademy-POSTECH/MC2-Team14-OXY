@@ -43,6 +43,7 @@ struct CircularProgressBar: View {
                 .frame(width: 300, height: 300)
                 .rotationEffect(.degrees(-90))
                 .animation(.easeInOut(duration: 1.0), value: progressConvert())
+            
             Circle()
                 .stroke(lineWidth: 15)
                 .opacity(0.1)
@@ -67,7 +68,7 @@ struct DigitClock: View {
     
     var body: some View {
         Text(counterToMinutes())
-            .font(.custom("Pretendard-Thin", size: 50))
+            .timer1()
     }
     
     func counterToMinutes() -> String {

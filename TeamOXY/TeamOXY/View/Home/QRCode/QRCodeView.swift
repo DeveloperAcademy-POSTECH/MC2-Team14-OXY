@@ -35,10 +35,9 @@ struct QRCodeView: View {
                 Text("팀원들에게")
                 Text("QR코드")
                     .foregroundColor(.PrimaryBlue)
-                    .font(.custom("Pretendard-Black", size: 18))
                 Text("를 공유해주세요.")
             }
-            .font(.custom("Pretendard-Bold", size: 18))
+            .headLine4()
              
             Spacer()
             Spacer()

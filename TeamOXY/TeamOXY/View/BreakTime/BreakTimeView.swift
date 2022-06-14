@@ -19,62 +19,35 @@ struct BreakTimeView: View {
     var body: some View {
         ZStack {
             CircularTimerView(counter: counter, countTo: countTo)
+            
             VStack {
                 VStack(alignment: .center) {
                     HStack {
                         //TODO: 종료시간 firebase에서 받아오기
                         Text(displayFinish())
-                            .foregroundColor(Color("PrimaryBlue"))
+                            .foregroundColor(.PrimaryBlue)
+                        
                         Text("까지")
                     }
+                    
                     Text("쉬는 시간입니다.")
                 }
-                .font(.custom("Pretendard-ExtraBold", size: 24))
+                .headLine1()
                 .padding(.bottom, 50.0)
                 .padding(.top, 70.0)
                 
                 Spacer()
                 
-                Button(action: {
+                RoundButton(buttonType: .primary, title: isNotification ? "알림 끄기" : "알림 켜기", isButton: true) {
                     //TODO: notification setting
                     
-                    print("알람")
-                    if isNotification == true {
-                        isNotification = false
-                    }
-                    else {
-                        isNotification = true
-                    }
-                }) {
-                    if isNotification == true {
-                        HStack {
-                            Image("turnOffBeep")
-                            Text("알림 끄기")
-                        }
-                        .font(.custom("Pretendard-Black", size: 16))
-                        .foregroundColor(.white)
-                        .frame(width: UIScreen.main.bounds.width - 40, height: 55)
-                        .background(Color.black)
-                        .clipShape(Capsule())
-                    }
-                    else {
-                        HStack {
-                            Image("turnOnBeep")
-                            Text("알림 켜기")
-                        }
-                        .font(.custom("Pretendard-Black", size: 16))
-                        .foregroundColor(.white)
-                        .frame(width: UIScreen.main.bounds.width - 40, height: 55)
-                        .background(Color.PrimaryBlue)
-                        .clipShape(Capsule())
-                    }
+                    isNotification.toggle()
                 }
+                .foregroundColor(isNotification ? .DarkGray1 : .PrimaryBlue)
             }
         }
         .navigationBarTitle("쉬는 시간", displayMode: .inline)
-        
         .navigationBarBackButtonHidden(true)
-        
     }
     
     func displayFinish() -> String{
@@ -83,9 +56,11 @@ struct BreakTimeView: View {
         //MARK: 알람버튼 누를 때, 종료시간 업데이트되는 것 막아야함
         let end = now.addingTimeInterval(600)
         let formatter = DateFormatter()
+        
         //한국 시간으로 표시
         formatter.locale = Locale(identifier: "ko_kr")
         formatter.timeZone = TimeZone(abbreviation: "KST")
+        
         //형태 변환, a:오전,오후 심볼표시
         formatter.dateFormat = "a hh:mm"
         formatter.amSymbol = "오전"
@@ -95,8 +70,8 @@ struct BreakTimeView: View {
     }
 }
 
-//struct BreakTimeView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        BreakTimeView()
-//    }
-//}
+struct BreakTimeView_Previews: PreviewProvider {
+    static var previews: some View {
+        BreakTimeView(counter: 1, countTo: 1)
+    }
+}

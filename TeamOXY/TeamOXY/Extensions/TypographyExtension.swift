@@ -11,7 +11,6 @@ struct HeadLine1: ViewModifier {
     func body(content: Content) -> some View {
        return content
             .font(.custom("Pretendard-ExtraBold", size: 24))
-            .foregroundColor(.black)
     }
 }
 
@@ -19,7 +18,6 @@ struct HeadLine2: ViewModifier {
     func body(content: Content) -> some View {
         return content
             .font(.custom("Pretendard-Bold", size: 22))
-            .foregroundColor(.black)
     }
 }
 
@@ -27,7 +25,6 @@ struct HeadLine3: ViewModifier {
     func body(content: Content) -> some View {
         return content
             .font(.custom("Pretendard-Black", size: 18))
-            .foregroundColor(.black)
     }
 }
 
@@ -35,7 +32,6 @@ struct HeadLine4: ViewModifier {
     func body(content: Content) -> some View {
         return content
             .font(.custom("Pretendard-Bold", size: 18))
-            .foregroundColor(.black)
     }
 }
 
@@ -43,7 +39,6 @@ struct Body1: ViewModifier {
     func body(content: Content) -> some View {
         return content
             .font(.custom("Pretendard-SemiBold", size: 14))
-            .foregroundColor(.black)
     }
 }
 
@@ -51,7 +46,6 @@ struct Body2: ViewModifier {
     func body(content: Content) -> some View {
         return content
             .font(.custom("Pretendard-Bold", size: 12))
-            .foregroundColor(.black)
     }
 }
 
@@ -59,7 +53,6 @@ struct Body3: ViewModifier {
     func body(content: Content) -> some View {
         return content
             .font(.custom("Pretendard-SemiBold", size: 12))
-            .foregroundColor(.black)
     }
 }
 
@@ -68,6 +61,41 @@ struct Fields: ViewModifier {
         return content
             .font(.custom("Pretendard-Black", size: 16))
             .foregroundColor(.Gray1)
+    }
+}
+
+struct Timer1: ViewModifier {
+    func body(content: Content) -> some View {
+        return content
+            .font(.system(size: 48, weight: .thin))
+    }
+}
+
+struct Timer2: ViewModifier {
+    func body(content: Content) -> some View {
+        return content
+            .font(.system(size: 24, weight: .medium))
+    }
+}
+
+struct Timer3: ViewModifier {
+    func body(content: Content) -> some View {
+        return content
+            .font(.custom("Pretendard-Bold", size: 20))
+    }
+}
+
+struct Button1: ViewModifier {
+    func body(content: Content) -> some View {
+        return content
+            .font(.custom("Pretendard-Black", size: 18))
+    }
+}
+
+struct ButtonIcon: ViewModifier {
+    func body(content: Content) -> some View {
+        return content
+            .font(.system(size: 22))
     }
 }
 
@@ -103,5 +131,25 @@ extension View {
     
     func fields() -> some View {
         self.modifier(Fields())
+    }
+    
+    func timer1() -> some View {
+        self.modifier(Timer1())
+    }
+    
+    func timer2() -> some View {
+        self.modifier(Timer2())
+    }
+    
+    func timer3() -> some View {
+        self.modifier(Timer3())
+    }
+    
+    func button1() -> some View {
+        self.modifier(Button1())
+    }
+    
+    func buttonIcon() -> some View {
+        self.modifier(ButtonIcon())
     }
 }

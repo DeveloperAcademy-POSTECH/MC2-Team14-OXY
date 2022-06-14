@@ -40,13 +40,12 @@ struct RoundButtonDesign: View {
     let title: String
     
     var body: some View {
-        
         if buttonType == ButtonType.primary {
             HStack{
                 Image(title.buttonImageLabel())
                 Text(title)
             }
-            .font(.custom("Pretendard-Black", size: 16))
+            .button1()
             .foregroundColor(.white)
             .frame(width: UIScreen.main.bounds.width - 40, height: 55)
             .background(Color.PrimaryBlue)
@@ -56,7 +55,7 @@ struct RoundButtonDesign: View {
                 Image(title.buttonImageLabel())
                 Text(title)
             }
-            .font(.custom("Pretendard-Black", size: 16))
+            .button1()
             .foregroundColor(.PrimaryBlue)
             .frame(width: UIScreen.main.bounds.width - 40, height: 55)
             .overlay(

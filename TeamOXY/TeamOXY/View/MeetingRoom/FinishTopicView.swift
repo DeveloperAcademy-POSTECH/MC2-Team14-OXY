@@ -17,21 +17,25 @@ struct FinishTopicView: View {
                 Text("🕰⏰🕰⏰")
                     .font(.system(size: 58))
                     .padding(.bottom, UIScreen.screenHeight * 0.022)
+                
                 Text("쉬는 시간을\n 설정하시겠습니까?")
-                    .font(.custom("Pretendard-Bold", size: 24))
+                    .headLine1()
                     .multilineTextAlignment(.center)
                     .padding(.bottom, UIScreen.screenHeight * 0.022)
                 HStack {
                     Button(action: {
                         // FinishTopicView뜨는 조건 초기화
                         viewModel.FinishTopicViewCondition = [false, true, false]
+                        
                         // 로티 on/off
                         DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
                             viewModel.isCompletion = true
                         }
+                        
                         DispatchQueue.main.asyncAfter(deadline: .now() + 1.3) {
                             viewModel.isCompletion = false
                         }
+                        
                         DispatchQueue.main.asyncAfter(deadline: .now() + 1.6) {
                             viewModel.isCardBox = true
                         }
@@ -39,15 +43,21 @@ struct FinishTopicView: View {
                         Circle()
                             .stroke(Color("PrimaryBlue"))
                             .frame(width: UIScreen.screenWidth * 0.148, height: UIScreen.screenWidth * 0.148, alignment: .center)
-                            .overlay(Text("아니요").font(.custom("Pretendard-Bold", size: 14)).foregroundColor(Color("PrimaryBlue")))
+                            .overlay(Text("아니요")
+                                .button1()
+                                .foregroundColor(Color("PrimaryBlue")))
                     }
+                    
                     Spacer()
+                    
                     // TimeSetView 쉬는시간설정 뷰로 이동
                     NavigationLink(destination: TimeSetView(viewModel: viewModel)) {
                         Circle()
                             .fill(Color("PrimaryBlue"))
                             .frame(width: UIScreen.screenWidth * 0.148, height: UIScreen.screenWidth * 0.148,  alignment: .center)
-                            .overlay(Text("네").font(.custom("Pretendard-Bold", size: 14)).foregroundColor(.white))
+                            .overlay(Text("네")
+                                .button1()
+                                .foregroundColor(.white))
                     }
                 }
                 .padding(.horizontal, UIScreen.screenWidth * 0.102)
@@ -56,9 +66,3 @@ struct FinishTopicView: View {
         }
     }
 }
-//
-//struct FinishTopicView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        FinishTopicView()
-//    }
-//}
