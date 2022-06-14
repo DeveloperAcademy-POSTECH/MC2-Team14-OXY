@@ -82,7 +82,6 @@ struct MeetingRoomView: View {
                             .imageScale(.large)
                     }
                 }
-                
             })
         }
         .fullScreenCover(isPresented: $showQRCode) {
@@ -97,6 +96,7 @@ struct MeetingRoomView: View {
                 print("Current User",uid)
             }
         }
+        .navigationBarHidden(true)
     }
     
     private func anonymousLogin() {
@@ -132,7 +132,6 @@ struct MeetingRoomView: View {
                     print("Failed to store user information: \(error)")
                     return
                 }
-                
                 print("Succeessfully stored user information")
             }
     }
