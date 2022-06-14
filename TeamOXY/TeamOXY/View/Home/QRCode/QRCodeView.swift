@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct QRCodeView: View {
+    let url: String
+    
     @Environment(\.dismiss) var dismiss
     
     var body: some View {
@@ -24,7 +26,9 @@ struct QRCodeView: View {
             }
             .padding()
             
-            QRCode(url: "www.naver.com")
+            Spacer()
+            
+            QRCode(url: url)
                 .padding(.bottom)
             
             HStack {
@@ -37,12 +41,13 @@ struct QRCodeView: View {
             .font(.custom("Pretendard-Bold", size: 18))
              
             Spacer()
+            Spacer()
         }
     }
 }
 
 struct QRCodeView_Previews: PreviewProvider {
     static var previews: some View {
-        QRCodeView()
+        QRCodeView(url: "")
     }
 }
