@@ -38,6 +38,7 @@ struct MeetingRoomView: View {
                                 }
                             })
                             .offset(y: -UIScreen.screenHeight * 0.11)
+                            .transition(AnyTransition.opacity.animation(.easeInOut))
                     }
                     
                     CarouselView(viewModel: viewModel,views: [

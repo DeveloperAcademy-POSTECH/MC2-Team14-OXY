@@ -17,11 +17,11 @@ struct FinishTopicView: View {
             VStack {
                 Text("🕰⏰🕰⏰")
                     .font(.system(size: 58))
-                    .padding(.bottom, UIScreen.screenHeight * 0.022)
+                    .padding(.bottom, UIScreen.screenHeight * 0.044)
                 Text("쉬는 시간을\n 설정하시겠습니까?")
                     .font(.custom("Pretendard-Bold", size: 24))
                     .multilineTextAlignment(.center)
-                    .padding(.bottom, UIScreen.screenHeight * 0.022)
+                    .padding(.bottom, UIScreen.screenHeight * 0.044)
                 HStack {
                     Button(action: {
                         // FinishTopicView뜨는 조건 초기화
@@ -30,11 +30,14 @@ struct FinishTopicView: View {
                         DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
                             viewModel.isCompletion = true
                         }
-                        DispatchQueue.main.asyncAfter(deadline: .now() + 1.3) {
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
                             viewModel.isCompletion = false
                         }
-                        DispatchQueue.main.asyncAfter(deadline: .now() + 1.6) {
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 1.4) {
                             viewModel.isCardBox = true
+                        }
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 1.55) {
+                            viewModel.isCardDeck = true
                         }
                     }) {
                         Circle()
