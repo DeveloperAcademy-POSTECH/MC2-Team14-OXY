@@ -10,17 +10,20 @@ import CodeScanner
 
 
 struct HomeView: View {
-    @State var isPresentingScanner = false
-    @State var scannedCode: String = "Scan a QR code to get started"
+    
     @AppStorage("_isFirstLaunching") var isFirstLaunching: Bool = true
+    
+    @State private var isPresentingScanner = false
+    @State private var scannedCodeUrl = ""
+    @State private var isJoined = false
     
     var scannerSheet: some View {
         ZStack {
             CodeScannerView(codeTypes: [.qr]) { result in
                 if case let .success(code) = result {
-                    self.scannedCode = code.string
+                    self.scannedCodeUrl = code.string
                     self.isPresentingScanner = false
-                    print(self.scannedCode)
+                    self.isJoined.toggle()
                 }
             }
             
@@ -86,6 +89,11 @@ struct HomeView: View {
                     }
                 }
                 .padding(.bottom)
+                
+                NavigationLink(isActive: $isJoined) {
+                    MeetingRoomView(scannedCodeUrl: scannedCodeUrl)
+                } label: { }.hidden()
+
             }
             .navigationTitle("")
             .navigationBarHidden(true)

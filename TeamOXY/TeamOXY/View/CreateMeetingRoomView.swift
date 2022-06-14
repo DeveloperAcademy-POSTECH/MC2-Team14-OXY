@@ -53,7 +53,7 @@ struct CreateMeetingRoomView: View {
             Spacer()
             
             NavigationLink(isActive: $isCreated) {
-                MeetingRoomView()
+                MeetingRoomView(scannedCodeUrl: nil)
             } label: {
                 RoundButton(buttonType: .primary, title: "시작하기", isButton: true, didCompletion: {
                     if text.isEmpty {

@@ -9,6 +9,8 @@ import SwiftUI
 
 struct MeetingRoomView: View {
     
+    var scannedCodeUrl: String?
+    
     @ObservedObject var viewModel = CompletionViewModel()
     @ObservedObject var vm = MeetingRoomViewModel()
     
@@ -122,9 +124,11 @@ struct MeetingRoomView: View {
             FirebaseConstants.nickname: nickname
         ]
         
+        vm.roomId = "room \(uid)"
+        
         FirebaseManager.shared.firestore
             .collection("rooms")
-            .document("room \(uid)")
+            .document(vm.roomId)
             .collection("users")
             .document(uid)
             .setData(userData) { error in
@@ -134,12 +138,15 @@ struct MeetingRoomView: View {
                 }
                 
                 print("Succeessfully stored user information")
+                
+                self.vm.fetchCurrentUser(vm.roomId)
+                self.vm.fetchUsers()
             }
     }
 }
 
 struct MeetingRoomView_Previews: PreviewProvider {
     static var previews: some View {
-        MeetingRoomView()
+        MeetingRoomView(scannedCodeUrl: nil)
     }
 }
