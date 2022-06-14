@@ -7,17 +7,28 @@
 
 import SwiftUI
 
+
+
 struct BreakTimeView: View {
+    
+    // 설정된 시간
+//    @Binding var counter: Int
+//    @Binding var countTo: Int
+    @State var counter: Int
+    @State var countTo: Int
+    
+    // 알람 설정
+    @State private var isNotification = false
+    
     var body: some View {
         NavigationView {
             ZStack {
-                CircularTimerView()
+                CircularTimerView(counter: counter, countTo: countTo)
                 VStack {
                     VStack(alignment: .center) {
                         HStack {
                             //TODO: 종료시간 func 만들기
-                            // 현재 시간 기준 
-                            Text("오전 11시 30분")
+                            Text(displayFinish())
                                 .foregroundColor(/*@START_MENU_TOKEN@*/Color("PrimaryBlue")/*@END_MENU_TOKEN@*/)
                             Text("까지")
                         }
@@ -30,36 +41,71 @@ struct BreakTimeView: View {
                     Spacer()
                     
                     Button(action: {
-                        //TODO: 알림 on/off
+                        //TODO: notification setting
+                        
                         print("알람")
-                    }) {
-                        HStack {
-                            Image("turnOffBeep")
-                            Text("알림끄기")
+                        if isNotification == true {
+                            isNotification = false
                         }
-                        .font(.custom("Pretendard-Black", size: 16))
-                        .foregroundColor(.white)
-                        .frame(width: 350, height: 55)
-                        .background(Color.black)
-                        .clipShape(Capsule())
+                        else {
+                            isNotification = true
+                        }
+                    }) {
+                        if isNotification == true {
+                            HStack {
+                                Image("turnOffBeep")
+                                Text("알림 끄기")
+                            }
+                            .font(.custom("Pretendard-Black", size: 16))
+                            .foregroundColor(.white)
+                            .frame(width: UIScreen.main.bounds.width - 40, height: 55)
+                            .background(Color.black)
+                            .clipShape(Capsule())
+                        }
+                        else {
+                            HStack {
+                                Image("turnOnBeep")
+                                Text("알림 켜기")
+                            }
+                            .font(.custom("Pretendard-Black", size: 16))
+                            .foregroundColor(.white)
+                            .frame(width: UIScreen.main.bounds.width - 40, height: 55)
+                            .background(Color.PrimaryBlue)
+                            .clipShape(Capsule())
+                        }
                     }
                 }
             }
-            //TODO: title 사이즈 고민하기
             .navigationBarTitle("쉬는 시간", displayMode: .inline)
         }
+        .navigationBarBackButtonHidden(true)
+    }
+    
+    func displayFinish() -> String{
+        let now = Date()
+        //.addingTimeInterval(TimeInterval)
+        //TODO: 시간 추가 개선, 시작시간 고정하고 끝나는 시간 보내는 방법?
+        // 종료시간 값 넣어줘야함
+        // 업데이트 없이, 초반에 정한 값으로 픽스하고 싶다.
+        let end = now.addingTimeInterval(600)
+        let formatter = DateFormatter()
+        //한국 시간으로 표시
+        formatter.locale = Locale(identifier: "ko_kr")
+        formatter.timeZone = TimeZone(abbreviation: "KST")
+        //형태 변환, a:오전,오후 심볼표시
+        formatter.dateFormat = "a hh:mm"
+        formatter.amSymbol = "오전"
+        formatter.pmSymbol = "오후"
+        
+        return formatter.string(from: end)
+        
     }
 }
 
-//func DisplayEndTime: View {
-//    var endTime = "오전 11시 30분"
-//
-//    return endTime
+
+
+//struct BreakTimeView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        BreakTimeView()
+//    }
 //}
-
-
-struct BreakTimeView_Previews: PreviewProvider {
-    static var previews: some View {
-        BreakTimeView()
-    }
-}
