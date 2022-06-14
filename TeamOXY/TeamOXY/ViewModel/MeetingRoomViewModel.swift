@@ -25,9 +25,9 @@ class MeetingRoomViewModel: ObservableObject {
         }
         
         FirebaseManager.shared.firestore
-            .collection("rooms")
+            .collection(FirebaseConstants.rooms)
             .document(roomId)
-            .collection("users")
+            .collection(FirebaseConstants.users)
             .document(uid)
             .getDocument { snapshot, error in
                 if let error = error {
@@ -45,6 +45,8 @@ class MeetingRoomViewModel: ObservableObject {
                 self.currentUser = try? snapshot?.data(as: User.self)
                 FirebaseManager.shared.currentUser = self.currentUser
                 print("Successfully fetch current user")
+                
+                self.fetchUsers()
             }
     }
     
@@ -52,9 +54,9 @@ class MeetingRoomViewModel: ObservableObject {
         guard let uid = FirebaseManager.shared.auth.currentUser?.uid else { return }
         
         FirebaseManager.shared.firestore
-            .collection("rooms")
+            .collection(FirebaseConstants.rooms)
             .document(self.roomId)
-            .collection("users")
+            .collection(FirebaseConstants.users)
             .addSnapshotListener { querySnapshot, error in
                 if let error = error {
                     self.errorMessage = "Failed to listen for new user: \(error)"
@@ -79,6 +81,8 @@ class MeetingRoomViewModel: ObservableObject {
                     } catch {
                         print(error)
                     }
+                    
+                    print("\(self.currentUser?.nickname ?? "") 방 \(self.users.count)")
                 })
             }
     }
