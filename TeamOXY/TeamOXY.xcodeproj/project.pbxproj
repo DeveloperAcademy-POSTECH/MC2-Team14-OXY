@@ -10,6 +10,7 @@
 		15634FA72854EB3F009264BF /* BreakTimeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15634FA42854EB3F009264BF /* BreakTimeView.swift */; };
 		15634FA82854EB3F009264BF /* CircularTimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15634FA52854EB3F009264BF /* CircularTimerView.swift */; };
 		15634FA92854EB3F009264BF /* TimeSetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15634FA62854EB3F009264BF /* TimeSetView.swift */; };
+		15634FAB28556BEA009264BF /* TimerStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15634FAA28556BE9009264BF /* TimerStatus.swift */; };
 		212E5CDA2853173700E10FF4 /* CardDeckView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 212E5CD92853173700E10FF4 /* CardDeckView.swift */; };
 		212E5CDC285317B200E10FF4 /* CardZoneView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 212E5CDB285317B200E10FF4 /* CardZoneView.swift */; };
 		212E5CDE2853181000E10FF4 /* TestGestureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 212E5CDD2853181000E10FF4 /* TestGestureView.swift */; };
@@ -48,6 +49,7 @@
 		15634FA42854EB3F009264BF /* BreakTimeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BreakTimeView.swift; sourceTree = "<group>"; };
 		15634FA52854EB3F009264BF /* CircularTimerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircularTimerView.swift; sourceTree = "<group>"; };
 		15634FA62854EB3F009264BF /* TimeSetView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeSetView.swift; sourceTree = "<group>"; };
+		15634FAA28556BE9009264BF /* TimerStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerStatus.swift; sourceTree = "<group>"; };
 		212E5CD92853173700E10FF4 /* CardDeckView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardDeckView.swift; sourceTree = "<group>"; };
 		212E5CDB285317B200E10FF4 /* CardZoneView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardZoneView.swift; sourceTree = "<group>"; };
 		212E5CDD2853181000E10FF4 /* TestGestureView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestGestureView.swift; sourceTree = "<group>"; };
@@ -117,6 +119,7 @@
 			children = (
 				4AC8DEEA2854F20E00500E0A /* CarouselView.swift */,
 				15634FA42854EB3F009264BF /* BreakTimeView.swift */,
+				15634FAA28556BE9009264BF /* TimerStatus.swift */,
 				15634FA52854EB3F009264BF /* CircularTimerView.swift */,
 				15634FA62854EB3F009264BF /* TimeSetView.swift */,
 				F29BED2928543708005B4A1B /* QRCode */,
@@ -317,6 +320,7 @@
 				F29BED1D28532DC3005B4A1B /* RoundButton.swift in Sources */,
 				F29BED232853B24C005B4A1B /* CreateMeetingRoomView.swift in Sources */,
 				212E5CE02853193100E10FF4 /* TempCardView.swift in Sources */,
+				15634FAB28556BEA009264BF /* TimerStatus.swift in Sources */,
 				3F4E600A2853A30300BFAA65 /* FancyButtonViewModel.swift in Sources */,
 				3F4E60092853A30300BFAA65 /* EmojiReactionView.swift in Sources */,
 				F29BED2B28543717005B4A1B /* QRCode.swift in Sources */,
@@ -491,7 +495,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"TeamOXY/Preview Content\"";
-				DEVELOPMENT_TEAM = G3PA8G576S;
+				DEVELOPMENT_TEAM = G4M4BVJF4D;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = TeamOXY/Info.plist;
