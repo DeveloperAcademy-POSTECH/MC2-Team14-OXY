@@ -11,10 +11,6 @@
 		15634FA82854EB3F009264BF /* CircularTimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15634FA52854EB3F009264BF /* CircularTimerView.swift */; };
 		15634FA92854EB3F009264BF /* TimeSetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15634FA62854EB3F009264BF /* TimeSetView.swift */; };
 		15634FAB28556BEA009264BF /* TimerStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15634FAA28556BE9009264BF /* TimerStatus.swift */; };
-		212E5CDA2853173700E10FF4 /* CardDeckView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 212E5CD92853173700E10FF4 /* CardDeckView.swift */; };
-		212E5CDC285317B200E10FF4 /* CardZoneView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 212E5CDB285317B200E10FF4 /* CardZoneView.swift */; };
-		212E5CDE2853181000E10FF4 /* TestGestureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 212E5CDD2853181000E10FF4 /* TestGestureView.swift */; };
-		212E5CE02853193100E10FF4 /* TempCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 212E5CDF2853193100E10FF4 /* TempCardView.swift */; };
 		212E5CE22853280400E10FF4 /* MeetingRoomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 212E5CE12853280400E10FF4 /* MeetingRoomView.swift */; };
 		21812E8428557D380023463C /* FinishTopicView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21812E8328557D380023463C /* FinishTopicView.swift */; };
 		21D2547B2852D21100E3EADC /* TestCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21D2547A2852D21100E3EADC /* TestCardView.swift */; };
@@ -78,10 +74,6 @@
 		15634FA52854EB3F009264BF /* CircularTimerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircularTimerView.swift; sourceTree = "<group>"; };
 		15634FA62854EB3F009264BF /* TimeSetView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeSetView.swift; sourceTree = "<group>"; };
 		15634FAA28556BE9009264BF /* TimerStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerStatus.swift; sourceTree = "<group>"; };
-		212E5CD92853173700E10FF4 /* CardDeckView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardDeckView.swift; sourceTree = "<group>"; };
-		212E5CDB285317B200E10FF4 /* CardZoneView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardZoneView.swift; sourceTree = "<group>"; };
-		212E5CDD2853181000E10FF4 /* TestGestureView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestGestureView.swift; sourceTree = "<group>"; };
-		212E5CDF2853193100E10FF4 /* TempCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TempCardView.swift; sourceTree = "<group>"; };
 		212E5CE12853280400E10FF4 /* MeetingRoomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeetingRoomView.swift; sourceTree = "<group>"; };
 		21812E8328557D380023463C /* FinishTopicView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinishTopicView.swift; sourceTree = "<group>"; };
 		21D2547A2852D21100E3EADC /* TestCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestCardView.swift; sourceTree = "<group>"; };
@@ -457,9 +449,7 @@
 				F2CA7CFB2858154A0094B126 /* MeetingRoomViewModel.swift in Sources */,
 				4A3B249B2855FFC000504486 /* CompletionViewModel.swift in Sources */,
 				F29BED232853B24C005B4A1B /* CreateMeetingRoomView.swift in Sources */,
-				212E5CE02853193100E10FF4 /* TempCardView.swift in Sources */,
 				15634FAB28556BEA009264BF /* TimerStatus.swift in Sources */,
-				3F4E600A2853A30300BFAA65 /* FancyButtonViewModel.swift in Sources */,
 				4A2A97AC2856D90B00EA21C6 /* FinishTopicViewModel.swift in Sources */,
 				F2380A8B2856D500004754EE /* FirebaseManager.swift in Sources */,
 				3F4E60092853A30300BFAA65 /* EmojiReactionView.swift in Sources */,
