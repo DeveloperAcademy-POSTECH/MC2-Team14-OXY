@@ -117,8 +117,14 @@ struct MeetingRoomView: View {
     private func storeUserInformation() {
         guard let uid = FirebaseManager.shared.auth.currentUser?.uid else { return }
         
-        let userData = ["uid": uid, "nickname": nickname]
+        let userData = [
+            FirebaseConstants.uid: uid,
+            FirebaseConstants.nickname: nickname
+        ]
+        
         FirebaseManager.shared.firestore
+            .collection("rooms")
+            .document("room \(uid)")
             .collection("users")
             .document(uid)
             .setData(userData) { error in
