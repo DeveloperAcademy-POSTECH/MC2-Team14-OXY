@@ -48,7 +48,6 @@
 		F29BECEC285217A9005B4A1B /* Pretendard-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = F29BECE3285217A8005B4A1B /* Pretendard-Regular.otf */; };
 		F29BECED285217A9005B4A1B /* Pretendard-ExtraLight.otf in Resources */ = {isa = PBXBuildFile; fileRef = F29BECE4285217A9005B4A1B /* Pretendard-ExtraLight.otf */; };
 		F29BECEE285217A9005B4A1B /* Pretendard-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = F29BECE5285217A9005B4A1B /* Pretendard-Bold.otf */; };
-		F29BED1D28532DC3005B4A1B /* RoundButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F29BED1C28532DC3005B4A1B /* RoundButton.swift */; };
 		F29BED1F28533CBC005B4A1B /* String+ButtonImageName.swift in Sources */ = {isa = PBXBuildFile; fileRef = F29BED1E28533CBC005B4A1B /* String+ButtonImageName.swift */; };
 		F29BED232853B24C005B4A1B /* CreateMeetingRoomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F29BED222853B24C005B4A1B /* CreateMeetingRoomView.swift */; };
 		F29BED2E28558F48005B4A1B /* CodeScanner in Frameworks */ = {isa = PBXBuildFile; productRef = F29BED2D28558F48005B4A1B /* CodeScanner */; };
@@ -61,6 +60,7 @@
 		F2CA7CF328580E400094B126 /* QRCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2CA7CF228580E400094B126 /* QRCode.swift */; };
 		F2CA7CF528580E660094B126 /* QRCodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2CA7CF428580E660094B126 /* QRCodeView.swift */; };
 		F2CA7CF728580E980094B126 /* FieldType.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2CA7CF628580E980094B126 /* FieldType.swift */; };
+		F2CA7CF9285811510094B126 /* RoundButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2CA7CF8285811510094B126 /* RoundButton.swift */; };
 		F2D707B82849BA6C00DA86FD /* TeamOXYApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2D707B72849BA6C00DA86FD /* TeamOXYApp.swift */; };
 		F2D707BC2849BA6D00DA86FD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F2D707BB2849BA6D00DA86FD /* Assets.xcassets */; };
 		F2D707BF2849BA6D00DA86FD /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F2D707BE2849BA6D00DA86FD /* Preview Assets.xcassets */; };
@@ -102,7 +102,6 @@
 		F29BECE4285217A9005B4A1B /* Pretendard-ExtraLight.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-ExtraLight.otf"; sourceTree = "<group>"; };
 		F29BECE5285217A9005B4A1B /* Pretendard-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Bold.otf"; sourceTree = "<group>"; };
 		F29BECF12852181A005B4A1B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
-		F29BED1C28532DC3005B4A1B /* RoundButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundButton.swift; sourceTree = "<group>"; };
 		F29BED1E28533CBC005B4A1B /* String+ButtonImageName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+ButtonImageName.swift"; sourceTree = "<group>"; };
 		F29BED222853B24C005B4A1B /* CreateMeetingRoomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateMeetingRoomView.swift; sourceTree = "<group>"; };
 		F2CA7CE1285701A00094B126 /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
@@ -114,6 +113,7 @@
 		F2CA7CF228580E400094B126 /* QRCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRCode.swift; sourceTree = "<group>"; };
 		F2CA7CF428580E660094B126 /* QRCodeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRCodeView.swift; sourceTree = "<group>"; };
 		F2CA7CF628580E980094B126 /* FieldType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FieldType.swift; sourceTree = "<group>"; };
+		F2CA7CF8285811510094B126 /* RoundButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundButton.swift; sourceTree = "<group>"; };
 		F2D707B42849BA6C00DA86FD /* TeamOXY.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TeamOXY.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F2D707B72849BA6C00DA86FD /* TeamOXYApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamOXYApp.swift; sourceTree = "<group>"; };
 		F2D707BB2849BA6D00DA86FD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -273,7 +273,7 @@
 		F29BED1B28532DB8005B4A1B /* Components */ = {
 			isa = PBXGroup;
 			children = (
-				F29BED1C28532DC3005B4A1B /* RoundButton.swift */,
+				F2CA7CF8285811510094B126 /* RoundButton.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -430,7 +430,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F29BED1D28532DC3005B4A1B /* RoundButton.swift in Sources */,
 				4AC8DEEB2854F20E00500E0A /* CarouselView.swift in Sources */,
 				7BFBD2E22856C33B00E5D98C /* OnboardingView.swift in Sources */,
 				21812E8428557D380023463C /* FinishTopicView.swift in Sources */,
@@ -439,7 +438,6 @@
 				F2CA7CE828580D8E0094B126 /* MeetingRoomView.swift in Sources */,
 				F225A1EB2856CEB200166ECC /* Topic.swift in Sources */,
 				F2CA7CF728580E980094B126 /* FieldType.swift in Sources */,
-				F29BED1D28532DC3005B4A1B /* RoundButton.swift in Sources */,
 				4A3B249B2855FFC000504486 /* CompletionViewModel.swift in Sources */,
 				F29BED232853B24C005B4A1B /* CreateMeetingRoomView.swift in Sources */,
 				F2CA7CF528580E660094B126 /* QRCodeView.swift in Sources */,
@@ -448,6 +446,7 @@
 				F2CA7CF328580E400094B126 /* QRCode.swift in Sources */,
 				F2380A8F2856D633004754EE /* generateRandomNickname.swift in Sources */,
 				F2CA7CEC28580DD10094B126 /* TestCardView.swift in Sources */,
+				F2CA7CF9285811510094B126 /* RoundButton.swift in Sources */,
 				3F4E60142855BE7200BFAA65 /* ArrowAnimationView.swift in Sources */,
 				7BFBD2E42856C33B00E5D98C /* OnboardingPageView.swift in Sources */,
 				15634FA72854EB3F009264BF /* BreakTimeView.swift in Sources */,
