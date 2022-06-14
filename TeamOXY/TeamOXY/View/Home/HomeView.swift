@@ -85,12 +85,13 @@ struct HomeView: View {
                         self.scannerSheet
                     }
                 }
+                .padding(.bottom)
             }
             .navigationTitle("")
             .navigationBarHidden(true)
-        }.fullScreenCover(isPresented: $isFirstLaunching) {
+        }
+        .fullScreenCover(isPresented: $isFirstLaunching) {
             OnboardingView(isFirstLaunching: $isFirstLaunching)
-            
         }
     }
 }

@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-func generateRandomNickname(_ nickname: String?) -> String {
+func generateRandomNickname(_ nickname: String? = nil) -> String {
     let nicknames: [String] = ["익명의 원숭이", "익명의 코끼리", "익명의 임팔라", "익명의 앵무새", "익명의 호랑이", "익명의 거북이"]
     
     guard let nickname = nickname else {
