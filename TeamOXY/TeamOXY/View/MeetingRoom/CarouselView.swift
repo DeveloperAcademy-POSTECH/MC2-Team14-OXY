@@ -7,6 +7,30 @@
 
 import SwiftUI
 
+//struct CarouselConstant {
+//    // smallCard: 카드가 덱에 있을 때 크기
+//    static let smallCardWidth: CGFloat = UIScreen.screenWidth * 0.28
+//    static let smallCardHeight: CGFloat =  smallCardWidth * 1.4
+//
+//    // largeCard: 카드가 선택돼서 놓여졌을 때 크기
+//    static let largeCardWidth: CGFloat = 250 // 안쓰임
+//    static let largeCardHeight: CGFloat = 375 // 안쓰임
+//
+//    // cardZone: 카드가 놓여지는 공간 가장 아래 ~ 화면 상단
+//    static let cardZoneHeight: CGFloat =  UIScreen.screenHeight * 0.59 //500
+//    static let cardZonePaddingTop: CGFloat = 125 // 안쓰임
+//
+//    // cardZoneHeightOverMiddle: 카드 놓여지는 부분이 화면 중앙을 얼마나 넘어가는지
+//    static let cardZoneHeightOverMiddle: CGFloat = cardZoneHeight - UIScreen.screenHeight/2
+//
+//    // initial 위치는 카드가 덱에 있을 때
+//    static let initialCardLocation: CGFloat = 0
+//
+//    // second 위치는 smallCard가 카드가 놓이는 Zone을 넘어갔을 때 (그래서 smallCardHeight 사용)
+//    //let secondCardLocation: CGFloat = cardZoneHeightOverMiddle - smallCardHeight/2
+//    static let secondCardLocation: CGFloat = -UIScreen.screenHeight * 0.23 //-200
+//}
+
 struct CarouselView: View {
     
     @ObservedObject var viewModel: CompletionViewModel
@@ -63,7 +87,7 @@ struct CarouselView: View {
                 self.viewState.height += drag.translation.height
                 
                 // 카드 놓는 공간 안에 있다면
-                if viewState.height < secondCardLocation {
+                if viewState.height < CarouselViewConstants.secondCardLocation {
                     print("inside zone")
                     viewModel.FinishTopicViewCondition = [true, false, true]
                     viewModel.isCardBox = false
@@ -81,11 +105,11 @@ struct CarouselView: View {
                     viewModel.isCardDeck = false // 카드덱 사라짐
                     print("1\(viewModel.FinishTopicViewCondition)")
                     // 다시 덱으로 위치시키기
-                    self.viewState.height = initialCardLocation
+                    self.viewState.height = CarouselViewConstants.initialCardLocation
                 } else {
                     // 카드존에 없고, 논의중이 아닐 때 제자리로 돌려보냄
                     print("not inside zone")
-                    self.viewState.height = initialCardLocation
+                    self.viewState.height = CarouselViewConstants.initialCardLocation
                 }
                 print("onEnded")
             }
@@ -153,7 +177,7 @@ struct CarouselView: View {
     // center카드가 cardZone에 있는지 확인
     func isInCardZone() -> Bool {
         let curHeight = viewState.height + dragState2.translation.height
-        return curHeight < secondCardLocation
+        return curHeight < CarouselViewConstants.secondCardLocation
     }
     
     // 스케일세팅
@@ -217,7 +241,7 @@ struct CarouselView: View {
                 if isInCardZone() {
                     return -UIScreen.screenHeight * 0.18
                 } else {
-                    return initialCardLocation
+                    return CarouselViewConstants.initialCardLocation
                 }
             }
             

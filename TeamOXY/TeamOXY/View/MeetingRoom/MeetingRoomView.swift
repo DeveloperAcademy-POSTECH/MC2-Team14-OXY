@@ -24,7 +24,7 @@ struct MeetingRoomView: View {
                     if viewModel.FinishTopicViewCondition != [false, true, true] && viewModel.isCardBox {
                         RoundedRectangle(cornerRadius: 5)
                             .strokeBorder(style: StrokeStyle(lineWidth: 1))
-                            .frame(width: smallCardWidth * 2.4,height: smallCardHeight * 2.4)
+                            .frame(width: CarouselViewConstants.smallCardWidth * 2.4,height: CarouselViewConstants.smallCardHeight * 2.4)
                             .foregroundColor(.gray.opacity(0.2))
                             .overlay(content: {
                                 HStack(spacing:0) {
