@@ -11,13 +11,9 @@ import FirebaseFirestore
 import FirebaseFirestoreSwift
 
 class MeetingRoomViewModel: ObservableObject {
-
     @Published var roomId = ""
-    
     @Published var currentUser: User?
     @Published var users = [User]()
-    
-    var errorMessage = ""
     
     func anonymousLogin(scannedCodeUrl: String?, nickname: String) {
         FirebaseManager.shared.auth.signInAnonymously { result, error in
@@ -78,8 +74,7 @@ class MeetingRoomViewModel: ObservableObject {
     
     func fetchCurrentUser(_ title: String) {
         guard let uid = FirebaseManager.shared.auth.currentUser?.uid else {
-            self.errorMessage = "Could not finde firebase uid"
-            print(self.errorMessage)
+            print("Could not finde firebase uid")
             return
         }
 
@@ -93,19 +88,18 @@ class MeetingRoomViewModel: ObservableObject {
             .document(uid)
             .getDocument { snapshot, error in
                 if let error = error {
-                    self.errorMessage = "Failed to fetch current user: \(error)"
-                    print(self.errorMessage)
+                    print("Failed to fetch current user: \(error)")
                     return
                 }
                 
                 guard let _ = snapshot?.data() else {
-                    self.errorMessage = "No data found"
-                    print(self.errorMessage)
+                    print("No data found")
                     return
                 }
                 
                 self.currentUser = try? snapshot?.data(as: User.self)
                 FirebaseManager.shared.currentUser = self.currentUser
+                
                 print("Successfully fetch current user")
                 
                 self.fetchUsers()
@@ -121,8 +115,7 @@ class MeetingRoomViewModel: ObservableObject {
             .collection(FirebaseConstants.users)
             .addSnapshotListener { querySnapshot, error in
                 if let error = error {
-                    self.errorMessage = "Failed to listen for new user: \(error)"
-                    print(self.errorMessage)
+                    print("Failed to listen for new user: \(error)")
                     return
                 }
                 

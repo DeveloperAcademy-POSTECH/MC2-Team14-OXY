@@ -11,9 +11,8 @@ struct MeetingRoomView: View {
     @ObservedObject var vm: MeetingRoomViewModel
     @ObservedObject var viewModel = CompletionViewModel()
     
-    @State private var showingLeaveRoomSheet: Bool = false
+    @State private var showLeaveRoomSheet: Bool = false
     @State private var showQRCode = false
-    @State private var nickname = generateRandomNickname()
     
     @Binding var backToHome: Bool
     
@@ -59,7 +58,7 @@ struct MeetingRoomView: View {
         .toolbar {
             ToolbarItem(placement: .navigationBarLeading) {
                 Button(action: {
-                    showingLeaveRoomSheet.toggle()
+                    showLeaveRoomSheet.toggle()
                 }) {
                     Image("Button_LeaveRoom")
                         .imageScale(.large)
@@ -77,10 +76,10 @@ struct MeetingRoomView: View {
             }
         }
         .confirmationDialog("방을 정말 떠나시겠습니까?",
-                            isPresented: $showingLeaveRoomSheet,
+                            isPresented: $showLeaveRoomSheet,
                             titleVisibility: .visible) {
             Button("떠나기") {
-                self.leaveMeetingRoom()
+                leaveMeetingRoom()
                 backToHome = false
             }
             Button("취소", role: .cancel) { }
@@ -89,9 +88,6 @@ struct MeetingRoomView: View {
         }
         .fullScreenCover(isPresented: $showQRCode) {
             QRCodeView(url: vm.roomId)
-        }
-        .onAppear {
-            print("room id \(vm.roomId)")
         }
     }
     
@@ -116,7 +112,7 @@ struct MeetingRoomView: View {
                         uid != user.uid
                     })
                     
-                    print("방에 있는 인원은 듣거라", self.vm.users)
+                    print("Successfully delete user information in meeting room")
                     
                     self.vm.roomId = ""
                     self.vm.currentUser = nil
@@ -134,6 +130,8 @@ struct MeetingRoomView: View {
                     
                     // MeetingRoomViewModel에 있는 users 배열 비우기
                     self.vm.users.removeAll()
+                    
+                    print("Successfully delete meeting room information")
                     
                     self.vm.roomId = ""
                     self.vm.currentUser = nil
