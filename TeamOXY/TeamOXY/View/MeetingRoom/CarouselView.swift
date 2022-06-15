@@ -8,7 +8,8 @@
 import SwiftUI
 
 struct CarouselView: View {
-    @ObservedObject var viewModel: CompletionViewModel
+    @ObservedObject var viewModel: CarouselViewModel
+    @ObservedObject var vm: MeetingRoomViewModel
     
     // gesture 추적
     @GestureState private var dragState = HorizontalDragState.inactive
@@ -42,7 +43,7 @@ struct CarouselView: View {
         
         let longPressDrag = LongPressGesture(minimumDuration: minimumLongPressDuration)
             .sequenced(before: DragGesture())
-            // 햅틱 추가
+        // 햅틱 추가
             .onChanged{ changeAmount in
                 if (dragState2.isActive && !dragState2.isDragging) {
                     HapticManager.instance.impact(style: .medium)
@@ -60,37 +61,6 @@ struct CarouselView: View {
                 default:
                     state = .inactive
                 }
-            }
-            .onEnded { value in
-                guard case .second(true, let drag?) = value else { return }
-                self.viewState.width += 0
-                self.viewState.height += drag.translation.height
-                
-                // 카드 놓는 공간 안에 있다면
-                if viewState.height < CarouselViewConstants.secondCardLocation {
-                    print("inside zone")
-                    viewModel.FinishTopicViewCondition = [true, false, true]
-                    viewModel.isCardBox = false
-                    
-                    // 카드 놓는 곳으로 위치시키기
-                    viewState.height = -UIScreen.screenHeight * 0.38// 원래-370
-                    
-                // 논의중이고 카드존에 없다면
-                } else if viewModel.FinishTopicViewCondition[2] == true {
-                    // 카드존에 없고, 논의중이 아닐 때, finishTopicView를 띄우고
-                    print("not inside zone")
-                    viewState.height = -UIScreen.screenHeight * 0.38// 원래 -370
-                    viewModel.FinishTopicViewCondition = [false, true, true] // finishTopiceView on
-                    viewModel.isCardDeck = false // 카드덱 사라짐
-                    
-                    // 다시 덱으로 위치시키기
-                    self.viewState.height = CarouselViewConstants.initialCardLocation
-                } else {
-                    // 카드존에 없고, 논의중이 아닐 때 제자리로 돌려보냄
-                    print("not inside zone")
-                    self.viewState.height = CarouselViewConstants.initialCardLocation
-                }
-                print("onEnded")
             }
         
         ZStack {
@@ -115,7 +85,7 @@ struct CarouselView: View {
                             .animation(.interpolatingSpring(stiffness: 300.0, damping: 30.0, initialVelocity: 10.0))
                             .opacity(self.getOpacity(i))
                             .animation(Animation.easeOut)
-                            // offset y를 longpress가 눌리면, 다니 함수의 y값으로 return 하도록 삼항연산자(?)
+                        // offset y를 longpress가 눌리면, 다니 함수의 y값으로 return 하도록 삼항연산자(?)
                             .offset(x: self.getOffsetX(i),
                                     y: setOffsetY(i))
                         // animation은 그 바로 위에 있는 메소드에 적용하는 것, 즉 animation이 3번 반복되는이유는
@@ -126,13 +96,49 @@ struct CarouselView: View {
                             .animation(.interpolatingSpring(stiffness: 300.0, damping: 30.0, initialVelocity: 10.0))
                     }
                     .zIndex(setZindex(i))
+                    .simultaneousGesture(
+                        longPressDrag
+                            .onEnded { value in
+                                guard case .second(true, let drag?) = value else { return }
+                                
+                                self.viewModel.topic = "쉴래? 죽을래? \(i)"
+                                
+                                self.viewState.width += 0
+                                self.viewState.height += drag.translation.height
+                                
+                                // 카드 놓는 공간 안에 있다면
+                                if viewState.height < CarouselViewConstants.secondCardLocation {
+                                    print("inside zone")
+                                    viewModel.FinishTopicViewCondition = [true, false, true]
+                                    viewModel.isCardBox = false
+                                    
+                                    // 카드 놓는 곳으로 위치시키기
+                                    viewState.height = -UIScreen.screenHeight * 0.38// 원래-370
+                                    
+                                    // 논의중이고 카드존에 없다면
+                                } else if viewModel.FinishTopicViewCondition[2] == true {
+                                    // 카드존에 없고, 논의중이 아닐 때, finishTopicView를 띄우고
+                                    print("not inside zone")
+                                    viewState.height = -UIScreen.screenHeight * 0.38// 원래 -370
+                                    viewModel.FinishTopicViewCondition = [false, true, true] // finishTopiceView on
+                                    viewModel.isCardDeck = false // 카드덱 사라짐
+                                    
+                                    // 다시 덱으로 위치시키기
+                                    self.viewState.height = CarouselViewConstants.initialCardLocation
+                                } else {
+                                    // 카드존에 없고, 논의중이 아닐 때 제자리로 돌려보냄
+                                    print("not inside zone")
+                                    self.viewState.height = CarouselViewConstants.initialCardLocation
+                                }
+                                self.viewModel.storeTopicSuggestion(self.vm.roomId)
+                            }
+                    )
                 }
                 // long 프레스와 좌우스크롤은 같은 위계 & 상하 드래그는 long프레스 보다 낮은 위계
                 .simultaneousGesture(
                     // card가 cardzone에 있거나, drag애니메이션2에서 드래깅 중이면 좌우 스크롤 불가
                     isInCardZone() || dragState2.isDragging ? nil : horizontalDrag
                 )
-                .simultaneousGesture(longPressDrag)
                 
                 if viewModel.FinishTopicViewCondition == [false, true, true] {
                     VStack{
@@ -222,8 +228,8 @@ struct CarouselView: View {
             }
             
             
-//            return dragState2.isDragging ? viewModel.FinishTopicViewCondition[2] ? viewState.height + 30 + (dragState2.translation.height/1.3) : viewState.height + (dragState2.translation.height/1.3)
-//            : (isInCardZone() ? -UIScreen.screenHeight * 0.18 : initialCardLocation)
+            //            return dragState2.isDragging ? viewModel.FinishTopicViewCondition[2] ? viewState.height + 30 + (dragState2.translation.height/1.3) : viewState.height + (dragState2.translation.height/1.3)
+            //            : (isInCardZone() ? -UIScreen.screenHeight * 0.18 : initialCardLocation)
             // uiscreen 자리 원래 -150
         }  else {
             return getOffsetY(i)
@@ -270,7 +276,7 @@ struct CarouselView: View {
             // 타이머뷰 떴을 때 카드 지우기
             return 0
         } else if viewModel.FinishTopicViewCondition == [false, true, false]
-        && viewModel.isCardDeck == false {
+                    && viewModel.isCardDeck == false {
             return 0
         } else if isInCardZone() && dragState2.isDragging {
             if i == relativeLoc()
