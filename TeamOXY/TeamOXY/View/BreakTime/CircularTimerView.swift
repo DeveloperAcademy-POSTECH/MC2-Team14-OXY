@@ -7,11 +7,12 @@
 
 import SwiftUI
 
-let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
+
 
 struct CircularTimerView: View {
-    
     @State var counter: Int
+    
+    let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
     var countTo: Int
     
     var body: some View {
@@ -29,10 +30,10 @@ struct CircularTimerView: View {
 }
 
 struct CircularProgressBar: View {
+    @State var progress = 0.0
+    
     var counter: Int
     var countTo: Int
-    
-    @State var progress = 0.0
     
     var body: some View {
         ZStack {
@@ -79,10 +80,3 @@ struct DigitClock: View {
         return "\(minutes):\(seconds < 10 ? "0" : "")\(seconds)"
     }
 }
-
-
-//struct CircularTimerView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        CircularTimerView()
-//    }
-//}

@@ -8,7 +8,6 @@
 import SwiftUI
 
 struct FinishTopicView: View {
-    
     @ObservedObject var viewModel: CompletionViewModel
     
     var body: some View {

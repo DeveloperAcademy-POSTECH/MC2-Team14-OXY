@@ -9,11 +9,10 @@ import SwiftUI
 import ConfettiSwiftUI
 
 struct EmojiReactionView: View {
+    @ObservedObject var viewModel = EmojieViewModel()
     
     let emojis = ["🤔","👎","👍","🤩","🫠", "🔥","❤️","😱","🤭","🥱","👀","✅","🙅","🎉","😂"]
 
-    @ObservedObject var viewModel = EmojieViewModel()
-    
     var body: some View {
             ZStack(alignment: .center){
                 VStack{                   

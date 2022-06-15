@@ -8,7 +8,6 @@
 import SwiftUI
 
 struct CarouselView: View {
-    
     @ObservedObject var viewModel: CompletionViewModel
     
     // gesture 추적
@@ -20,7 +19,6 @@ struct CarouselView: View {
     @State var degree = 0.0
     
     var views: [Image]
-    
     var spacerWidth: CGFloat = UIScreen.screenWidth * 0.243
     
     private func onHorizontalDragEnded(drag: DragGesture.Value) {

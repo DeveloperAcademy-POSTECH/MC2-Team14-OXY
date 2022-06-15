@@ -9,15 +9,15 @@ import SwiftUI
 
 struct CreateMeetingRoomView: View {
     @ObservedObject var vm: MeetingRoomViewModel
-
-    let barTitle: String
-
+    
     @State private var text = ""
     @State private var textField = generateRandomNickname()
     @State private var isCreated = false
     
     @Binding var backToHome: Bool
-    
+
+    let barTitle: String
+
     var body: some View {
         VStack {
             Spacer()
@@ -67,7 +67,7 @@ struct CreateMeetingRoomView: View {
             })
             .padding(.bottom)
             .background(NavigationLink(isActive: $isCreated) {
-                MeetingRoomView(vm: vm, scannedCodeUrl: nil, backToHome: $backToHome)
+                MeetingRoomView(vm: vm, backToHome: $backToHome)
             } label: { }.hidden())
         }
         .navigationTitle(barTitle)

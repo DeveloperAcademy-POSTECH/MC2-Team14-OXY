@@ -82,7 +82,6 @@ extension AppDelegate : UNUserNotificationCenterDelegate {
         print("didReceive: userInfo: ", userInfo)
         completionHandler()
     }
-    
 }
 
 @main
@@ -91,8 +90,7 @@ struct TeamOXYApp: App {
     
     var body: some Scene {
         WindowGroup {
-//            RootView()
-            MeetingRoomView()
+            RootView()
         }
     }
 }

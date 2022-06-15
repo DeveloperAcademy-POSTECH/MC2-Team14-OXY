@@ -8,7 +8,6 @@
 import SwiftUI
 
 struct BreakTimeView: View {
-    
     // 설정된 시간
     @State var counter: Int
     @State var countTo: Int

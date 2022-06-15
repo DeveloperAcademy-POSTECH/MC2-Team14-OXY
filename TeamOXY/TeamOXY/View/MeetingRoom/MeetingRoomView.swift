@@ -8,17 +8,16 @@
 import SwiftUI
 
 struct MeetingRoomView: View {
-    
     @ObservedObject var vm: MeetingRoomViewModel
     @ObservedObject var viewModel = CompletionViewModel()
-    
-    var scannedCodeUrl: String?
     
     @State private var showingLeaveRoomSheet: Bool = false
     @State private var showQRCode = false
     @State private var nickname = generateRandomNickname()
     
     @Binding var backToHome: Bool
+    
+    var scannedCodeUrl: String?
     
     var body: some View {
             VStack {

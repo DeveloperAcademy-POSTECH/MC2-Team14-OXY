@@ -9,7 +9,6 @@ import SwiftUI
 import CodeScanner
 
 struct HomeView: View {
-    
     @AppStorage("_isFirstLaunching") var isFirstLaunching: Bool = true
     
     @StateObject var vm = MeetingRoomViewModel()
@@ -23,12 +22,10 @@ struct HomeView: View {
         ZStack {
             CodeScannerView(codeTypes: [.qr]) { result in
                 if case let .success(code) = result {
-                    self.scannedCodeUrl = code.string
-                    print(self.scannedCodeUrl)
-                    self.isPresentingScanner = false
-                    self.backToHome = true
-                    
-                    self.vm.anonymousLogin(scannedCodeUrl: self.scannedCodeUrl, nickname: generateRandomNickname())
+                    scannedCodeUrl = code.string
+                    isPresentingScanner = false
+                    backToHome = true
+                    vm.anonymousLogin(scannedCodeUrl: scannedCodeUrl, nickname: generateRandomNickname())
                 }
             }
             
@@ -79,7 +76,7 @@ struct HomeView: View {
                         moveToCreate = true
                     }
                     NavigationLink(isActive: $moveToCreate) {
-                        CreateMeetingRoomView(vm: vm, barTitle: "방 만들기", backToHome: $backToHome)
+                        CreateMeetingRoomView(vm: vm, backToHome: $backToHome, barTitle: "방 만들기")
                     } label: { }.hidden()
                 }
                 .padding(.bottom)
@@ -91,13 +88,13 @@ struct HomeView: View {
                         isPresentingScanner = true
                     }
                     .fullScreenCover(isPresented: $isPresentingScanner) {
-                        self.scannerSheet
+                        scannerSheet
                     }
                 }
                 .padding(.bottom)
                 
                 NavigationLink(isActive: $backToHome) {
-                    MeetingRoomView(vm: vm, scannedCodeUrl: scannedCodeUrl, backToHome: $backToHome)
+                    MeetingRoomView(vm: vm, backToHome: $backToHome, scannedCodeUrl: scannedCodeUrl)
                 } label: { }.hidden()
             }
             .navigationBarHidden(true)

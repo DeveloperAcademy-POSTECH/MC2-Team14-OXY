@@ -8,7 +8,6 @@
 import SwiftUI
 
 struct ArrowShape : Shape {
-
     func path(in rect: CGRect) -> Path {
         var path = Path()
 
@@ -16,22 +15,18 @@ struct ArrowShape : Shape {
         path.addLine(to: CGPoint(x: rect.size.width, y: rect.size.height/2.0))
         path.addLine(to: CGPoint(x: 0, y: rect.size.height))
         
-        
-
         return path
     }
 }
 
 struct ArrowAnimationView: View {
-    private let arrowCount = 3
-
-    let timer = Timer.publish(every: 2, on: .main, in: .common).autoconnect()
-
     @State var scale:CGFloat = 1.0
     @State var fade:Double = 0.5
+    
+    let timer = Timer.publish(every: 2, on: .main, in: .common).autoconnect()
+    private let arrowCount = 3
 
     var body: some View {
-
         ZStack {
             HStack{
                 ForEach(0 ..< arrowCount, id: \.self) { i in

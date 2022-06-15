@@ -8,9 +8,9 @@
 import SwiftUI
 
 struct QRCodeView: View {
-    let url: String
-    
     @Environment(\.dismiss) var dismiss
+    
+    let url: String
     
     var body: some View {
         VStack {
