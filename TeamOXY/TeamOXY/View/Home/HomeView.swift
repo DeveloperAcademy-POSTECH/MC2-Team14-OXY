@@ -89,11 +89,6 @@ struct HomeView: View {
                     }
                 }
                 .padding(.bottom)
-                
-                NavigationLink(isActive: $backToHome) {
-                    MeetingRoomView(scannedCodeUrl: scannedCodeUrl, backToHome: $backToHome)
-                } label: { }.hidden()
-
             }
             .navigationBarHidden(true)
         }

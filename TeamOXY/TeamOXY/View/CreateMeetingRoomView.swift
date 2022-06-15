@@ -62,8 +62,6 @@ struct CreateMeetingRoomView: View {
                     } else {
                         vm.roomTitle = text
                     }
-                    
-                    isCreated.toggle()
                 })
             }
             .padding(.bottom)
