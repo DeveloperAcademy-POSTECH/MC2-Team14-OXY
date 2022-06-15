@@ -68,7 +68,7 @@ struct HomeView: View {
                 
                 VStack {
                     Text("팀원들을 초대할 방을 만들어 주세요.")
-                        .font(.custom("Pretendard-SemiBold", size: 12))
+                        .body3()
                     
                     NavigationLink(isActive: $backToHome) {
                         CreateMeetingRoomView(barTitle: "방 만들기", backToHome: $backToHome)
@@ -80,7 +80,7 @@ struct HomeView: View {
                 
                 VStack {
                     Text("이미 방이 있다면 qr코드를 통해 입장해주세요.")
-                        .font(.custom("Pretendard-SemiBold", size: 12))
+                        .body3()
                     RoundButton(buttonType: .outline, title: "입장하기", isButton: true) {
                         isPresentingScanner = true
                     }

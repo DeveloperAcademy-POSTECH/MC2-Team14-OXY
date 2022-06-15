@@ -22,7 +22,6 @@ struct MeetingRoomView: View {
     @Binding var backToHome: Bool
     
     var body: some View {
-        NavigationView {
             VStack {
                 ZStack{
                     if viewModel.FinishTopicViewCondition != [false, true, true] && viewModel.isCardBox {
@@ -54,7 +53,6 @@ struct MeetingRoomView: View {
                         Image("Card6"),
                         Image("Card6")
                     ])
-
             }
         }
         .navigationTitle("\(vm.currentUser?.nickname ?? "") 방 \(vm.users.count)")

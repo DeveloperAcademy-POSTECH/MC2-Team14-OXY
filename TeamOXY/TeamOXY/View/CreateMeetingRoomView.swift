@@ -23,11 +23,13 @@ struct CreateMeetingRoomView: View {
             
             VStack {
                 Text("우리 그룹의 방 이름은 무엇인가요?")
+                    .body1()
                     .textInputAutocapitalization(.never)
                     .disableAutocorrection(true)
                     
                 HStack {
                     TextField("\(generateRandomNickname()) 방", text: $text)
+                        .fields()
                     
                     if text != "" {
                         Image(systemName: "xmark.circle.fill")
@@ -47,7 +49,6 @@ struct CreateMeetingRoomView: View {
                 .background(Color(.systemGray6))
                 .cornerRadius(55)
             }
-            .font(.custom("Pretendard-Medium", size: 16))
             
             Spacer()
             
@@ -64,11 +65,6 @@ struct CreateMeetingRoomView: View {
                     
                     isCreated.toggle()
                 })
-                    .font(.custom("Pretendard-Black", size: 16))
-                    .foregroundColor(.white)
-                    .frame(width: UIScreen.main.bounds.width - 40, height: 55)
-                    .background(Color.PrimaryBlue)
-                    .clipShape(Capsule())
             }
             .padding(.bottom)
         }

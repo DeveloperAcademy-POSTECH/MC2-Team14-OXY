@@ -9,7 +9,7 @@ import SwiftUI
 
 
 struct TimeSetView: View {
-    @ObservedObject var viewModel: CompletionViewModel
+    @ObservedObject var viewModel = CompletionViewModel()
     
     // time picker
     private let data: [[String]] = [
@@ -24,8 +24,8 @@ struct TimeSetView: View {
         VStack {
             ZStack {
                 Text("쉬는 시간을 설정해주세요.")
+                    .headLine4()
                     .foregroundColor(.DarkGray1)
-                    .font(.custom("Pretendard-ExtraBold", size: 18))
                     .offset(y:-230)
                 
                 ZStack {
@@ -33,18 +33,21 @@ struct TimeSetView: View {
                     RoundedRectangle(cornerRadius: 25)
                         .frame(width: UIScreen.main.bounds.size.width-75, height: 35)
                         .foregroundColor (.PrimaryBlue)
-                    Text("          분                               초")
+                    
+                    Text("           분                             초")
+                        .timer3()
+                        .foregroundColor(.white)
                     
                     // PickerVeiw
                     PickerView(data: self.data, selections: self.$selections)
-                        .frame(width:200)
+                        .frame(width: 200)
                         .pickerStyle(WheelPickerStyle())
                 }
                 
                 VStack {
                     Spacer()
                     NavigationLink(destination: BreakTimeView(counter: 0, countTo: (Int(data[0][selections[0]]) ?? 10) * 60 + (Int(data[1][selections[1]]) ?? 0))) {
-                        StartTimerButton()
+                        RoundButton(buttonType: .primary, title: "쉬는시간 시작", isButton: false, didCompletion: nil)
                     }
                 }
             }
@@ -54,20 +57,6 @@ struct TimeSetView: View {
             // FinishTopicView뜨는 조건 초기화
             viewModel.FinishTopicViewCondition = [false, true, false]
         }
-    }
-}
-
-struct StartTimerButton: View {
-    var body: some View {
-        HStack {
-            Image("🏡")
-            Text("쉬는 시간 시작")
-        }
-        .font(.custom("Pretendard-Black", size: 16))
-        .foregroundColor(.white)
-        .frame(width: 350, height: 55)
-        .background(Color.PrimaryBlue)
-        .clipShape(Capsule())
     }
 }
 
@@ -119,8 +108,8 @@ struct PickerView: UIViewRepresentable {
     }
 }
 
-//struct TimeSetView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        TimeSetView()
-//    }
-//}
+struct TimeSetView_Previews: PreviewProvider {
+    static var previews: some View {
+        TimeSetView()
+    }
+}
