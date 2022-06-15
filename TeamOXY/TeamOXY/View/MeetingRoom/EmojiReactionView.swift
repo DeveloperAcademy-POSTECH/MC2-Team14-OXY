@@ -39,7 +39,7 @@ struct EmojiReactionView: View {
                                     
                                     Button(action: {
                                         
-                                        viewModel.emojiCountPlus(emoji)
+                                        viewModel.update(emoji)
 
                                     }){
                                         Text(emoji)
@@ -73,19 +73,22 @@ struct EmojiReactionView: View {
                     
                     ConfettiCannon(counter: $viewModel.emojiCount_9, num: 5, confettis: [.text("🤭")], confettiSize: 30, radius: 300.0)
                 }
+            
+                ConfettiCannon(counter: $viewModel.emojiCount_10, num: 5, confettis: [.text("🥱")], confettiSize: 30, radius: 300.0)
+            
+                ConfettiCannon(counter: $viewModel.emojiCount_11, num: 5, confettis: [.text("👀")], confettiSize: 30, radius: 300.0)
                 
-                    ConfettiCannon(counter: $viewModel.emojiCount_10, num: 5, confettis: [.text("🥱")], confettiSize: 30, radius: 300.0)
+                ConfettiCannon(counter: $viewModel.emojiCount_12, num: 5, confettis: [.text("✅")], confettiSize: 30, radius: 300.0)
                 
-                    ConfettiCannon(counter: $viewModel.emojiCount_11, num: 5, confettis: [.text("👀")], confettiSize: 30, radius: 300.0)
-                    
-                    ConfettiCannon(counter: $viewModel.emojiCount_12, num: 5, confettis: [.text("✅")], confettiSize: 30, radius: 300.0)
-                    
-                    ConfettiCannon(counter: $viewModel.emojiCount_13, num: 5, confettis: [.text("🙅")], confettiSize: 30, radius: 300.0)
-                    
-                    ConfettiCannon(counter: $viewModel.emojiCount_14, num: 5, confettis: [.text("🎉")], confettiSize: 30, radius: 300.0)
-                    
-                    ConfettiCannon(counter: $viewModel.emojiCount_15, num: 5, confettis: [.text("😂")], confettiSize: 30, radius: 300.0)
-            }
+                ConfettiCannon(counter: $viewModel.emojiCount_13, num: 5, confettis: [.text("🙅")], confettiSize: 30, radius: 300.0)
+                
+                ConfettiCannon(counter: $viewModel.emojiCount_14, num: 5, confettis: [.text("🎉")], confettiSize: 30, radius: 300.0)
+                
+                ConfettiCannon(counter: $viewModel.emojiCount_15, num: 5, confettis: [.text("😂")], confettiSize: 30, radius: 300.0)
+        }
+        .onAppear{
+            viewModel.setDocument(emojis)
+        }
     }
 }
 
