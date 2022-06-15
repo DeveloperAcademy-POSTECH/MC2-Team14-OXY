@@ -64,6 +64,7 @@
 		F2CA7CE42858092F0094B126 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F2CA7CE32858092F0094B126 /* GoogleService-Info.plist */; };
 		F2CA7CFB2858154A0094B126 /* MeetingRoomViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2CA7CFA2858154A0094B126 /* MeetingRoomViewModel.swift */; };
 		F2CA7CFD285825EE0094B126 /* MeetingRoom.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2CA7CFC285825EE0094B126 /* MeetingRoom.swift */; };
+		F2D58A36285A002800ACFF51 /* SendNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2D58A35285A002800ACFF51 /* SendNotification.swift */; };
 		F2D707B82849BA6C00DA86FD /* TeamOXYApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2D707B72849BA6C00DA86FD /* TeamOXYApp.swift */; };
 		F2D707BC2849BA6D00DA86FD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F2D707BB2849BA6D00DA86FD /* Assets.xcassets */; };
 		F2D707BF2849BA6D00DA86FD /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F2D707BE2849BA6D00DA86FD /* Preview Assets.xcassets */; };
@@ -120,6 +121,10 @@
 		F2CA7CE32858092F0094B126 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		F2CA7CFA2858154A0094B126 /* MeetingRoomViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeetingRoomViewModel.swift; sourceTree = "<group>"; };
 		F2CA7CFC285825EE0094B126 /* MeetingRoom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeetingRoom.swift; sourceTree = "<group>"; };
+		F2D58A35285A002800ACFF51 /* SendNotification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendNotification.swift; sourceTree = "<group>"; };
+		F2D58A38285A015600ACFF51 /* Debug.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Debug.xcconfig; sourceTree = "<group>"; };
+		F2D58A39285A016C00ACFF51 /* Production.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Production.xcconfig; sourceTree = "<group>"; };
+
 		F2D707B42849BA6C00DA86FD /* TeamOXY.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TeamOXY.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F2D707B72849BA6C00DA86FD /* TeamOXYApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamOXYApp.swift; sourceTree = "<group>"; };
 		F2D707BB2849BA6D00DA86FD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -172,6 +177,7 @@
 				F2380A8A2856D500004754EE /* FirebaseManager.swift */,
 				F2380A8E2856D633004754EE /* generateRandomNickname.swift */,
 				21830A0A2858642300B279B6 /* HapticManager.swift */,
+				F2D58A35285A002800ACFF51 /* SendNotification.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -304,6 +310,15 @@
 			path = QRCode;
 			sourceTree = "<group>";
 		};
+		F2D58A37285A013500ACFF51 /* Config */ = {
+			isa = PBXGroup;
+			children = (
+				F2D58A38285A015600ACFF51 /* Debug.xcconfig */,
+				F2D58A39285A016C00ACFF51 /* Production.xcconfig */,
+			);
+			path = Config;
+			sourceTree = "<group>";
+		};
 		F2D707AB2849BA6C00DA86FD = {
 			isa = PBXGroup;
 			children = (
@@ -323,6 +338,7 @@
 		F2D707B62849BA6C00DA86FD /* TeamOXY */ = {
 			isa = PBXGroup;
 			children = (
+				F2D58A37285A013500ACFF51 /* Config */,
 				F2CA7CE32858092F0094B126 /* GoogleService-Info.plist */,
 				F225A1ED2856D4BC00166ECC /* Utils */,
 				F29BED1B28532DB8005B4A1B /* Components */,
@@ -478,6 +494,7 @@
 				F29BED28285436F2005B4A1B /* QRCodeView.swift in Sources */,
 				4A2A97AA2856C7A400EA21C6 /* UIScreenExtension.swift in Sources */,
 				F29BED1F28533CBC005B4A1B /* String+ButtonImageName.swift in Sources */,
+				F2D58A36285A002800ACFF51 /* SendNotification.swift in Sources */,
 				7BC5EFB22851ECC5004A27B5 /* ColorExtension.swift in Sources */,
 				F2380A8D2856D567004754EE /* FirebaseConstants.swift in Sources */,
 				7BFBD2E32856C33B00E5D98C /* OnboardingLastPageView.swift in Sources */,
@@ -607,13 +624,14 @@
 		};
 		F2D707C32849BA6D00DA86FD /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F2D58A38285A015600ACFF51 /* Debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"TeamOXY/Preview Content\"";
-				DEVELOPMENT_TEAM = AJK25G55CT;
+				DEVELOPMENT_TEAM = G3PA8G576S;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = TeamOXY/Info.plist;
@@ -639,13 +657,14 @@
 		};
 		F2D707C42849BA6D00DA86FD /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F2D58A39285A016C00ACFF51 /* Production.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"TeamOXY/Preview Content\"";
-				DEVELOPMENT_TEAM = AJK25G55CT;
+				DEVELOPMENT_TEAM = G3PA8G576S;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = TeamOXY/Info.plist;
