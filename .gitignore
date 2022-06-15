@@ -132,6 +132,9 @@ Packages
 xcuserdata
 *.xcodeproj
 
+### Xcode config file ###
+*.xcconfig
+
 
 ### Xcode ###
 
