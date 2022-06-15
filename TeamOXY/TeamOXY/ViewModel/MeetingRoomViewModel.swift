@@ -128,9 +128,9 @@ class MeetingRoomViewModel: ObservableObject {
                 
                 querySnapshot?.documentChanges.forEach({ change in
                     let docId = change.document.documentID
-                    print(docId)
+                    
                     if let index = self.users.firstIndex(where: { user in
-                        print("fwfefw",user.id ?? "", docId)
+                        
                         return user.id == docId
                     }) {
                         self.users.remove(at: index)
@@ -139,8 +139,9 @@ class MeetingRoomViewModel: ObservableObject {
                     if let rm = try? change.document.data(as: User.self) {
                         self.users.insert(rm, at: 0)
                     }
+                    
+                    print("Successfully observed documentChange data")
                 })
             }
-        print(">>>>>>\(self.roomId) \(self.users.count)")
     }
 }
