@@ -13,8 +13,8 @@ struct Topic: Codable, Identifiable {
 //    var id: String { documentId }
     @DocumentID var id: String?
 //    let documentId: String
-    let fromId, toId, topicTitle: String
-    let timestamp: Date
+    let topic: String
+    let isOnCardZone, isOnCardDeck, havingTheDiscussion: Bool
     
 //    init(documentId: String, data: [String: Any]) {
 //        self.documentId = documentId
