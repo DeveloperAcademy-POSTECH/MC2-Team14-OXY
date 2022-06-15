@@ -91,7 +91,8 @@ struct TeamOXYApp: App {
     
     var body: some Scene {
         WindowGroup {
-            RootView()
+//            RootView()
+            MeetingRoomView()
         }
     }
 }
