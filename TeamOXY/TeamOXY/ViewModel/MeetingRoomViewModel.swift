@@ -146,7 +146,7 @@ class MeetingRoomViewModel: ObservableObject {
                         self.users.insert(rm, at: 0)
                     }
                     
-                    print("Successfully observed documentChange data")
+                    print("Successfully observed the change of user")
                 })
             }
     }
