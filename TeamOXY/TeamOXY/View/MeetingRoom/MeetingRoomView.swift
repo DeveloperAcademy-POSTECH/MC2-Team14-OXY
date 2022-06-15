@@ -9,10 +9,10 @@ import SwiftUI
 
 struct MeetingRoomView: View {
     
-    var scannedCodeUrl: String?
-    
+    @ObservedObject var vm: MeetingRoomViewModel
     @ObservedObject var viewModel = CompletionViewModel()
-    @ObservedObject var vm = MeetingRoomViewModel()
+    
+    var scannedCodeUrl: String?
     
     @State private var showingLeaveRoomSheet: Bool = false
     @State private var showQRCode = false
@@ -51,7 +51,7 @@ struct MeetingRoomView: View {
                 ])
             }
         }
-        .navigationTitle("\(vm.roomId) \(vm.users.count)")
+        .navigationTitle("\(vm.roomId) \(vm.users.count < 2 ? 1 : vm.users.count)")
         .navigationBarTitleDisplayMode(.inline)
         .navigationBarBackButtonHidden(true)
         .toolbar {

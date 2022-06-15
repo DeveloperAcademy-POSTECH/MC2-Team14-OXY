@@ -8,10 +8,10 @@
 import SwiftUI
 
 struct CreateMeetingRoomView: View {
+    @ObservedObject var vm: MeetingRoomViewModel
+
     let barTitle: String
-    
-    @ObservedObject private var vm = MeetingRoomViewModel()
-    
+
     @State private var text = ""
     @State private var textField = generateRandomNickname()
     @State private var isCreated = false
@@ -67,16 +67,10 @@ struct CreateMeetingRoomView: View {
             })
             .padding(.bottom)
             .background(NavigationLink(isActive: $isCreated) {
-                MeetingRoomView(scannedCodeUrl: nil, backToHome: $backToHome)
+                MeetingRoomView(vm: vm, scannedCodeUrl: nil, backToHome: $backToHome)
             } label: { }.hidden())
         }
         .navigationTitle(barTitle)
         .navigationBarTitleDisplayMode(.inline)
-    }
-}
-
-struct CreateMeetingRoomView_Previews: PreviewProvider {
-    static var previews: some View {
-        CreateMeetingRoomView(barTitle: "방 만들기", backToHome: .constant(true))
     }
 }

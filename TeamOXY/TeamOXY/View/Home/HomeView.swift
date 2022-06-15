@@ -12,7 +12,7 @@ struct HomeView: View {
     
     @AppStorage("_isFirstLaunching") var isFirstLaunching: Bool = true
     
-    @ObservedObject private var vm = MeetingRoomViewModel()
+    @StateObject var vm = MeetingRoomViewModel()
     
     @State private var isPresentingScanner = false
     @State private var scannedCodeUrl = ""
@@ -28,7 +28,7 @@ struct HomeView: View {
                     self.isPresentingScanner = false
                     self.backToHome = true
                     
-                    self.vm.anonymousLogin(scannedCodeUrl: scannedCodeUrl, nickname: generateRandomNickname())
+                    self.vm.anonymousLogin(scannedCodeUrl: self.scannedCodeUrl, nickname: generateRandomNickname())
                 }
             }
             
@@ -79,7 +79,7 @@ struct HomeView: View {
                         moveToCreate = true
                     }
                     NavigationLink(isActive: $moveToCreate) {
-                        CreateMeetingRoomView(barTitle: "방 만들기", backToHome: $backToHome)
+                        CreateMeetingRoomView(vm: vm, barTitle: "방 만들기", backToHome: $backToHome)
                     } label: { }.hidden()
                 }
                 .padding(.bottom)
@@ -97,7 +97,7 @@ struct HomeView: View {
                 .padding(.bottom)
                 
                 NavigationLink(isActive: $backToHome) {
-                    MeetingRoomView(scannedCodeUrl: scannedCodeUrl, backToHome: $backToHome)
+                    MeetingRoomView(vm: vm, scannedCodeUrl: scannedCodeUrl, backToHome: $backToHome)
                 } label: { }.hidden()
             }
             .navigationBarHidden(true)
