@@ -16,8 +16,7 @@ struct MeetingRoomView: View {
     
     @State private var showingLeaveRoomSheet: Bool = false
     @State private var showQRCode = false
-    @State private var loginStatusMessage = ""
-    @State private var nickname = ""
+    @State private var nickname = generateRandomNickname()
     
     @Binding var backToHome: Bool
     
@@ -52,7 +51,7 @@ struct MeetingRoomView: View {
                 ])
             }
         }
-        .navigationTitle("\(vm.currentUser?.nickname ?? "") 방 \(vm.users.count)")
+        .navigationTitle("\(vm.roomId) \(vm.users.count)")
         .navigationBarTitleDisplayMode(.inline)
         .navigationBarBackButtonHidden(true)
         .toolbar {
@@ -79,11 +78,10 @@ struct MeetingRoomView: View {
                             isPresented: $showingLeaveRoomSheet,
                             titleVisibility: .visible) {
             Button("떠나기") {
+                self.leaveMeetingRoom()
                 backToHome = false
             }
-            Button("취소", role: .cancel) {
-                
-            }
+            Button("취소", role: .cancel) { }
         } message: {
             Text("방에 다시 입장하려면 팀원들의 QR코드를 통해 입장해주세요")
         }
@@ -91,104 +89,53 @@ struct MeetingRoomView: View {
             QRCodeView(url: vm.roomId)
         }
         .onAppear {
-            DispatchQueue.main.async {
-                nickname = generateRandomNickname()
-                anonymousLogin()
-                guard let uid = FirebaseManager.shared.auth.currentUser?.uid else { return }
-                
-                print("Current User",uid)
-            }
-        }
-    }
-    
-    private func anonymousLogin() {
-        FirebaseManager.shared.auth.signInAnonymously { result, error in
-            if let error = error {
-                print("Failed to Anonymous login user: \(error)")
-                loginStatusMessage = "Failed to Anonymous login user: \(error)"
-                return
-            }
-            
-            print("Successfully logged in user: \(result?.user.uid ?? "")")
-            loginStatusMessage = "Successfully logged in user: \(result?.user.uid ?? "")"
-            
-            self.storeUserInformation()
-        }
-    }
-    
-    private func storeUserInformation() {
-        if let scannedCodeUrl = scannedCodeUrl {
-            guard let uid = FirebaseManager.shared.auth.currentUser?.uid else { return }
-            
-            let userData = [
-                FirebaseConstants.uid: uid,
-                FirebaseConstants.nickname: nickname
-            ]
-            
-            FirebaseManager.shared.firestore
-                .collection(FirebaseConstants.rooms)
-                .document(scannedCodeUrl)
-                .collection(FirebaseConstants.users)
-                .document(uid)
-                .setData(userData) { error in
-                    if let error = error {
-                        print("Failed to store user information: \(error)")
-                        return
-                    }
-                    
-                    print("Succeessfully stored user information")
-                    
-                    self.vm.fetchCurrentUser(scannedCodeUrl)
-                }
-        } else {
-            guard let uid = FirebaseManager.shared.auth.currentUser?.uid else { return }
-            
-            let userData = [
-                FirebaseConstants.uid: uid,
-                FirebaseConstants.nickname: nickname
-            ]
-            
-            vm.roomId = "room \(uid)"
-            
-            FirebaseManager.shared.firestore
-                .collection(FirebaseConstants.rooms)
-                .document(vm.roomId)
-                .collection(FirebaseConstants.users)
-                .document(uid)
-                .setData(userData) { error in
-                    if let error = error {
-                        print("Failed to store user information: \(error)")
-                        return
-                    }
-                    
-                    print("Succeessfully stored user information")
-                    
-                    self.vm.fetchCurrentUser(vm.roomId)
-                }
+            print("room id \(vm.roomId)")
         }
     }
     
     private func leaveMeetingRoom() {
         guard let uid = FirebaseManager.shared.auth.currentUser?.uid else { return }
         
-        FirebaseManager.shared.firestore
-            .collection(FirebaseConstants.rooms)
-            .document(vm.roomId)
-            .collection(FirebaseConstants.users)
-            .document(uid)
-            .delete { error in
-                if let error = error {
-                    print("Failed to delete user: \(error)")
-                    return
+        // 방에 2명이상 있는 경우
+        if vm.users.count > 1 {
+            FirebaseManager.shared.firestore
+                .collection(FirebaseConstants.rooms)
+                .document(vm.roomId)
+                .collection(FirebaseConstants.users)
+                .document(uid)
+                .delete { error in
+                    if let error = error {
+                        print("Failed to delete user: \(error)")
+                        return
+                    }
+                    
+                    // MeetingRoomViewModel에 있는 users 배열에서 currentUser와 같은 uid를 가지면 제거
+                    self.vm.users = self.vm.users.filter({ user in
+                        uid != user.uid
+                    })
+                    
+                    print("방에 있는 인원은 듣거라", self.vm.users)
+                    
+                    self.vm.roomId = ""
+                    self.vm.currentUser = nil
                 }
-                
-                self.vm.fetchCurrentUser(vm.roomId)
-            }
-    }
-}
-
-struct MeetingRoomView_Previews: PreviewProvider {
-    static var previews: some View {
-        MeetingRoomView(scannedCodeUrl: nil, backToHome: .constant(true))
+            // 방에 혼자 있는 경우
+        } else if vm.users.count == 1 {
+            FirebaseManager.shared.firestore
+                .collection(FirebaseConstants.rooms)
+                .document(vm.roomId)
+                .delete { error in
+                    if let error = error {
+                        print("Failed to delete user: \(error)")
+                        return
+                    }
+                    
+                    // MeetingRoomViewModel에 있는 users 배열 비우기
+                    self.vm.users.removeAll()
+                    
+                    self.vm.roomId = ""
+                    self.vm.currentUser = nil
+                }
+        }
     }
 }

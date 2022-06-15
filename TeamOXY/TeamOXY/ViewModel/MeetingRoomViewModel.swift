@@ -11,22 +11,84 @@ import FirebaseFirestore
 import FirebaseFirestoreSwift
 
 class MeetingRoomViewModel: ObservableObject {
-    @Published var roomTitle = ""
-    @Published var roomId = ""
 
+    @Published var roomId = ""
+    
     @Published var currentUser: User?
     @Published var users = [User]()
-    @Published var errorMessage = ""
     
-    func fetchCurrentUser(_ roomId: String) {
+    var errorMessage = ""
+    
+    func anonymousLogin(scannedCodeUrl: String?, nickname: String) {
+        FirebaseManager.shared.auth.signInAnonymously { result, error in
+            if let error = error {
+                print("Failed to Anonymous login user: \(error)")
+                return
+            }
+            
+            print("Successfully logged in user: \(result?.user.uid ?? "")")
+            
+            self.storeUserInformation(scannedCodeUrl: scannedCodeUrl, nickname: nickname)
+        }
+    }
+    
+    func storeUserInformation(scannedCodeUrl: String?, nickname: String) {
+        guard let uid = FirebaseManager.shared.auth.currentUser?.uid else { return }
+        
+        let userData = [
+            FirebaseConstants.uid: uid,
+            FirebaseConstants.nickname: nickname
+        ]
+        
+        // QR code로 입장한 사람
+        if let scannedCodeUrl = scannedCodeUrl {
+            FirebaseManager.shared.firestore
+                .collection(FirebaseConstants.rooms)
+                .document(scannedCodeUrl)
+                .collection(FirebaseConstants.users)
+                .document(uid)
+                .setData(userData) { error in
+                    if let error = error {
+                        print("Failed to store user information: \(error)")
+                        return
+                    }
+                    
+                    print("Succeessfully stored user information")
+                    
+                    self.fetchCurrentUser(scannedCodeUrl)
+                }
+        } else {
+            FirebaseManager.shared.firestore
+                .collection(FirebaseConstants.rooms)
+                .document(self.roomId)
+                .collection(FirebaseConstants.users)
+                .document(uid)
+                .setData(userData) { error in
+                    if let error = error {
+                        print("Failed to store user information: \(error)")
+                        return
+                    }
+                    
+                    print("Succeessfully stored user information")
+                    
+                    self.fetchCurrentUser(self.roomId)
+                }
+        }
+    }
+    
+    func fetchCurrentUser(_ title: String) {
         guard let uid = FirebaseManager.shared.auth.currentUser?.uid else {
             self.errorMessage = "Could not finde firebase uid"
+            print(self.errorMessage)
             return
         }
+
+        roomId = title
         
+        // 여기가 두번 처리됨. 그러면서 roomId가 초기화되서 전달됨.
         FirebaseManager.shared.firestore
             .collection(FirebaseConstants.rooms)
-            .document(roomId)
+            .document(title)
             .collection(FirebaseConstants.users)
             .document(uid)
             .getDocument { snapshot, error in
@@ -36,7 +98,7 @@ class MeetingRoomViewModel: ObservableObject {
                     return
                 }
                 
-                guard let data = snapshot?.data() else {
+                guard let _ = snapshot?.data() else {
                     self.errorMessage = "No data found"
                     print(self.errorMessage)
                     return
@@ -51,7 +113,7 @@ class MeetingRoomViewModel: ObservableObject {
     }
     
     func fetchUsers() {
-        guard let uid = FirebaseManager.shared.auth.currentUser?.uid else { return }
+        guard let _ = FirebaseManager.shared.auth.currentUser?.uid else { return }
         
         FirebaseManager.shared.firestore
             .collection(FirebaseConstants.rooms)
@@ -66,24 +128,19 @@ class MeetingRoomViewModel: ObservableObject {
                 
                 querySnapshot?.documentChanges.forEach({ change in
                     let docId = change.document.documentID
-                    
+                    print(docId)
                     if let index = self.users.firstIndex(where: { user in
-                        print(user.id ?? "")
-                        return "room \(user.id ?? "")" == docId
+                        print("fwfefw",user.id ?? "", docId)
+                        return user.id == docId
                     }) {
                         self.users.remove(at: index)
                     }
                     
-                    do {
-                        if let rm = try? change.document.data(as: User.self) {
-                            self.users.insert(rm, at: 0)
-                        }
-                    } catch {
-                        print(error)
+                    if let rm = try? change.document.data(as: User.self) {
+                        self.users.insert(rm, at: 0)
                     }
-                    
-                    print("\(self.currentUser?.nickname ?? "") 방 \(self.users.count)")
                 })
             }
+        print(">>>>>>\(self.roomId) \(self.users.count)")
     }
 }
