@@ -71,19 +71,18 @@ struct CarouselView: View {
                     print("inside zone")
                     viewModel.FinishTopicViewCondition = [true, false, true]
                     viewModel.isCardBox = false
-//                    print("1\(viewModel.FinishTopicViewCondition)")
-                    // 카드 놓는 곳으로 위치시키기
-                    //                    self.viewState.height = -largeCardHeight/2 + cardZoneHeightOverMiddle
                     
+                    // 카드 놓는 곳으로 위치시키기
                     viewState.height = -UIScreen.screenHeight * 0.38// 원래-370
-                    // 논의중이고 카드존에 없다면
+                    
+                // 논의중이고 카드존에 없다면
                 } else if viewModel.FinishTopicViewCondition[2] == true {
                     // 카드존에 없고, 논의중이 아닐 때, finishTopicView를 띄우고
                     print("not inside zone")
                     viewState.height = -UIScreen.screenHeight * 0.38// 원래 -370
                     viewModel.FinishTopicViewCondition = [false, true, true] // finishTopiceView on
                     viewModel.isCardDeck = false // 카드덱 사라짐
-                    print("1\(viewModel.FinishTopicViewCondition)")
+                    
                     // 다시 덱으로 위치시키기
                     self.viewState.height = CarouselViewConstants.initialCardLocation
                 } else {
@@ -104,24 +103,21 @@ struct CarouselView: View {
             ZStack(alignment: .bottom){
                 // 각각의 요소에 그림자 넣는 법 말고 전체를 묶어서 그림자를 넣는 법 고민해보기
                 ForEach(0 ..< views.count, id: \.self){ i in
-                    VStack{
+                    VStack {
                         self.views[i]
                             .resizable()
                             .frame(width: getWidth(i), height: getWidth(i) * 1.4)
                             .animation(.interpolatingSpring(stiffness: 300.0, damping: 30.0, initialVelocity: 10.0))
                             .aspectRatio(contentMode: .fit)
-                        //                        .animation(.interpolatingSpring(stiffness: 300.0, damping: 30.0, initialVelocity: 10.0))
                             .background(Color.white)
                             .cornerRadius(5)
                             .shadow(color: setShadowColor(i), radius: shadowSetting(i)[0], x: shadowSetting(i)[1], y: shadowSetting(i)[2])
                             .animation(.interpolatingSpring(stiffness: 300.0, damping: 30.0, initialVelocity: 10.0))
                             .opacity(self.getOpacity(i))
                             .animation(Animation.easeOut)
-                        //                        .animation(.interpolatingSpring(stiffness: 300.0, damping: 30.0, initialVelocity: 10.0))
-                        // offset y를 longpress가 눌리면, 다니 함수의 y값으로 return 하도록 삼항연산자(?)
+                            // offset y를 longpress가 눌리면, 다니 함수의 y값으로 return 하도록 삼항연산자(?)
                             .offset(x: self.getOffsetX(i),
                                     y: setOffsetY(i))
-                        //                        .animation(.interpolatingSpring(stiffness: 300.0, damping: 30.0, initialVelocity: 10.0))
                         // animation은 그 바로 위에 있는 메소드에 적용하는 것, 즉 animation이 3번 반복되는이유는
                         // frame, shadow, offset변화에 애니메이션을 주기 위함 -> 각각에 적용되는 애니메이션이 똑같으면 굳이 그럴필요 있나(?)
                             .scaleEffect(setScale(i))
