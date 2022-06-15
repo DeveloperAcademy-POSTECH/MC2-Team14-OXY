@@ -12,9 +12,12 @@ struct HomeView: View {
     
     @AppStorage("_isFirstLaunching") var isFirstLaunching: Bool = true
     
+    @StateObject var vm = MeetingRoomViewModel()
+    
     @State private var isPresentingScanner = false
     @State private var scannedCodeUrl = ""
     @State var backToHome = false
+    @State var moveToCreate = false
     
     var scannerSheet: some View {
         ZStack {
@@ -24,6 +27,8 @@ struct HomeView: View {
                     print(self.scannedCodeUrl)
                     self.isPresentingScanner = false
                     self.backToHome = true
+                    
+                    self.vm.anonymousLogin(scannedCodeUrl: self.scannedCodeUrl, nickname: generateRandomNickname())
                 }
             }
             
@@ -70,11 +75,12 @@ struct HomeView: View {
                     Text("팀원들을 초대할 방을 만들어 주세요.")
                         .body3()
                     
-                    NavigationLink(isActive: $backToHome) {
-                        CreateMeetingRoomView(barTitle: "방 만들기", backToHome: $backToHome)
-                    } label: {
-                        RoundButton(buttonType: .primary, title: "방 만들기", isButton: false) { }
+                    RoundButton(buttonType: .primary, title: "방 만들기", isButton: true) {
+                        moveToCreate = true
                     }
+                    NavigationLink(isActive: $moveToCreate) {
+                        CreateMeetingRoomView(vm: vm, barTitle: "방 만들기", backToHome: $backToHome)
+                    } label: { }.hidden()
                 }
                 .padding(.bottom)
                 
@@ -91,9 +97,8 @@ struct HomeView: View {
                 .padding(.bottom)
                 
                 NavigationLink(isActive: $backToHome) {
-                    MeetingRoomView(scannedCodeUrl: scannedCodeUrl, backToHome: $backToHome)
+                    MeetingRoomView(vm: vm, scannedCodeUrl: scannedCodeUrl, backToHome: $backToHome)
                 } label: { }.hidden()
-
             }
             .navigationBarHidden(true)
         }

@@ -8,11 +8,12 @@
 import SwiftUI
 
 struct CreateMeetingRoomView: View {
+    @ObservedObject var vm: MeetingRoomViewModel
+
     let barTitle: String
-    
-    @ObservedObject private var vm = MeetingRoomViewModel()
-    
+
     @State private var text = ""
+    @State private var textField = generateRandomNickname()
     @State private var isCreated = false
     
     @Binding var backToHome: Bool
@@ -28,7 +29,7 @@ struct CreateMeetingRoomView: View {
                     .disableAutocorrection(true)
                     
                 HStack {
-                    TextField("\(generateRandomNickname()) 방", text: $text)
+                    TextField("\(textField) 방", text: $text)
                         .fields()
                     
                     if text != "" {
@@ -52,29 +53,24 @@ struct CreateMeetingRoomView: View {
             
             Spacer()
             
-            NavigationLink(isActive: $isCreated) {
-                MeetingRoomView(scannedCodeUrl: nil, backToHome: $backToHome)
-            } label: {
-                RoundButton(buttonType: .primary, title: "시작하기", isButton: true, didCompletion: {
-                    if text.isEmpty {
-                        text = generateRandomNickname()
-                        vm.roomTitle = text + " 방"
-                    } else {
-                        vm.roomTitle = text
-                    }
-                    
-                    isCreated.toggle()
-                })
-            }
+            RoundButton(buttonType: .primary, title: "시작하기", isButton: true, didCompletion: {
+                if text.isEmpty {
+                    vm.roomId = "\(textField) 방"
+                } else {
+                    vm.roomId = text
+                }
+                
+                vm.anonymousLogin(scannedCodeUrl: nil, nickname: vm.roomId)
+                
+                backToHome = true
+                isCreated.toggle()
+            })
             .padding(.bottom)
+            .background(NavigationLink(isActive: $isCreated) {
+                MeetingRoomView(vm: vm, scannedCodeUrl: nil, backToHome: $backToHome)
+            } label: { }.hidden())
         }
         .navigationTitle(barTitle)
         .navigationBarTitleDisplayMode(.inline)
-    }
-}
-
-struct CreateMeetingRoomView_Previews: PreviewProvider {
-    static var previews: some View {
-        CreateMeetingRoomView(barTitle: "방 만들기", backToHome: .constant(true))
     }
 }
