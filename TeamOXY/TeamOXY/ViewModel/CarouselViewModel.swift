@@ -44,9 +44,31 @@ class CarouselViewModel: ObservableObject {
                 
                 print("Successfully stored topic information")
                 
-//                self.fetchTopicSuggestion(roomId)
+                self.fetchTopicSuggestion(roomId)
             }
     }
     
-
+    func fetchTopicSuggestion(_ roomId: String) {
+        guard let _ = FirebaseManager.shared.currentUser?.uid else { return }
+        
+        FirebaseManager.shared.firestore
+            .collection(FirebaseConstants.rooms)
+            .document(roomId)
+            .collection(FirebaseConstants.topics)
+            .addSnapshotListener { querySnapshot, error in
+                if let error = error {
+                    print("Failed to listen for new topic: \(error)")
+                    return
+                }
+                
+                querySnapshot?.documentChanges.forEach({ change in
+                    if change.type == .added {
+                        self.topicSuggestion = try? change.document.data(as: Topic.self)
+                        FirebaseManager.shared.topic = self.topicSuggestion
+                    }
+                    
+                    print("Successfully observed the change of topic")
+                })
+            }
+    }
 }
