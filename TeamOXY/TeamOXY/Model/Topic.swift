@@ -14,7 +14,7 @@ struct Topic: Codable, Identifiable {
     @DocumentID var id: String?
 //    let documentId: String
     let topic: String
-    let isOnCardZone, isOnCardDeck, havingTheDiscussion: Bool
+    let isOnCardZone, isOnCardDeck, underDiscussion: Bool
     
 //    init(documentId: String, data: [String: Any]) {
 //        self.documentId = documentId
