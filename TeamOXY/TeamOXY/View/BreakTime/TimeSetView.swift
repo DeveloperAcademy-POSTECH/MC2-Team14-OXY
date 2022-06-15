@@ -9,6 +9,7 @@ import SwiftUI
 
 
 struct TimeSetView: View {
+    @ObservedObject var viewModel: CompletionViewModel
     
     // time picker
     private let data: [[String]] = [
@@ -20,36 +21,38 @@ struct TimeSetView: View {
     @State private var selections: [Int] = [5, 0]
     
     var body: some View {
-        NavigationView {
-            VStack {
+        VStack {
+            ZStack {
+                Text("쉬는 시간을 설정해주세요.")
+                    .foregroundColor(.DarkGray1)
+                    .font(.custom("Pretendard-ExtraBold", size: 18))
+                    .offset(y:-230)
+                
                 ZStack {
-                    Text("쉬는 시간을 설정해주세요.")
-                        .foregroundColor(.DarkGray1)
-                        .font(.custom("Pretendard-ExtraBold", size: 18))
-                        .offset(y:-230)
+                    // blue box
+                    RoundedRectangle(cornerRadius: 25)
+                        .frame(width: UIScreen.main.bounds.size.width-75, height: 35)
+                        .foregroundColor (.PrimaryBlue)
+                    Text("          분                               초")
                     
-                    ZStack {
-                        // blue box
-                        RoundedRectangle(cornerRadius: 25)
-                                        .frame(width: UIScreen.main.bounds.size.width-75, height: 35)
-                                        .foregroundColor (.PrimaryBlue)
-                        Text("          분                               초")
-                        
-                        // PickerVeiw
-                        PickerView(data: self.data, selections: self.$selections)
-                            .frame(width:200)
-                            .pickerStyle(WheelPickerStyle())
-                    }
-                    
-                    VStack {
-                        Spacer()
-                        NavigationLink(destination: BreakTimeView(counter: 0, countTo: (Int(data[0][selections[0]]) ?? 10) * 60 + (Int(data[1][selections[1]]) ?? 0))) {
-                            StartTimerButton()
-                        }
+                    // PickerVeiw
+                    PickerView(data: self.data, selections: self.$selections)
+                        .frame(width:200)
+                        .pickerStyle(WheelPickerStyle())
+                }
+                
+                VStack {
+                    Spacer()
+                    NavigationLink(destination: BreakTimeView(counter: 0, countTo: (Int(data[0][selections[0]]) ?? 10) * 60 + (Int(data[1][selections[1]]) ?? 0))) {
+                        StartTimerButton()
                     }
                 }
             }
-            .navigationBarTitle("쉬는시간 설정", displayMode: .inline)
+        }
+        .navigationBarTitle("쉬는시간 설정", displayMode: .inline)
+        .onAppear{
+            // FinishTopicView뜨는 조건 초기화
+            viewModel.FinishTopicViewCondition = [false, true, false]
         }
     }
 }
@@ -116,8 +119,8 @@ struct PickerView: UIViewRepresentable {
     }
 }
 
-struct TimeSetView_Previews: PreviewProvider {
-    static var previews: some View {
-        TimeSetView()
-    }
-}
+//struct TimeSetView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        TimeSetView()
+//    }
+//}

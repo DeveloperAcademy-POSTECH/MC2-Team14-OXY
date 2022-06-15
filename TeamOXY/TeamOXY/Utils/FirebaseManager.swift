@@ -17,6 +17,8 @@ class FirebaseManager: NSObject {
     
     static let shared = FirebaseManager()
     
+    var currentUser: User?
+    
     override init() {
         auth = Auth.auth()
         firestore = Firestore.firestore()

@@ -13,4 +13,8 @@ struct FirebaseConstants {
     static let reaction = "reaction"
     static let timestamp = "timestamp"
     static let nickname = "nickname"
+    static let rooms = "rooms"
+    static let users = "users"
+    static let reactions = "reactions"
+    static let topics = "topics"
 }

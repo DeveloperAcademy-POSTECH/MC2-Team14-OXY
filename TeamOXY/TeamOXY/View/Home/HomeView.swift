@@ -8,19 +8,22 @@
 import SwiftUI
 import CodeScanner
 
-
 struct HomeView: View {
-    @State var isPresentingScanner = false
-    @State var scannedCode: String = "Scan a QR code to get started"
+    
     @AppStorage("_isFirstLaunching") var isFirstLaunching: Bool = true
+    
+    @State private var isPresentingScanner = false
+    @State private var scannedCodeUrl = ""
+    @State var backToHome = false
     
     var scannerSheet: some View {
         ZStack {
             CodeScannerView(codeTypes: [.qr]) { result in
                 if case let .success(code) = result {
-                    self.scannedCode = code.string
+                    self.scannedCodeUrl = code.string
+                    print(self.scannedCodeUrl)
                     self.isPresentingScanner = false
-                    print(self.scannedCode)
+                    self.backToHome = true
                 }
             }
             
@@ -67,8 +70,8 @@ struct HomeView: View {
                     Text("팀원들을 초대할 방을 만들어 주세요.")
                         .font(.custom("Pretendard-SemiBold", size: 12))
                     
-                    NavigationLink {
-                        CreateMeetingRoomView(barTitle: "방 만들기")
+                    NavigationLink(isActive: $backToHome) {
+                        CreateMeetingRoomView(barTitle: "방 만들기", backToHome: $backToHome)
                     } label: {
                         RoundButton(buttonType: .primary, title: "방 만들기", isButton: false) { }
                     }
@@ -86,8 +89,12 @@ struct HomeView: View {
                     }
                 }
                 .padding(.bottom)
+                
+                NavigationLink(isActive: $backToHome) {
+                    MeetingRoomView(scannedCodeUrl: scannedCodeUrl, backToHome: $backToHome)
+                } label: { }.hidden()
+
             }
-            .navigationTitle("")
             .navigationBarHidden(true)
         }
         .fullScreenCover(isPresented: $isFirstLaunching) {

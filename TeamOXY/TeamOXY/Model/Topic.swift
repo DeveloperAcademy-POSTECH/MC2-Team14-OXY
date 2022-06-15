@@ -10,16 +10,17 @@ import FirebaseFirestore
 import FirebaseFirestoreSwift
 
 struct Topic: Codable, Identifiable {
-    var id: String { documentId }
-    let documentId: String
+//    var id: String { documentId }
+    @DocumentID var id: String?
+//    let documentId: String
     let fromId, toId, topicTitle: String
-    let timestamp: Timestamp
+    let timestamp: Date
     
-    init(documentId: String, data: [String: Any]) {
-        self.documentId = documentId
-        self.fromId = data["fromId"] as? String ?? ""
-        self.toId = data["toId"] as? String ?? ""
-        self.topicTitle = data["topicTitle"] as? String ?? ""
-        self.timestamp = data["timestamp"] as? Timestamp ?? Timestamp(date: Date())
-    }
+//    init(documentId: String, data: [String: Any]) {
+//        self.documentId = documentId
+//        self.fromId = data["fromId"] as? String ?? ""
+//        self.toId = data["toId"] as? String ?? ""
+//        self.topicTitle = data["topicTitle"] as? String ?? ""
+//        self.timestamp = data["timestamp"] as? Timestamp ?? Timestamp(date: Date())
+//    }
 }
