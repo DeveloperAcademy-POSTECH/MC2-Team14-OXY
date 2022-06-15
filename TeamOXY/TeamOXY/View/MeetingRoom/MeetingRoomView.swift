@@ -21,34 +21,37 @@ struct MeetingRoomView: View {
     @Binding var backToHome: Bool
     
     var body: some View {
-        VStack {
-            ZStack{
-                if viewModel.FinishTopicViewCondition != [false, true, true] && viewModel.isCardBox {
-                    RoundedRectangle(cornerRadius: 5)
-                        .strokeBorder(style: StrokeStyle(lineWidth: 1))
-                        .frame(width: smallCardWidth * 2.4,height: smallCardHeight * 2.4)
-                        .foregroundColor(.gray.opacity(0.2))
-                        .overlay(content: {
-                            HStack(spacing:0) {
-                                Text("카드를 올려")
-                                Text(" 쉬는 시간")
-                                    .foregroundColor(Color.PrimaryBlue)
-                                Text("을 제안해보세요")
-                            }
-                            .body2()
-                        })
-                        .offset(y: -UIScreen.screenHeight * 0.11)
-                }
-                
-                CarouselView(viewModel: viewModel,views: [
-                    Image("Card1"),
-                    Image("Card2"),
-                    Image("Card3"),
-                    Image("Card4"),
-                    Image("Card5"),
-                    Image("Card6"),
-                    Image("Card6")
-                ])
+            VStack {
+                ZStack{
+                    if viewModel.FinishTopicViewCondition != [false, true, true] && viewModel.isCardBox {
+                        RoundedRectangle(cornerRadius: 5)
+                            .strokeBorder(style: StrokeStyle(lineWidth: 1))
+                            .frame(width: CarouselViewConstants.smallCardWidth * 2.4,height: CarouselViewConstants.smallCardHeight * 2.4)
+                            .foregroundColor(.gray.opacity(0.2))
+                            .overlay(content: {
+                                HStack(spacing:0) {
+                                    Text("카드를 올려")
+                                        .font(.custom("Pretendard-Light", size: 12))
+                                    Text(" 쉬는 시간")
+                                        .font(.custom("Pretendard-Light", size: 12))
+                                        .foregroundColor(Color.PrimaryBlue)
+                                    Text("을 제안해보세요")
+                                        .font(.custom("Pretendard-Light", size: 12))
+                                }
+                            })
+                            .offset(y: -UIScreen.screenHeight * 0.11)
+                            .transition(AnyTransition.opacity.animation(.easeInOut))
+                    }
+                    
+                    CarouselView(viewModel: viewModel,views: [
+                        Image("Card1"),
+                        Image("Card2"),
+                        Image("Card3"),
+                        Image("Card4"),
+                        Image("Card5"),
+                        Image("Card6"),
+                        Image("Card6")
+                    ])
             }
         }
         .navigationTitle("\(vm.roomId) \(vm.users.count < 2 ? 1 : vm.users.count)")
