@@ -32,13 +32,11 @@ struct MeetingRoomView: View {
                         .overlay(content: {
                             HStack(spacing:0) {
                                 Text("카드를 올려")
-                                    .font(.custom("Pretendard-Light", size: 12))
                                 Text(" 쉬는 시간")
-                                    .font(.custom("Pretendard-Light", size: 12))
                                     .foregroundColor(Color.PrimaryBlue)
                                 Text("을 제안해보세요")
-                                    .font(.custom("Pretendard-Light", size: 12))
                             }
+                            .body2()
                         })
                         .offset(y: -UIScreen.screenHeight * 0.11)
                 }

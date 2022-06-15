@@ -12,7 +12,6 @@ struct EmojiReactionView: View {
     
     let emojis = ["🤔","👎","👍","🤩","🫠", "🔥","❤️","😱","🤭","🥱","👀","✅","🙅","🎉","😂"]
 
-    
     @ObservedObject var viewModel = EmojieViewModel()
     
     var body: some View {
@@ -76,7 +75,6 @@ struct EmojiReactionView: View {
                     ConfettiCannon(counter: $viewModel.emojiCount_9, num: 5, confettis: [.text("🤭")], confettiSize: 30, radius: 300.0)
                 }
                 
-                
                     ConfettiCannon(counter: $viewModel.emojiCount_10, num: 5, confettis: [.text("🥱")], confettiSize: 30, radius: 300.0)
                 
                     ConfettiCannon(counter: $viewModel.emojiCount_11, num: 5, confettis: [.text("👀")], confettiSize: 30, radius: 300.0)
@@ -88,7 +86,6 @@ struct EmojiReactionView: View {
                     ConfettiCannon(counter: $viewModel.emojiCount_14, num: 5, confettis: [.text("🎉")], confettiSize: 30, radius: 300.0)
                     
                     ConfettiCannon(counter: $viewModel.emojiCount_15, num: 5, confettis: [.text("😂")], confettiSize: 30, radius: 300.0)
-
             }
     }
 }
@@ -99,25 +96,19 @@ struct EmojiReactionView_Previews: PreviewProvider {
     }
 }
 
-
 struct middleTextView : View {
     var body: some View {
         VStack(spacing: 10) {
             HStack {
                 Text("누군가")
-                    .font(.custom("Pretendard-Bold", size: 12))
-                
                 Text("쉬는 시간")
                     .foregroundColor(Color.PrimaryBlue)
-                    .font(.custom("Pretendard-Bold", size: 12))
-                
                 Text("을 제안했습니다.")
-                    .font(.custom("Pretendard-Bold", size: 12))
                     .padding(.leading, -7)
             }
             
             Text("아래 아이콘을 탭해서 반응해 보세요.")
-                .font(.custom("Pretendard-Bold", size: 12))
         }
+        .body2()
     }
 }
