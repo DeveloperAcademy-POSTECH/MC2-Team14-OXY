@@ -7,6 +7,7 @@
 
 import SwiftUI
 import Firebase
+import FirebaseMessaging
 import FirebaseFirestore
 import FirebaseFirestoreSwift
 
@@ -14,6 +15,7 @@ class MeetingRoomViewModel: ObservableObject {
     @Published var roomId = ""
     @Published var currentUser: User?
     @Published var users = [User]()
+    @Published var fcmToken = ""
     
     func anonymousLogin(scannedCodeUrl: String?, nickname: String) {
         FirebaseManager.shared.auth.signInAnonymously { result, error in
@@ -31,44 +33,55 @@ class MeetingRoomViewModel: ObservableObject {
     func storeUserInformation(scannedCodeUrl: String?, nickname: String) {
         guard let uid = FirebaseManager.shared.auth.currentUser?.uid else { return }
         
-        let userData = [
-            FirebaseConstants.uid: uid,
-            FirebaseConstants.nickname: nickname
-        ]
-        
-        // QR code로 입장한 사람
-        if let scannedCodeUrl = scannedCodeUrl {
-            FirebaseManager.shared.firestore
-                .collection(FirebaseConstants.rooms)
-                .document(scannedCodeUrl)
-                .collection(FirebaseConstants.users)
-                .document(uid)
-                .setData(userData) { error in
-                    if let error = error {
-                        print("Failed to store user information: \(error)")
-                        return
+        Messaging.messaging().token { token, error in
+            if let error = error {
+                print("Error fetching FCM registration token: \(error)")
+                return
+            }
+            guard let token = token else { return }
+            print("FCM registration token: \(token)")
+            self.fcmToken = token
+            
+            let userData = [
+                FirebaseConstants.uid: uid,
+                FirebaseConstants.nickname: nickname,
+                FirebaseConstants.fcmToken: self.fcmToken
+            ]
+            
+            // QR code로 입장한 사람
+            if let scannedCodeUrl = scannedCodeUrl {
+                FirebaseManager.shared.firestore
+                    .collection(FirebaseConstants.rooms)
+                    .document(scannedCodeUrl)
+                    .collection(FirebaseConstants.users)
+                    .document(uid)
+                    .setData(userData) { error in
+                        if let error = error {
+                            print("Failed to store user information: \(error)")
+                            return
+                        }
+                        
+                        print("Succeessfully stored user information")
+                        
+                        self.fetchCurrentUser(scannedCodeUrl)
                     }
-                    
-                    print("Succeessfully stored user information")
-                    
-                    self.fetchCurrentUser(scannedCodeUrl)
-                }
-        } else {
-            FirebaseManager.shared.firestore
-                .collection(FirebaseConstants.rooms)
-                .document(self.roomId)
-                .collection(FirebaseConstants.users)
-                .document(uid)
-                .setData(userData) { error in
-                    if let error = error {
-                        print("Failed to store user information: \(error)")
-                        return
+            } else {
+                FirebaseManager.shared.firestore
+                    .collection(FirebaseConstants.rooms)
+                    .document(self.roomId)
+                    .collection(FirebaseConstants.users)
+                    .document(uid)
+                    .setData(userData) { error in
+                        if let error = error {
+                            print("Failed to store user information: \(error)")
+                            return
+                        }
+                        
+                        print("Succeessfully stored user information")
+                        
+                        self.fetchCurrentUser(self.roomId)
                     }
-                    
-                    print("Succeessfully stored user information")
-                    
-                    self.fetchCurrentUser(self.roomId)
-                }
+            }
         }
     }
     
@@ -77,7 +90,7 @@ class MeetingRoomViewModel: ObservableObject {
             print("Could not finde firebase uid")
             return
         }
-
+        
         roomId = title
         
         // 여기가 두번 처리됨. 그러면서 roomId가 초기화되서 전달됨.

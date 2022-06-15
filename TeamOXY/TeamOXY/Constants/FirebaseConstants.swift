@@ -17,4 +17,5 @@ struct FirebaseConstants {
     static let users = "users"
     static let reactions = "reactions"
     static let topics = "topics"
+    static let fcmToken = "fcmToken"
 }
