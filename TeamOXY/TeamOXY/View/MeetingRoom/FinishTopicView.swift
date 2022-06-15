@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct FinishTopicView: View {
-    @ObservedObject var viewModel: CompletionViewModel
+    @ObservedObject var viewModel: CarouselViewModel
     
     var body: some View {
         ZStack(alignment: .center) {

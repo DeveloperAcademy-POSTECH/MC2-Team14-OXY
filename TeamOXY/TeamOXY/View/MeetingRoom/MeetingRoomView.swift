@@ -8,8 +8,8 @@
 import SwiftUI
 
 struct MeetingRoomView: View {
+    @StateObject var viewModel = CarouselViewModel()
     @ObservedObject var vm: MeetingRoomViewModel
-    @ObservedObject var viewModel = CompletionViewModel()
     
     @State private var showLeaveRoomSheet: Bool = false
     @State private var showQRCode = false
@@ -41,7 +41,7 @@ struct MeetingRoomView: View {
                             .transition(AnyTransition.opacity.animation(.easeInOut))
                     }
                     
-                    CarouselView(viewModel: viewModel,views: [
+                    CarouselView(viewModel: viewModel, vm: vm,views: [
                         Image("Card1"),
                         Image("Card2"),
                         Image("Card3"),

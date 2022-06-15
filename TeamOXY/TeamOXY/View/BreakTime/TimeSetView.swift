@@ -9,7 +9,7 @@ import SwiftUI
 
 
 struct TimeSetView: View {
-    @ObservedObject var viewModel = CompletionViewModel()
+    @ObservedObject var viewModel: CarouselViewModel
     
     // time picker
     private let data: [[String]] = [
@@ -105,11 +105,5 @@ struct PickerView: UIViewRepresentable {
         func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
             self.parent.selections[component] = row
         }
-    }
-}
-
-struct TimeSetView_Previews: PreviewProvider {
-    static var previews: some View {
-        TimeSetView()
     }
 }
