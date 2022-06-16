@@ -94,6 +94,7 @@ struct CarouselView: View {
                             .animation(.interpolatingSpring(stiffness: 300.0, damping: 30.0, initialVelocity: 10.0))
                             .blur(radius: setBlur(i))
                             .animation(.interpolatingSpring(stiffness: 300.0, damping: 30.0, initialVelocity: 10.0))
+                            
                     }
                     .zIndex(setZindex(i))
                     .simultaneousGesture(
@@ -101,7 +102,8 @@ struct CarouselView: View {
                             .onEnded { value in
                                 guard case .second(true, let drag?) = value else { return }
                                 
-                                self.viewModel.topic = "쉴래? 죽을래? \(i)"
+                                self.viewModel.topic = "Topic\(i)"
+                                self.viewModel.currentCardIndex = i
                                 
                                 self.viewState.width += 0
                                 self.viewState.height += drag.translation.height
@@ -114,7 +116,9 @@ struct CarouselView: View {
                                     
                                     // 카드 놓는 곳으로 위치시키기
                                     viewState.height = -UIScreen.screenHeight * 0.38// 원래-370
+                                    self.viewModel.viewStateHeight = viewState.height
                                     
+                                    self.viewModel.storeTopicSuggestion()
                                     // 논의중이고 카드존에 없다면
                                 } else if viewModel.FinishTopicViewCondition[2] == true {
                                     // 카드존에 없고, 논의중이 아닐 때, finishTopicView를 띄우고
@@ -125,12 +129,12 @@ struct CarouselView: View {
                                     
                                     // 다시 덱으로 위치시키기
                                     self.viewState.height = CarouselViewConstants.initialCardLocation
+                                    self.viewModel.viewStateHeight = viewState.height
                                 } else {
                                     // 카드존에 없고, 논의중이 아닐 때 제자리로 돌려보냄
                                     print("not inside zone")
                                     self.viewState.height = CarouselViewConstants.initialCardLocation
                                 }
-                                self.viewModel.storeTopicSuggestion(self.vm.roomId)
                             }
                     )
                 }
@@ -142,17 +146,19 @@ struct CarouselView: View {
                 
                 if viewModel.FinishTopicViewCondition == [false, true, true] {
                     VStack{
-                        FinishTopicView(viewModel: viewModel)
+                        FinishTopicView(viewModel: viewModel, vm: vm)
                             .offset(y: -UIScreen.screenHeight * 0.30)
                     }
                     .transition(AnyTransition.opacity.animation(.easeInOut))
-                    
                 }
                 
                 EmojiReactionView()
                     .opacity(isInCardZone() && !dragState2.isDragging ? 1.0 : 0)
                     .zIndex(3)
             }
+        }
+        .onAppear {
+            carouselLocation = viewModel.currentCardIndex
         }
     }
     

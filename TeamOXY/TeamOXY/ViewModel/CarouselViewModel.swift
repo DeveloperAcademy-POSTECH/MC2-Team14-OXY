@@ -16,19 +16,28 @@ class CarouselViewModel: ObservableObject {
     @Published var isCardBox: Bool = true
     @Published var isCardDeck: Bool = true
     
-    @Published var isSuggesting: Bool = false
-    
     @Published var topic = ""
+    @Published var currentCardIndex = 0
     @Published var topicSuggestion: Topic?
     
-    func storeTopicSuggestion(_ roomId: String) {
+    @Published var viewStateHeight: CGFloat = 0
+    
+    init() {
+        fetchTopicSuggestion()
+    }
+    
+    func storeTopicSuggestion() {
         guard let _ = FirebaseManager.shared.currentUser?.uid else { return }
+        guard let roomId = FirebaseManager.shared.roomId else { return }
         
         let topicData = [
             FirebaseConstants.topic: self.topic,
+            FirebaseConstants.currentCardIndex: self.currentCardIndex,
+            FirebaseConstants.isCardDeck: self.isCardDeck,
             FirebaseConstants.isOnCardZone: self.FinishTopicViewCondition[0],
             FirebaseConstants.isOnCardDeck: self.FinishTopicViewCondition[1],
-            FirebaseConstants.underDiscussion: self.FinishTopicViewCondition[2]
+            FirebaseConstants.underDiscussion: self.FinishTopicViewCondition[2],
+            FirebaseConstants.viewStateHeight: self.viewStateHeight
         ] as [String : Any]
         
         FirebaseManager.shared.firestore
@@ -44,12 +53,13 @@ class CarouselViewModel: ObservableObject {
                 
                 print("Successfully stored topic information")
                 
-                self.fetchTopicSuggestion(roomId)
+                self.fetchTopicSuggestion()
             }
     }
     
-    func fetchTopicSuggestion(_ roomId: String) {
+    func fetchTopicSuggestion() {
         guard let _ = FirebaseManager.shared.currentUser?.uid else { return }
+        guard let roomId = FirebaseManager.shared.roomId else { return }
         
         FirebaseManager.shared.firestore
             .collection(FirebaseConstants.rooms)
@@ -62,12 +72,18 @@ class CarouselViewModel: ObservableObject {
                 }
                 
                 querySnapshot?.documentChanges.forEach({ change in
-                    if change.type == .added {
-                        self.topicSuggestion = try? change.document.data(as: Topic.self)
-                        FirebaseManager.shared.topic = self.topicSuggestion
-                    }
+                    print("변화가 있냐!!")
+                    self.topicSuggestion = try? change.document.data(as: Topic.self)
                     
-                    print("Successfully observed the change of topic")
+                    print("\(roomId)")
+                    let topicCondition = [self.topicSuggestion?.isOnCardZone ?? false, self.topicSuggestion?.isOnCardDeck ?? true, self.topicSuggestion?.underDiscussion ?? false]
+                    self.FinishTopicViewCondition = topicCondition
+                    self.isCardDeck = self.topicSuggestion?.isCardDeck ?? true
+                    FirebaseManager.shared.topic = self.topicSuggestion
+                    
+                    print("Successfully observed the change of topic: \(self.topicSuggestion)")
+                    print(">>> \(self.topicSuggestion?.viewStateHeight)")
+                    print("<<<< \(self.topicSuggestion?.currentCardIndex)")
                 })
             }
     }
