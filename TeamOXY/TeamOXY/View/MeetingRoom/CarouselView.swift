@@ -9,6 +9,7 @@ import SwiftUI
 
 struct CarouselView: View {
     @ObservedObject var viewModel: CompletionViewModel
+    @ObservedObject var emojiViewModel : EmojiViewModel
     
     // gesture 추적
     @GestureState private var dragState = HorizontalDragState.inactive
@@ -144,7 +145,7 @@ struct CarouselView: View {
                     .transition(AnyTransition.opacity.animation(.easeInOut))
                 }
                 
-                EmojiReactionView()
+                EmojiReactionView(viewModel: emojiViewModel)
                     .opacity(isInCardZone() && !dragState2.isDragging ? 1.0 : 0)
                     .zIndex(3)
             }

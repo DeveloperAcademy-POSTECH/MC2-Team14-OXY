@@ -9,7 +9,7 @@ import SwiftUI
 import ConfettiSwiftUI
 
 struct EmojiReactionView: View {
-    @ObservedObject var viewModel = EmojieViewModel()
+    @ObservedObject var viewModel : EmojiViewModel
     
     let emojis = ["🤔","👎","👍","🤩","🫠", "🔥","❤️","😱","🤭","🥱","👀","✅","🙅","🎉","😂"]
 
@@ -89,12 +89,6 @@ struct EmojiReactionView: View {
         .onAppear{
             viewModel.setDocument(emojis)
         }
-    }
-}
-
-struct EmojiReactionView_Previews: PreviewProvider {
-    static var previews: some View {
-        EmojiReactionView()
     }
 }
 

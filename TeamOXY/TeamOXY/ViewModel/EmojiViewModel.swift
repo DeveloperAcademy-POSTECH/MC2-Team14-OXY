@@ -8,7 +8,7 @@
 import SwiftUI
 import Firebase
 
-class EmojieViewModel : ObservableObject{
+class EmojiViewModel : ObservableObject{
     @Published var emojiCount_1 : Int
     @Published var emojiCount_2 : Int
     @Published var emojiCount_3 : Int

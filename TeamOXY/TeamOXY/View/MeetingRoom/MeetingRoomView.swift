@@ -10,6 +10,7 @@ import SwiftUI
 struct MeetingRoomView: View {
     @ObservedObject var vm: MeetingRoomViewModel
     @ObservedObject var viewModel = CompletionViewModel()
+    @ObservedObject var emojiViewModel = EmojiViewModel()
     
     @State private var showLeaveRoomSheet: Bool = false
     @State private var showQRCode = false
@@ -41,7 +42,7 @@ struct MeetingRoomView: View {
                             .transition(AnyTransition.opacity.animation(.easeInOut))
                     }
                     
-                    CarouselView(viewModel: viewModel,views: [
+                    CarouselView(viewModel: viewModel, emojiViewModel : emojiViewModel, views: [
                         Image("Card1"),
                         Image("Card2"),
                         Image("Card3"),
