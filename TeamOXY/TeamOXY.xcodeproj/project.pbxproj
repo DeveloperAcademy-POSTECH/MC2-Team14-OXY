@@ -26,6 +26,8 @@
 		4A3B249B2855FFC000504486 /* CompletionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A3B249A2855FFC000504486 /* CompletionViewModel.swift */; };
 		4AB230F128595CBD0034D3B9 /* CarouselViewConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AB230F028595CBD0034D3B9 /* CarouselViewConstants.swift */; };
 		4AC8DEEB2854F20E00500E0A /* CarouselView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AC8DEEA2854F20E00500E0A /* CarouselView.swift */; };
+		7B0F50F3285ACDFC000005B3 /* Production.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 7B0F50F1285ACDFC000005B3 /* Production.xcconfig */; };
+		7B0F50F4285ACDFC000005B3 /* Debug.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 7B0F50F2285ACDFC000005B3 /* Debug.xcconfig */; };
 		7BC5EFB02851E5C0004A27B5 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7BC5EFAF2851E5C0004A27B5 /* Colors.xcassets */; };
 		7BC5EFB22851ECC5004A27B5 /* ColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BC5EFB12851ECC5004A27B5 /* ColorExtension.swift */; };
 		7BFBD2E22856C33B00E5D98C /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BFBD2DF2856C33B00E5D98C /* OnboardingView.swift */; };
@@ -66,8 +68,6 @@
 		F2CA7CFB2858154A0094B126 /* MeetingRoomViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2CA7CFA2858154A0094B126 /* MeetingRoomViewModel.swift */; };
 		F2CA7CFD285825EE0094B126 /* MeetingRoom.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2CA7CFC285825EE0094B126 /* MeetingRoom.swift */; };
 		F2D58A36285A002800ACFF51 /* SendNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2D58A35285A002800ACFF51 /* SendNotification.swift */; };
-		F2D58A44285AAF3100ACFF51 /* Debug.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = F2D58A42285AAF3100ACFF51 /* Debug.xcconfig */; };
-		F2D58A45285AAF3100ACFF51 /* Production.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = F2D58A43285AAF3100ACFF51 /* Production.xcconfig */; };
 		F2D707B82849BA6C00DA86FD /* TeamOXYApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2D707B72849BA6C00DA86FD /* TeamOXYApp.swift */; };
 		F2D707BC2849BA6D00DA86FD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F2D707BB2849BA6D00DA86FD /* Assets.xcassets */; };
 		F2D707BF2849BA6D00DA86FD /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F2D707BE2849BA6D00DA86FD /* Preview Assets.xcassets */; };
@@ -91,6 +91,8 @@
 		4A3B249A2855FFC000504486 /* CompletionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompletionViewModel.swift; sourceTree = "<group>"; };
 		4AB230F028595CBD0034D3B9 /* CarouselViewConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarouselViewConstants.swift; sourceTree = "<group>"; };
 		4AC8DEEA2854F20E00500E0A /* CarouselView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CarouselView.swift; sourceTree = "<group>"; };
+		7B0F50F1285ACDFC000005B3 /* Production.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = Production.xcconfig; sourceTree = "<group>"; };
+		7B0F50F2285ACDFC000005B3 /* Debug.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = Debug.xcconfig; sourceTree = "<group>"; };
 		7BC5EFAF2851E5C0004A27B5 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		7BC5EFB12851ECC5004A27B5 /* ColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ColorExtension.swift; path = TeamOXY/Extensions/ColorExtension.swift; sourceTree = SOURCE_ROOT; };
 		7BFBD2DF2856C33B00E5D98C /* OnboardingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
@@ -126,8 +128,6 @@
 		F2CA7CFA2858154A0094B126 /* MeetingRoomViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeetingRoomViewModel.swift; sourceTree = "<group>"; };
 		F2CA7CFC285825EE0094B126 /* MeetingRoom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeetingRoom.swift; sourceTree = "<group>"; };
 		F2D58A35285A002800ACFF51 /* SendNotification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendNotification.swift; sourceTree = "<group>"; };
-		F2D58A42285AAF3100ACFF51 /* Debug.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = Debug.xcconfig; sourceTree = "<group>"; };
-		F2D58A43285AAF3100ACFF51 /* Production.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = Production.xcconfig; sourceTree = "<group>"; };
 		F2D707B42849BA6C00DA86FD /* TeamOXY.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TeamOXY.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F2D707B72849BA6C00DA86FD /* TeamOXYApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamOXYApp.swift; sourceTree = "<group>"; };
 		F2D707BB2849BA6D00DA86FD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -161,6 +161,15 @@
 				15634FA62854EB3F009264BF /* TimeSetView.swift */,
 			);
 			path = BreakTime;
+			sourceTree = "<group>";
+		};
+		7B0F50F0285ACDED000005B3 /* Config */ = {
+			isa = PBXGroup;
+			children = (
+				7B0F50F2285ACDFC000005B3 /* Debug.xcconfig */,
+				7B0F50F1285ACDFC000005B3 /* Production.xcconfig */,
+			);
+			path = Config;
 			sourceTree = "<group>";
 		};
 		7BFBD2DE2856C31400E5D98C /* Onboarding */ = {
@@ -314,16 +323,6 @@
 			path = QRCode;
 			sourceTree = "<group>";
 		};
-
-		F2D58A41285AAF1C00ACFF51 /* Config */ = {
-			isa = PBXGroup;
-			children = (
-				F2D58A42285AAF3100ACFF51 /* Debug.xcconfig */,
-				F2D58A43285AAF3100ACFF51 /* Production.xcconfig */,
-			);
-			path = Config;
-			sourceTree = "<group>";
-		};
 		F2D707AB2849BA6C00DA86FD = {
 			isa = PBXGroup;
 			children = (
@@ -343,9 +342,7 @@
 		F2D707B62849BA6C00DA86FD /* TeamOXY */ = {
 			isa = PBXGroup;
 			children = (
-
-				F2D58A41285AAF1C00ACFF51 /* Config */,
-
+				7B0F50F0285ACDED000005B3 /* Config */,
 				F2CA7CE32858092F0094B126 /* GoogleService-Info.plist */,
 				F225A1ED2856D4BC00166ECC /* Utils */,
 				F29BED1B28532DB8005B4A1B /* Components */,
@@ -450,15 +447,15 @@
 				F2CA7CE42858092F0094B126 /* GoogleService-Info.plist in Resources */,
 				F29BECEE285217A9005B4A1B /* Pretendard-Bold.otf in Resources */,
 				F2D707BF2849BA6D00DA86FD /* Preview Assets.xcassets in Resources */,
+				7B0F50F4285ACDFC000005B3 /* Debug.xcconfig in Resources */,
 				F2D707BC2849BA6D00DA86FD /* Assets.xcassets in Resources */,
 				F29BECED285217A9005B4A1B /* Pretendard-ExtraLight.otf in Resources */,
 				F29BECEA285217A9005B4A1B /* Pretendard-ExtraBold.otf in Resources */,
 				F29BECE6285217A9005B4A1B /* Pretendard-Medium.otf in Resources */,
-				F2D58A44285AAF3100ACFF51 /* Debug.xcconfig in Resources */,
-				F2D58A45285AAF3100ACFF51 /* Production.xcconfig in Resources */,
 				F29BECEC285217A9005B4A1B /* Pretendard-Regular.otf in Resources */,
 				F29BECE9285217A9005B4A1B /* Pretendard-SemiBold.otf in Resources */,
 				3F4E601D2855DB8C00BFAA65 /* Completion.json in Resources */,
+				7B0F50F3285ACDFC000005B3 /* Production.xcconfig in Resources */,
 				F29BECE8285217A9005B4A1B /* Pretendard-Light.otf in Resources */,
 				F29BECEB285217A9005B4A1B /* Pretendard-Black.otf in Resources */,
 				F29BECE7285217A9005B4A1B /* Pretendard-Thin.otf in Resources */,
@@ -634,14 +631,13 @@
 		};
 		F2D707C32849BA6D00DA86FD /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = F2D58A42285AAF3100ACFF51 /* Debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"TeamOXY/Preview Content\"";
-				DEVELOPMENT_TEAM = JP5BCXZWJP;
+				DEVELOPMENT_TEAM = 72PKNR92XJ;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = TeamOXY/Info.plist;
@@ -667,14 +663,13 @@
 		};
 		F2D707C42849BA6D00DA86FD /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = F2D58A43285AAF3100ACFF51 /* Production.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"TeamOXY/Preview Content\"";
-				DEVELOPMENT_TEAM = JP5BCXZWJP;
+				DEVELOPMENT_TEAM = 72PKNR92XJ;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = TeamOXY/Info.plist;

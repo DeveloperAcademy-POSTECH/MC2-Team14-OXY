@@ -56,15 +56,19 @@ struct HomeView: View {
             VStack {
                 Spacer()
                 
-                HStack {
-                    Text("누구나\n쉬는시간이\n필요하니까.")
-                        .font(.custom("Pretendard-Light", size: 34))
-                    Spacer()
-                }
-                .padding(.leading, 78)
-                .padding(.bottom)
-                
                 Image("Logo")
+                    .padding(.top, 10.0)
+                
+                Text("이쉼전쉼")
+                    .font(.custom("Pretendard-Black", size: 46))
+                    .padding(.bottom)
+                
+                
+                HStack {
+                    Text("누구나 쉬는시간이 필요하니까.")
+                        .font(.custom("Pretendard-Light", size: 13))
+                }
+                
                 
                 Spacer()
                 

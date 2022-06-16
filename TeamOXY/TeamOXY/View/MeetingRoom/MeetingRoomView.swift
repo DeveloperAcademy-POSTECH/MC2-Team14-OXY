@@ -47,8 +47,11 @@ struct MeetingRoomView: View {
                         Image("Card3"),
                         Image("Card4"),
                         Image("Card5"),
-                        Image("Card6"),
-                        Image("Card6")
+                        Image("Card1"),
+                        Image("Card2"),
+                        Image("Card3"),
+                        Image("Card4"),
+                        Image("Card5")
                     ])
             }
         }
