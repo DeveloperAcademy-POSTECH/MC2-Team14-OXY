@@ -47,8 +47,11 @@ struct MeetingRoomView: View {
                         Image("Card3"),
                         Image("Card4"),
                         Image("Card5"),
-                        Image("Card6"),
-                        Image("Card6")
+                        Image("Card1"),
+                        Image("Card2"),
+                        Image("Card3"),
+                        Image("Card4"),
+                        Image("Card5")
                     ])
             }
         }
@@ -88,6 +91,11 @@ struct MeetingRoomView: View {
         }
         .fullScreenCover(isPresented: $showQRCode) {
             QRCodeView(url: vm.roomId)
+        }
+        .onAppear {
+            if viewModel.FinishTopicViewCondition[0] && !viewModel.FinishTopicViewCondition[1] && viewModel.FinishTopicViewCondition[2] {
+                print(viewModel.topicSuggestion?.topic ?? "오잉")
+            }
         }
     }
     
