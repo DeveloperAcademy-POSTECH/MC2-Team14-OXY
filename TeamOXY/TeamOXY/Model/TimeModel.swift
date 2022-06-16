@@ -15,7 +15,7 @@ class TimeModel: Codable, Identifiable {
     @DocumentID var id: String?
     
     // 설정된 쉬는 시간
-    let timeStamp: Int
+    let timestamp: Int
     
     // 타이머 설정 당시 시간
     let setTime: Date
@@ -29,7 +29,9 @@ class TimeModel: Codable, Identifiable {
     // 타이머는 방마다 하나 있음
         // 현재 시간
         // 설정된 시간
+        // 사용가능 여부
 // MARK: - 변화감지 -> 모든 유저들에게 타이머 설정
+        // fetchTimer()
 // MARK: - 뷰가 넘어감
     // isActive
 // MARK: - 타이머 실행

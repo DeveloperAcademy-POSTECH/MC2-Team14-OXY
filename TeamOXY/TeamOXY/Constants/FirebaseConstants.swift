@@ -20,4 +20,6 @@ struct FirebaseConstants {
     static let fcmToken = "fcmToken"
     
     static let timers = "timers"
+    static let setTime = "setTime"
+    static let isAvailable = "isAvailable"
 }

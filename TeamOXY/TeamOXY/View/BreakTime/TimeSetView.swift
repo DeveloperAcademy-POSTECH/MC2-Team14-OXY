@@ -11,6 +11,8 @@ import SwiftUI
 struct TimeSetView: View {
     @ObservedObject var viewModel = CompletionViewModel()
     
+    @ObservedObject var vm: MeetingRoomViewModel
+    @State var isActive: Bool = false
     // time picker
     private let data: [[String]] = [
         Array(5...30).map{"\($0)"},
@@ -46,9 +48,12 @@ struct TimeSetView: View {
                 
                 VStack {
                     Spacer()
-                    NavigationLink(destination: BreakTimeView(counter: 0, countTo: (Int(data[0][selections[0]]) ?? 10) * 60 + (Int(data[1][selections[1]]) ?? 0))) {
-                        RoundButton(buttonType: .primary, title: "쉬는시간 시작", isButton: false, didCompletion: nil)
+                    RoundButton(buttonType: .primary, title: "쉬는시간 시작", isButton: true) {
+                        self.isActive.toggle()
+                        vm.updateTimer(countTo: (Int(data[0][selections[0]]) ?? 10) * 60 + (Int(data[1][selections[1]]) ?? 0))
+                        
                     }
+                    NavigationLink("", destination: BreakTimeView(counter: 0, countTo: (Int(data[0][selections[0]]) ?? 10) * 60 + (Int(data[1][selections[1]]) ?? 0)), isActive: $isActive)
                 }
             }
         }
@@ -57,8 +62,12 @@ struct TimeSetView: View {
             // FinishTopicView뜨는 조건 초기화
             viewModel.FinishTopicViewCondition = [false, true, false]
         }
+    //        .onDisappear {
+    //            vm.updateTimer(countTo: (Int(data[0][selections[0]]) ?? 10) * 60 + (Int(data[1][selections[1]]) ?? 0))
+    //        }
     }
 }
+
 
 struct PickerView: UIViewRepresentable {
     var data: [[String]]
@@ -108,8 +117,8 @@ struct PickerView: UIViewRepresentable {
     }
 }
 
-struct TimeSetView_Previews: PreviewProvider {
-    static var previews: some View {
-        TimeSetView()
-    }
-}
+//struct TimeSetView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        TimeSetView(vm: )
+//    }
+//}

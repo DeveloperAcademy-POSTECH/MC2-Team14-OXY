@@ -161,7 +161,7 @@ class MeetingRoomViewModel: ObservableObject {
     func storeTimer() {
         
         let timerData = [
-            "timeStamp": 0,
+            "timestamp": 0,
             "setTime": Date(),
             "isAvailable": true
         ] as [String : Any]
@@ -207,5 +207,27 @@ class MeetingRoomViewModel: ObservableObject {
                 // 타이머 설정
                 // 끝
             }
+    }
+    
+    // 타이머 설정(업데이트)
+    func updateTimer(countTo: Int) {
+        print("roomId in updateTimetr: \(self.roomId)")
+
+        print("updateTimer!!!!!!!!!!")
+        print("countTo: \(countTo)")
+        print("!!!!!!!!!!")
+//
+        let timerUpdate = FirebaseManager.shared.firestore
+                .collection(FirebaseConstants.rooms)
+                .document(self.roomId)
+                .collection(FirebaseConstants.timers)
+                .document("timer")
+//
+        timerUpdate.updateData([
+            FirebaseConstants.timestamp : countTo,
+            FirebaseConstants.setTime : Date(),
+            FirebaseConstants.isAvailable : false
+        ])
+        
     }
 }

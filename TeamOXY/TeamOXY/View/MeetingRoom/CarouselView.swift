@@ -9,6 +9,7 @@ import SwiftUI
 
 struct CarouselView: View {
     @ObservedObject var viewModel: CompletionViewModel
+    @ObservedObject var vm: MeetingRoomViewModel
     
     // gesture 추적
     @GestureState private var dragState = HorizontalDragState.inactive
@@ -136,7 +137,7 @@ struct CarouselView: View {
                 
                 if viewModel.FinishTopicViewCondition == [false, true, true] {
                     VStack{
-                        FinishTopicView(viewModel: viewModel)
+                        FinishTopicView(viewModel: viewModel, vm: vm)
                             .offset(y: -UIScreen.screenHeight * 0.30)
                     }
                     .transition(AnyTransition.opacity.animation(.easeInOut))
