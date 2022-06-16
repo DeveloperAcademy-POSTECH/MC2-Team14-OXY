@@ -55,8 +55,12 @@ class AppDelegate: NSObject, UIApplicationDelegate {
 extension AppDelegate : MessagingDelegate {
     // fcm 등록 토큰을 받았을 때
     func messaging(_ messaging: Messaging, didReceiveRegistrationToken fcmToken: String?) {
+//        let deviceToken: [String:String] = ["token":fcmToken ?? ""]
+        
         print("AppDelegate - 파베 토큰을 받았다.")
         print("AppDelegate - Firebase registration token: \(String(describing: fcmToken))")
+        
+        TokenModel.shared.token = fcmToken ?? ""
     }
 }
 
