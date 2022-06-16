@@ -126,13 +126,15 @@ struct CarouselView: View {
                             .animation(.interpolatingSpring(stiffness: 300.0, damping: 30.0, initialVelocity: 10.0))
                     }
                     .zIndex(setZindex(i))
+                    // long 프레스와 좌우스크롤은 같은 위계 & 상하 드래그는 long프레스 보다 낮은 위계
+                    .simultaneousGesture(
+                        // card가 cardzone에 있거나, drag애니메이션2에서 드래깅 중이면 좌우 스크롤 불가
+                        isInCardZone() || dragState2.isDragging ? nil : horizontalDrag
+                    )
+                    .simultaneousGesture(
+                        i == relativeLoc() ? longPressDrag : nil)
                 }
-                // long 프레스와 좌우스크롤은 같은 위계 & 상하 드래그는 long프레스 보다 낮은 위계
-                .simultaneousGesture(
-                    // card가 cardzone에 있거나, drag애니메이션2에서 드래깅 중이면 좌우 스크롤 불가
-                    isInCardZone() || dragState2.isDragging ? nil : horizontalDrag
-                )
-                .simultaneousGesture(longPressDrag)
+            
                 
                 if viewModel.FinishTopicViewCondition == [false, true, true] {
                     VStack{
@@ -140,7 +142,6 @@ struct CarouselView: View {
                             .offset(y: -UIScreen.screenHeight * 0.30)
                     }
                     .transition(AnyTransition.opacity.animation(.easeInOut))
-                    
                 }
                 
                 EmojiReactionView()

@@ -314,6 +314,7 @@
 			path = QRCode;
 			sourceTree = "<group>";
 		};
+
 		F2D58A41285AAF1C00ACFF51 /* Config */ = {
 			isa = PBXGroup;
 			children = (
@@ -342,7 +343,9 @@
 		F2D707B62849BA6C00DA86FD /* TeamOXY */ = {
 			isa = PBXGroup;
 			children = (
+
 				F2D58A41285AAF1C00ACFF51 /* Config */,
+
 				F2CA7CE32858092F0094B126 /* GoogleService-Info.plist */,
 				F225A1ED2856D4BC00166ECC /* Utils */,
 				F29BED1B28532DB8005B4A1B /* Components */,
@@ -638,7 +641,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"TeamOXY/Preview Content\"";
-				DEVELOPMENT_TEAM = G3PA8G576S;
+				DEVELOPMENT_TEAM = JP5BCXZWJP;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = TeamOXY/Info.plist;
@@ -671,7 +674,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"TeamOXY/Preview Content\"";
-				DEVELOPMENT_TEAM = G3PA8G576S;
+				DEVELOPMENT_TEAM = JP5BCXZWJP;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = TeamOXY/Info.plist;
