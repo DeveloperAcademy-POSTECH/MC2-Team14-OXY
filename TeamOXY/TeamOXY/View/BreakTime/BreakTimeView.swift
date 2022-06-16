@@ -13,7 +13,7 @@ struct BreakTimeView: View {
     @State var countTo: Int
     
     // 알람 설정
-    @State private var isNotification = false
+    @State private var isNotification = true
     
     var body: some View {
         ZStack {
@@ -45,7 +45,7 @@ struct BreakTimeView: View {
             }
         }
         .navigationBarTitle("쉬는 시간", displayMode: .inline)
-//        .navigationBarBackButtonHidden(true)
+        .navigationBarBackButtonHidden(true)
     }
     
     func displayFinish() -> String{
