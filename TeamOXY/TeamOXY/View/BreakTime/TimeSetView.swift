@@ -10,60 +10,85 @@ import SwiftUI
 struct TimeSetView: View {
     @ObservedObject var viewModel = CompletionViewModel()
     
-    // time picker data min:5분 ~ max: 30분 59초
-    var minutes = [Int](5...30)
-    var seconds = [Int](0..<60)
+    // time picker
+    private let data: [[String]] = [
+        Array(5...30).map{"\($0)"},
+        Array(0...59).map{"\($0)"}
+    ]
     
-    //기본 쉬는 시간 : 10분 설정을 위한 인덱스 값
-    @State var minuteSeletion = 5
-    @State var secondSeletion = 0
+    //기본 쉬는 시간 : 10분
+    @State private var selections: [Int] = [5, 2]
+    @State private var selected = 5
+    
+    
+    var minute = Array(5...30).map{"\($0)"}
+        
+    var second = Array(0...59).map{"\($0)"}
+    
+    @State var selectedMinute = "5"
+    @State var selectedSecond = "0"
     
     var body: some View {
+        
         VStack {
             ZStack {
                 Text("쉬는 시간을 설정해주세요.")
                     .headLine4()
                     .foregroundColor(.DarkGray1)
                     .offset(y:-230)
-                // Time Picker
+
                 ZStack {
-                    // selected items
+                    // blue box
                     RoundedRectangle(cornerRadius: 17)
-                        .frame(width: UIScreen.main.bounds.size.width-140, height: 34)
+
+                        .frame(width: UIScreen.main.bounds.size.width - 50, height: 34)
                         .foregroundColor (.PrimaryBlue)
-                    Text("            분                     초")
-                        .font(.custom("Pretendard-Bold", size: 20))
-                        .foregroundColor(.white)
-                
-                    GeometryReader { geometry in
-                        HStack {
-                            Spacer()
-                            Spacer()
-                            Picker(selection: self.$minuteSeletion, label: Text("")) {
-                                ForEach(0 ..< self.minutes.count) { index in
-                                    Text("\(self.minutes[index])").tag(index)
-                                }
+
+                    // Time Picker
+
+                    HStack {
+                        
+                        Spacer()
+                        Picker("", selection: $selectedMinute) {
+                            ForEach(minute, id: \.self) {
+                                Text($0)
+                                    .fontWeight(.bold)
+                                    .foregroundColor( $0 == selectedMinute ? .white : .black)
                             }
-                            .pickerStyle(.wheel)
-                            .frame(width: geometry.size.width/6, height: geometry.size.height, alignment: .center)
-                            .clipped()
-                            Spacer()
-                            Picker(selection: self.$secondSeletion, label: Text("")) {
-                                ForEach(0 ..< self.seconds.count) { index in
-                                    Text("\(self.seconds[index])").tag(index)
-                                }
-                            }
-                            .pickerStyle(.wheel)
-                            .frame(width: geometry.size.width/6, height: geometry.size.height, alignment: .center)
-                            .clipped()
-                            Spacer()
-                            Spacer()
                         }
+                        .pickerStyle(.wheel)
+                        .frame(width: 60)
+                        .clipped()
+                        
+                        Text("분")
+                            .font(.custom("Pretendard-Bold", size: 20))
+                            .padding(.trailing, 30)
+                        
+                        Spacer(minLength: 60)
+                        
+                        
+                        Picker("", selection: $selectedSecond) {
+                            ForEach(second, id: \.self) {
+                                Text($0)
+                                    .fontWeight(.bold)
+                                    .foregroundColor( $0 == selectedSecond ? .white : .black)
+                            }
+                        }
+                        .pickerStyle(.wheel)
+                        .frame(width: 60)
+                        .clipped()
+                        
+                        Text("초")
+                            .font(.custom("Pretendard-Bold", size: 20))
+                        
+                        Spacer()
                     }
+                    .foregroundColor(.white)
                 }
+
                 VStack {
                     Spacer()
-                    NavigationLink(destination: BreakTimeView(counter: 0, countTo: (Int(minutes[minuteSeletion])) * 60 + (Int(seconds[secondSeletion])))) {
+                    NavigationLink(destination: BreakTimeView(counter: 0, countTo: (Int(data[0][selections[0]]) ?? 10) * 60 + (Int(data[1][selections[1]]) ?? 0))) {
                         RoundButton(buttonType: .primary, title: "쉬는시간 시작", isButton: false, didCompletion: nil)
                     }
                 }
