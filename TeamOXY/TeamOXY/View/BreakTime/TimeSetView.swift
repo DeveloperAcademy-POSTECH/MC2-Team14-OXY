@@ -10,6 +10,7 @@ import SwiftUI
 
 struct TimeSetView: View {
     @ObservedObject var viewModel: CarouselViewModel
+    @ObservedObject var vm: MeetingRoomViewModel
     
     // time picker
     private let data: [[String]] = [
@@ -56,6 +57,8 @@ struct TimeSetView: View {
         .onAppear{
             // FinishTopicView뜨는 조건 초기화
             viewModel.FinishTopicViewCondition = [false, true, false]
+            
+            viewModel.storeTopicSuggestion()
         }
     }
 }
