@@ -59,7 +59,7 @@ struct TimeSetView: View {
         }
         .navigationBarTitle("쉬는시간 설정", displayMode: .inline)
         .onAppear{
-            // FinishTopicView뜨는 조건 초기화
+            // FinishTopicView뜨는 조건 초기화d
             viewModel.FinishTopicViewCondition = [false, true, false]
         }
     //        .onDisappear {

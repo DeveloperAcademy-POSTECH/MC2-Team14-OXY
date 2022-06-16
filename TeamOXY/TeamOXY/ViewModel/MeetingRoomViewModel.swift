@@ -196,11 +196,15 @@ class MeetingRoomViewModel: ObservableObject {
                     return
                 }
                 
+                print("변경 감지")
+                
                 // 변경 감지 시 실행될 부분
                 let change = querySnapshot?.documentChanges[0]
+                print(change)
 
                 if let rm = try? change?.document.data(as: TimeModel.self) {
                     self.currentTimer = rm
+                    print("rm: \(rm.timestamp)")
 //                    self.isTimerAvailable = rm.isAvailable
                 }
                 
@@ -216,18 +220,42 @@ class MeetingRoomViewModel: ObservableObject {
         print("updateTimer!!!!!!!!!!")
         print("countTo: \(countTo)")
         print("!!!!!!!!!!")
+        
+        
 //
-        let timerUpdate = FirebaseManager.shared.firestore
-                .collection(FirebaseConstants.rooms)
-                .document(self.roomId)
-                .collection(FirebaseConstants.timers)
-                .document("timer")
+//        let timerUpdate = FirebaseManager.shared.firestore
+//                .collection(FirebaseConstants.rooms)
+//                .document(self.roomId)
+//                .collection(FirebaseConstants.timers)
+//                .document("timer")
+        
+        let timerData = [
+            "timestamp": countTo,
+            "setTime": Date(),
+            "isAvailable": false
+        ] as [String : Any]
+        
+        FirebaseManager.shared.firestore
+            .collection(FirebaseConstants.rooms)
+            .document(self.roomId)
+            .collection(FirebaseConstants.timers)
+            .document("timer")
+            .setData(timerData) { error in
+                if let error = error {
+                    print("Failed to store timer information: \(error)")
+                    return
+                }
+                
+                print("Succeessfully set timer information")
+                
+//                self.fetchTimer(roomId: self.roomId)
+            }
 //
-        timerUpdate.updateData([
-            FirebaseConstants.timestamp : countTo,
-            FirebaseConstants.setTime : Date(),
-            FirebaseConstants.isAvailable : false
-        ])
+//        timerUpdate.updateData([
+//            FirebaseConstants.timestamp : countTo,
+//            FirebaseConstants.setTime : Date(),
+//            FirebaseConstants.isAvailable : false
+//        ])
         
     }
 }

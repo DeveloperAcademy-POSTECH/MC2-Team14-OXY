@@ -87,7 +87,7 @@ struct EmojiReactionView: View {
                 ConfettiCannon(counter: $viewModel.emojiCount_15, num: 5, confettis: [.text("😂")], confettiSize: 30, radius: 300.0)
         }
         .onAppear{
-            viewModel.setDocument(emojis)
+//            viewModel.setDocument(emojis)
         }
     }
 }

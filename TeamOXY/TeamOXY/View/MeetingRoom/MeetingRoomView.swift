@@ -42,7 +42,7 @@ struct MeetingRoomView: View {
                             .transition(AnyTransition.opacity.animation(.easeInOut))
                     }
                     
-                    CarouselView(viewModel: viewModel, emojiViewModel : emojiViewModel, views: [
+                    CarouselView(viewModel: viewModel, emojiViewModel : emojiViewModel, vm: vm, views: [
                         Image("Card1"),
                         Image("Card2"),
                         Image("Card3"),

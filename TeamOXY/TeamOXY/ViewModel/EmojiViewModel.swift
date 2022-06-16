@@ -58,7 +58,7 @@ class EmojiViewModel : ObservableObject{
         self.emojiCount_14 = 0
         self.emojiCount_15 = 0
         
-        receiveEmojiCount()
+//        receiveEmojiCount()
         
         // 0.5 초의 차이를 두어 뷰가 로드 되자마자 이모지가 터지는 애니메이션을 막음
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
@@ -79,7 +79,7 @@ class EmojiViewModel : ObservableObject{
                 if let err = err {
                     print("Error writing document: \(err)")
                 } else {
-                    print("Document successfully written!")
+//                    print("Document successfully written!")
                 }
             }
         }
