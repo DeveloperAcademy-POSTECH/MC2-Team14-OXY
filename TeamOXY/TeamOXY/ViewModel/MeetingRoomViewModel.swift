@@ -164,7 +164,7 @@ class MeetingRoomViewModel: ObservableObject {
         let timerData = [
             "timestamp": 0,
             "setTime": Date(),
-            "isAvailable": true
+            "isAvailable": false
         ] as [String : Any]
         
         FirebaseManager.shared.firestore
@@ -201,15 +201,16 @@ class MeetingRoomViewModel: ObservableObject {
                 
                 // 변경 감지 시 실행될 부분
                 let change = querySnapshot?.documentChanges[0]
-                print(change)
+                print("타이머 변경 감지!")
 
 //                self.currentUser = try? snapshot?.data(as: User.self)
 //                FirebaseManager.shared.currentUser = self.currentUser
                 
                 let rm = try? change?.document.data(as: TimeModel.self)
                 timerViewModel.shared.currentTimer = rm
+                self.isTimerAvailable = timerViewModel.shared.currentTimer?.isAvailable ?? false
                 
-                print("타이머 뷰모델을 쉐어드에 저장\(timerViewModel.shared.currentTimer?.timestamp)")
+                print("타이머 뷰모델을 쉐어드에 저장\(timerViewModel.shared.currentTimer?.isAvailable)")
 //                    self.currentTimer = rm
 //                    print("rm: \(rm.timestamp)")
 //                    self.isTimerAvailable = rm.isAvailable
@@ -239,6 +240,7 @@ class MeetingRoomViewModel: ObservableObject {
         let timerData = [
             "timestamp": countTo,
             "setTime": Date(),
+            // false -> true
             "isAvailable": false
         ] as [String : Any]
         

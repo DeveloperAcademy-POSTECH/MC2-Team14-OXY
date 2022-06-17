@@ -12,7 +12,7 @@ struct TimeSetView: View {
     @ObservedObject var viewModel = CompletionViewModel()
     
     @ObservedObject var vm: MeetingRoomViewModel
-    @State var isActive: Bool = false
+    @State var isActive: Bool = timerViewModel.shared.currentTimer?.isAvailable ?? false
     // time picker
     private let data: [[String]] = [
         Array(3...30).map{"\($0)"},

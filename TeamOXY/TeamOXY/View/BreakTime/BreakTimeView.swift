@@ -58,7 +58,7 @@ struct BreakTimeView: View {
         let now = timerViewModel.shared.currentTimer?.setTime
         //TODO: 종료시간 받아와서 출력하기, 알람에 상관없이 고정된 시간을 표현해야함
         //MARK: 알람버튼 누를 때, 종료시간 업데이트되는 것 막아야함
-        let end = now!.addingTimeInterval(Double(timerViewModel.shared.currentTimer?.timestamp ?? 0))
+        guard let end = now?.addingTimeInterval(Double(timerViewModel.shared.currentTimer?.timestamp ?? 0)) else { return "Date()" }
         let formatter = DateFormatter()
         
         //한국 시간으로 표시
