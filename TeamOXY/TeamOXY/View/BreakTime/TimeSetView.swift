@@ -42,6 +42,8 @@ struct TimeSetView: View {
                             Picker(selection: self.$minuteSeletion, label: Text("")) {
                                 ForEach(0 ..< self.minutes.count) { index in
                                     Text("\(self.minutes[index])").tag(index)
+                                        .font(.custom("Pretendard-Bold", size: 20))
+                                        .foregroundColor(index == minuteSeletion ? .white : .gray)
                                 }
                             }
                             .pickerStyle(.wheel)
@@ -51,6 +53,8 @@ struct TimeSetView: View {
                             Picker(selection: self.$secondSeletion, label: Text("")) {
                                 ForEach(0 ..< self.seconds.count) { index in
                                     Text("\(self.seconds[index])").tag(index)
+                                        .font(.custom("Pretendard-Bold", size: 20))
+                                        .foregroundColor(index == secondSeletion ? .white : .gray)
                                 }
                             }
                             .pickerStyle(.wheel)
