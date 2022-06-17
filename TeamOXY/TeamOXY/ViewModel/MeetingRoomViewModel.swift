@@ -10,6 +10,7 @@ import Firebase
 import FirebaseMessaging
 import FirebaseFirestore
 import FirebaseFirestoreSwift
+import Lottie
 
 class MeetingRoomViewModel: ObservableObject {
     @Published var roomId = ""
@@ -202,11 +203,17 @@ class MeetingRoomViewModel: ObservableObject {
                 let change = querySnapshot?.documentChanges[0]
                 print(change)
 
-                if let rm = try? change?.document.data(as: TimeModel.self) {
-                    self.currentTimer = rm
-                    print("rm: \(rm.timestamp)")
+//                self.currentUser = try? snapshot?.data(as: User.self)
+//                FirebaseManager.shared.currentUser = self.currentUser
+                
+                let rm = try? change?.document.data(as: TimeModel.self)
+                timerViewModel.shared.currentTimer = rm
+                
+                print("타이머 뷰모델을 쉐어드에 저장\(timerViewModel.shared.currentTimer?.timestamp)")
+//                    self.currentTimer = rm
+//                    print("rm: \(rm.timestamp)")
 //                    self.isTimerAvailable = rm.isAvailable
-                }
+                
                 
                 // 타이머 설정
                 // 끝
@@ -258,4 +265,9 @@ class MeetingRoomViewModel: ObservableObject {
 //        ])
         
     }
+}
+
+class timerViewModel: NSObject {
+    var currentTimer: TimeModel?
+    static let shared = timerViewModel()
 }

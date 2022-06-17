@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+// TODO: display도 파이어베이스 시간으로 바꾸기,, 알람 on/of 할 때 도달시간이 초기화되는 문제 해결해야함.
 struct BreakTimeView: View {
     // 설정된 시간
     @State var counter: Int
@@ -17,7 +18,8 @@ struct BreakTimeView: View {
     
     var body: some View {
         ZStack {
-            CircularTimerView(counter: counter, countTo: countTo)
+            let _ = print("타이머뷰\(timerViewModel.shared.currentTimer?.timestamp)")
+            CircularTimerView(counter: counter, countTo: timerViewModel.shared.currentTimer?.timestamp ?? 0)
             
             VStack {
                 VStack(alignment: .center) {
@@ -52,10 +54,11 @@ struct BreakTimeView: View {
     }
     
     func displayFinish() -> String{
-        let now = Date()
+        
+        let now = timerViewModel.shared.currentTimer?.setTime
         //TODO: 종료시간 받아와서 출력하기, 알람에 상관없이 고정된 시간을 표현해야함
         //MARK: 알람버튼 누를 때, 종료시간 업데이트되는 것 막아야함
-        let end = now.addingTimeInterval(600)
+        let end = now!.addingTimeInterval(Double(timerViewModel.shared.currentTimer?.timestamp ?? 0))
         let formatter = DateFormatter()
         
         //한국 시간으로 표시

@@ -11,7 +11,7 @@ import SwiftUI
 
 struct CircularTimerView: View {
     @State var counter: Int
-    
+    @StateObject var viewModel: PushNotification = PushNotification()
     let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
     var countTo: Int
     
@@ -24,6 +24,10 @@ struct CircularTimerView: View {
         .onReceive(timer) { timer in
             if (self.counter < self.countTo) {
                 self.counter += 1
+                
+            }
+            if self.countTo - counter == 180 {
+                viewModel.sendMessageToDevice(token: TokenModel.shared.token ?? "", data: ["hi":"hi"])
             }
         }
     }

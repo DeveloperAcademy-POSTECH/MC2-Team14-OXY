@@ -15,7 +15,7 @@ struct TimeSetView: View {
     @State var isActive: Bool = false
     // time picker
     private let data: [[String]] = [
-        Array(5...30).map{"\($0)"},
+        Array(3...30).map{"\($0)"},
         Array(0...59).map{"\($0)"}
     ]
     
@@ -49,9 +49,11 @@ struct TimeSetView: View {
                 VStack {
                     Spacer()
                     RoundButton(buttonType: .primary, title: "쉬는시간 시작", isButton: true) {
-                        self.isActive.toggle()
-                        vm.updateTimer(countTo: (Int(data[0][selections[0]]) ?? 10) * 60 + (Int(data[1][selections[1]]) ?? 0))
                         
+                        vm.updateTimer(countTo: (Int(data[0][selections[0]]) ?? 10) * 60 + (Int(data[1][selections[1]]) ?? 0))
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+                            self.isActive.toggle()
+                        }
                     }
                     NavigationLink("", destination: BreakTimeView(counter: 0, countTo: (Int(data[0][selections[0]]) ?? 10) * 60 + (Int(data[1][selections[1]]) ?? 0)), isActive: $isActive)
                 }
@@ -59,8 +61,7 @@ struct TimeSetView: View {
         }
         .navigationBarTitle("쉬는시간 설정", displayMode: .inline)
         .onAppear{
-            // FinishTopicView뜨는 조건 초기화d
-            viewModel.FinishTopicViewCondition = [false, true, false]
+            
         }
     //        .onDisappear {
     //            vm.updateTimer(countTo: (Int(data[0][selections[0]]) ?? 10) * 60 + (Int(data[1][selections[1]]) ?? 0))
