@@ -48,9 +48,6 @@ struct BreakTimeView: View {
         }
         .navigationBarTitle("쉬는 시간", displayMode: .inline)
         .navigationBarBackButtonHidden(true)
-        .onDisappear {
-            print("나 꺼짐")
-        }
     }
     
     func displayFinish() -> String{

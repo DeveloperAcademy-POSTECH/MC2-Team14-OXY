@@ -28,8 +28,10 @@
 		3FFCA107285A134A004102AC /* ReactionEmoji.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FFCA106285A134A004102AC /* ReactionEmoji.swift */; };
 		4A2A97AA2856C7A400EA21C6 /* UIScreenExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A2A97A92856C7A400EA21C6 /* UIScreenExtension.swift */; };
 		4A3B249B2855FFC000504486 /* CompletionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A3B249A2855FFC000504486 /* CompletionViewModel.swift */; };
+		4A3FBD32285C55F300C333D0 /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A3FBD31285C55F300C333D0 /* NotificationManager.swift */; };
 		4AB230F128595CBD0034D3B9 /* CarouselViewConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AB230F028595CBD0034D3B9 /* CarouselViewConstants.swift */; };
 		4AC8DEEB2854F20E00500E0A /* CarouselView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AC8DEEA2854F20E00500E0A /* CarouselView.swift */; };
+		4ADF361E285C2D3B008673A1 /* DeviceTestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ADF361D285C2D3B008673A1 /* DeviceTestView.swift */; };
 		7BC5EFB02851E5C0004A27B5 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7BC5EFAF2851E5C0004A27B5 /* Colors.xcassets */; };
 		7BC5EFB22851ECC5004A27B5 /* ColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BC5EFB12851ECC5004A27B5 /* ColorExtension.swift */; };
 		7BFBD2E22856C33B00E5D98C /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BFBD2DF2856C33B00E5D98C /* OnboardingView.swift */; };
@@ -97,8 +99,10 @@
 		3FFCA106285A134A004102AC /* ReactionEmoji.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReactionEmoji.swift; sourceTree = "<group>"; };
 		4A2A97A92856C7A400EA21C6 /* UIScreenExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIScreenExtension.swift; sourceTree = "<group>"; };
 		4A3B249A2855FFC000504486 /* CompletionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompletionViewModel.swift; sourceTree = "<group>"; };
+		4A3FBD31285C55F300C333D0 /* NotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; };
 		4AB230F028595CBD0034D3B9 /* CarouselViewConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarouselViewConstants.swift; sourceTree = "<group>"; };
 		4AC8DEEA2854F20E00500E0A /* CarouselView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CarouselView.swift; sourceTree = "<group>"; };
+		4ADF361D285C2D3B008673A1 /* DeviceTestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceTestView.swift; sourceTree = "<group>"; };
 		7BC5EFAF2851E5C0004A27B5 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		7BC5EFB12851ECC5004A27B5 /* ColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ColorExtension.swift; path = TeamOXY/Extensions/ColorExtension.swift; sourceTree = SOURCE_ROOT; };
 		7BFBD2DF2856C33B00E5D98C /* OnboardingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
@@ -167,6 +171,7 @@
 				15634FA42854EB3F009264BF /* BreakTimeView.swift */,
 				15634FA52854EB3F009264BF /* CircularTimerView.swift */,
 				15634FA62854EB3F009264BF /* TimeSetView.swift */,
+				4ADF361D285C2D3B008673A1 /* DeviceTestView.swift */,
 			);
 			path = BreakTime;
 			sourceTree = "<group>";
@@ -189,6 +194,7 @@
 				F2380A8E2856D633004754EE /* generateRandomNickname.swift */,
 				21830A0A2858642300B279B6 /* HapticManager.swift */,
 				F2D58A35285A002800ACFF51 /* SendNotification.swift */,
+				4A3FBD31285C55F300C333D0 /* NotificationManager.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -509,6 +515,8 @@
 				15634FA72854EB3F009264BF /* BreakTimeView.swift in Sources */,
 				15634FA92854EB3F009264BF /* TimeSetView.swift in Sources */,
 				3F4E601B2855DA3B00BFAA65 /* CompletedTopicView.swift in Sources */,
+				4A3FBD32285C55F300C333D0 /* NotificationManager.swift in Sources */,
+				4ADF361E285C2D3B008673A1 /* DeviceTestView.swift in Sources */,
 				21D2547B2852D21100E3EADC /* TestCardView.swift in Sources */,
 				F2CA7CFD285825EE0094B126 /* MeetingRoom.swift in Sources */,
 				F225A1E72856C89A00166ECC /* Reaction.swift in Sources */,
