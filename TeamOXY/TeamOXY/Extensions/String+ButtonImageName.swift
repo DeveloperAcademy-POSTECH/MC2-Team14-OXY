@@ -14,9 +14,9 @@ extension String {
             return "🏡"
         case "입장하기":
             return "🚪"
-        case "알림 끄기":
+        case "알림꺼짐":
             return "turnOffBeep"
-        case "알림 켜기":
+        case "알림켜짐":
             return "turnOnBeep"
         default:
             return ""
