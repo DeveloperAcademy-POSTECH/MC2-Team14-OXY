@@ -20,6 +20,7 @@ class MeetingRoomViewModel: ObservableObject {
     
     @Published var currentTimer: TimeModel?
     @Published var isTimerAvailable = false
+    @Published var isLogin = false
     
     func anonymousLogin(scannedCodeUrl: String?, nickname: String) {
         FirebaseManager.shared.auth.signInAnonymously { result, error in
@@ -56,6 +57,7 @@ class MeetingRoomViewModel: ObservableObject {
             
             // QR code로 입장한 사람
             if let scannedCodeUrl = scannedCodeUrl {
+                self.roomId = scannedCodeUrl
                 FirebaseManager.shared.firestore
                     .collection(FirebaseConstants.rooms)
                     .document(scannedCodeUrl)
@@ -69,8 +71,9 @@ class MeetingRoomViewModel: ObservableObject {
                         
                         print("Succeessfully stored user information")
                         
-                        self.fetchCurrentUser(scannedCodeUrl)
+                        self.fetchCurrentUser(scannedCodeUrl) // 에코 데이크 
                         self.fetchTimer(roomId: scannedCodeUrl)
+
                     }
             } else {
                 FirebaseManager.shared.firestore
@@ -120,6 +123,7 @@ class MeetingRoomViewModel: ObservableObject {
                 
                 self.currentUser = try? snapshot?.data(as: User.self)
                 FirebaseManager.shared.currentUser = self.currentUser
+                FirebaseManager.shared.roomId = self.roomId
                 
                 print("Successfully fetch current user")
                 
@@ -155,6 +159,8 @@ class MeetingRoomViewModel: ObservableObject {
                     }
                      
                     print("Successfully observed documentChange data")
+                    
+                    self.isLogin = true
                 })
             }
     }

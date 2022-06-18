@@ -8,8 +8,8 @@
 import SwiftUI
 
 struct MeetingRoomView: View {
+    @StateObject var viewModel = CarouselViewModel()
     @ObservedObject var vm: MeetingRoomViewModel
-    @ObservedObject var viewModel = CompletionViewModel()
     @ObservedObject var emojiViewModel = EmojiViewModel()
     
     @State private var showLeaveRoomSheet: Bool = false
@@ -47,16 +47,8 @@ struct MeetingRoomView: View {
                             .offset(y: -UIScreen.screenHeight * 0.11)
                             .transition(AnyTransition.opacity.animation(.easeInOut))
                     }
-                    
-                    CarouselView(viewModel: viewModel, emojiViewModel : emojiViewModel, vm: vm, views: [
-                        Image("Card1"),
-                        Image("Card2"),
-                        Image("Card3"),
-                        Image("Card4"),
-                        Image("Card5"),
-                        Image("Card6"),
-                        Image("Card6")
-                    ])
+                  
+                    CarouselView(viewModel: viewModel, vm: vm, emojiViewModel: emojiViewModel)
                 }
             }
         }
@@ -87,8 +79,12 @@ struct MeetingRoomView: View {
                             isPresented: $showLeaveRoomSheet,
                             titleVisibility: .visible) {
             Button("떠나기") {
-                leaveMeetingRoom()
+                vm.fetchUsers()
                 backToHome = false
+                
+                DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+                    leaveMeetingRoom()
+                }
             }
             Button("취소", role: .cancel) { }
         } message: {
