@@ -23,6 +23,8 @@
 		3F4E601B2855DA3B00BFAA65 /* CompletedTopicView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F4E601A2855DA3B00BFAA65 /* CompletedTopicView.swift */; };
 		3F4E601D2855DB8C00BFAA65 /* Completion.json in Resources */ = {isa = PBXBuildFile; fileRef = 3F4E601C2855DB8C00BFAA65 /* Completion.json */; };
 		3FFCA107285A134A004102AC /* ReactionEmoji.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FFCA106285A134A004102AC /* ReactionEmoji.swift */; };
+		3FFCA111285C454D004102AC /* MC2_Lotti.json in Resources */ = {isa = PBXBuildFile; fileRef = 3FFCA110285C454D004102AC /* MC2_Lotti.json */; };
+		3FFCA113285C6E95004102AC /* AnonymousLoginLoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FFCA112285C6E95004102AC /* AnonymousLoginLoadingView.swift */; };
 		4A2A97AA2856C7A400EA21C6 /* UIScreenExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A2A97A92856C7A400EA21C6 /* UIScreenExtension.swift */; };
 		4A3B249B2855FFC000504486 /* CompletionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A3B249A2855FFC000504486 /* CompletionViewModel.swift */; };
 		4AB230F128595CBD0034D3B9 /* CarouselViewConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AB230F028595CBD0034D3B9 /* CarouselViewConstants.swift */; };
@@ -91,6 +93,8 @@
 		3F4E601A2855DA3B00BFAA65 /* CompletedTopicView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompletedTopicView.swift; sourceTree = "<group>"; };
 		3F4E601C2855DB8C00BFAA65 /* Completion.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Completion.json; sourceTree = "<group>"; };
 		3FFCA106285A134A004102AC /* ReactionEmoji.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReactionEmoji.swift; sourceTree = "<group>"; };
+		3FFCA110285C454D004102AC /* MC2_Lotti.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = MC2_Lotti.json; sourceTree = "<group>"; };
+		3FFCA112285C6E95004102AC /* AnonymousLoginLoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnonymousLoginLoadingView.swift; sourceTree = "<group>"; };
 		4A2A97A92856C7A400EA21C6 /* UIScreenExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIScreenExtension.swift; sourceTree = "<group>"; };
 		4A3B249A2855FFC000504486 /* CompletionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompletionViewModel.swift; sourceTree = "<group>"; };
 		4AB230F028595CBD0034D3B9 /* CarouselViewConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarouselViewConstants.swift; sourceTree = "<group>"; };
@@ -196,6 +200,7 @@
 			isa = PBXGroup;
 			children = (
 				3F4E601C2855DB8C00BFAA65 /* Completion.json */,
+				3FFCA110285C454D004102AC /* MC2_Lotti.json */,
 			);
 			path = Lottie;
 			sourceTree = "<group>";
@@ -218,6 +223,7 @@
 				3F4E60132855BE7200BFAA65 /* ArrowAnimationView.swift */,
 				3F4E60062853A30200BFAA65 /* EmojiReactionView.swift */,
 				21D2547A2852D21100E3EADC /* TestCardView.swift */,
+				3FFCA112285C6E95004102AC /* AnonymousLoginLoadingView.swift */,
 			);
 			path = MeetingRoom;
 			sourceTree = "<group>";
@@ -466,6 +472,7 @@
 				F29BECE6285217A9005B4A1B /* Pretendard-Medium.otf in Resources */,
 				F2D58A44285AAF3100ACFF51 /* Debug.xcconfig in Resources */,
 				F2D58A45285AAF3100ACFF51 /* Production.xcconfig in Resources */,
+				3FFCA111285C454D004102AC /* MC2_Lotti.json in Resources */,
 				F29BECEC285217A9005B4A1B /* Pretendard-Regular.otf in Resources */,
 				F29BECE9285217A9005B4A1B /* Pretendard-SemiBold.otf in Resources */,
 				3F4E601D2855DB8C00BFAA65 /* Completion.json in Resources */,
@@ -491,6 +498,7 @@
 				F225A1EB2856CEB200166ECC /* Topic.swift in Sources */,
 				F29BED1D28532DC3005B4A1B /* RoundButton.swift in Sources */,
 				F2CA7CFB2858154A0094B126 /* MeetingRoomViewModel.swift in Sources */,
+				3FFCA113285C6E95004102AC /* AnonymousLoginLoadingView.swift in Sources */,
 				3FFCA107285A134A004102AC /* ReactionEmoji.swift in Sources */,
 				4A3B249B2855FFC000504486 /* CompletionViewModel.swift in Sources */,
 				F2412912285B1279001DE655 /* String+TopicLableExtension.swift in Sources */,
