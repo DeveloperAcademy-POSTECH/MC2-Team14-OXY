@@ -13,7 +13,7 @@ struct BreakTimeView: View {
     @State var countTo: Int
     
     // 알람 설정
-    @State private var isNotification = false
+    @State private var isNotification = true
     
     var body: some View {
         ZStack {
@@ -37,7 +37,7 @@ struct BreakTimeView: View {
                 
                 Spacer()
                 
-                RoundButton(buttonType: .primary, title: isNotification ? "알림 끄기" : "알림 켜기", isButton: true, color: isNotification ? .DarkGray1 : .PrimaryBlue) {
+                RoundButton(buttonType: .primary, title: isNotification ? "알림켜짐" : "알림꺼짐", isButton: true, color: isNotification ? .PrimaryBlue : .DarkGray1) {
                     //TODO: notification setting
                     
                     isNotification.toggle()

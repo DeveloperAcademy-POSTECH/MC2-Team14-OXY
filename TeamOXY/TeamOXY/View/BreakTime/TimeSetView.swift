@@ -7,19 +7,17 @@
 
 import SwiftUI
 
-
 struct TimeSetView: View {
     @ObservedObject var viewModel: CarouselViewModel
     @ObservedObject var vm: MeetingRoomViewModel
     
-    // time picker
-    private let data: [[String]] = [
-        Array(5...30).map{"\($0)"},
-        Array(0...59).map{"\($0)"}
-    ]
+    // time picker data min:5분 ~ max: 30분 59초
+    var minutes = [Int](5...30)
+    var seconds = [Int](0..<60)
     
-    //기본 쉬는 시간 : 10분
-    @State private var selections: [Int] = [5, 0]
+    //기본 쉬는 시간 : 10분 설정을 위한 인덱스 값
+    @State var minuteSeletion = 5
+    @State var secondSeletion = 0
     
     var body: some View {
         VStack {
@@ -28,26 +26,49 @@ struct TimeSetView: View {
                     .headLine4()
                     .foregroundColor(.DarkGray1)
                     .offset(y:-230)
-                
+                // Time Picker
                 ZStack {
-                    // blue box
-                    RoundedRectangle(cornerRadius: 25)
-                        .frame(width: UIScreen.main.bounds.size.width-75, height: 35)
+                    // selected items
+                    RoundedRectangle(cornerRadius: 17)
+                        .frame(width: UIScreen.main.bounds.size.width-140, height: 34)
                         .foregroundColor (.PrimaryBlue)
-                    
-                    Text("           분                             초")
-                        .timer3()
+                    Text("            분                     초")
+                        .font(.custom("Pretendard-Bold", size: 20))
                         .foregroundColor(.white)
-                    
-                    // PickerVeiw
-                    PickerView(data: self.data, selections: self.$selections)
-                        .frame(width: 200)
-                        .pickerStyle(WheelPickerStyle())
-                }
                 
+                    GeometryReader { geometry in
+                        HStack {
+                            Spacer()
+                            Spacer()
+                            Picker(selection: self.$minuteSeletion, label: Text("")) {
+                                ForEach(0 ..< self.minutes.count) { index in
+                                    Text("\(self.minutes[index])").tag(index)
+                                        .font(.custom("Pretendard-Bold", size: 20))
+                                        .foregroundColor(index == minuteSeletion ? .white : .gray)
+                                }
+                            }
+                            .pickerStyle(.wheel)
+                            .frame(width: geometry.size.width/6, height: geometry.size.height, alignment: .center)
+                            .clipped()
+                            Spacer()
+                            Picker(selection: self.$secondSeletion, label: Text("")) {
+                                ForEach(0 ..< self.seconds.count) { index in
+                                    Text("\(self.seconds[index])").tag(index)
+                                        .font(.custom("Pretendard-Bold", size: 20))
+                                        .foregroundColor(index == secondSeletion ? .white : .gray)
+                                }
+                            }
+                            .pickerStyle(.wheel)
+                            .frame(width: geometry.size.width/6, height: geometry.size.height, alignment: .center)
+                            .clipped()
+                            Spacer()
+                            Spacer()
+                        }
+                    }
+                }
                 VStack {
                     Spacer()
-                    NavigationLink(destination: BreakTimeView(counter: 0, countTo: (Int(data[0][selections[0]]) ?? 10) * 60 + (Int(data[1][selections[1]]) ?? 0))) {
+                    NavigationLink(destination: BreakTimeView(counter: 0, countTo: (Int(minutes[minuteSeletion])) * 60 + (Int(seconds[secondSeletion])))) {
                         RoundButton(buttonType: .primary, title: "쉬는시간 시작", isButton: false, didCompletion: nil)
                     }
                 }
@@ -62,6 +83,7 @@ struct TimeSetView: View {
         }
     }
 }
+
 
 struct PickerView: UIViewRepresentable {
     var data: [[String]]
@@ -110,3 +132,4 @@ struct PickerView: UIViewRepresentable {
         }
     }
 }
+

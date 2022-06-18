@@ -10,6 +10,7 @@ import SwiftUI
 struct MeetingRoomView: View {
     @StateObject var viewModel = CarouselViewModel()
     @ObservedObject var vm: MeetingRoomViewModel
+    @ObservedObject var emojiViewModel = EmojiViewModel()
     
     @State private var showLeaveRoomSheet: Bool = false
     @State private var showQRCode = false
@@ -40,8 +41,9 @@ struct MeetingRoomView: View {
                             .offset(y: -UIScreen.screenHeight * 0.11)
                             .transition(AnyTransition.opacity.animation(.easeInOut))
                     }
-                    
+                  
                     CarouselView(viewModel: viewModel, vm: vm)
+
             }
         }
         .navigationTitle("\(vm.roomId) \(vm.users.count < 2 ? 1 : vm.users.count)")

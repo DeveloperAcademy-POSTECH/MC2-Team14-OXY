@@ -8,8 +8,11 @@
 import SwiftUI
 
 struct CarouselView: View {
+
     @ObservedObject var viewModel: CarouselViewModel
     @ObservedObject var vm: MeetingRoomViewModel
+    @ObservedObject var emojiViewModel : EmojiViewModel
+
     
     // gesture 추적
     @GestureState private var dragState = HorizontalDragState.inactive
@@ -196,7 +199,8 @@ struct CarouselView: View {
                     // card가 cardzone에 있거나, drag애니메이션2에서 드래깅 중이면 좌우 스크롤 불가
                     isInCardZone() || dragState2.isDragging ? nil : horizontalDrag
                 )
-                .simultaneousGesture(viewModel.currentCardIndex == relativeLoc() ? longPressDrag : nil)
+                .simultaneousGesture(viewModel.currentCardIndex == relativeLoc() ? longPressDrag : nil)    
+
                 
                 if viewModel.FinishTopicViewCondition == [false, true, true] && viewModel.currentTopic?.uid == FirebaseManager.shared.currentUser?.uid {
                     VStack{

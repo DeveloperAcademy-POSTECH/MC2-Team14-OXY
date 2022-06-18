@@ -133,6 +133,9 @@ xcuserdata
 *.xcodeproj
 
 
+### Xcode config file ###
+*.xcconfig
+
 ### Xcode ###
 
 ## Xcode 8 and earlier
