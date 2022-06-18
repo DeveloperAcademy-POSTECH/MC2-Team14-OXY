@@ -15,12 +15,12 @@ struct TimeSetView: View {
 
   // time picker
     private let data: [[String]] = [
-        Array(3...30).map{"\($0)"},
+        Array(0...30).map{"\($0)"},
         Array(0...59).map{"\($0)"}
     ]
 
     // time picker data min:5분 ~ max: 30분 59초
-    var minutes = [Int](5...30)
+    var minutes = [Int](0...30)
     var seconds = [Int](0..<60)
     
     //기본 쉬는 시간 : 10분 설정을 위한 인덱스 값
@@ -84,7 +84,7 @@ struct TimeSetView: View {
                             self.isActive.toggle()
                         }
                     }
-                    NavigationLink("", destination: BreakTimeView(counter: 0, countTo: (Int(minutes[minuteSeletion])) * 60 + (Int(seconds[secondSeletion]))), isActive: $isActive)
+                    NavigationLink("", destination: BreakTimeView(counter: 0, countTo: (Int(minutes[minuteSeletion])) * 60 + (Int(seconds[secondSeletion])), vm: vm), isActive: $isActive)
                 }
             }
         }
@@ -98,8 +98,8 @@ struct TimeSetView: View {
     }
 }
 
-struct TimeSetView_Previews: PreviewProvider {
-    static var previews: some View {
-        TimeSetView()
-    }
-}
+//struct TimeSetView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        TimeSetView()
+//    }
+//}

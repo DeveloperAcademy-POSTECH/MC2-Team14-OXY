@@ -12,6 +12,7 @@ struct BreakTimeView: View {
     // 설정된 시간
     @State var counter: Int
     @State var countTo: Int
+    @ObservedObject var vm: MeetingRoomViewModel
     
     // 알람 설정
     @State private var isNotification = true
@@ -19,7 +20,7 @@ struct BreakTimeView: View {
     var body: some View {
         ZStack {
             let _ = print("타이머뷰\(timerViewModel.shared.currentTimer?.timestamp)")
-            CircularTimerView(counter: counter, countTo: timerViewModel.shared.currentTimer?.timestamp ?? 0)
+            CircularTimerView(counter: counter, countTo: timerViewModel.shared.currentTimer?.timestamp ?? 0, vm: vm)
             
             VStack {
                 VStack(alignment: .center) {
@@ -71,8 +72,8 @@ struct BreakTimeView: View {
     }
 }
 
-struct BreakTimeView_Previews: PreviewProvider {
-    static var previews: some View {
-        BreakTimeView(counter: 1, countTo: 1)
-    }
-}
+//struct BreakTimeView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        BreakTimeView(counter: 1, countTo: 1)
+//    }
+//}

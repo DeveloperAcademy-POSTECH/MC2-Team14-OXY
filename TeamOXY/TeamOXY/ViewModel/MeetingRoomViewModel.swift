@@ -19,7 +19,7 @@ class MeetingRoomViewModel: ObservableObject {
     @Published var fcmToken = ""
     
     @Published var currentTimer: TimeModel?
-    @Published var isTimerAvailable = true
+    @Published var isTimerAvailable = false
     
     func anonymousLogin(scannedCodeUrl: String?, nickname: String) {
         FirebaseManager.shared.auth.signInAnonymously { result, error in
@@ -239,6 +239,47 @@ class MeetingRoomViewModel: ObservableObject {
         
         let timerData = [
             "timestamp": countTo,
+            "setTime": Date(),
+            // false -> true
+            "isAvailable": true
+        ] as [String : Any]
+        
+        FirebaseManager.shared.firestore
+            .collection(FirebaseConstants.rooms)
+            .document(self.roomId)
+            .collection(FirebaseConstants.timers)
+            .document("timer")
+            .setData(timerData) { error in
+                if let error = error {
+                    print("Failed to store timer information: \(error)")
+                    return
+                }
+                
+                print("Succeessfully set timer information")
+                
+//                self.fetchTimer(roomId: self.roomId)
+            }
+//
+//        timerUpdate.updateData([
+//            FirebaseConstants.timestamp : countTo,
+//            FirebaseConstants.setTime : Date(),
+//            FirebaseConstants.isAvailable : false
+//        ])
+        
+    }
+    
+    func terminateTimer() {
+   print("타이머 종료시키기")
+        
+//
+//        let timerUpdate = FirebaseManager.shared.firestore
+//                .collection(FirebaseConstants.rooms)
+//                .document(self.roomId)
+//                .collection(FirebaseConstants.timers)
+//                .document("timer")
+        
+        let timerData = [
+            "timestamp": 10,
             "setTime": Date(),
             // false -> true
             "isAvailable": false

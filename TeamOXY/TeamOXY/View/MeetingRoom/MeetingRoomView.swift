@@ -24,7 +24,7 @@ struct MeetingRoomView: View {
     var body: some View {
             VStack {
                 if vm.isTimerAvailable {
-                    BreakTimeView(counter: 0, countTo: 100)
+                    BreakTimeView(counter: 0, countTo: 100, vm: vm)
                 }
                 else {
                     ZStack{
