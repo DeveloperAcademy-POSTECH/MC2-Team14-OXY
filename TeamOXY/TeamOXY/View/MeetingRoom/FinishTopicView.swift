@@ -11,8 +11,6 @@ struct FinishTopicView: View {
     @ObservedObject var viewModel: CarouselViewModel
     @ObservedObject var vm: MeetingRoomViewModel
     
-    @ObservedObject var vm: MeetingRoomViewModel
-    
     var body: some View {
         ZStack(alignment: .center) {
             VStack {
