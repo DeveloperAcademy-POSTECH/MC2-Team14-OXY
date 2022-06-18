@@ -17,6 +17,8 @@ class MeetingRoomViewModel: ObservableObject {
     @Published var users = [User]()
     @Published var fcmToken = ""
     
+    @Published var isLogin = false
+    
     func anonymousLogin(scannedCodeUrl: String?, nickname: String) {
         FirebaseManager.shared.auth.signInAnonymously { result, error in
             if let error = error {
@@ -147,6 +149,8 @@ class MeetingRoomViewModel: ObservableObject {
                     }
                     
                     print("Successfully observed documentChange data")
+                    
+                    self.isLogin = true
                 })
             }
     }
