@@ -27,6 +27,8 @@
 		3F4E601B2855DA3B00BFAA65 /* CompletedTopicView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F4E601A2855DA3B00BFAA65 /* CompletedTopicView.swift */; };
 		3F4E601D2855DB8C00BFAA65 /* Completion.json in Resources */ = {isa = PBXBuildFile; fileRef = 3F4E601C2855DB8C00BFAA65 /* Completion.json */; };
 		3FFCA107285A134A004102AC /* ReactionEmoji.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FFCA106285A134A004102AC /* ReactionEmoji.swift */; };
+		3FFCA111285C454D004102AC /* MC2_Lotti.json in Resources */ = {isa = PBXBuildFile; fileRef = 3FFCA110285C454D004102AC /* MC2_Lotti.json */; };
+		3FFCA113285C6E95004102AC /* AnonymousLoginLoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FFCA112285C6E95004102AC /* AnonymousLoginLoadingView.swift */; };
 		4A2A97AA2856C7A400EA21C6 /* UIScreenExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A2A97A92856C7A400EA21C6 /* UIScreenExtension.swift */; };
 		4A3B249B2855FFC000504486 /* CompletionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A3B249A2855FFC000504486 /* CompletionViewModel.swift */; };
 		4A3FBD32285C55F300C333D0 /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A3FBD31285C55F300C333D0 /* NotificationManager.swift */; };
@@ -51,6 +53,7 @@
 		F2380A8F2856D633004754EE /* generateRandomNickname.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2380A8E2856D633004754EE /* generateRandomNickname.swift */; };
 		F2380A912856E010004754EE /* TypographyExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2380A902856E010004754EE /* TypographyExtension.swift */; };
 		F2380A932856EA65004754EE /* EmojiViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2380A922856EA65004754EE /* EmojiViewModel.swift */; };
+		F2412912285B1279001DE655 /* String+TopicLableExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2412911285B1279001DE655 /* String+TopicLableExtension.swift */; };
 		F29BECE6285217A9005B4A1B /* Pretendard-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = F29BECDD285217A8005B4A1B /* Pretendard-Medium.otf */; };
 		F29BECE7285217A9005B4A1B /* Pretendard-Thin.otf in Resources */ = {isa = PBXBuildFile; fileRef = F29BECDE285217A8005B4A1B /* Pretendard-Thin.otf */; };
 		F29BECE8285217A9005B4A1B /* Pretendard-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = F29BECDF285217A8005B4A1B /* Pretendard-Light.otf */; };
@@ -72,6 +75,7 @@
 		F2CA7CE42858092F0094B126 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F2CA7CE32858092F0094B126 /* GoogleService-Info.plist */; };
 		F2CA7CFB2858154A0094B126 /* MeetingRoomViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2CA7CFA2858154A0094B126 /* MeetingRoomViewModel.swift */; };
 		F2CA7CFD285825EE0094B126 /* MeetingRoom.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2CA7CFC285825EE0094B126 /* MeetingRoom.swift */; };
+		F2D58A342859F42F00ACFF51 /* CarouselViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2D58A332859F42F00ACFF51 /* CarouselViewModel.swift */; };
 		F2D58A36285A002800ACFF51 /* SendNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2D58A35285A002800ACFF51 /* SendNotification.swift */; };
 		F2D707B82849BA6C00DA86FD /* TeamOXYApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2D707B72849BA6C00DA86FD /* TeamOXYApp.swift */; };
 		F2D707BC2849BA6D00DA86FD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F2D707BB2849BA6D00DA86FD /* Assets.xcassets */; };
@@ -97,6 +101,8 @@
 		3F4E601A2855DA3B00BFAA65 /* CompletedTopicView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompletedTopicView.swift; sourceTree = "<group>"; };
 		3F4E601C2855DB8C00BFAA65 /* Completion.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Completion.json; sourceTree = "<group>"; };
 		3FFCA106285A134A004102AC /* ReactionEmoji.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReactionEmoji.swift; sourceTree = "<group>"; };
+		3FFCA110285C454D004102AC /* MC2_Lotti.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = MC2_Lotti.json; sourceTree = "<group>"; };
+		3FFCA112285C6E95004102AC /* AnonymousLoginLoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnonymousLoginLoadingView.swift; sourceTree = "<group>"; };
 		4A2A97A92856C7A400EA21C6 /* UIScreenExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIScreenExtension.swift; sourceTree = "<group>"; };
 		4A3B249A2855FFC000504486 /* CompletionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompletionViewModel.swift; sourceTree = "<group>"; };
 		4A3FBD31285C55F300C333D0 /* NotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; };
@@ -116,6 +122,7 @@
 		F2380A8E2856D633004754EE /* generateRandomNickname.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = generateRandomNickname.swift; sourceTree = "<group>"; };
 		F2380A902856E010004754EE /* TypographyExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypographyExtension.swift; sourceTree = "<group>"; };
 		F2380A922856EA65004754EE /* EmojiViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmojiViewModel.swift; sourceTree = "<group>"; };
+		F2412911285B1279001DE655 /* String+TopicLableExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+TopicLableExtension.swift"; sourceTree = "<group>"; };
 		F29BECDD285217A8005B4A1B /* Pretendard-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Medium.otf"; sourceTree = "<group>"; };
 		F29BECDE285217A8005B4A1B /* Pretendard-Thin.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Thin.otf"; sourceTree = "<group>"; };
 		F29BECDF285217A8005B4A1B /* Pretendard-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Light.otf"; sourceTree = "<group>"; };
@@ -137,7 +144,12 @@
 		F2CA7CE32858092F0094B126 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		F2CA7CFA2858154A0094B126 /* MeetingRoomViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeetingRoomViewModel.swift; sourceTree = "<group>"; };
 		F2CA7CFC285825EE0094B126 /* MeetingRoom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeetingRoom.swift; sourceTree = "<group>"; };
+		F2D58A332859F42F00ACFF51 /* CarouselViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarouselViewModel.swift; sourceTree = "<group>"; };
 		F2D58A35285A002800ACFF51 /* SendNotification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendNotification.swift; sourceTree = "<group>"; };
+
+		F2D58A38285A015600ACFF51 /* Debug.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Debug.xcconfig; sourceTree = "<group>"; };
+		F2D58A39285A016C00ACFF51 /* Production.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Production.xcconfig; sourceTree = "<group>"; };
+
 		F2D707B42849BA6C00DA86FD /* TeamOXY.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TeamOXY.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F2D707B72849BA6C00DA86FD /* TeamOXYApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamOXYApp.swift; sourceTree = "<group>"; };
 		F2D707BB2849BA6D00DA86FD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -201,6 +213,7 @@
 			isa = PBXGroup;
 			children = (
 				3F4E601C2855DB8C00BFAA65 /* Completion.json */,
+				3FFCA110285C454D004102AC /* MC2_Lotti.json */,
 			);
 			path = Lottie;
 			sourceTree = "<group>";
@@ -223,6 +236,7 @@
 				3F4E60132855BE7200BFAA65 /* ArrowAnimationView.swift */,
 				3F4E60062853A30200BFAA65 /* EmojiReactionView.swift */,
 				21D2547A2852D21100E3EADC /* TestCardView.swift */,
+				3FFCA112285C6E95004102AC /* AnonymousLoginLoadingView.swift */,
 			);
 			path = MeetingRoom;
 			sourceTree = "<group>";
@@ -253,7 +267,11 @@
 				F29BED1E28533CBC005B4A1B /* String+ButtonImageName.swift */,
 				4A2A97A92856C7A400EA21C6 /* UIScreenExtension.swift */,
 				F2380A902856E010004754EE /* TypographyExtension.swift */,
+
+				F2412911285B1279001DE655 /* String+TopicLableExtension.swift */,
+
 				15D47562285B607D00D4704C /* UIPickerView+.swift */,
+
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -292,6 +310,7 @@
 				4A3B249A2855FFC000504486 /* CompletionViewModel.swift */,
 				F2380A922856EA65004754EE /* EmojiViewModel.swift */,
 				F2CA7CFA2858154A0094B126 /* MeetingRoomViewModel.swift */,
+				F2D58A332859F42F00ACFF51 /* CarouselViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -468,6 +487,9 @@
 				F29BECEA285217A9005B4A1B /* Pretendard-ExtraBold.otf in Resources */,
 				F29BECE6285217A9005B4A1B /* Pretendard-Medium.otf in Resources */,
 				210EB6D2285C2D8D00B638C0 /* Debug.xcconfig in Resources */,
+				F2D58A44285AAF3100ACFF51 /* Debug.xcconfig in Resources */,
+				F2D58A45285AAF3100ACFF51 /* Production.xcconfig in Resources */,
+				3FFCA111285C454D004102AC /* MC2_Lotti.json in Resources */,
 				F29BECEC285217A9005B4A1B /* Pretendard-Regular.otf in Resources */,
 				F29BECE9285217A9005B4A1B /* Pretendard-SemiBold.otf in Resources */,
 				3F4E601D2855DB8C00BFAA65 /* Completion.json in Resources */,
@@ -495,9 +517,12 @@
 				F29BED1D28532DC3005B4A1B /* RoundButton.swift in Sources */,
 				F2CA7CFB2858154A0094B126 /* MeetingRoomViewModel.swift in Sources */,
 				21C826C6285AB79A00F5ED37 /* TimeModel.swift in Sources */,
+				3FFCA113285C6E95004102AC /* AnonymousLoginLoadingView.swift in Sources */,
 				3FFCA107285A134A004102AC /* ReactionEmoji.swift in Sources */,
 				4A3B249B2855FFC000504486 /* CompletionViewModel.swift in Sources */,
+				F2412912285B1279001DE655 /* String+TopicLableExtension.swift in Sources */,
 				F29BED232853B24C005B4A1B /* CreateMeetingRoomView.swift in Sources */,
+				F2D58A342859F42F00ACFF51 /* CarouselViewModel.swift in Sources */,
 				F2380A8B2856D500004754EE /* FirebaseManager.swift in Sources */,
 				21830A0B2858642300B279B6 /* HapticManager.swift in Sources */,
 				3F4E60092853A30300BFAA65 /* EmojiReactionView.swift in Sources */,
@@ -668,6 +693,7 @@
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.3;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -700,6 +726,7 @@
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.3;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

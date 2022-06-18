@@ -8,7 +8,8 @@
 import SwiftUI
 
 struct FinishTopicView: View {
-    @ObservedObject var viewModel: CompletionViewModel
+    @ObservedObject var viewModel: CarouselViewModel
+    @ObservedObject var vm: MeetingRoomViewModel
     
     @ObservedObject var vm: MeetingRoomViewModel
     
@@ -40,6 +41,9 @@ struct FinishTopicView: View {
                         }
                         DispatchQueue.main.asyncAfter(deadline: .now() + 1.55) {
                             viewModel.isCardDeck = true
+                            
+                            self.viewModel.topicTitle = ""
+                            self.viewModel.storeTopicInformation()
                         }
                     }) {
                         Circle()

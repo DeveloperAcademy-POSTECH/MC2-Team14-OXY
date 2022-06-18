@@ -19,6 +19,8 @@ class FirebaseManager: NSObject {
     
     var currentUser: User?
     var currentTimer: TimeModel?
+    var roomId: String?
+    var topic: Topic?
     
     override init() {
         auth = Auth.auth()
