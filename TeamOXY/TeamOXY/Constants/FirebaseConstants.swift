@@ -20,10 +20,13 @@ struct FirebaseConstants {
     static let topic = "topic"
     static let currentCardIndex = "currentCardIndex"
     static let isCardDeck = "isCardDeck"
+    static let isCardBox = "isCardBox"
     static let isOnCardZone = "isOnCardZone"
     static let isOnCardDeck = "isOnCardDeck"
     static let underDiscussion = "underDiscussion"
-    static let viewStateHeight = "viewStateHeight"
+    static let width = "width"
+    static let height = "height"
+    static let timestamp = "timestamp"
     
     // Timer
     
