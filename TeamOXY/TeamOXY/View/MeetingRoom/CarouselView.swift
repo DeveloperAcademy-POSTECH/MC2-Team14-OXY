@@ -210,7 +210,7 @@ struct CarouselView: View {
                     .transition(AnyTransition.opacity.animation(.easeInOut))
                 }
                 
-                EmojiReactionView()
+                EmojiReactionView(viewModel: emojiViewModel)
                     .opacity((isInCardZone() && !dragState2.isDragging && viewModel.FinishTopicViewCondition[0]) ? 1.0 : 0)
                     .zIndex(3)
             }

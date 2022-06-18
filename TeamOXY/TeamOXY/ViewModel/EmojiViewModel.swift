@@ -19,11 +19,6 @@ class EmojiViewModel : ObservableObject{
     @Published var emojiCount_8 : Int
     @Published var emojiCount_9 : Int
     @Published var emojiCount_10 : Int
-    @Published var emojiCount_11 : Int
-    @Published var emojiCount_12 : Int
-    @Published var emojiCount_13 : Int
-    @Published var emojiCount_14 : Int
-    @Published var emojiCount_15 : Int
     
     // 로딩시 클래스 초기화로 애니메이션 작동을 막기 위해 변수 설정
     @Published var isLoading : Bool = false
@@ -33,7 +28,7 @@ class EmojiViewModel : ObservableObject{
     
     private var db = Firestore.firestore()
     
-    let emojis = ["🤔","👎","👍","🤩","🫠", "🔥","❤️","😱","🤭","🥱","👀","✅","🙅","🎉","😂"]
+    let emojis = ["✅","👍","❤️","🍰","🗽","🫠","💩","❌","🥱","🧋"]
     
     // FireStore Collection, Document 이름
     let selectedCollection1 = "rooms"
@@ -52,11 +47,7 @@ class EmojiViewModel : ObservableObject{
         self.emojiCount_8 = 0
         self.emojiCount_9 = 0
         self.emojiCount_10 = 0
-        self.emojiCount_11 = 0
-        self.emojiCount_12 = 0
-        self.emojiCount_13 = 0
-        self.emojiCount_14 = 0
-        self.emojiCount_15 = 0
+
         
         receiveEmojiCount()
         
@@ -126,7 +117,7 @@ class EmojiViewModel : ObservableObject{
 
         print("변경사항 발생")
 
-        db.collection("\(selectedCollection1)").document("\(selectedDocument1)").collection("\(selecetedCollection2)").document("🤔")
+        db.collection("\(selectedCollection1)").document("\(selectedDocument1)").collection("\(selecetedCollection2)").document("✅")
             .addSnapshotListener { documentSnapshot, error in
               guard let document = documentSnapshot else {
                 print("Error fetching document: \(error!)")
@@ -148,7 +139,7 @@ class EmojiViewModel : ObservableObject{
                 }
             }
 
-        db.collection("\(selectedCollection1)").document("\(selectedDocument1)").collection("\(selecetedCollection2)").document("👎")
+        db.collection("\(selectedCollection1)").document("\(selectedDocument1)").collection("\(selecetedCollection2)").document("👍")
             .addSnapshotListener { documentSnapshot, error in
               guard let document = documentSnapshot else {
                 print("Error fetching document: \(error!)")
@@ -168,7 +159,7 @@ class EmojiViewModel : ObservableObject{
                 }
             }
 
-        db.collection("\(selectedCollection1)").document("\(selectedDocument1)").collection("\(selecetedCollection2)").document("👍")
+        db.collection("\(selectedCollection1)").document("\(selectedDocument1)").collection("\(selecetedCollection2)").document("❤️")
             .addSnapshotListener { documentSnapshot, error in
               guard let document = documentSnapshot else {
                 print("Error fetching document: \(error!)")
@@ -187,7 +178,7 @@ class EmojiViewModel : ObservableObject{
                 }
             }
 
-        db.collection("\(selectedCollection1)").document("\(selectedDocument1)").collection("\(selecetedCollection2)").document("🤩")
+        db.collection("\(selectedCollection1)").document("\(selectedDocument1)").collection("\(selecetedCollection2)").document("🍰")
             .addSnapshotListener { documentSnapshot, error in
               guard let document = documentSnapshot else {
                 print("Error fetching document: \(error!)")
@@ -206,7 +197,7 @@ class EmojiViewModel : ObservableObject{
                 }
             }
 
-        db.collection("\(selectedCollection1)").document("\(selectedDocument1)").collection("\(selecetedCollection2)").document("🫠")
+        db.collection("\(selectedCollection1)").document("\(selectedDocument1)").collection("\(selecetedCollection2)").document("🗽")
             .addSnapshotListener { documentSnapshot, error in
               guard let document = documentSnapshot else {
                 print("Error fetching document: \(error!)")
@@ -225,7 +216,7 @@ class EmojiViewModel : ObservableObject{
                 }
             }
 
-        db.collection("\(selectedCollection1)").document("\(selectedDocument1)").collection("\(selecetedCollection2)").document("🔥")
+        db.collection("\(selectedCollection1)").document("\(selectedDocument1)").collection("\(selecetedCollection2)").document("🫠")
             .addSnapshotListener { documentSnapshot, error in
               guard let document = documentSnapshot else {
                 print("Error fetching document: \(error!)")
@@ -244,7 +235,7 @@ class EmojiViewModel : ObservableObject{
                 }
             }
 
-        db.collection("\(selectedCollection1)").document("\(selectedDocument1)").collection("\(selecetedCollection2)").document("❤️")
+        db.collection("\(selectedCollection1)").document("\(selectedDocument1)").collection("\(selecetedCollection2)").document("💩")
             .addSnapshotListener { documentSnapshot, error in
               guard let document = documentSnapshot else {
                 print("Error fetching document: \(error!)")
@@ -263,7 +254,7 @@ class EmojiViewModel : ObservableObject{
                 }
             }
 
-        db.collection("\(selectedCollection1)").document("\(selectedDocument1)").collection("\(selecetedCollection2)").document("😱")
+        db.collection("\(selectedCollection1)").document("\(selectedDocument1)").collection("\(selecetedCollection2)").document("❌")
             .addSnapshotListener { documentSnapshot, error in
               guard let document = documentSnapshot else {
                 print("Error fetching document: \(error!)")
@@ -282,7 +273,7 @@ class EmojiViewModel : ObservableObject{
                 }
             }
 
-        db.collection("\(selectedCollection1)").document("\(selectedDocument1)").collection("\(selecetedCollection2)").document("🤭")
+        db.collection("\(selectedCollection1)").document("\(selectedDocument1)").collection("\(selecetedCollection2)").document("🥱")
             .addSnapshotListener { documentSnapshot, error in
               guard let document = documentSnapshot else {
                 print("Error fetching document: \(error!)")
@@ -301,7 +292,7 @@ class EmojiViewModel : ObservableObject{
                 }
             }
 
-        db.collection("\(selectedCollection1)").document("\(selectedDocument1)").collection("\(selecetedCollection2)").document("🥱")
+        db.collection("\(selectedCollection1)").document("\(selectedDocument1)").collection("\(selecetedCollection2)").document("🧋")
             .addSnapshotListener { documentSnapshot, error in
               guard let document = documentSnapshot else {
                 print("Error fetching document: \(error!)")
@@ -317,101 +308,6 @@ class EmojiViewModel : ObservableObject{
 
                     self.emojiCount_10 = reaction_count
                     print("열번째 : \(self.emojiCount_10)")
-                }
-            }
-
-        db.collection("\(selectedCollection1)").document("\(selectedDocument1)").collection("\(selecetedCollection2)").document("👀")
-            .addSnapshotListener { documentSnapshot, error in
-              guard let document = documentSnapshot else {
-                print("Error fetching document: \(error!)")
-                return
-              }
-              guard let data = document.data() else {
-                print("Document data was empty.")
-                return
-              }
-
-                if self.isLoading {
-                    let reaction_count = data["reaction_count"] as? Int ?? 0
-
-                    self.emojiCount_11 = reaction_count
-                    print("열한번째 : \(self.emojiCount_11)")
-                }
-            }
-
-        db.collection("\(selectedCollection1)").document("\(selectedDocument1)").collection("\(selecetedCollection2)").document("✅")
-            .addSnapshotListener { documentSnapshot, error in
-              guard let document = documentSnapshot else {
-                print("Error fetching document: \(error!)")
-                return
-              }
-              guard let data = document.data() else {
-                print("Document data was empty.")
-                return
-              }
-
-                if self.isLoading {
-                    let reaction_count = data["reaction_count"] as? Int ?? 0
-
-                    self.emojiCount_12 = reaction_count
-                    print("열두번째 : \(self.emojiCount_12)")
-                }
-            }
-
-        db.collection("\(selectedCollection1)").document("\(selectedDocument1)").collection("\(selecetedCollection2)").document("🙅")
-            .addSnapshotListener { documentSnapshot, error in
-              guard let document = documentSnapshot else {
-                print("Error fetching document: \(error!)")
-                return
-              }
-              guard let data = document.data() else {
-                print("Document data was empty.")
-                return
-              }
-
-                if self.isLoading {
-                    let reaction_count = data["reaction_count"] as? Int ?? 0
-
-                    self.emojiCount_13 = reaction_count
-                    print("열세번째 : \(self.emojiCount_13)")
-                }
-            }
-
-        db.collection("\(selectedCollection1)").document("\(selectedDocument1)").collection("\(selecetedCollection2)").document("🎉")
-            .addSnapshotListener { documentSnapshot, error in
-              guard let document = documentSnapshot else {
-                print("Error fetching document: \(error!)")
-                return
-              }
-              guard let data = document.data() else {
-                print("Document data was empty.")
-                return
-              }
-
-                if self.isLoading {
-                    let reaction_count = data["reaction_count"] as? Int ?? 0
-
-                    self.emojiCount_14 = reaction_count
-                    print("열네번째 : \(self.emojiCount_14)")
-                }
-            }
-
-        db.collection("\(selectedCollection1)").document("\(selectedDocument1)").collection("\(selecetedCollection2)").document("😂")
-            .addSnapshotListener { documentSnapshot, error in
-              guard let document = documentSnapshot else {
-                print("Error fetching document: \(error!)")
-                return
-              }
-              guard let data = document.data() else {
-                print("Document data was empty.")
-                return
-              }
-
-                if self.isLoading {
-                    let reaction_count = data["reaction_count"] as? Int ?? 0
-
-                    self.emojiCount_15 = reaction_count
-                    print("열다섯번째 : \(self.emojiCount_15)")
                 }
             }
     }

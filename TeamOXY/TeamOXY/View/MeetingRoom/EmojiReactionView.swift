@@ -11,7 +11,7 @@ import ConfettiSwiftUI
 struct EmojiReactionView: View {
     @ObservedObject var viewModel : EmojiViewModel
     
-    let emojis = ["🤔","👎","👍","🤩","🫠", "🔥","❤️","😱","🤭","🥱","👀","✅","🙅","🎉","😂"]
+    let emojis = ["✅","👍","❤️","🍰", "🗽","🫠","💩","❌","🥱","🧋"]
 
     var body: some View {
             ZStack(alignment: .center){
@@ -22,7 +22,7 @@ struct EmojiReactionView: View {
                     // 아래로 내리는 화살표
                     ArrowAnimationView()
                         .rotationEffect(.degrees(90))
-                        .padding(.top, -5)
+                        .padding(.top, -3)
                         
                     // 화면 중간 텍스트
                     middleTextView()
@@ -35,7 +35,7 @@ struct EmojiReactionView: View {
                                     
                                     Circle()
                                         .foregroundColor(.white)
-                                        .shadow(color: .gray.opacity(0.5), radius: 15, x: 3, y: 3)
+                                        .shadow(color: .gray.opacity(0.3), radius: 13, x: 3, y: 3)
                                     
                                     Button(action: {
                                         
@@ -43,7 +43,7 @@ struct EmojiReactionView: View {
 
                                     }){
                                         Text(emoji)
-                                            .font(.system(size: 35))
+                                            .font(.system(size: 33))
                                             .padding(8)
                                     }
                                 }
@@ -55,36 +55,26 @@ struct EmojiReactionView: View {
                 }
                 
                 ZStack {
-                    ConfettiCannon(counter: $viewModel.emojiCount_1, num: 5, confettis: [.text("🤔")], confettiSize: 30, radius: 300.0)
+                    ConfettiCannon(counter: $viewModel.emojiCount_1, num: 3, confettis: [.text("✅")], confettiSize: 40, radius: 350.0)
                     
-                    ConfettiCannon(counter: $viewModel.emojiCount_2, num: 5, confettis: [.text("👎")], confettiSize: 30, radius: 300.0)
+                    ConfettiCannon(counter: $viewModel.emojiCount_2, num: 3, confettis: [.text("👍")], confettiSize: 40, radius: 350.0)
                     
-                    ConfettiCannon(counter: $viewModel.emojiCount_3, num: 5, confettis: [.text("👍")], confettiSize: 30, radius: 300.0)
+                    ConfettiCannon(counter: $viewModel.emojiCount_3, num: 3, confettis: [.text("❤️")], confettiSize: 40, radius: 350.0)
                     
-                    ConfettiCannon(counter: $viewModel.emojiCount_4, num: 5, confettis: [.text("🤩")], confettiSize: 30, radius: 300.0)
+                    ConfettiCannon(counter: $viewModel.emojiCount_4, num: 3, confettis: [.text("🍰")], confettiSize: 40, radius: 350.0)
                     
-                    ConfettiCannon(counter: $viewModel.emojiCount_5, num: 5, confettis: [.text("🫠")], confettiSize: 30, radius: 300.0)
+                    ConfettiCannon(counter: $viewModel.emojiCount_5, num: 3, confettis: [.text("🗽")], confettiSize: 60, radius: 350.0)
                     
-                    ConfettiCannon(counter: $viewModel.emojiCount_6, num: 5, confettis: [.text("🔥")], confettiSize: 30, radius: 300.0)
+                    ConfettiCannon(counter: $viewModel.emojiCount_6, num: 3, confettis: [.text("🫠")], confettiSize: 40, radius: 350.0)
                     
-                    ConfettiCannon(counter: $viewModel.emojiCount_7, num: 5, confettis: [.text("❤️")], confettiSize: 30, radius: 300.0)
+                    ConfettiCannon(counter: $viewModel.emojiCount_7, num: 3, confettis: [.text("💩")], confettiSize: 40, radius: 350.0)
                     
-                    ConfettiCannon(counter: $viewModel.emojiCount_8, num: 5, confettis: [.text("😱")], confettiSize: 30, radius: 300.0)
+                    ConfettiCannon(counter: $viewModel.emojiCount_8, num: 3, confettis: [.text("❌")], confettiSize: 40, radius: 350.0)
                     
-                    ConfettiCannon(counter: $viewModel.emojiCount_9, num: 5, confettis: [.text("🤭")], confettiSize: 30, radius: 300.0)
+                    ConfettiCannon(counter: $viewModel.emojiCount_9, num: 3, confettis: [.text("🥱")], confettiSize: 40, radius: 350.0)
                 }
             
-                ConfettiCannon(counter: $viewModel.emojiCount_10, num: 5, confettis: [.text("🥱")], confettiSize: 30, radius: 300.0)
-            
-                ConfettiCannon(counter: $viewModel.emojiCount_11, num: 5, confettis: [.text("👀")], confettiSize: 30, radius: 300.0)
-                
-                ConfettiCannon(counter: $viewModel.emojiCount_12, num: 5, confettis: [.text("✅")], confettiSize: 30, radius: 300.0)
-                
-                ConfettiCannon(counter: $viewModel.emojiCount_13, num: 5, confettis: [.text("🙅")], confettiSize: 30, radius: 300.0)
-                
-                ConfettiCannon(counter: $viewModel.emojiCount_14, num: 5, confettis: [.text("🎉")], confettiSize: 30, radius: 300.0)
-                
-                ConfettiCannon(counter: $viewModel.emojiCount_15, num: 5, confettis: [.text("😂")], confettiSize: 30, radius: 300.0)
+                ConfettiCannon(counter: $viewModel.emojiCount_10, num: 3, confettis: [.text("🧋")], confettiSize: 40, radius: 350.0)
         }
         .onAppear{
             viewModel.setDocument(emojis)

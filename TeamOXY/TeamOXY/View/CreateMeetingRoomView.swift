@@ -21,6 +21,7 @@ struct CreateMeetingRoomView: View {
     var body: some View {
         if isCreated {
             AnonymousLoginLoadingView()
+                    .navigationBarBackButtonHidden(true)
         } else {
             VStack {
                 Spacer()
@@ -74,7 +75,6 @@ struct CreateMeetingRoomView: View {
             }
             .navigationTitle(barTitle)
             .navigationBarTitleDisplayMode(.inline)
-
         }
     }
 }
