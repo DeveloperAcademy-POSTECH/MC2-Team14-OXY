@@ -16,6 +16,8 @@ struct User: Codable, Identifiable {
     let uid: String
     let nickname: String?
     let fcmtoken: String?
+    
+    let isNotificationOn: Bool
 
 //    init(data: [String : Any]) {
 //        self.uid = data["uid"] as? String ?? ""

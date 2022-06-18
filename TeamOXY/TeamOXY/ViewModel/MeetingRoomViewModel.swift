@@ -10,6 +10,7 @@ import Firebase
 import FirebaseMessaging
 import FirebaseFirestore
 import FirebaseFirestoreSwift
+import Lottie
 
 class MeetingRoomViewModel: ObservableObject {
     @Published var roomId = ""
@@ -17,6 +18,8 @@ class MeetingRoomViewModel: ObservableObject {
     @Published var users = [User]()
     @Published var fcmToken = ""
     
+    @Published var currentTimer: TimeModel?
+    @Published var isTimerAvailable = false
     @Published var isLogin = false
     
     func anonymousLogin(scannedCodeUrl: String?, nickname: String) {
@@ -35,14 +38,16 @@ class MeetingRoomViewModel: ObservableObject {
     func storeUserInformation(scannedCodeUrl: String?, nickname: String) {
         guard let uid = FirebaseManager.shared.auth.currentUser?.uid else { return }
         
-        Messaging.messaging().token { token, error in
-            if let error = error {
-                print("Error fetching FCM registration token: \(error)")
-                return
-            }
-            guard let token = token else { return }
-            print("FCM registration token: \(token)")
-            self.fcmToken = token
+//        Messaging.messaging().token { token, error in
+//            if let error = error {
+//                print("Error fetching FCM registration token: \(error)")
+//                return
+//            }
+//            guard let token = token else { return }
+//            print("FCM registration token: \(token)")
+//            self.fcmToken = token
+        
+            self.fcmToken = TokenModel.shared.token ?? ""
             
             let userData = [
                 FirebaseConstants.uid: uid,
@@ -65,6 +70,10 @@ class MeetingRoomViewModel: ObservableObject {
                         }
                         
                         print("Succeessfully stored user information")
+                        
+                        self.fetchCurrentUser(scannedCodeUrl) // 에코 데이크 
+                        self.fetchTimer(roomId: scannedCodeUrl)
+
                     }
             } else {
                 FirebaseManager.shared.firestore
@@ -79,11 +88,12 @@ class MeetingRoomViewModel: ObservableObject {
                         }
                         
                         print("Succeessfully stored user information")
+                        
+                        self.fetchCurrentUser(self.roomId)
+                        self.storeTimer()
                     }
             }
-            
-            self.fetchCurrentUser(self.roomId)
-        }
+//        }
     }
     
     func fetchCurrentUser(_ title: String) {
@@ -147,11 +157,166 @@ class MeetingRoomViewModel: ObservableObject {
                     if let rm = try? change.document.data(as: User.self) {
                         self.users.insert(rm, at: 0)
                     }
-                    
+                     
                     print("Successfully observed documentChange data")
                     
                     self.isLogin = true
                 })
             }
     }
+    
+    func storeTimer() {
+        
+        let timerData = [
+            "timestamp": 0,
+            "setTime": Date(),
+            "isAvailable": false
+        ] as [String : Any]
+        
+        FirebaseManager.shared.firestore
+            .collection(FirebaseConstants.rooms)
+            .document(self.roomId)
+            .collection(FirebaseConstants.timers)
+            .document("timer")
+            .setData(timerData) { error in
+                if let error = error {
+                    print("Failed to store timer information: \(error)")
+                    return
+                }
+                
+                print("Succeessfully stored timer information")
+                
+                self.fetchTimer(roomId: self.roomId)
+            }
+    }
+    
+    // 타이머 컬렉션 생성 및 초기화
+    func fetchTimer(roomId: String?) {
+
+        FirebaseManager.shared.firestore
+            .collection(FirebaseConstants.rooms)
+            .document(self.roomId)
+            .collection(FirebaseConstants.timers)
+            .addSnapshotListener { querySnapshot, error in
+                if let error = error {
+                    print("Failed to listen for new timer: \(error)")
+                    return
+                }
+                
+                print("변경 감지")
+                
+                // 변경 감지 시 실행될 부분
+                let change = querySnapshot?.documentChanges[0]
+                print("타이머 변경 감지!")
+
+//                self.currentUser = try? snapshot?.data(as: User.self)
+//                FirebaseManager.shared.currentUser = self.currentUser
+                
+                let rm = try? change?.document.data(as: TimeModel.self)
+                timerViewModel.shared.currentTimer = rm
+                self.isTimerAvailable = timerViewModel.shared.currentTimer?.isAvailable ?? false
+                
+                print("타이머 뷰모델을 쉐어드에 저장\(timerViewModel.shared.currentTimer?.isAvailable)")
+//                    self.currentTimer = rm
+//                    print("rm: \(rm.timestamp)")
+//                    self.isTimerAvailable = rm.isAvailable
+                
+                
+                // 타이머 설정
+                // 끝
+            }
+    }
+    
+    // 타이머 설정(업데이트)
+    func updateTimer(countTo: Int) {
+        print("roomId in updateTimetr: \(self.roomId)")
+
+        print("updateTimer!!!!!!!!!!")
+        print("countTo: \(countTo)")
+        print("!!!!!!!!!!")
+        
+        
+//
+//        let timerUpdate = FirebaseManager.shared.firestore
+//                .collection(FirebaseConstants.rooms)
+//                .document(self.roomId)
+//                .collection(FirebaseConstants.timers)
+//                .document("timer")
+        
+        let timerData = [
+            "timestamp": countTo,
+            "setTime": Date(),
+            // false -> true
+            "isAvailable": true
+        ] as [String : Any]
+        
+        FirebaseManager.shared.firestore
+            .collection(FirebaseConstants.rooms)
+            .document(self.roomId)
+            .collection(FirebaseConstants.timers)
+            .document("timer")
+            .setData(timerData) { error in
+                if let error = error {
+                    print("Failed to store timer information: \(error)")
+                    return
+                }
+                
+                print("Succeessfully set timer information")
+                
+//                self.fetchTimer(roomId: self.roomId)
+            }
+//
+//        timerUpdate.updateData([
+//            FirebaseConstants.timestamp : countTo,
+//            FirebaseConstants.setTime : Date(),
+//            FirebaseConstants.isAvailable : false
+//        ])
+        
+    }
+    
+    func terminateTimer() {
+   print("타이머 종료시키기")
+        
+//
+//        let timerUpdate = FirebaseManager.shared.firestore
+//                .collection(FirebaseConstants.rooms)
+//                .document(self.roomId)
+//                .collection(FirebaseConstants.timers)
+//                .document("timer")
+        
+        let timerData = [
+            "timestamp": 10,
+            "setTime": Date(),
+            // false -> true
+            "isAvailable": false
+        ] as [String : Any]
+        
+        FirebaseManager.shared.firestore
+            .collection(FirebaseConstants.rooms)
+            .document(self.roomId)
+            .collection(FirebaseConstants.timers)
+            .document("timer")
+            .setData(timerData) { error in
+                if let error = error {
+                    print("Failed to store timer information: \(error)")
+                    return
+                }
+                
+                print("Succeessfully set timer information")
+                
+//                self.fetchTimer(roomId: self.roomId)
+            }
+//
+//        timerUpdate.updateData([
+//            FirebaseConstants.timestamp : countTo,
+//            FirebaseConstants.setTime : Date(),
+//            FirebaseConstants.isAvailable : false
+//        ])
+        
+    }
+}
+
+class timerViewModel: NSObject {
+    var currentTimer: TimeModel?
+    static let shared = timerViewModel()
 }
