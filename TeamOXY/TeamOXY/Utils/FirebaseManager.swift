@@ -18,6 +18,8 @@ class FirebaseManager: NSObject {
     static let shared = FirebaseManager()
     
     var currentUser: User?
+    var roomId: String?
+    var topic: Topic?
     
     override init() {
         auth = Auth.auth()

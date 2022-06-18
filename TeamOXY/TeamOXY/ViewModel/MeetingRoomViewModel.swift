@@ -52,6 +52,7 @@ class MeetingRoomViewModel: ObservableObject {
             
             // QR code로 입장한 사람
             if let scannedCodeUrl = scannedCodeUrl {
+                self.roomId = scannedCodeUrl
                 FirebaseManager.shared.firestore
                     .collection(FirebaseConstants.rooms)
                     .document(scannedCodeUrl)
@@ -64,8 +65,6 @@ class MeetingRoomViewModel: ObservableObject {
                         }
                         
                         print("Succeessfully stored user information")
-                        
-                        self.fetchCurrentUser(scannedCodeUrl)
                     }
             } else {
                 FirebaseManager.shared.firestore
@@ -80,10 +79,10 @@ class MeetingRoomViewModel: ObservableObject {
                         }
                         
                         print("Succeessfully stored user information")
-                        
-                        self.fetchCurrentUser(self.roomId)
                     }
             }
+            
+            self.fetchCurrentUser(self.roomId)
         }
     }
     
@@ -114,6 +113,7 @@ class MeetingRoomViewModel: ObservableObject {
                 
                 self.currentUser = try? snapshot?.data(as: User.self)
                 FirebaseManager.shared.currentUser = self.currentUser
+                FirebaseManager.shared.roomId = self.roomId
                 
                 print("Successfully fetch current user")
                 

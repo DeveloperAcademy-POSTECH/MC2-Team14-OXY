@@ -8,7 +8,8 @@
 import SwiftUI
 
 struct FinishTopicView: View {
-    @ObservedObject var viewModel: CompletionViewModel
+    @ObservedObject var viewModel: CarouselViewModel
+    @ObservedObject var vm: MeetingRoomViewModel
     
     var body: some View {
         ZStack(alignment: .center) {
@@ -38,6 +39,9 @@ struct FinishTopicView: View {
                         }
                         DispatchQueue.main.asyncAfter(deadline: .now() + 1.55) {
                             viewModel.isCardDeck = true
+                            
+                            self.viewModel.topicTitle = ""
+                            self.viewModel.storeTopicInformation()
                         }
                     }) {
                         Circle()
@@ -51,7 +55,7 @@ struct FinishTopicView: View {
                     Spacer()
                     
                     // TimeSetView 쉬는시간설정 뷰로 이동
-                    NavigationLink(destination: TimeSetView(viewModel: viewModel)) {
+                    NavigationLink(destination: TimeSetView(viewModel: viewModel, vm: vm)) {
                         Circle()
                             .fill(Color("PrimaryBlue"))
                             .frame(width: UIScreen.screenWidth * 0.148, height: UIScreen.screenWidth * 0.148,  alignment: .center)

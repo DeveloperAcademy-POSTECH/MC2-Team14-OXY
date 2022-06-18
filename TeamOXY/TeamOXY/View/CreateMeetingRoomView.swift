@@ -55,7 +55,7 @@ struct CreateMeetingRoomView: View {
                 }
                 
                 Spacer()
-                
+               
                 RoundButton(buttonType: .primary, title: "시작하기", isButton: true, didCompletion: {
                     if text.isEmpty {
                         vm.roomId = "\(textField) 방"
@@ -74,6 +74,7 @@ struct CreateMeetingRoomView: View {
             }
             .navigationTitle(barTitle)
             .navigationBarTitleDisplayMode(.inline)
+
         }
     }
 }
