@@ -41,18 +41,7 @@ struct MeetingRoomView: View {
                             .transition(AnyTransition.opacity.animation(.easeInOut))
                     }
                     
-                    CarouselView(viewModel: viewModel, vm: vm,views: [
-                        Image("Card1"),
-                        Image("Card2"),
-                        Image("Card3"),
-                        Image("Card4"),
-                        Image("Card5"),
-                        Image("Card1"),
-                        Image("Card2"),
-                        Image("Card3"),
-                        Image("Card4"),
-                        Image("Card5")
-                    ])
+                    CarouselView(viewModel: viewModel, vm: vm)
             }
         }
         .navigationTitle("\(vm.roomId) \(vm.users.count < 2 ? 1 : vm.users.count)")
@@ -82,8 +71,12 @@ struct MeetingRoomView: View {
                             isPresented: $showLeaveRoomSheet,
                             titleVisibility: .visible) {
             Button("떠나기") {
-                leaveMeetingRoom()
+                vm.fetchUsers()
                 backToHome = false
+                
+                DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+                    leaveMeetingRoom()
+                }
             }
             Button("취소", role: .cancel) { }
         } message: {
@@ -91,11 +84,6 @@ struct MeetingRoomView: View {
         }
         .fullScreenCover(isPresented: $showQRCode) {
             QRCodeView(url: vm.roomId)
-        }
-        .onAppear {
-            if viewModel.FinishTopicViewCondition[0] && !viewModel.FinishTopicViewCondition[1] && viewModel.FinishTopicViewCondition[2] {
-                print(viewModel.topicSuggestion?.topic ?? "오잉")
-            }
         }
     }
     

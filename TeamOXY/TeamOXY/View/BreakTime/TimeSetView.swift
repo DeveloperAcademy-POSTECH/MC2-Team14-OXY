@@ -58,7 +58,7 @@ struct TimeSetView: View {
             // FinishTopicView뜨는 조건 초기화
             viewModel.FinishTopicViewCondition = [false, true, false]
             
-            viewModel.storeTopicSuggestion()
+            viewModel.storeTopicInformation()
         }
     }
 }

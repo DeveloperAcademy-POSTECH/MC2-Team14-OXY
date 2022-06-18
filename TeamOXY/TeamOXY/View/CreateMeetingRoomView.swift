@@ -67,7 +67,7 @@ struct CreateMeetingRoomView: View {
             })
             .padding(.bottom)
             .background(NavigationLink(isActive: $isCreated) {
-                MeetingRoomView(vm: vm, backToHome: $backToHome)
+                MeetingRoomView(vm: vm, backToHome: $backToHome, scannedCodeUrl: nil)
             } label: { }.hidden())
         }
         .navigationTitle(barTitle)

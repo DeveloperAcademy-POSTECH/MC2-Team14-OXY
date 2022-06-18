@@ -40,7 +40,8 @@ struct FinishTopicView: View {
                         DispatchQueue.main.asyncAfter(deadline: .now() + 1.55) {
                             viewModel.isCardDeck = true
                             
-                            self.viewModel.storeTopicSuggestion()
+                            self.viewModel.topicTitle = ""
+                            self.viewModel.storeTopicInformation()
                         }
                     }) {
                         Circle()
