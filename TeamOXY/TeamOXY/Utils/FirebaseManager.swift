@@ -18,7 +18,6 @@ class FirebaseManager: NSObject {
     static let shared = FirebaseManager()
     
     var currentUser: User?
-    var currentTimer: TimeModel?
     var roomId: String?
     var topic: Topic?
     

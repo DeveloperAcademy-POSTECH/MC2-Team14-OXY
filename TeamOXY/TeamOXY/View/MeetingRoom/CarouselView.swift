@@ -12,6 +12,7 @@ struct CarouselView: View {
     @ObservedObject var viewModel: CarouselViewModel
     @ObservedObject var vm: MeetingRoomViewModel
     @ObservedObject var emojiViewModel : EmojiViewModel
+
     
     // gesture 추적
     @GestureState private var dragState = HorizontalDragState.inactive

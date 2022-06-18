@@ -17,16 +17,10 @@ struct MeetingRoomView: View {
     
     @Binding var backToHome: Bool
     
-    @State var isActive: Bool = (timerViewModel.shared.currentTimer?.isAvailable ?? false)
-    
     var scannedCodeUrl: String?
     
     var body: some View {
-        VStack {
-            if vm.isTimerAvailable {
-                BreakTimeView(counter: 0, countTo: 100, vm: vm)
-            }
-            else {
+            VStack {
                 ZStack{
                     if viewModel.FinishTopicViewCondition != [false, true, true] && viewModel.isCardBox {
                         RoundedRectangle(cornerRadius: 5)
