@@ -12,7 +12,7 @@ struct NotificationManager {
     
     static let shared = NotificationManager()
     
-    func TimeIntervalNotification(time: Int, title: String, subtitle: String) {
+    func TimeIntervalNotification(title: String, subtitle: String) {
         
         let content = UNMutableNotificationContent()
         content.title = title
@@ -20,8 +20,7 @@ struct NotificationManager {
         content.sound = .default
 //        content.badge =
         
-        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: TimeInterval(time), repeats: false)
-        
+        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 0.1, repeats: false)
         
         let request = UNNotificationRequest(
             identifier: UUID().uuidString,

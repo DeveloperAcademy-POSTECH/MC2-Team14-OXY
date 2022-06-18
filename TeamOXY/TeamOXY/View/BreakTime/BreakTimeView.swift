@@ -19,8 +19,7 @@ struct BreakTimeView: View {
     
     var body: some View {
         ZStack {
-            let _ = print("타이머뷰\(timerViewModel.shared.currentTimer?.timestamp)")
-            CircularTimerView(counter: counter, countTo: timerViewModel.shared.currentTimer?.timestamp ?? 0, vm: vm)
+            CircularTimerView(counter: counter, countTo: timerViewModel.shared.currentTimer?.timestamp ?? 0, vm: vm, isNotification: $isNotification)
             
             VStack {
                 VStack(alignment: .center) {

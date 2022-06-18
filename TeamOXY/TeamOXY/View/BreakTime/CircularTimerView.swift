@@ -12,8 +12,10 @@ import SwiftUI
 struct CircularTimerView: View {
     @State var counter: Int
     var countTo: Int
+    
     @ObservedObject var vm: MeetingRoomViewModel
     let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
+    @Binding var isNotification: Bool
     
     var body: some View {
         ZStack {
@@ -26,14 +28,14 @@ struct CircularTimerView: View {
                 self.counter += 1
             }
             
-            if self.countTo - counter == 0 {
+            if isNotification && self.countTo - counter == 0 {
+                NotificationManager.shared.TimeIntervalNotification(title: "이쉼전쉼", subtitle: "쉬는시간 끝! 모두 모여주세요.🏃‍♂️")
                 vm.terminateTimer()
             }
+            if isNotification && self.countTo - counter == 180 {
+                NotificationManager.shared.TimeIntervalNotification(title: "이쉼전쉼", subtitle: "쉬는시간이 3분 남았습니다.⏰")
+            }
         }
-        .onAppear {
-                    NotificationManager.shared.TimeIntervalNotification(time: countTo > 180 ? countTo - 180 : 10, title: "이쉼전쉼", subtitle: "쉬는시간이 3분 남았습니다.⏰")
-                    NotificationManager.shared.TimeIntervalNotification(time: countTo > 0 ? countTo : 10, title: "이쉼전쉼", subtitle: "쉬는시간 끝! 모두 모여주세요.🏃‍♂️")
-                }
     }
 }
 
