@@ -15,36 +15,42 @@ class CarouselViewModel: ObservableObject {
     @Published var FinishTopicViewCondition: [Bool] = [false, true, false] // [카드존에 있냐?, 카드덱에 있냐?, 논의중이냐?]
     @Published var isCardBox: Bool = true
     @Published var isCardDeck: Bool = true
+    @Published var height: CGFloat = 0
     
-    @Published var topic = ""
+    @Published var topicTitle = ""
     @Published var currentCardIndex = 0
-    @Published var topicSuggestion: Topic?
+    @Published var currentTopic: Topic?
+    @Published var topicViews: [Topic] = Topic.topicViews
     
-    @Published var viewStateHeight: CGFloat = 0
     
-    init() {
-        fetchTopicSuggestion()
-    }
-    
-    func storeTopicSuggestion() {
-        guard let _ = FirebaseManager.shared.currentUser?.uid else { return }
-        guard let roomId = FirebaseManager.shared.roomId else { return }
+    func storeTopicInformation() {
+        guard let roomId = FirebaseManager.shared.roomId else {
+            print("없어!!!!")
+            return
+        }
+        guard let uid = FirebaseManager.shared.auth.currentUser?.uid else {
+            print("아이디 없엉")
+            return
+        }
         
         let topicData = [
-            FirebaseConstants.topic: self.topic,
+            FirebaseConstants.uid: uid,
+            FirebaseConstants.topic: self.topicTitle,
             FirebaseConstants.currentCardIndex: self.currentCardIndex,
             FirebaseConstants.isCardDeck: self.isCardDeck,
+            FirebaseConstants.isCardBox: self.isCardBox,
             FirebaseConstants.isOnCardZone: self.FinishTopicViewCondition[0],
             FirebaseConstants.isOnCardDeck: self.FinishTopicViewCondition[1],
             FirebaseConstants.underDiscussion: self.FinishTopicViewCondition[2],
-            FirebaseConstants.viewStateHeight: self.viewStateHeight
+            FirebaseConstants.height: self.height,
+            FirebaseConstants.timestamp: Date()
         ] as [String : Any]
         
         FirebaseManager.shared.firestore
             .collection(FirebaseConstants.rooms)
             .document(roomId)
             .collection(FirebaseConstants.topics)
-            .document(self.topic)
+            .document("topic")
             .setData(topicData) { error in
                 if let error = error {
                     print("Failed to store topic information: \(error)")
@@ -52,14 +58,16 @@ class CarouselViewModel: ObservableObject {
                 }
                 
                 print("Successfully stored topic information")
-                
-                self.fetchTopicSuggestion()
+                self.fetchTopic()
             }
     }
     
-    func fetchTopicSuggestion() {
-        guard let _ = FirebaseManager.shared.currentUser?.uid else { return }
-        guard let roomId = FirebaseManager.shared.roomId else { return }
+    func fetchTopic() {
+        guard let roomId = FirebaseManager.shared.roomId else {
+            print("없어!!!!")
+            return
+        }
+        
         
         FirebaseManager.shared.firestore
             .collection(FirebaseConstants.rooms)
@@ -71,20 +79,33 @@ class CarouselViewModel: ObservableObject {
                     return
                 }
                 
-                querySnapshot?.documentChanges.forEach({ change in
-                    print("변화가 있냐!!")
-                    self.topicSuggestion = try? change.document.data(as: Topic.self)
-                    
-                    print("\(roomId)")
-                    let topicCondition = [self.topicSuggestion?.isOnCardZone ?? false, self.topicSuggestion?.isOnCardDeck ?? true, self.topicSuggestion?.underDiscussion ?? false]
-                    self.FinishTopicViewCondition = topicCondition
-                    self.isCardDeck = self.topicSuggestion?.isCardDeck ?? true
-                    FirebaseManager.shared.topic = self.topicSuggestion
-                    
-                    print("Successfully observed the change of topic: \(self.topicSuggestion)")
-                    print(">>> \(self.topicSuggestion?.viewStateHeight)")
-                    print("<<<< \(self.topicSuggestion?.currentCardIndex)")
-                })
+                guard let change = querySnapshot?.documentChanges[0] else {
+                    print("change가 없어요")
+                    return
+                }
+                
+                let data = change.document.data()
+                self.currentTopic = Topic(documentId: "topic", data: data)
+                
+                guard let currentTopic = self.currentTopic else { return }
+                print("success: \(currentTopic.currentCardIndex) \(currentTopic.uid == FirebaseManager.shared.currentUser?.uid)")
+                print("\(self.FinishTopicViewCondition)")
+
+                self.topicTitle = currentTopic.topic
+                self.height = currentTopic.height
+                self.currentCardIndex = currentTopic.currentCardIndex
+                
+                self.isCardDeck = currentTopic.isCardDeck
+                let finishTopicViewCondition = [self.currentTopic?.isOnCardZone ?? false, self.currentTopic?.isOnCardDeck ?? true, self.currentTopic?.underDiscussion ?? false]
+                self.FinishTopicViewCondition = finishTopicViewCondition
+                self.isCardBox = currentTopic.isCardBox
+                
+//
+//                self.height = CGFloat(currentTopic.height)
+//                self.width = CGFloat(currentTopic.width)
+                
+                
             }
     }
+
 }
