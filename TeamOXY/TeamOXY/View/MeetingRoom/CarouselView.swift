@@ -16,19 +16,17 @@ struct CarouselView: View {
     @GestureState private var dragState2 = LongPressAndDragState.inactive
     
     @State var viewState = CGSize(width: 0, height: 0) // 가운데 카드 중앙부의 위치
-    @State var carouselLocation = 0
     @State var degree = 0.0
     
-    var views: [Image]
     var spacerWidth: CGFloat = UIScreen.screenWidth * 0.243
     
     private func onHorizontalDragEnded(drag: DragGesture.Value) {
         let dragThreshold:CGFloat = 100 // 드래그 스레드홀드도 UIScreen으로 해야하나(?)
         if drag.predictedEndTranslation.width > dragThreshold || drag.translation.width > dragThreshold{
-            carouselLocation =  carouselLocation - 1
+            viewModel.currentCardIndex =  viewModel.currentCardIndex - 1
         } else if (drag.predictedEndTranslation.width) < (-1 * dragThreshold) || (drag.translation.width) < (-1 * dragThreshold)
         {
-            carouselLocation =  carouselLocation + 1
+            viewModel.currentCardIndex =  viewModel.currentCardIndex + 1
         }
     }
     
@@ -72,53 +70,108 @@ struct CarouselView: View {
             
             ZStack(alignment: .bottom){
                 // 각각의 요소에 그림자 넣는 법 말고 전체를 묶어서 그림자를 넣는 법 고민해보기
-                ForEach(0 ..< views.count, id: \.self){ i in
+                
+                if !viewModel.topicTitle.isEmpty && viewModel.currentTopic?.uid != FirebaseManager.shared.currentUser?.uid  && viewModel.currentTopic?.underDiscussion ?? false {
+                    
+                    Image(viewModel.currentTopic?.topic.topicImageLabel ?? "")
+                        .resizable()
+                        .frame(width: getWidth(viewModel.currentTopic?.currentCardIndex ?? 0), height: getWidth(viewModel.currentTopic?.currentCardIndex ?? 0) * 1.4)
+                        .animation(.interpolatingSpring(stiffness: 300.0, damping: 30.0, initialVelocity: 10.0))
+                        .aspectRatio(contentMode: .fit)
+                        .background(Color.white)
+                        .cornerRadius(5)
+                        .shadow(color: setShadowColor(viewModel.currentTopic?.currentCardIndex ?? 0), radius: shadowSetting(viewModel.currentTopic?.currentCardIndex ?? 0)[0], x: shadowSetting(viewModel.currentTopic?.currentCardIndex ?? 0)[1], y: shadowSetting(viewModel.currentTopic?.currentCardIndex ?? 0)[2])
+                        .animation(.interpolatingSpring(stiffness: 300.0, damping: 30.0, initialVelocity: 10.0))
+                        .opacity(viewModel.currentTopic?.underDiscussion ?? false ? 1 : 0)
+                        .animation(Animation.easeOut)
+                    // offset y를 longpress가 눌리면, 다니 함수의 y값으로 return 하도록 삼항연산자(?)
+                        .offset(x: getOffsetX(viewModel.currentTopic?.currentCardIndex ?? 0),
+                            y: setOffsetY(viewModel.currentTopic?.currentCardIndex ?? 0))
+                        .scaleEffect(setScale(viewModel.currentTopic?.currentCardIndex ?? 0))
+                        .animation(.interpolatingSpring(stiffness: 300.0, damping: 30.0, initialVelocity: 10.0))
+                        .zIndex(setZindex(viewModel.currentTopic?.currentCardIndex ?? 0))
+                        .simultaneousGesture(
+                            viewModel.currentTopic?.isCardDeck ?? false ?
+                            longPressDrag
+                                .onEnded { value in
+                                    guard case .second(true, let drag?) = value else { return }
+                                    self.viewModel.topicTitle = viewModel.currentTopic?.topic ?? ""
+                                    self.viewModel.currentCardIndex = viewModel.currentTopic?.currentCardIndex ?? 0
+                                    
+                                    self.viewState.width += 0
+                                    self.viewState.height = self.viewModel.height + drag.translation.height
+                                    
+                                    if viewState.height > -UIScreen.screenHeight * 0.18 {
+                                        // 카드존에 없고, 논의중이 아닐 때, finishTopicView를 띄우고
+                                        print("not inside zone")
+                                        viewState.height = UIScreen.screenHeight * 0.38// 원래 -370
+                                        viewModel.FinishTopicViewCondition = [false, true, true] // finishTopiceView on
+                                        viewModel.isCardDeck = false // 카드덱 사라짐
+                                        // 다시 덱으로 위치시키기
+                                        self.viewState.height = CarouselViewConstants.initialCardLocation
+                                        self.viewModel.height = self.viewState.height
+                                        self.viewModel.storeTopicInformation()
+                                    } else {
+                                        // 카드존에 없고, 논의중이 아닐 때 제자리로 돌려보냄
+                                        print("not inside zone again")
+                                        self.viewState.height = CarouselViewConstants.initialCardLocation
+                                    }
+                                } : nil
+                        )
+                        .onAppear {
+                            viewModel.FinishTopicViewCondition = [true, false, true]
+                            viewModel.isCardBox = false
+                            viewState.height = viewModel.height
+                        }
+                    
+                }
+                
+                ForEach(viewModel.topicViews, id: \.id){ topic in
                     VStack {
-                        self.views[i]
+                        Image(topic.topic.topicImageLabel)
                             .resizable()
-                            .frame(width: getWidth(i), height: getWidth(i) * 1.4)
+                            .frame(width: getWidth(topic.currentCardIndex), height: getWidth(topic.currentCardIndex) * 1.4)
                             .animation(.interpolatingSpring(stiffness: 300.0, damping: 30.0, initialVelocity: 10.0))
                             .aspectRatio(contentMode: .fit)
                             .background(Color.white)
                             .cornerRadius(5)
-                            .shadow(color: setShadowColor(i), radius: shadowSetting(i)[0], x: shadowSetting(i)[1], y: shadowSetting(i)[2])
+                            .shadow(color: setShadowColor(topic.currentCardIndex), radius: shadowSetting(topic.currentCardIndex)[0], x: shadowSetting(topic.currentCardIndex)[1], y: shadowSetting(topic.currentCardIndex)[2])
                             .animation(.interpolatingSpring(stiffness: 300.0, damping: 30.0, initialVelocity: 10.0))
-                            .opacity(self.getOpacity(i))
+                            .opacity(((viewModel.currentTopic?.uid != FirebaseManager.shared.currentUser?.uid) && viewModel.currentTopic?.underDiscussion ?? false) ? 0 : self.getOpacity(topic.currentCardIndex))
                             .animation(Animation.easeOut)
                         // offset y를 longpress가 눌리면, 다니 함수의 y값으로 return 하도록 삼항연산자(?)
-                            .offset(x: self.getOffsetX(i),
-                                    y: setOffsetY(i))
+                            .offset(x: self.getOffsetX(topic.currentCardIndex),
+                                    y: setOffsetY(topic.currentCardIndex))
                         // animation은 그 바로 위에 있는 메소드에 적용하는 것, 즉 animation이 3번 반복되는이유는
                         // frame, shadow, offset변화에 애니메이션을 주기 위함 -> 각각에 적용되는 애니메이션이 똑같으면 굳이 그럴필요 있나(?)
-                            .scaleEffect(setScale(i))
+                            .scaleEffect(setScale(topic.currentCardIndex))
                             .animation(.interpolatingSpring(stiffness: 300.0, damping: 30.0, initialVelocity: 10.0))
-                            .blur(radius: setBlur(i))
+                            .blur(radius: setBlur(topic.currentCardIndex))
                             .animation(.interpolatingSpring(stiffness: 300.0, damping: 30.0, initialVelocity: 10.0))
-                            
                     }
-                    .zIndex(setZindex(i))
+                    .zIndex(setZindex(topic.currentCardIndex))
                     .simultaneousGesture(
                         longPressDrag
                             .onEnded { value in
                                 guard case .second(true, let drag?) = value else { return }
-                                
-                                self.viewModel.topic = "Topic\(i)"
-                                self.viewModel.currentCardIndex = i
+                                self.viewModel.topicTitle = topic.topic
+                                self.viewModel.currentCardIndex = topic.currentCardIndex
                                 
                                 self.viewState.width += 0
                                 self.viewState.height += drag.translation.height
+                                
                                 
                                 // 카드 놓는 공간 안에 있다면
                                 if viewState.height < CarouselViewConstants.secondCardLocation {
                                     print("inside zone")
                                     viewModel.FinishTopicViewCondition = [true, false, true]
                                     viewModel.isCardBox = false
+                                    viewModel.height = self.viewState.height
                                     
                                     // 카드 놓는 곳으로 위치시키기
-                                    viewState.height = -UIScreen.screenHeight * 0.38// 원래-370
-                                    self.viewModel.viewStateHeight = viewState.height
+                                    viewState.height = -UIScreen.screenHeight * 0.23// 원래-370
                                     
-                                    self.viewModel.storeTopicSuggestion()
+                                    self.viewModel.storeTopicInformation()
                                     // 논의중이고 카드존에 없다면
                                 } else if viewModel.FinishTopicViewCondition[2] == true {
                                     // 카드존에 없고, 논의중이 아닐 때, finishTopicView를 띄우고
@@ -129,10 +182,10 @@ struct CarouselView: View {
                                     
                                     // 다시 덱으로 위치시키기
                                     self.viewState.height = CarouselViewConstants.initialCardLocation
-                                    self.viewModel.viewStateHeight = viewState.height
+                                    self.viewModel.storeTopicInformation()
                                 } else {
                                     // 카드존에 없고, 논의중이 아닐 때 제자리로 돌려보냄
-                                    print("not inside zone")
+                                    print("not inside zone sfdsfsf")
                                     self.viewState.height = CarouselViewConstants.initialCardLocation
                                 }
                             }
@@ -143,8 +196,9 @@ struct CarouselView: View {
                     // card가 cardzone에 있거나, drag애니메이션2에서 드래깅 중이면 좌우 스크롤 불가
                     isInCardZone() || dragState2.isDragging ? nil : horizontalDrag
                 )
+                .simultaneousGesture(viewModel.currentCardIndex == relativeLoc() ? longPressDrag : nil)
                 
-                if viewModel.FinishTopicViewCondition == [false, true, true] {
+                if viewModel.FinishTopicViewCondition == [false, true, true] && viewModel.currentTopic?.uid == FirebaseManager.shared.currentUser?.uid {
                     VStack{
                         FinishTopicView(viewModel: viewModel, vm: vm)
                             .offset(y: -UIScreen.screenHeight * 0.30)
@@ -153,33 +207,50 @@ struct CarouselView: View {
                 }
                 
                 EmojiReactionView()
-                    .opacity(isInCardZone() && !dragState2.isDragging ? 1.0 : 0)
+                    .opacity((isInCardZone() && !dragState2.isDragging && viewModel.FinishTopicViewCondition[0]) ? 1.0 : 0)
                     .zIndex(3)
             }
-        }
-        .onAppear {
-            carouselLocation = viewModel.currentCardIndex
         }
     }
     
     // center카드가 cardZone에 있는지 확인
     func isInCardZone() -> Bool {
-        let curHeight = viewState.height + dragState2.translation.height
-        return curHeight < CarouselViewConstants.secondCardLocation
+        if !viewModel.topicTitle.isEmpty  {
+            let curHeight = viewModel.height
+            return curHeight < CarouselViewConstants.secondCardLocation
+        } else {
+            let curHeight = viewState.height + dragState2.translation.height
+            return curHeight < CarouselViewConstants.secondCardLocation
+        }
     }
     
     // 스케일세팅
     func setScale(_ i: Int) -> CGFloat {
-        if isInCardZone()
-            && !dragState2.isDragging
-            && i == relativeLoc(){
-            return 2.5
-        } else if dragState2.isDragging && i == relativeLoc() {
-            return 1.3
+        if viewModel.currentTopic?.uid != FirebaseManager.shared.currentUser?.uid {
+            if (viewModel.currentTopic?.underDiscussion ?? false
+                && !dragState2.isDragging
+                && i == relativeLoc()) {
+                return 2.5
+            } else if dragState2.isDragging && i == relativeLoc() {
+                return 1.3
+            }
+            else {
+                return 1.0
+            }
+        } else {
+            if (isInCardZone()
+                && !dragState2.isDragging
+                && i == relativeLoc()) {
+                return 2.5
+            } else if dragState2.isDragging && i == relativeLoc() {
+                return 1.3
+            }
+            else {
+                return 1.0
+            }
         }
-        else {
-            return 1.0
-        }
+        
+        
     }
     // blur 세팅
     func setBlur(_ i: Int) -> CGFloat {
@@ -215,31 +286,56 @@ struct CarouselView: View {
     }
     
     func setOffsetY(_ i: Int) -> CGFloat {
-        // 가운데 있고, long press가 실행되었을 때,
-        if  i == relativeLoc() {
-            // drag중이면 현재height + 드래그한 위치의height를 더해 터치에 따라 움직이도록
-            // drag가 끝났을 때 cardzone에 있다면 -150을 그렇지 않으면 첫 위치로 돌아가도록
-            if dragState2.isDragging {
-                if viewModel.FinishTopicViewCondition[2] {
-                    return viewState.height + 30 + (dragState2.translation.height/1.3)
+        if !viewModel.topicTitle.isEmpty && viewModel.currentTopic?.uid != FirebaseManager.shared.currentUser?.uid {
+            if  i == relativeLoc() {
+                if dragState2.isDragging {
+                    if viewModel.FinishTopicViewCondition[2] {
+                        print(1)
+                        return viewState.height + 30 + (dragState2.translation.height/1.3)
+                    } else {
+                        print(2)
+                        return -UIScreen.screenHeight * 0.23 + (dragState2.translation.height/1.3)
+                    }
                 } else {
-                    return viewState.height + (dragState2.translation.height/1.3)
+                    if viewModel.currentTopic?.underDiscussion ?? false {
+                        print(3)
+                        return -UIScreen.screenHeight * 0.18
+                    } else {
+                        print(4)
+                        return CarouselViewConstants.initialCardLocation
+                    }
                 }
-            } else {
-                if isInCardZone() {
-                    return -UIScreen.screenHeight * 0.18
-                } else {
-                    return CarouselViewConstants.initialCardLocation
-                }
+            }  else {
+                return getOffsetY(i)
             }
-            
-            
-            //            return dragState2.isDragging ? viewModel.FinishTopicViewCondition[2] ? viewState.height + 30 + (dragState2.translation.height/1.3) : viewState.height + (dragState2.translation.height/1.3)
-            //            : (isInCardZone() ? -UIScreen.screenHeight * 0.18 : initialCardLocation)
-            // uiscreen 자리 원래 -150
-        }  else {
-            return getOffsetY(i)
+        } else {
+            // 가운데 있고, long press가 실행되었을 때,
+            if  i == relativeLoc() {
+                // drag중이면 현재height + 드래그한 위치의height를 더해 터치에 따라 움직이도록
+                // drag가 끝났을 때 cardzone에 있다면 -150을 그렇지 않으면 첫 위치로 돌아가도록
+                if dragState2.isDragging {
+                    if viewModel.FinishTopicViewCondition[2] {
+                        return viewState.height + 30 + (dragState2.translation.height/1.3)
+                    } else {
+                        return viewState.height + (dragState2.translation.height/1.3)
+                    }
+                } else {
+                    if viewModel.currentTopic?.underDiscussion ?? false {
+                        return -UIScreen.screenHeight * 0.18
+                    } else {
+                        return CarouselViewConstants.initialCardLocation
+                    }
+                }
+                
+                
+                //            return dragState2.isDragging ? vm.FinishTopicViewCondition[2] ? viewState.height + 30 + (dragState2.translation.height/1.3) : viewState.height + (dragState2.translation.height/1.3)
+                //            : (isInCardZone() ? -UIScreen.screenHeight * 0.18 : initialCardLocation)
+                // uiscreen 자리 원래 -150
+            }  else {
+                return getOffsetY(i)
+            }
         }
+        
     }
     
     // 센터의 zindex 변경
@@ -258,7 +354,7 @@ struct CarouselView: View {
     func relativeLoc() -> Int{
         // % : 나머지 연산
         // views.count * 10000 을 넣은 이유는 carousellLocation이 음수가 되는 상황을 막기 위한 것
-        return ((views.count * 10000) + carouselLocation) % views.count
+        return ((viewModel.topicViews.count * 10000) + viewModel.currentCardIndex) % viewModel.topicViews.count
     }
     
     // width 설정
@@ -290,10 +386,10 @@ struct CarouselView: View {
                 || i - 1 == relativeLoc()
                 || i + 2 == relativeLoc()
                 || i - 2 == relativeLoc()
-                || (i + 1) - views.count == relativeLoc()
-                || (i - 1) + views.count == relativeLoc()
-                || (i + 2) - views.count == relativeLoc()
-                || (i - 2) + views.count == relativeLoc()
+                || (i + 1) - viewModel.topicViews.count == relativeLoc()
+                || (i - 1) + viewModel.topicViews.count == relativeLoc()
+                || (i + 2) - viewModel.topicViews.count == relativeLoc()
+                || (i - 2) + viewModel.topicViews.count == relativeLoc()
             {
                 return 1
             } else {
@@ -311,10 +407,10 @@ struct CarouselView: View {
                 || i - 1 == relativeLoc()
                 || i + 2 == relativeLoc()
                 || i - 2 == relativeLoc()
-                || (i + 1) - views.count == relativeLoc()
-                || (i - 1) + views.count == relativeLoc()
-                || (i + 2) - views.count == relativeLoc()
-                || (i - 2) + views.count == relativeLoc()
+                || (i + 1) - viewModel.topicViews.count == relativeLoc()
+                || (i - 1) + viewModel.topicViews.count == relativeLoc()
+                || (i + 2) - viewModel.topicViews.count == relativeLoc()
+                || (i - 2) + viewModel.topicViews.count == relativeLoc()
             {
                 return 1
             } else {
@@ -345,7 +441,7 @@ struct CarouselView: View {
         else if
             (i) == relativeLoc() + 1
                 ||
-                (relativeLoc() == views.count - 1 && i == 0)
+                (relativeLoc() == viewModel.topicViews.count - 1 && i == 0)
         {
             //Set offset +1
             return self.dragState.translation.width + (100)
@@ -353,7 +449,7 @@ struct CarouselView: View {
         else if
             (i) == relativeLoc() - 1
                 ||
-                (relativeLoc() == 0 && (i) == views.count - 1)
+                (relativeLoc() == 0 && (i) == viewModel.topicViews.count - 1)
         {
             //Set offset -1
             return self.dragState.translation.width - (100)
@@ -362,18 +458,18 @@ struct CarouselView: View {
         else if
             (i) == relativeLoc() + 2
                 ||
-                (relativeLoc() == views.count-1 && i == 1)
+                (relativeLoc() == viewModel.topicViews.count-1 && i == 1)
                 ||
-                (relativeLoc() == views.count-2 && i == 0)
+                (relativeLoc() == viewModel.topicViews.count-2 && i == 0)
         {
             return self.dragState.translation.width + (2*(100))
         }
         else if
             (i) == relativeLoc() - 2
                 ||
-                (relativeLoc() == 1 && i == views.count-1)
+                (relativeLoc() == 1 && i == viewModel.topicViews.count-1)
                 ||
-                (relativeLoc() == 0 && i == views.count-2)
+                (relativeLoc() == 0 && i == viewModel.topicViews.count-2)
         {
             //Set offset -2
             return self.dragState.translation.width - (2*(100))
@@ -382,22 +478,22 @@ struct CarouselView: View {
         else if
             (i) == relativeLoc() + 3
                 ||
-                (relativeLoc() == views.count-1 && i == 2)
+                (relativeLoc() == viewModel.topicViews.count-1 && i == 2)
                 ||
-                (relativeLoc() == views.count-2 && i == 1)
+                (relativeLoc() == viewModel.topicViews.count-2 && i == 1)
                 ||
-                (relativeLoc() == views.count-3 && i == 0)
+                (relativeLoc() == viewModel.topicViews.count-3 && i == 0)
         {
             return self.dragState.translation.width + (3*(100))
         }
         else if
             (i) == relativeLoc() - 3
                 ||
-                (relativeLoc() == 2 && i == views.count-1)
+                (relativeLoc() == 2 && i == viewModel.topicViews.count-1)
                 ||
-                (relativeLoc() == 1 && i == views.count-2)
+                (relativeLoc() == 1 && i == viewModel.topicViews.count-2)
                 ||
-                (relativeLoc() == 0 && i == views.count-3)
+                (relativeLoc() == 0 && i == viewModel.topicViews.count-3)
         {
             //Set offset -2
             return self.dragState.translation.width - (3*(100))
