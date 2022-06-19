@@ -21,8 +21,10 @@ class CarouselViewModel: ObservableObject {
     @Published var currentCardIndex = 0
     @Published var currentTopic: Topic?
     @Published var topicViews: [Topic] = Topic.topicViews
+    @Published var currentTime: Date?
     
-    
+    @Published var ownNotification: Bool = true
+    @Published var userNotification: Bool = true
     func storeTopicInformation() {
         guard let roomId = FirebaseManager.shared.roomId else {
             print("없어!!!!")
@@ -45,6 +47,13 @@ class CarouselViewModel: ObservableObject {
             FirebaseConstants.height: self.height,
             FirebaseConstants.timestamp: Date()
         ] as [String : Any]
+        
+//        self.currentTime = topicData[FirebaseConstants.timestamp] as? Date
+//
+//        if self.isNotification {
+//            NotificationManager.shared.CardzoneNotification(isInCardZoneTime: self.currentTime ?? Date())
+//        }
+//        self.isNotification = false
         
         FirebaseManager.shared.firestore
             .collection(FirebaseConstants.rooms)
@@ -100,12 +109,26 @@ class CarouselViewModel: ObservableObject {
                 self.FinishTopicViewCondition = finishTopicViewCondition
                 self.isCardBox = currentTopic.isCardBox
                 
+                
 //
 //                self.height = CGFloat(currentTopic.height)
 //                self.width = CGFloat(currentTopic.width)
                 
                 
             }
+    }
+   
+    func notificateTopicToUser() {
+        if self.userNotification {
+            NotificationManager.shared.CardzoneNotification(isInCardZoneTime: Date())
+        }
+    }
+    
+    func notificateTopicToMe() {
+        if self.ownNotification {
+            print("실행됐음")
+            NotificationManager.shared.CardzoneNotification(isInCardZoneTime: Date())
+        }
     }
 
 }

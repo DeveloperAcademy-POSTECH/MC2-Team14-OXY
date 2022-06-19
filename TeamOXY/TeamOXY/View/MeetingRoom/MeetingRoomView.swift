@@ -17,10 +17,26 @@ struct MeetingRoomView: View {
     
     @Binding var backToHome: Bool
     
+    @State var isActive: Bool = (timerViewModel.shared.currentTimer?.isAvailable ?? false)
+    
     var scannedCodeUrl: String?
     
     var body: some View {
-            VStack {
+        VStack {
+            if vm.isTimerAvailable {
+                BreakTimeView(counter: 0, countTo: 100, vm: vm, viewModel: viewModel)
+                    .onAppear{
+                        // 설정한 사람이 아닌 다른 사람의 폰에서도 미팅룸 초기화면으로 돌아가게하기위함
+                        viewModel.FinishTopicViewCondition = [false, true, false]
+                        viewModel.isCardBox = true
+                        viewModel.isCardDeck = true
+                        self.viewModel.topicTitle = ""
+                        self.viewModel.storeTopicInformation()
+                        
+                        self.viewModel.ownNotification = true
+                    }
+            }
+            else {
                 ZStack{
                     if viewModel.FinishTopicViewCondition != [false, true, true] && viewModel.isCardBox {
                         RoundedRectangle(cornerRadius: 5)
@@ -41,9 +57,9 @@ struct MeetingRoomView: View {
                             .offset(y: -UIScreen.screenHeight * 0.11)
                             .transition(AnyTransition.opacity.animation(.easeInOut))
                     }
-                  
+                    
                     CarouselView(viewModel: viewModel, vm: vm, emojiViewModel: emojiViewModel)
-
+                }
             }
         }
         .navigationTitle("\(vm.roomId) \(vm.users.count < 2 ? 1 : vm.users.count)")

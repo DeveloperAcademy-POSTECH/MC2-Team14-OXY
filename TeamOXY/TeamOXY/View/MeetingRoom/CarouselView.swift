@@ -20,7 +20,8 @@ struct CarouselView: View {
     
     @State var viewState = CGSize(width: 0, height: 0) // 가운데 카드 중앙부의 위치
     @State var degree = 0.0
-    
+    // isincardzone일 때 notification을 한 번만 보내기 위함
+    @State var isNotification: Bool = true
     var spacerWidth: CGFloat = UIScreen.screenWidth * 0.243
     
     private func onHorizontalDragEnded(drag: DragGesture.Value) {
@@ -125,8 +126,8 @@ struct CarouselView: View {
                             viewModel.FinishTopicViewCondition = [true, false, true]
                             viewModel.isCardBox = false
                             viewState.height = viewModel.height
+                            viewModel.notificateTopicToUser()
                         }
-                    
                 }
                 
                 ForEach(viewModel.topicViews, id: \.id){ topic in
@@ -167,14 +168,16 @@ struct CarouselView: View {
                                 // 카드 놓는 공간 안에 있다면
                                 if viewState.height < CarouselViewConstants.secondCardLocation {
                                     print("inside zone")
+                                    self.viewModel.notificateTopicToMe()
+                                    self.viewModel.ownNotification = false
                                     viewModel.FinishTopicViewCondition = [true, false, true]
                                     viewModel.isCardBox = false
                                     viewModel.height = self.viewState.height
                                     
                                     // 카드 놓는 곳으로 위치시키기
                                     viewState.height = -UIScreen.screenHeight * 0.23// 원래-370
-                                    
                                     self.viewModel.storeTopicInformation()
+                                    
                                     // 논의중이고 카드존에 없다면
                                 } else if viewModel.FinishTopicViewCondition[2] == true {
                                     // 카드존에 없고, 논의중이 아닐 때, finishTopicView를 띄우고
@@ -185,7 +188,9 @@ struct CarouselView: View {
                                     
                                     // 다시 덱으로 위치시키기
                                     self.viewState.height = CarouselViewConstants.initialCardLocation
+                                    
                                     self.viewModel.storeTopicInformation()
+                                    
                                 } else {
                                     // 카드존에 없고, 논의중이 아닐 때 제자리로 돌려보냄
                                     print("not inside zone sfdsfsf")

@@ -27,6 +27,10 @@
 		3FFCA113285C6E95004102AC /* AnonymousLoginLoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FFCA112285C6E95004102AC /* AnonymousLoginLoadingView.swift */; };
 		4A2A97AA2856C7A400EA21C6 /* UIScreenExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A2A97A92856C7A400EA21C6 /* UIScreenExtension.swift */; };
 		4A3B249B2855FFC000504486 /* CompletionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A3B249A2855FFC000504486 /* CompletionViewModel.swift */; };
+		4A99E811285EAA8900CE73EE /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A99E810285EAA8900CE73EE /* NotificationManager.swift */; };
+		4A99E813285EAB7900CE73EE /* TimeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A99E812285EAB7900CE73EE /* TimeModel.swift */; };
+		4A99E815285EACA300CE73EE /* TimerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A99E814285EACA300CE73EE /* TimerViewModel.swift */; };
+		4A99E817285EACF500CE73EE /* TokenModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A99E816285EACF500CE73EE /* TokenModel.swift */; };
 		4AB230F128595CBD0034D3B9 /* CarouselViewConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AB230F028595CBD0034D3B9 /* CarouselViewConstants.swift */; };
 		4AC8DEEB2854F20E00500E0A /* CarouselView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AC8DEEA2854F20E00500E0A /* CarouselView.swift */; };
 		7BC5EFB02851E5C0004A27B5 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7BC5EFAF2851E5C0004A27B5 /* Colors.xcassets */; };
@@ -71,8 +75,8 @@
 		F2CA7CFD285825EE0094B126 /* MeetingRoom.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2CA7CFC285825EE0094B126 /* MeetingRoom.swift */; };
 		F2D58A342859F42F00ACFF51 /* CarouselViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2D58A332859F42F00ACFF51 /* CarouselViewModel.swift */; };
 		F2D58A36285A002800ACFF51 /* SendNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2D58A35285A002800ACFF51 /* SendNotification.swift */; };
-		F2D58A44285AAF3100ACFF51 /* Debug.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = F2D58A42285AAF3100ACFF51 /* Debug.xcconfig */; };
-		F2D58A45285AAF3100ACFF51 /* Production.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = F2D58A43285AAF3100ACFF51 /* Production.xcconfig */; };
+		F2D58A44285AAF3100ACFF51 /* (null) in Resources */ = {isa = PBXBuildFile; };
+		F2D58A45285AAF3100ACFF51 /* (null) in Resources */ = {isa = PBXBuildFile; };
 		F2D707B82849BA6C00DA86FD /* TeamOXYApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2D707B72849BA6C00DA86FD /* TeamOXYApp.swift */; };
 		F2D707BC2849BA6D00DA86FD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F2D707BB2849BA6D00DA86FD /* Assets.xcassets */; };
 		F2D707BF2849BA6D00DA86FD /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F2D707BE2849BA6D00DA86FD /* Preview Assets.xcassets */; };
@@ -97,6 +101,10 @@
 		3FFCA112285C6E95004102AC /* AnonymousLoginLoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnonymousLoginLoadingView.swift; sourceTree = "<group>"; };
 		4A2A97A92856C7A400EA21C6 /* UIScreenExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIScreenExtension.swift; sourceTree = "<group>"; };
 		4A3B249A2855FFC000504486 /* CompletionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompletionViewModel.swift; sourceTree = "<group>"; };
+		4A99E810285EAA8900CE73EE /* NotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; };
+		4A99E812285EAB7900CE73EE /* TimeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeModel.swift; sourceTree = "<group>"; };
+		4A99E814285EACA300CE73EE /* TimerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerViewModel.swift; sourceTree = "<group>"; };
+		4A99E816285EACF500CE73EE /* TokenModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenModel.swift; sourceTree = "<group>"; };
 		4AB230F028595CBD0034D3B9 /* CarouselViewConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarouselViewConstants.swift; sourceTree = "<group>"; };
 		4AC8DEEA2854F20E00500E0A /* CarouselView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CarouselView.swift; sourceTree = "<group>"; };
 		7BC5EFAF2851E5C0004A27B5 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
@@ -136,9 +144,6 @@
 		F2CA7CFC285825EE0094B126 /* MeetingRoom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeetingRoom.swift; sourceTree = "<group>"; };
 		F2D58A332859F42F00ACFF51 /* CarouselViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarouselViewModel.swift; sourceTree = "<group>"; };
 		F2D58A35285A002800ACFF51 /* SendNotification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendNotification.swift; sourceTree = "<group>"; };
-
-		F2D58A38285A015600ACFF51 /* Debug.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Debug.xcconfig; sourceTree = "<group>"; };
-		F2D58A39285A016C00ACFF51 /* Production.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Production.xcconfig; sourceTree = "<group>"; };
 		F2D707B42849BA6C00DA86FD /* TeamOXY.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TeamOXY.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F2D707B72849BA6C00DA86FD /* TeamOXYApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamOXYApp.swift; sourceTree = "<group>"; };
 		F2D707BB2849BA6D00DA86FD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -192,6 +197,7 @@
 				F2380A8E2856D633004754EE /* generateRandomNickname.swift */,
 				21830A0A2858642300B279B6 /* HapticManager.swift */,
 				F2D58A35285A002800ACFF51 /* SendNotification.swift */,
+				4A99E810285EAA8900CE73EE /* NotificationManager.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -254,11 +260,8 @@
 				F29BED1E28533CBC005B4A1B /* String+ButtonImageName.swift */,
 				4A2A97A92856C7A400EA21C6 /* UIScreenExtension.swift */,
 				F2380A902856E010004754EE /* TypographyExtension.swift */,
-
 				F2412911285B1279001DE655 /* String+TopicLableExtension.swift */,
-
 				15D47562285B607D00D4704C /* UIPickerView+.swift */,
-
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -285,6 +288,8 @@
 				F225A1EA2856CEB200166ECC /* Topic.swift */,
 				F2CA7CFC285825EE0094B126 /* MeetingRoom.swift */,
 				3FFCA106285A134A004102AC /* ReactionEmoji.swift */,
+				4A99E812285EAB7900CE73EE /* TimeModel.swift */,
+				4A99E816285EACF500CE73EE /* TokenModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -296,6 +301,7 @@
 				F2380A922856EA65004754EE /* EmojiViewModel.swift */,
 				F2CA7CFA2858154A0094B126 /* MeetingRoomViewModel.swift */,
 				F2D58A332859F42F00ACFF51 /* CarouselViewModel.swift */,
+				4A99E814285EACA300CE73EE /* TimerViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -333,15 +339,6 @@
 			path = QRCode;
 			sourceTree = "<group>";
 		};
-		F2D58A41285AAF1C00ACFF51 /* Config */ = {
-			isa = PBXGroup;
-			children = (
-				F2D58A42285AAF3100ACFF51 /* Debug.xcconfig */,
-				F2D58A43285AAF3100ACFF51 /* Production.xcconfig */,
-			);
-			path = Config;
-			sourceTree = "<group>";
-		};
 		F2D707AB2849BA6C00DA86FD = {
 			isa = PBXGroup;
 			children = (
@@ -361,7 +358,6 @@
 		F2D707B62849BA6C00DA86FD /* TeamOXY */ = {
 			isa = PBXGroup;
 			children = (
-				F2D58A41285AAF1C00ACFF51 /* Config */,
 				F2CA7CE32858092F0094B126 /* GoogleService-Info.plist */,
 				F225A1ED2856D4BC00166ECC /* Utils */,
 				F29BED1B28532DB8005B4A1B /* Components */,
@@ -470,8 +466,8 @@
 				F29BECED285217A9005B4A1B /* Pretendard-ExtraLight.otf in Resources */,
 				F29BECEA285217A9005B4A1B /* Pretendard-ExtraBold.otf in Resources */,
 				F29BECE6285217A9005B4A1B /* Pretendard-Medium.otf in Resources */,
-				F2D58A44285AAF3100ACFF51 /* Debug.xcconfig in Resources */,
-				F2D58A45285AAF3100ACFF51 /* Production.xcconfig in Resources */,
+				F2D58A44285AAF3100ACFF51 /* (null) in Resources */,
+				F2D58A45285AAF3100ACFF51 /* (null) in Resources */,
 				3FFCA111285C454D004102AC /* MC2_Lotti.json in Resources */,
 				F29BECEC285217A9005B4A1B /* Pretendard-Regular.otf in Resources */,
 				F29BECE9285217A9005B4A1B /* Pretendard-SemiBold.otf in Resources */,
@@ -493,6 +489,7 @@
 				4AC8DEEB2854F20E00500E0A /* CarouselView.swift in Sources */,
 				7BFBD2E22856C33B00E5D98C /* OnboardingView.swift in Sources */,
 				15D47563285B607D00D4704C /* UIPickerView+.swift in Sources */,
+				4A99E813285EAB7900CE73EE /* TimeModel.swift in Sources */,
 				21812E8428557D380023463C /* FinishTopicView.swift in Sources */,
 				F225A1E92856CB9800166ECC /* User.swift in Sources */,
 				F225A1EB2856CEB200166ECC /* Topic.swift in Sources */,
@@ -501,6 +498,8 @@
 				3FFCA113285C6E95004102AC /* AnonymousLoginLoadingView.swift in Sources */,
 				3FFCA107285A134A004102AC /* ReactionEmoji.swift in Sources */,
 				4A3B249B2855FFC000504486 /* CompletionViewModel.swift in Sources */,
+				4A99E817285EACF500CE73EE /* TokenModel.swift in Sources */,
+				4A99E811285EAA8900CE73EE /* NotificationManager.swift in Sources */,
 				F2412912285B1279001DE655 /* String+TopicLableExtension.swift in Sources */,
 				F29BED232853B24C005B4A1B /* CreateMeetingRoomView.swift in Sources */,
 				F2D58A342859F42F00ACFF51 /* CarouselViewModel.swift in Sources */,
@@ -518,6 +517,7 @@
 				15634FA92854EB3F009264BF /* TimeSetView.swift in Sources */,
 				3F4E601B2855DA3B00BFAA65 /* CompletedTopicView.swift in Sources */,
 				21D2547B2852D21100E3EADC /* TestCardView.swift in Sources */,
+				4A99E815285EACA300CE73EE /* TimerViewModel.swift in Sources */,
 				F2CA7CFD285825EE0094B126 /* MeetingRoom.swift in Sources */,
 				F225A1E72856C89A00166ECC /* Reaction.swift in Sources */,
 				F2D707B82849BA6C00DA86FD /* TeamOXYApp.swift in Sources */,
@@ -655,7 +655,6 @@
 		};
 		F2D707C32849BA6D00DA86FD /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = F2D58A42285AAF3100ACFF51 /* Debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -689,7 +688,6 @@
 		};
 		F2D707C42849BA6D00DA86FD /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = F2D58A43285AAF3100ACFF51 /* Production.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;

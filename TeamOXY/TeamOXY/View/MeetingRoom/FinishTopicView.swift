@@ -26,7 +26,8 @@ struct FinishTopicView: View {
                     Button(action: {
                         // FinishTopicView뜨는 조건 초기화
                         viewModel.FinishTopicViewCondition = [false, true, false]
-                        
+                        // isinCardZone에서 드래그를 연속으로 놓는 경우 방지
+                        self.viewModel.ownNotification = true
                         // 로티 on/off
                         DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
                             viewModel.isCompletion = true
