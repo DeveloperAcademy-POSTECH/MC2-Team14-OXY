@@ -10,9 +10,12 @@ import SwiftUI
 struct TimeSetView: View {
     @ObservedObject var viewModel: CarouselViewModel
     @ObservedObject var vm: MeetingRoomViewModel
+    @State var isActive: Bool = timerViewModel.shared.currentTimer?.isAvailable ?? false
+    
+    // 의문
     
     // time picker data min:5분 ~ max: 30분 59초
-    var minutes = [Int](5...30)
+    var minutes = [Int](0...30)
     var seconds = [Int](0..<60)
     
     //기본 쉬는 시간 : 10분 설정을 위한 인덱스 값
@@ -68,9 +71,14 @@ struct TimeSetView: View {
                 }
                 VStack {
                     Spacer()
-                    NavigationLink(destination: BreakTimeView(counter: 0, countTo: (Int(minutes[minuteSeletion])) * 60 + (Int(seconds[secondSeletion])))) {
-                        RoundButton(buttonType: .primary, title: "쉬는시간 시작", isButton: false, didCompletion: nil)
+                    RoundButton(buttonType: .primary, title: "쉬는시간 시작", isButton: true) {
+                        
+                        vm.updateTimer(countTo: (Int(minutes[minuteSeletion])) * 60 + (Int(seconds[secondSeletion])))
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+                            self.isActive.toggle()
+                        }
                     }
+                    NavigationLink("", destination: BreakTimeView(counter: 0, countTo: (Int(minutes[minuteSeletion])) * 60 + (Int(seconds[secondSeletion])), vm: vm, viewModel: viewModel), isActive: $isActive)
                 }
             }
         }

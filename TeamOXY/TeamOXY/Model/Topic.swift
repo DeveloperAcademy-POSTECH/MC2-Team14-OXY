@@ -35,7 +35,7 @@
 ////        self.fromId = data["fromId"] as? String ?? ""
 ////        self.toId = data["toId"] as? String ?? ""
 ////        self.topicTitle = data["topicTitle"] as? String ?? ""
-////        self.timestamp = data["timestamp"] as? Timestamp ?? Timestamp(date: Date())
+////        self.timestamp = data["timestamp"] as? Date ?? Date(date: Date())
 ////    }
 //}
 
@@ -53,7 +53,7 @@ struct Topic: Identifiable, Equatable {
     var isCardDeck, isCardBox: Bool
     var isOnCardZone, isOnCardDeck, underDiscussion: Bool
     var height: CGFloat
-    var timestamp: Timestamp
+    var timestamp: Date
     
     var finishTopicViewCondition: [Bool] {
         return [self.isOnCardZone, self.isOnCardDeck, self.underDiscussion ]
@@ -70,7 +70,7 @@ struct Topic: Identifiable, Equatable {
         self.isOnCardDeck = data["isOnCardDeck"] as? Bool ?? true
         self.underDiscussion = data["underDiscussion"] as? Bool ?? false
         self.height = data["height"] as? CGFloat ?? 0
-        self.timestamp = data["timestamp"] as? Timestamp ?? Timestamp()
+        self.timestamp = data["timestamp"] as? Date ?? Date()
     }
 }
 
@@ -86,7 +86,7 @@ extension Topic {
             FirebaseConstants.isOnCardDeck: true,
             FirebaseConstants.underDiscussion: false,
             FirebaseConstants.height: 0,
-            FirebaseConstants.timestamp: Timestamp()
+            FirebaseConstants.timestamp: Date()
         ]),
         Topic(documentId: "커피 먹자", data: [
             FirebaseConstants.uid: "",
@@ -97,7 +97,7 @@ extension Topic {
             FirebaseConstants.isOnCardDeck: true,
             FirebaseConstants.underDiscussion: false,
             FirebaseConstants.height: 0,
-            FirebaseConstants.timestamp: Timestamp()
+            FirebaseConstants.timestamp: Date()
         ]),
         Topic(documentId: "딴데 가자", data: [
             FirebaseConstants.uid: "",
@@ -108,7 +108,7 @@ extension Topic {
             FirebaseConstants.isOnCardDeck: true,
             FirebaseConstants.underDiscussion: false,
             FirebaseConstants.height: 0,
-            FirebaseConstants.timestamp: Timestamp()
+            FirebaseConstants.timestamp: Date()
         ]),
         Topic(documentId: "각자 쉬자", data: [
             FirebaseConstants.uid: "",
@@ -119,7 +119,7 @@ extension Topic {
             FirebaseConstants.isOnCardDeck: true,
             FirebaseConstants.underDiscussion: false,
             FirebaseConstants.height: 0,
-            FirebaseConstants.timestamp: Timestamp()
+            FirebaseConstants.timestamp: Date()
         ]),
         Topic(documentId: "집에 가자", data: [
             FirebaseConstants.uid: "",
@@ -130,7 +130,7 @@ extension Topic {
             FirebaseConstants.isOnCardDeck: true,
             FirebaseConstants.underDiscussion: false,
             FirebaseConstants.height: 0,
-            FirebaseConstants.timestamp: Timestamp()
+            FirebaseConstants.timestamp: Date()
         ])
     ]
 }
