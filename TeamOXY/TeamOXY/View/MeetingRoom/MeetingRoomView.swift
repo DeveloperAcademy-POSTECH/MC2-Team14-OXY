@@ -129,7 +129,9 @@ struct MeetingRoomView: View {
                     print("Successfully delete user information in meeting room")
                     
                     self.vm.roomId = ""
+                    FirebaseManager.shared.roomId = self.vm.roomId
                     self.vm.currentUser = nil
+                    FirebaseManager.shared.currentUser = self.vm.currentUser
                 }
             // 방에 혼자 있는 경우
         } else if vm.users.count == 1 {
@@ -148,7 +150,9 @@ struct MeetingRoomView: View {
                     print("Successfully delete meeting room information")
                     
                     self.vm.roomId = ""
+                    FirebaseManager.shared.roomId = self.vm.roomId
                     self.vm.currentUser = nil
+                    FirebaseManager.shared.currentUser = self.vm.currentUser
                 }
         }
     }

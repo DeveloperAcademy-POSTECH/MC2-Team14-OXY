@@ -7,6 +7,8 @@
 
 import SwiftUI
 import Firebase
+import FirebaseFirestore
+import FirebaseFirestoreSwift
 
 class EmojiViewModel : ObservableObject{
     @Published var emojiCount_1 : Int
@@ -63,7 +65,7 @@ class EmojiViewModel : ObservableObject{
         print("setup")
         
         for emoji in emojis {
-            db.collection("\(selectedCollection1)").document("\(selectedDocument1)").collection("\(selecetedCollection2)").document("\(emoji)").setData([
+            db.collection("rooms").document(FirebaseManager.shared.roomId ?? "행복한 이쉼이 방").collection("reactionEmojis").document("\(emoji)").setData([
                 "reaction_num" : emoji,
                 "reaction_count" : 0 // FieldValue.increment(Int64(1))
             ]) { err in
@@ -79,7 +81,7 @@ class EmojiViewModel : ObservableObject{
     // Firestore 데이터 불러오기 ( 데이터가 잘들어가는지 확인 )
     func getEmojiCount() {
         
-        db.collection("\(selectedCollection1)").document("\(selectedDocument1)").collection("\(selecetedCollection2)").addSnapshotListener {(querySnapshot, error) in
+        db.collection("rooms").document(FirebaseManager.shared.roomId ?? "행복한 이쉼이 방").collection("reactionEmojis").addSnapshotListener {(querySnapshot, error) in
             guard let documents = querySnapshot?.documents else {
                 print("No documents")
                 return
@@ -102,7 +104,7 @@ class EmojiViewModel : ObservableObject{
         
         print("업데이트")
         
-        let emojiCountUpdate = db.collection("\(selectedCollection1)").document("\(selectedDocument1)").collection("\(selecetedCollection2)").document("\(emoji)")
+        let emojiCountUpdate = db.collection("rooms").document(FirebaseManager.shared.roomId ?? "행복한 이쉼이 방").collection("reactionEmojis").document("\(emoji)")
         
         emojiCountUpdate.updateData([
             "reaction_num" : emoji,
@@ -117,7 +119,7 @@ class EmojiViewModel : ObservableObject{
 
         print("변경사항 발생")
 
-        db.collection("\(selectedCollection1)").document("\(selectedDocument1)").collection("\(selecetedCollection2)").document("✅")
+        db.collection("rooms").document(FirebaseManager.shared.roomId ?? "행복한 이쉼이 방").collection("reactionEmojis").document("✅")
             .addSnapshotListener { documentSnapshot, error in
               guard let document = documentSnapshot else {
                 print("Error fetching document: \(error!)")
@@ -139,7 +141,7 @@ class EmojiViewModel : ObservableObject{
                 }
             }
 
-        db.collection("\(selectedCollection1)").document("\(selectedDocument1)").collection("\(selecetedCollection2)").document("👍")
+        db.collection("rooms").document(FirebaseManager.shared.roomId ?? "행복한 이쉼이 방").collection("reactionEmojis").document("👍")
             .addSnapshotListener { documentSnapshot, error in
               guard let document = documentSnapshot else {
                 print("Error fetching document: \(error!)")
@@ -159,7 +161,7 @@ class EmojiViewModel : ObservableObject{
                 }
             }
 
-        db.collection("\(selectedCollection1)").document("\(selectedDocument1)").collection("\(selecetedCollection2)").document("❤️")
+        db.collection("rooms").document(FirebaseManager.shared.roomId ?? "행복한 이쉼이 방").collection("reactionEmojis").document("❤️")
             .addSnapshotListener { documentSnapshot, error in
               guard let document = documentSnapshot else {
                 print("Error fetching document: \(error!)")
@@ -178,7 +180,7 @@ class EmojiViewModel : ObservableObject{
                 }
             }
 
-        db.collection("\(selectedCollection1)").document("\(selectedDocument1)").collection("\(selecetedCollection2)").document("🍰")
+        db.collection("rooms").document(FirebaseManager.shared.roomId ?? "행복한 이쉼이 방").collection("reactionEmojis").document("🍰")
             .addSnapshotListener { documentSnapshot, error in
               guard let document = documentSnapshot else {
                 print("Error fetching document: \(error!)")
@@ -197,7 +199,7 @@ class EmojiViewModel : ObservableObject{
                 }
             }
 
-        db.collection("\(selectedCollection1)").document("\(selectedDocument1)").collection("\(selecetedCollection2)").document("🗽")
+        db.collection("rooms").document(FirebaseManager.shared.roomId ?? "행복한 이쉼이 방").collection("reactionEmojis").document("🗽")
             .addSnapshotListener { documentSnapshot, error in
               guard let document = documentSnapshot else {
                 print("Error fetching document: \(error!)")
@@ -216,7 +218,7 @@ class EmojiViewModel : ObservableObject{
                 }
             }
 
-        db.collection("\(selectedCollection1)").document("\(selectedDocument1)").collection("\(selecetedCollection2)").document("🫠")
+        db.collection("rooms").document(FirebaseManager.shared.roomId ?? "행복한 이쉼이 방").collection("reactionEmojis").document("🫠")
             .addSnapshotListener { documentSnapshot, error in
               guard let document = documentSnapshot else {
                 print("Error fetching document: \(error!)")
@@ -235,7 +237,7 @@ class EmojiViewModel : ObservableObject{
                 }
             }
 
-        db.collection("\(selectedCollection1)").document("\(selectedDocument1)").collection("\(selecetedCollection2)").document("💩")
+        db.collection("rooms").document(FirebaseManager.shared.roomId ?? "행복한 이쉼이 방").collection("reactionEmojis").document("💩")
             .addSnapshotListener { documentSnapshot, error in
               guard let document = documentSnapshot else {
                 print("Error fetching document: \(error!)")
@@ -254,7 +256,7 @@ class EmojiViewModel : ObservableObject{
                 }
             }
 
-        db.collection("\(selectedCollection1)").document("\(selectedDocument1)").collection("\(selecetedCollection2)").document("❌")
+        db.collection("rooms").document(FirebaseManager.shared.roomId ?? "행복한 이쉼이 방").collection("reactionEmojis").document("❌")
             .addSnapshotListener { documentSnapshot, error in
               guard let document = documentSnapshot else {
                 print("Error fetching document: \(error!)")
@@ -273,7 +275,7 @@ class EmojiViewModel : ObservableObject{
                 }
             }
 
-        db.collection("\(selectedCollection1)").document("\(selectedDocument1)").collection("\(selecetedCollection2)").document("🥱")
+        db.collection("rooms").document(FirebaseManager.shared.roomId ?? "행복한 이쉼이 방").collection("reactionEmojis").document("🥱")
             .addSnapshotListener { documentSnapshot, error in
               guard let document = documentSnapshot else {
                 print("Error fetching document: \(error!)")
@@ -292,7 +294,7 @@ class EmojiViewModel : ObservableObject{
                 }
             }
 
-        db.collection("\(selectedCollection1)").document("\(selectedDocument1)").collection("\(selecetedCollection2)").document("🧋")
+        db.collection("rooms").document(FirebaseManager.shared.roomId ?? "행복한 이쉼이 방").collection("reactionEmojis").document("🧋")
             .addSnapshotListener { documentSnapshot, error in
               guard let document = documentSnapshot else {
                 print("Error fetching document: \(error!)")
