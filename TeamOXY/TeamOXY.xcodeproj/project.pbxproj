@@ -27,6 +27,8 @@
 		3FFCA113285C6E95004102AC /* AnonymousLoginLoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FFCA112285C6E95004102AC /* AnonymousLoginLoadingView.swift */; };
 		4A2A97AA2856C7A400EA21C6 /* UIScreenExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A2A97A92856C7A400EA21C6 /* UIScreenExtension.swift */; };
 		4A3B249B2855FFC000504486 /* CompletionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A3B249A2855FFC000504486 /* CompletionViewModel.swift */; };
+		4A7C0C55287A8ACB001A94FD /* testCarousel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A7C0C54287A8ACB001A94FD /* testCarousel.swift */; };
+		4A7C0C57287A9C83001A94FD /* CardScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A7C0C56287A9C83001A94FD /* CardScrollView.swift */; };
 		4A99E811285EAA8900CE73EE /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A99E810285EAA8900CE73EE /* NotificationManager.swift */; };
 		4A99E813285EAB7900CE73EE /* TimeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A99E812285EAB7900CE73EE /* TimeModel.swift */; };
 		4A99E815285EACA300CE73EE /* TimerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A99E814285EACA300CE73EE /* TimerViewModel.swift */; };
@@ -100,6 +102,8 @@
 		3FFCA112285C6E95004102AC /* AnonymousLoginLoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnonymousLoginLoadingView.swift; sourceTree = "<group>"; };
 		4A2A97A92856C7A400EA21C6 /* UIScreenExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIScreenExtension.swift; sourceTree = "<group>"; };
 		4A3B249A2855FFC000504486 /* CompletionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompletionViewModel.swift; sourceTree = "<group>"; };
+		4A7C0C54287A8ACB001A94FD /* testCarousel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = testCarousel.swift; sourceTree = "<group>"; };
+		4A7C0C56287A9C83001A94FD /* CardScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardScrollView.swift; sourceTree = "<group>"; };
 		4A99E810285EAA8900CE73EE /* NotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; };
 		4A99E812285EAB7900CE73EE /* TimeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeModel.swift; sourceTree = "<group>"; };
 		4A99E814285EACA300CE73EE /* TimerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerViewModel.swift; sourceTree = "<group>"; };
@@ -228,6 +232,8 @@
 				3F4E60062853A30200BFAA65 /* EmojiReactionView.swift */,
 				21D2547A2852D21100E3EADC /* TestCardView.swift */,
 				3FFCA112285C6E95004102AC /* AnonymousLoginLoadingView.swift */,
+				4A7C0C54287A8ACB001A94FD /* testCarousel.swift */,
+				4A7C0C56287A9C83001A94FD /* CardScrollView.swift */,
 			);
 			path = MeetingRoom;
 			sourceTree = "<group>";
@@ -497,11 +503,13 @@
 				4A3B249B2855FFC000504486 /* CompletionViewModel.swift in Sources */,
 				4A99E817285EACF500CE73EE /* TokenModel.swift in Sources */,
 				4A99E811285EAA8900CE73EE /* NotificationManager.swift in Sources */,
+				4A7C0C57287A9C83001A94FD /* CardScrollView.swift in Sources */,
 				F2412912285B1279001DE655 /* String+TopicLableExtension.swift in Sources */,
 				F29BED232853B24C005B4A1B /* CreateMeetingRoomView.swift in Sources */,
 				F2D58A342859F42F00ACFF51 /* CarouselViewModel.swift in Sources */,
 				F2380A8B2856D500004754EE /* FirebaseManager.swift in Sources */,
 				21830A0B2858642300B279B6 /* HapticManager.swift in Sources */,
+				4A7C0C55287A8ACB001A94FD /* testCarousel.swift in Sources */,
 				3F4E60092853A30300BFAA65 /* EmojiReactionView.swift in Sources */,
 				F2380A8F2856D633004754EE /* generateRandomNickname.swift in Sources */,
 				F29BED2B28543717005B4A1B /* QRCode.swift in Sources */,
@@ -660,7 +668,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"TeamOXY/Preview Content\"";
-				DEVELOPMENT_TEAM = G3PA8G576S;
+				DEVELOPMENT_TEAM = JP5BCXZWJP;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = TeamOXY/Info.plist;
@@ -693,7 +701,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"TeamOXY/Preview Content\"";
-				DEVELOPMENT_TEAM = G3PA8G576S;
+				DEVELOPMENT_TEAM = JP5BCXZWJP;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = TeamOXY/Info.plist;
