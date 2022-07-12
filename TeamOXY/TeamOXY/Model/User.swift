@@ -15,10 +15,4 @@ struct User: Codable, Identifiable {
     
     let uid: String
     let nickname: String?
-    let fcmtoken: String?
-
-//    init(data: [String : Any]) {
-//        self.uid = data["uid"] as? String ?? ""
-//        self.nickname = data["nickname"] as? String ?? ""
-//    }
 }

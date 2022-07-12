@@ -10,18 +10,15 @@ import FirebaseFirestoreSwift
 
 
 struct MeetingRoom: Codable, Identifiable {
-//    var id: String { documentId }
-//    let documentId: String
-    
     @DocumentID var id: String?
     var users: [String]
     var topics: [String]
     var reactions: [String]
-    
-//    init(documentId: String, users: [String], topics: [String], reactions: [String]) {
-//        self.documentId = documentId
-//        self.users = users
-//        self.topics = topics
-//        self.reactions = reactions
-//    }
+    var roomId: String
+    var isStarted: Bool
+    var isEnded: Bool
+    var isSuggested: Bool
+    var isConfirmed: Bool
+    var isSettingTimer: Bool
+    var isStartingTimer: Bool
 }

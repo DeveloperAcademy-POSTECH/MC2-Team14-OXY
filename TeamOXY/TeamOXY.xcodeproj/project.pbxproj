@@ -38,6 +38,7 @@
 		7BFBD2E22856C33B00E5D98C /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BFBD2DF2856C33B00E5D98C /* OnboardingView.swift */; };
 		7BFBD2E32856C33B00E5D98C /* OnboardingLastPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BFBD2E02856C33B00E5D98C /* OnboardingLastPageView.swift */; };
 		7BFBD2E42856C33B00E5D98C /* OnboardingPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BFBD2E12856C33B00E5D98C /* OnboardingPageView.swift */; };
+		F20E56832872E1A4005B732A /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F20E56822872E1A4005B732A /* ViewModel.swift */; };
 		F225A1E72856C89A00166ECC /* Reaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = F225A1E62856C89A00166ECC /* Reaction.swift */; };
 		F225A1E92856CB9800166ECC /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = F225A1E82856CB9800166ECC /* User.swift */; };
 		F225A1EB2856CEB200166ECC /* Topic.swift in Sources */ = {isa = PBXBuildFile; fileRef = F225A1EA2856CEB200166ECC /* Topic.swift */; };
@@ -69,6 +70,8 @@
 		F29BED28285436F2005B4A1B /* QRCodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F29BED27285436F2005B4A1B /* QRCodeView.swift */; };
 		F29BED2B28543717005B4A1B /* QRCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = F29BED2A28543717005B4A1B /* QRCode.swift */; };
 		F29BED2E28558F48005B4A1B /* CodeScanner in Frameworks */ = {isa = PBXBuildFile; productRef = F29BED2D28558F48005B4A1B /* CodeScanner */; };
+		F2A9C1DB28741027002C45EA /* UserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2A9C1DA28741027002C45EA /* UserViewModel.swift */; };
+		F2A9C1DD28741400002C45EA /* RoomViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2A9C1DC28741400002C45EA /* RoomViewModel.swift */; };
 		F2CA7CE2285701A00094B126 /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2CA7CE1285701A00094B126 /* RootView.swift */; };
 		F2CA7CFB2858154A0094B126 /* MeetingRoomViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2CA7CFA2858154A0094B126 /* MeetingRoomViewModel.swift */; };
 		F2CA7CFD285825EE0094B126 /* MeetingRoom.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2CA7CFC285825EE0094B126 /* MeetingRoom.swift */; };
@@ -111,6 +114,7 @@
 		7BFBD2DF2856C33B00E5D98C /* OnboardingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
 		7BFBD2E02856C33B00E5D98C /* OnboardingLastPageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardingLastPageView.swift; sourceTree = "<group>"; };
 		7BFBD2E12856C33B00E5D98C /* OnboardingPageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardingPageView.swift; sourceTree = "<group>"; };
+		F20E56822872E1A4005B732A /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
 		F225A1E62856C89A00166ECC /* Reaction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reaction.swift; sourceTree = "<group>"; };
 		F225A1E82856CB9800166ECC /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		F225A1EA2856CEB200166ECC /* Topic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Topic.swift; sourceTree = "<group>"; };
@@ -138,6 +142,8 @@
 		F29BED2428543123005B4A1B /* FieldType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FieldType.swift; sourceTree = "<group>"; };
 		F29BED27285436F2005B4A1B /* QRCodeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRCodeView.swift; sourceTree = "<group>"; };
 		F29BED2A28543717005B4A1B /* QRCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRCode.swift; sourceTree = "<group>"; };
+		F2A9C1DA28741027002C45EA /* UserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewModel.swift; sourceTree = "<group>"; };
+		F2A9C1DC28741400002C45EA /* RoomViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomViewModel.swift; sourceTree = "<group>"; };
 		F2CA7CE1285701A00094B126 /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
 		F2CA7CFA2858154A0094B126 /* MeetingRoomViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeetingRoomViewModel.swift; sourceTree = "<group>"; };
 		F2CA7CFC285825EE0094B126 /* MeetingRoom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeetingRoom.swift; sourceTree = "<group>"; };
@@ -300,6 +306,9 @@
 				F2CA7CFA2858154A0094B126 /* MeetingRoomViewModel.swift */,
 				F2D58A332859F42F00ACFF51 /* CarouselViewModel.swift */,
 				4A99E814285EACA300CE73EE /* TimerViewModel.swift */,
+				F20E56822872E1A4005B732A /* ViewModel.swift */,
+				F2A9C1DA28741027002C45EA /* UserViewModel.swift */,
+				F2A9C1DC28741400002C45EA /* RoomViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -488,9 +497,11 @@
 				15D47563285B607D00D4704C /* UIPickerView+.swift in Sources */,
 				4A99E813285EAB7900CE73EE /* TimeModel.swift in Sources */,
 				21812E8428557D380023463C /* FinishTopicView.swift in Sources */,
+				F20E56832872E1A4005B732A /* ViewModel.swift in Sources */,
 				F225A1E92856CB9800166ECC /* User.swift in Sources */,
 				F225A1EB2856CEB200166ECC /* Topic.swift in Sources */,
 				F29BED1D28532DC3005B4A1B /* RoundButton.swift in Sources */,
+				F2A9C1DD28741400002C45EA /* RoomViewModel.swift in Sources */,
 				F2CA7CFB2858154A0094B126 /* MeetingRoomViewModel.swift in Sources */,
 				3FFCA113285C6E95004102AC /* AnonymousLoginLoadingView.swift in Sources */,
 				3FFCA107285A134A004102AC /* ReactionEmoji.swift in Sources */,
@@ -504,6 +515,7 @@
 				21830A0B2858642300B279B6 /* HapticManager.swift in Sources */,
 				3F4E60092853A30300BFAA65 /* EmojiReactionView.swift in Sources */,
 				F2380A8F2856D633004754EE /* generateRandomNickname.swift in Sources */,
+				F2A9C1DB28741027002C45EA /* UserViewModel.swift in Sources */,
 				F29BED2B28543717005B4A1B /* QRCode.swift in Sources */,
 				212E5CE22853280400E10FF4 /* MeetingRoomView.swift in Sources */,
 				3F4E60142855BE7200BFAA65 /* ArrowAnimationView.swift in Sources */,

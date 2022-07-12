@@ -295,7 +295,7 @@ struct CarouselView: View {
     }
     
     func setOffsetY(_ i: Int) -> CGFloat {
-        if !viewModel.topicTitle.isEmpty && viewModel.currentTopic?.uid != FirebaseManager.shared.currentUser?.uid {
+        if !(viewModel.currentTopic?.topic.isEmpty ?? false) && viewModel.currentTopic?.uid != FirebaseManager.shared.currentUser?.uid {
             if  i == relativeLoc() {
                 if dragState2.isDragging {
                     if viewModel.FinishTopicViewCondition[2] {
