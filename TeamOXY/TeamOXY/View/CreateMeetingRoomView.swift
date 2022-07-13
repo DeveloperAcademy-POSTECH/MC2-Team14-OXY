@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct CreateMeetingRoomView: View {
-    @ObservedObject var vm: MeetingRoomViewModel
+    @ObservedObject var vm: RoomViewModel
     
     @State private var text = ""
     @State private var textField = generateRandomNickname()
@@ -58,18 +58,11 @@ struct CreateMeetingRoomView: View {
                 Spacer()
                
                 RoundButton(buttonType: .primary, title: "시작하기", isButton: true, didCompletion: {
-                    if text.isEmpty {
-                        vm.roomId = "\(textField) 방"
-                    } else {
-                        vm.roomId = text
-                    }
-                    
-                    vm.anonymousLogin(scannedCodeUrl: nil, nickname: vm.roomId)
                     isCreated.toggle()
                     
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 2.5) {
-                        backToHome = vm.isLogin
-                    }
+//                    DispatchQueue.main.asyncAfter(deadline: .now() + 2.5) {
+//                        backToHome = vm.isLogin
+//                    }
                 })
                 .padding(.bottom)
             }

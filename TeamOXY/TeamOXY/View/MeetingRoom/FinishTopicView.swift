@@ -25,24 +25,24 @@ struct FinishTopicView: View {
                 HStack {
                     Button(action: {
                         // FinishTopicView뜨는 조건 초기화
-                        viewModel.FinishTopicViewCondition = [false, true, false]
+//                        viewModel.FinishTopicViewCondition = [false, true, false]
                         // isinCardZone에서 드래그를 연속으로 놓는 경우 방지
-                        self.viewModel.ownNotification = true
+//                        self.viewModel.ownNotification = true
                         // 로티 on/off
                         DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
-                            viewModel.isCompletion = true
+//                            viewModel.isCompletion = true
                         }
                         DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
-                            viewModel.isCompletion = false
+//                            viewModel.isCompletion = false
                         }
                         DispatchQueue.main.asyncAfter(deadline: .now() + 1.4) {
-                            viewModel.isCardBox = true
+//                            viewModel.isCardBox = true
                         }
                         DispatchQueue.main.asyncAfter(deadline: .now() + 1.55) {
-                            viewModel.isCardDeck = true
+//                            viewModel.isCardDeck = true
                             
-                            self.viewModel.topicTitle = ""
-                            self.viewModel.storeTopicInformation()
+//                            self.viewModel.topicTitle = ""
+//                            self.viewModel.storeTopicInformation()
                         }
                     }) {
                         Circle()

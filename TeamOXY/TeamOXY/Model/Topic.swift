@@ -44,7 +44,7 @@ import Firebase
 import FirebaseFirestore
 import FirebaseFirestoreSwift
 
-struct Topic: Identifiable, Equatable {
+struct Topic: Codable, Identifiable, Equatable {
     var id: String { documentId }
     let documentId: String
     let uid: String?

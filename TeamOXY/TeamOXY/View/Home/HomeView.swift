@@ -10,9 +10,11 @@ import CodeScanner
 
 struct HomeView: View {
     @AppStorage("_isFirstLaunching") var isFirstLaunching: Bool = true
+    @AppStorage("roomId") var roomId: String?
     
-    @StateObject var vm = MeetingRoomViewModel()
+    @StateObject var vm = RoomViewModel()
     
+    @State var roomCode: String = ""
     @State private var isPresentingScanner = false
     @State private var scannedCodeUrl = ""
     @State var backToHome = false
@@ -25,7 +27,6 @@ struct HomeView: View {
                     scannedCodeUrl = code.string
                     isPresentingScanner = false
                     backToHome = true
-                    vm.anonymousLogin(scannedCodeUrl: scannedCodeUrl, nickname: generateRandomNickname())
                 }
             }
             
@@ -76,6 +77,8 @@ struct HomeView: View {
                     
                     RoundButton(buttonType: .primary, title: "방 만들기", isButton: true) {
                         moveToCreate = true
+                        makeRoomCode()
+                        roomId = roomCode
                     }
                     NavigationLink(isActive: $moveToCreate) {
                         CreateMeetingRoomView(vm: vm, backToHome: $backToHome, barTitle: "방 만들기")
@@ -96,13 +99,26 @@ struct HomeView: View {
                 .padding(.bottom)
                 
                 NavigationLink(isActive: $backToHome) {
-                    MeetingRoomView(vm: vm, backToHome: $backToHome, scannedCodeUrl: scannedCodeUrl)
+                    MeetingRoomView(vm: vm, backToHome: $backToHome)
                 } label: { }.hidden()
             }
             .navigationBarHidden(true)
         }
         .fullScreenCover(isPresented: $isFirstLaunching) {
             OnboardingView(isFirstLaunching: $isFirstLaunching)
+        }
+    }
+    
+    private func makeRoomCode() {
+        let str = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
+        self.roomCode = ""
+        for _ in 0..<6 {
+            guard let randomCharacter = str.randomElement() else { break }
+            roomCode.append(randomCharacter)
+        }
+        
+        for storeRoomCode in vm.roomCodeList where self.roomCode == storeRoomCode {
+            makeRoomCode()
         }
     }
 }

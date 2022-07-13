@@ -33,6 +33,7 @@ class UserViewModel: ObservableObject {
             }
     }
     
+    // 익명 로그인 처리
     func anonymousLogin(roomId: String?, nickname: String) {
         FirebaseManager.shared.auth.signInAnonymously { result, error in
             if let error = error {
@@ -44,6 +45,7 @@ class UserViewModel: ObservableObject {
         }
     }
     
+    // 파이어 스토어에 유저 정보 저장
     func storeUserInformation(roomId: String, nickname: String) {
         guard let uid = FirebaseManager.shared.auth.currentUser?.uid else { return }
         
@@ -52,9 +54,12 @@ class UserViewModel: ObservableObject {
             FirebaseConstants.nickname: nickname
         ]
         
+        // 유저 정보를 저장하고 바로 방에 들어간다.
         joinRoom(roomId: roomId, uid: uid, userData: userData)
     }
     
+    
+    // 유저가 방을 나갔다. 방에서 유저 정보 삭제
     func leaveMeetingRoom(roomId: String) {
         guard let uid = FirebaseManager.shared.auth.currentUser?.uid else { return }
         
@@ -77,6 +82,7 @@ class UserViewModel: ObservableObject {
             }
     }
     
+    // 유저가 방에 들어갔다.
     private func joinRoom(roomId: String, uid: String, userData: [String: Any]) {
         FirebaseManager.shared.firestore
             .collection(FirebaseConstants.rooms)
