@@ -18,7 +18,6 @@ struct testCarousel: View {
         ZStack {
             ForEach(viewModel.topicViews) { topic in
                 ZStack {
-                    let _ = print("나는 가로길이 \(CarouselViewConstants.smallCardWidth)")
                     Image(topic.topic.topicImageLabel)
                         .resizable()
                         .frame(width: CarouselViewConstants.smallCardWidth * 1.08, height: CarouselViewConstants.smallCardHeight * 1.08)
@@ -29,21 +28,29 @@ struct testCarousel: View {
         .gesture(
             DragGesture()
                 .onChanged { value in
-                    draggingItem = snappedItem + value.translation.width
+                        draggingItem = snappedItem + value.translation.width
                 }
                 .onEnded { value in
-                    withAnimation(.interactiveSpring()) {
-                        print(draggingItem)
+                    withAnimation(.spring(response: 0.55, dampingFraction: 2, blendDuration: 0.0)) {
                         draggingItem = snappedItem + value.predictedEndTranslation.width
                         if draggingItem <= -(UIScreen.screenWidth * 0.33) {
                             draggingItem = -(UIScreen.screenWidth * 0.33)
-                        } else if draggingItem >= (UIScreen.screenWidth * 0.5) {
+                        } else if draggingItem >= (UIScreen.screenWidth * 0.33) {
                             draggingItem = (UIScreen.screenWidth * 0.33)
-                        } else {
-                            draggingItem = snappedItem + value.predictedEndTranslation.width
+                        } else if -(UIScreen.screenWidth * 0.33) < draggingItem &&
+                                    draggingItem < -(UIScreen.screenWidth * 0.22) {
+                            draggingItem = -(UIScreen.screenWidth * 0.33)
+                        } else if UIScreen.screenWidth * 0.22 < draggingItem &&
+                                    draggingItem < (UIScreen.screenWidth * 0.33) {
+                            draggingItem = UIScreen.screenWidth * 0.33
+                        } else if -(UIScreen.screenWidth * 0.22) <= draggingItem &&
+                                    draggingItem <= UIScreen.screenWidth * 0.22 {
+                            draggingItem = 0
                         }
+//                        else {
+//                            draggingItem = snappedItem + value.predictedEndTranslation.width
+//                        }
                         snappedItem = draggingItem
-                        print(UIScreen.screenWidth * 0.48)
                     }
                 }
         )
