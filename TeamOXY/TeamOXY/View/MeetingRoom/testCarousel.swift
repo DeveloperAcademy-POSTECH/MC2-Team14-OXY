@@ -18,9 +18,10 @@ struct testCarousel: View {
         ZStack {
             ForEach(viewModel.topicViews) { topic in
                 ZStack {
+                    let _ = print("나는 가로길이 \(CarouselViewConstants.smallCardWidth)")
                     Image(topic.topic.topicImageLabel)
                         .resizable()
-                        .frame(width: CarouselViewConstants.smallCardWidth * 1.3, height: CarouselViewConstants.smallCardHeight * 1.3)
+                        .frame(width: CarouselViewConstants.smallCardWidth * 1.08, height: CarouselViewConstants.smallCardHeight * 1.08)
                 }
                 .offset(x: myXOffset(topic.currentCardIndex), y: 0)
             }
@@ -31,13 +32,13 @@ struct testCarousel: View {
                     draggingItem = snappedItem + value.translation.width
                 }
                 .onEnded { value in
-                    withAnimation(.interpolatingSpring(stiffness: 300.0, damping: 30.0, initialVelocity: 10.0)) {
+                    withAnimation(.interactiveSpring()) {
                         print(draggingItem)
                         draggingItem = snappedItem + value.predictedEndTranslation.width
-                        if draggingItem <= -(UIScreen.screenWidth * 0.5) {
-                            draggingItem = -(UIScreen.screenWidth * 0.5)
+                        if draggingItem <= -(UIScreen.screenWidth * 0.33) {
+                            draggingItem = -(UIScreen.screenWidth * 0.33)
                         } else if draggingItem >= (UIScreen.screenWidth * 0.5) {
-                            draggingItem = (UIScreen.screenWidth * 0.5)
+                            draggingItem = (UIScreen.screenWidth * 0.33)
                         } else {
                             draggingItem = snappedItem + value.predictedEndTranslation.width
                         }
@@ -49,7 +50,7 @@ struct testCarousel: View {
     }
 
     func myXOffset(_ item: Int) -> Double {
-            return Double(item - 2) * CarouselViewConstants.smallCardWidth * 1.4 + draggingItem
+        return Double(item - 2) * CarouselViewConstants.smallCardWidth * 1.18 + draggingItem
         }
 }
 
