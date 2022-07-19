@@ -49,7 +49,7 @@ class RoomViewModel: ObservableObject {
         }
     }
     
-    // 미팅 시작
+    // MARK: - 미팅 시작
     // --- 방에 들어가면 기본적으로 미팅 시작?
     // -> 1) 방 인원 수 불러오기
     // -> 2) 토픽들 불러오기
@@ -60,7 +60,7 @@ class RoomViewModel: ObservableObject {
             .updateData(["isStarted": true])
     }
     
-    // 누군가 토픽 던짐
+    // MARK: - 누군가 토픽 던짐
     // -> 1) Topic이 중앙으로 위치하기
     // -> 2) 모두에게 알람이 가기
     // -> 3) 이모지 리액션을 할 수 있게 하기
@@ -73,7 +73,7 @@ class RoomViewModel: ObservableObject {
         TopicViewModel().storeTopicInformation(roomId: roomId, topicIndex: topicIndex)
     }
     
-    // 토픽을 내림
+    // MARK: - 토픽을 내림
     // -> 1) Topic이 원래 위치로 위치하기
     // -> 2) - 직접 토픽을 내린 사람
     // ---------- 토픽에 대한 결과 입력 창이 떠야 함
@@ -86,7 +86,7 @@ class RoomViewModel: ObservableObject {
             .updateData(["isSuggested": false])
     }
     
-    // 토픽에 대한 결과 입력 -> 타이머 설정 (아니요/네)
+    // MARK: - 토픽에 대한 결과 입력 -> 타이머 설정 (아니요/네)
     // -> 1) 아니요 입력 시
     // -------- 미팅 시작 시점으로 가서 화면 구성
     // -> 2) 네 입력 시
@@ -98,7 +98,7 @@ class RoomViewModel: ObservableObject {
             .updateData(["isConfirmed": true])
     }
     
-    // 타이머 설정
+    // MARK: - 타이머 설정
     // -> 1) 토픽에 대한 결과 입력한 사람이 타이머 설정까지 이어짐
     // -------- 타이머 설정 뷰가 떠서 타임 설정
     // -------- 타이머 시작하기 누르면 타이머 뷰로 이동
@@ -111,7 +111,7 @@ class RoomViewModel: ObservableObject {
             .updateData(["isConfirmed": false, "isSettingTimer": true])
     }
     
-    // 타이머 시작
+    // MARK: - 타이머 시작
     // -> 1) 모두 타이머가 동작하는 뷰를 볼 수 있다.
     // -------- 파이어 스토어에서 타이머를 불러온다.
     // -------- 해당 시간에 맞게 시작한다.
@@ -122,7 +122,7 @@ class RoomViewModel: ObservableObject {
             .updateData(["isSettingTimer": false, "isStartingTimer": true])
     }
     
-    // 타이머 종료
+    // MARK: - 타이머 종료
     // -> 1) 모두 타이머가 종료되었다는 알림이 뜬다.
     // -------- 파이어 스토어에서 타이머를 삭제한다.
     // -> 2) 다시 미팅 시작 시점으로 가서 화면 구성
