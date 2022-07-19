@@ -11,8 +11,7 @@ struct BreakTimeView: View {
     // 설정된 시간
     @State var counter: Int
     @State var countTo: Int
-    @ObservedObject var vm: MeetingRoomViewModel
-    @ObservedObject var viewModel: CarouselViewModel
+    @ObservedObject var vm: RoomViewModel
     // 알람 설정
     @State private var isNotification = true
     

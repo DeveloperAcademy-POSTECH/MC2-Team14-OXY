@@ -54,6 +54,8 @@
 		F241291B285F0FF4001DE655 /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = F241291A285F0FF4001DE655 /* FirebaseFirestoreSwift */; };
 		F241291D285F0FF4001DE655 /* FirebaseMessaging in Frameworks */ = {isa = PBXBuildFile; productRef = F241291C285F0FF4001DE655 /* FirebaseMessaging */; };
 		F241291F285F15E1001DE655 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F241291E285F15E1001DE655 /* GoogleService-Info.plist */; };
+		F263BA5E28866E6A0067B754 /* CardZone.swift in Sources */ = {isa = PBXBuildFile; fileRef = F263BA5D28866E6A0067B754 /* CardZone.swift */; };
+		F263BA60288679120067B754 /* String+IndexExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F263BA5F288679120067B754 /* String+IndexExtension.swift */; };
 		F29BECE6285217A9005B4A1B /* Pretendard-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = F29BECDD285217A8005B4A1B /* Pretendard-Medium.otf */; };
 		F29BECE7285217A9005B4A1B /* Pretendard-Thin.otf in Resources */ = {isa = PBXBuildFile; fileRef = F29BECDE285217A8005B4A1B /* Pretendard-Thin.otf */; };
 		F29BECE8285217A9005B4A1B /* Pretendard-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = F29BECDF285217A8005B4A1B /* Pretendard-Light.otf */; };
@@ -127,6 +129,8 @@
 		F240E401287D47560033A8FA /* TopicViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopicViewModel.swift; sourceTree = "<group>"; };
 		F2412911285B1279001DE655 /* String+TopicLableExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+TopicLableExtension.swift"; sourceTree = "<group>"; };
 		F241291E285F15E1001DE655 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		F263BA5D28866E6A0067B754 /* CardZone.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardZone.swift; sourceTree = "<group>"; };
+		F263BA5F288679120067B754 /* String+IndexExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+IndexExtension.swift"; sourceTree = "<group>"; };
 		F29BECDD285217A8005B4A1B /* Pretendard-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Medium.otf"; sourceTree = "<group>"; };
 		F29BECDE285217A8005B4A1B /* Pretendard-Thin.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Thin.otf"; sourceTree = "<group>"; };
 		F29BECDF285217A8005B4A1B /* Pretendard-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Light.otf"; sourceTree = "<group>"; };
@@ -231,6 +235,7 @@
 			children = (
 				4AC8DEEA2854F20E00500E0A /* CarouselView.swift */,
 				212E5CE12853280400E10FF4 /* MeetingRoomView.swift */,
+				F263BA5D28866E6A0067B754 /* CardZone.swift */,
 				21812E8328557D380023463C /* FinishTopicView.swift */,
 				3F4E60132855BE7200BFAA65 /* ArrowAnimationView.swift */,
 				3F4E60062853A30200BFAA65 /* EmojiReactionView.swift */,
@@ -268,6 +273,7 @@
 				F2380A902856E010004754EE /* TypographyExtension.swift */,
 				F2412911285B1279001DE655 /* String+TopicLableExtension.swift */,
 				15D47562285B607D00D4704C /* UIPickerView+.swift */,
+				F263BA5F288679120067B754 /* String+IndexExtension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -539,10 +545,12 @@
 				4A2A97AA2856C7A400EA21C6 /* UIScreenExtension.swift in Sources */,
 				F29BED1F28533CBC005B4A1B /* String+ButtonImageName.swift in Sources */,
 				F2D58A36285A002800ACFF51 /* SendNotification.swift in Sources */,
+				F263BA60288679120067B754 /* String+IndexExtension.swift in Sources */,
 				7BC5EFB22851ECC5004A27B5 /* ColorExtension.swift in Sources */,
 				F2380A8D2856D567004754EE /* FirebaseConstants.swift in Sources */,
 				7BFBD2E32856C33B00E5D98C /* OnboardingLastPageView.swift in Sources */,
 				15634FA82854EB3F009264BF /* CircularTimerView.swift in Sources */,
+				F263BA5E28866E6A0067B754 /* CardZone.swift in Sources */,
 				3F4E60192855DA0300BFAA65 /* LottieView.swift in Sources */,
 				F2380A912856E010004754EE /* TypographyExtension.swift in Sources */,
 				F2CA7CE2285701A00094B126 /* RootView.swift in Sources */,
@@ -680,14 +688,16 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = TeamOXY/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "이쉼전쉼";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.productivity";
 				INFOPLIST_KEY_NSCameraUsageDescription = "QR 코드를 스캔하기 위해서는 카메라 접근 권한이 필요합니다.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortraitUpsideDown";
 				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -695,9 +705,12 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.ekko.TeamOXY;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -713,14 +726,16 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = TeamOXY/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "이쉼전쉼";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.productivity";
 				INFOPLIST_KEY_NSCameraUsageDescription = "QR 코드를 스캔하기 위해서는 카메라 접근 권한이 필요합니다.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortraitUpsideDown";
 				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -728,9 +743,12 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.ekko.TeamOXY;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

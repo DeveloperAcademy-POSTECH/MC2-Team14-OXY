@@ -64,11 +64,13 @@ class RoomViewModel: ObservableObject {
     // -> 1) Topic이 중앙으로 위치하기
     // -> 2) 모두에게 알람이 가기
     // -> 3) 이모지 리액션을 할 수 있게 하기
-    func suggestTopic(roomId: String) {
+    func suggestTopic(roomId: String, topicIndex: Int) {
         FirebaseManager.shared.firestore
             .collection(FirebaseConstants.rooms)
             .document(roomId)
             .updateData(["isSuggested": true])
+        
+        TopicViewModel().storeTopicInformation(roomId: roomId, topicIndex: topicIndex)
     }
     
     // 토픽을 내림

@@ -12,7 +12,6 @@ import FirebaseFirestoreSwift
 
 struct User: Codable, Identifiable {
     @DocumentID var id: String?
-    
     let uid: String
     let nickname: String?
 }

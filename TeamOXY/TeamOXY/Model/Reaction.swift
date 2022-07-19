@@ -10,17 +10,7 @@ import FirebaseFirestore
 import FirebaseFirestoreSwift
 
 struct Reaction: Codable, Identifiable {
-//    var id: String { documentId }
     @DocumentID var id: String?
     let fromId, toId, reaction: String
     let timestamp: Date
-//    let documentId: String
-    
-//    init(documentId: String, data: [String : Any]) {
-//        self.documentId = documentId
-//        self.fromId = data["fromId"] as? String ?? ""
-//        self.toId = data["toId"] as? String ?? ""
-//        self.reaction = data["reaction"] as? String ?? ""
-//        self.timestamp = data["timestamp"] as? Timestamp ?? Timestamp(date: Date())
-//    }
 }

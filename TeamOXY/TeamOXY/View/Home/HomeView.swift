@@ -112,12 +112,12 @@ struct HomeView: View {
     private func makeRoomCode() {
         let str = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
         self.roomCode = ""
-        for _ in 0..<6 {
+        for _ in 0 ..< 6 {
             guard let randomCharacter = str.randomElement() else { break }
             roomCode.append(randomCharacter)
         }
         
-        for storeRoomCode in vm.roomCodeList where self.roomCode == storeRoomCode {
+        for storeRoomCode in vm.roomIdList where self.roomCode == storeRoomCode {
             makeRoomCode()
         }
     }

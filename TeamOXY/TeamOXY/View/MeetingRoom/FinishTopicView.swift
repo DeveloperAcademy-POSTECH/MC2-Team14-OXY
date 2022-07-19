@@ -8,8 +8,7 @@
 import SwiftUI
 
 struct FinishTopicView: View {
-    @ObservedObject var viewModel: CarouselViewModel
-    @ObservedObject var vm: MeetingRoomViewModel
+    @ObservedObject var vm: RoomViewModel
     
     var body: some View {
         ZStack(alignment: .center) {
@@ -56,7 +55,7 @@ struct FinishTopicView: View {
                     Spacer()
                     
                     // TimeSetView 쉬는시간설정 뷰로 이동
-                    NavigationLink(destination: TimeSetView(viewModel: viewModel, vm: vm)) {
+                    NavigationLink(destination: TimeSetView(vm: vm)) {
                         Circle()
                             .fill(Color("PrimaryBlue"))
                             .frame(width: UIScreen.screenWidth * 0.148, height: UIScreen.screenWidth * 0.148,  alignment: .center)

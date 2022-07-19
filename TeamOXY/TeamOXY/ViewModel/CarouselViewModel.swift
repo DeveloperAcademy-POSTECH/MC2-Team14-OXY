@@ -19,8 +19,8 @@ class CarouselViewModel: ObservableObject {
     
     @Published var topicTitle = ""
     @Published var currentCardIndex = 0
-    @Published var currentTopic: Topic?
-    @Published var topicViews: [Topic] = Topic.topicViews
+//    @Published var currentTopic: Topic?
+//    @Published var topicViews: [Topic] = Topic.topicViews
     @Published var currentTime: Date?
     
     @Published var ownNotification: Bool = true

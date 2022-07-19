@@ -13,7 +13,7 @@ struct CircularTimerView: View {
     @State var counter: Int
     var countTo: Int
     
-    @ObservedObject var vm: MeetingRoomViewModel
+    @ObservedObject var vm: RoomViewModel
     @Binding var isNotification: Bool
     
     let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
@@ -30,7 +30,7 @@ struct CircularTimerView: View {
             
             if isNotification && self.countTo - counter == 0 {
                 NotificationManager.shared.TimeIntervalNotification(title: "이쉼전쉼", subtitle: "쉬는시간 끝! 모두 모여주세요.🏃‍♂️")
-                vm.terminateTimer()
+                
             }
             
             if isNotification && self.countTo - counter == 180 {
