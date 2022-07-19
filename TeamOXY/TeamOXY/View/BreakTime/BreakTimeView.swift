@@ -67,9 +67,3 @@ struct BreakTimeView: View {
         return formatter.string(from: end)
     }
 }
-
-//struct BreakTimeView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        BreakTimeView(counter: 1, countTo: 1)
-//    }
-//}

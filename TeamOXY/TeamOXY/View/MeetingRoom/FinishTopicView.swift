@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct FinishTopicView: View {
+    @AppStorage("roomId") var roomId: String!
+    
     @ObservedObject var vm: RoomViewModel
     
     var body: some View {
@@ -22,28 +24,9 @@ struct FinishTopicView: View {
                     .multilineTextAlignment(.center)
                     .padding(.bottom, UIScreen.screenHeight * 0.044)
                 HStack {
-                    Button(action: {
-                        // FinishTopicView뜨는 조건 초기화
-//                        viewModel.FinishTopicViewCondition = [false, true, false]
-                        // isinCardZone에서 드래그를 연속으로 놓는 경우 방지
-//                        self.viewModel.ownNotification = true
-                        // 로티 on/off
-                        DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
-//                            viewModel.isCompletion = true
-                        }
-                        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
-//                            viewModel.isCompletion = false
-                        }
-                        DispatchQueue.main.asyncAfter(deadline: .now() + 1.4) {
-//                            viewModel.isCardBox = true
-                        }
-                        DispatchQueue.main.asyncAfter(deadline: .now() + 1.55) {
-//                            viewModel.isCardDeck = true
-                            
-//                            self.viewModel.topicTitle = ""
-//                            self.viewModel.storeTopicInformation()
-                        }
-                    }) {
+                    Button {
+                        vm.startMeeting(roomId: roomId)
+                    } label: {
                         Circle()
                             .stroke(Color("PrimaryBlue"))
                             .frame(width: UIScreen.screenWidth * 0.148, height: UIScreen.screenWidth * 0.148, alignment: .center)
@@ -55,7 +38,9 @@ struct FinishTopicView: View {
                     Spacer()
                     
                     // TimeSetView 쉬는시간설정 뷰로 이동
-                    NavigationLink(destination: TimeSetView(vm: vm)) {
+                    Button {
+                        vm.completedSuggestion(roomId: roomId)
+                    } label: {
                         Circle()
                             .fill(Color("PrimaryBlue"))
                             .frame(width: UIScreen.screenWidth * 0.148, height: UIScreen.screenWidth * 0.148,  alignment: .center)
@@ -63,6 +48,7 @@ struct FinishTopicView: View {
                                 .button1()
                                 .foregroundColor(.white))
                     }
+
                 }
                 .padding(.horizontal, UIScreen.screenWidth * 0.102)
             }

@@ -8,11 +8,9 @@
 import SwiftUI
 
 struct TimeSetView: View {
-
-    @ObservedObject var vm: RoomViewModel
-    @State var isActive: Bool = timerViewModel.shared.currentTimer?.isAvailable ?? false
+    @AppStorage("roomId") var roomId: String!
     
-    // 의문
+    @ObservedObject var vm: RoomViewModel
     
     // time picker data min:5분 ~ max: 30분 59초
     var minutes = [Int](0...30)
@@ -44,7 +42,7 @@ struct TimeSetView: View {
                             Spacer()
                             Spacer()
                             Picker(selection: self.$minuteSeletion, label: Text("")) {
-                                ForEach(0 ..< self.minutes.count) { index in
+                                ForEach(minutes, id: \.self) { index in
                                     Text("\(self.minutes[index])").tag(index)
                                         .font(.custom("Pretendard-Bold", size: 20))
                                         .foregroundColor(index == minuteSeletion ? .white : .gray)
@@ -55,7 +53,7 @@ struct TimeSetView: View {
                             .clipped()
                             Spacer()
                             Picker(selection: self.$secondSeletion, label: Text("")) {
-                                ForEach(0 ..< self.seconds.count) { index in
+                                ForEach(seconds, id: \.self) { index in
                                     Text("\(self.seconds[index])").tag(index)
                                         .font(.custom("Pretendard-Bold", size: 20))
                                         .foregroundColor(index == secondSeletion ? .white : .gray)
@@ -72,13 +70,9 @@ struct TimeSetView: View {
                 VStack {
                     Spacer()
                     RoundButton(buttonType: .primary, title: "쉬는시간 시작", isButton: true) {
-                        
-//                        vm.updateTimer(countTo: (Int(minutes[minuteSeletion])) * 60 + (Int(seconds[secondSeletion])))
-//                        DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
-//                            self.isActive.toggle()
-//                        }
+                        vm.startTimer(roomId: roomId)
                     }
-                    NavigationLink("", destination: BreakTimeView(counter: 0, countTo: (Int(minutes[minuteSeletion])) * 60 + (Int(seconds[secondSeletion])), vm: vm), isActive: $isActive)
+                    NavigationLink("", destination: BreakTimeView(counter: 0, countTo: (Int(minutes[minuteSeletion])) * 60 + (Int(seconds[secondSeletion])), vm: vm), isActive: $vm.meetingRooms[0].isSettingTimer)
                 }
             }
         }

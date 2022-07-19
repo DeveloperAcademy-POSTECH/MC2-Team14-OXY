@@ -56,9 +56,10 @@ struct CreateMeetingRoomView: View {
             
             RoundButton(buttonType: .primary, title: "시작하기", isButton: true, didCompletion: {
                 
-                //                    DispatchQueue.main.asyncAfter(deadline: .now() + 2.5) {
-                //                        backToHome = vm.isLogin
-                //                    }
+                
+                DispatchQueue.main.asyncAfter(deadline: .now() + 2.5) {
+                    
+                }
             })
             .padding(.bottom)
         }

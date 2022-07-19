@@ -57,7 +57,7 @@ class RoomViewModel: ObservableObject {
         FirebaseManager.shared.firestore
             .collection(FirebaseConstants.rooms)
             .document(roomId)
-            .updateData(["isStarted": true])
+            .updateData(["isStarted": true, "isSuggested": false, "isSuggested": false, "isConfirmed": false, "isSettingTimer": false, "isStartingTimer": false,])
     }
     
     // MARK: - 누군가 토픽 던짐
@@ -68,7 +68,7 @@ class RoomViewModel: ObservableObject {
         FirebaseManager.shared.firestore
             .collection(FirebaseConstants.rooms)
             .document(roomId)
-            .updateData(["isSuggested": true])
+            .updateData(["isStarted": false, "isSuggested": true])
         
         TopicViewModel().storeTopicInformation(roomId: roomId, topicIndex: topicIndex)
     }
@@ -79,23 +79,18 @@ class RoomViewModel: ObservableObject {
     // ---------- 토픽에 대한 결과 입력 창이 떠야 함
     //       - 토픽 내린 걸 알게된 사람
     // ---------- 누군가 토픽에 대한 결과 입력 중을 알 수 있는 창이 떠야 함
-    func comfirmTopic(roomId: String) {
-        FirebaseManager.shared.firestore
-            .collection(FirebaseConstants.rooms)
-            .document(roomId)
-            .updateData(["isSuggested": false])
-    }
     
     // MARK: - 토픽에 대한 결과 입력 -> 타이머 설정 (아니요/네)
     // -> 1) 아니요 입력 시
     // -------- 미팅 시작 시점으로 가서 화면 구성
+    // --------------- 미팅 시작 호출 // startMeeting(roomId:) 호출
     // -> 2) 네 입력 시
     // -------- 타이머 설정 뷰로 이동
     func completedSuggestion(roomId: String) {
         FirebaseManager.shared.firestore
             .collection(FirebaseConstants.rooms)
             .document(roomId)
-            .updateData(["isConfirmed": true])
+            .updateData(["isSuggested": false, "isConfirmed": true])
     }
     
     // MARK: - 타이머 설정
@@ -119,7 +114,7 @@ class RoomViewModel: ObservableObject {
         FirebaseManager.shared.firestore
             .collection(FirebaseConstants.rooms)
             .document(roomId)
-            .updateData(["isSettingTimer": false, "isStartingTimer": true])
+            .updateData(["isStartingTimer": true])
     }
     
     // MARK: - 타이머 종료
@@ -130,9 +125,9 @@ class RoomViewModel: ObservableObject {
         FirebaseManager.shared.firestore
             .collection(FirebaseConstants.rooms)
             .document(roomId)
-            .updateData(["isStartingTimer": false])
+            .updateData(["isSettingTimer": false, "isStartingTimer": false, "isStarted": true])
     }
-    
+ 
     // 방 삭제
     func deleteMeetingRoom(roomId: String) {
         FirebaseManager.shared.firestore

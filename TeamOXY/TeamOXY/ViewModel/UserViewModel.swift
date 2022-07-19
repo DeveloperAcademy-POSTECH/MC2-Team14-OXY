@@ -99,15 +99,4 @@ class UserViewModel: ObservableObject {
                 print("Successfully delete user information")
             }
     }
-    
-    // 토픽 던지기
-    func suggestTopic(roomId: String) {
-        guard let uid = FirebaseManager.shared.auth.currentUser?.uid else { return }
-        
-        FirebaseManager.shared.firestore
-            .collection(FirebaseConstants.rooms)
-            .document(roomId)
-            .collection(FirebaseConstants.topics)
-            .document(uid)
-    }
 }

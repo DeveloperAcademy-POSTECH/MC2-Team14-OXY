@@ -30,9 +30,17 @@ struct MeetingRoomView: View {
                 ForEach(vm.meetingRooms) { meetingRoom in
                     if meetingRoom.isStarted {
                         CardZone(vm: vm, showLeaveRoomSheet: $showLeaveRoomSheet, showQRCode: $showQRCode, backToHome: $backToHome)
-                        // TODO: - 캐러셀 뷰 넣기
+                        
+                        if !meetingRoom.isSuggested {
+                            // TODO: - 캐러셀 뷰 넣기
+                        } else {
+                            // TODO: - 리액션 뷰 넣기
+                        }
+                        
                     } else if meetingRoom.isConfirmed {
                         FinishTopicView(vm: vm)
+                    } else if meetingRoom.isSettingTimer {
+                        TimeSetView(vm: vm)
                     }
                 }
                 .navigationTitle("\(roomId) \(vm.usersCount)")
